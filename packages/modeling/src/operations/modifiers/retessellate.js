@@ -18,13 +18,11 @@ export const retessellate = (geometry) => {
 		return geometry;
 	}
 
-	const polygons = geom3
-		.toPolygons(geometry)
-		.map((polygon, index) => ({
-			vertices: polygon.vertices,
-			plane: poly3.plane(polygon),
-			index: index,
-		}));
+	const polygons = geom3.toPolygons(geometry).map((polygon, index) => ({
+		vertices: polygon.vertices,
+		plane: poly3.plane(polygon),
+		index: index,
+	}));
 	const classified = classifyPolygons(polygons);
 
 	const destPolygons = [];
