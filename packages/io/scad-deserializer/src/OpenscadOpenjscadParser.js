@@ -1,4 +1,4 @@
-var requirejs = require("requirejs");
+let requirejs = require("requirejs");
 
 requirejs.config({
 	baseUrl: __dirname,
@@ -8,10 +8,10 @@ requirejs.config({
 	nodeRequire: require,
 });
 
-var parser = requirejs("openscad-parser");
-var Globals = requirejs("Globals");
-var parser_support = requirejs("openscad-parser-support");
-var us = requirejs("lib/underscore");
+let parser = requirejs("openscad-parser");
+let Globals = requirejs("Globals");
+let parser_support = requirejs("openscad-parser-support");
+let us = requirejs("lib/underscore");
 
 module.exports = {
 	parse: function (text) {
@@ -19,9 +19,9 @@ module.exports = {
 			parser.yy = {};
 		}
 
-		var openSCADText = Globals.preParse(text);
+		let openSCADText = Globals.preParse(text);
 
-		var openJSCADResult = parser.parse(openSCADText);
+		let openJSCADResult = parser.parse(openSCADText);
 
 		return openJSCADResult.lines.join("\n");
 	},

@@ -1,7 +1,7 @@
-var _ = require("lodash");
-var Context = require("./Context");
-var Globals = require("./Globals");
-var Range = require("./Range");
+let _ = require("lodash");
+let Context = require("./Context");
+let Globals = require("./Globals");
+let Range = require("./Range");
 
 function ControlModule(factory) {
 	this.factory = factory;
@@ -18,14 +18,14 @@ IfStatement.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, [], [], inst);
+	let context = Context.newContext(parentContext, [], [], inst);
 
-	var childrenToEvaluate =
+	let childrenToEvaluate =
 		inst.argvalues.length > 0 && inst.argvalues[0] ? inst.children : inst.else_children;
 
-	var childModules = [];
+	let childModules = [];
 
-	for (var i = 0; i < childrenToEvaluate.length; i++) {
+	for (let i = 0; i < childrenToEvaluate.length; i++) {
 		var childInst = childrenToEvaluate[i];
 
 		childInst.argvalues = [];
@@ -34,7 +34,7 @@ IfStatement.prototype.evaluate = function (parentContext, inst) {
 			childInst.argvalues.push(expr.evaluate(context));
 		});
 
-		var childAdaptor = this.factory.getAdaptor(childInst);
+		let childAdaptor = this.factory.getAdaptor(childInst);
 
 		childModules.push(childAdaptor.evaluate(context, childInst));
 	}
@@ -65,14 +65,14 @@ function ForLoopStatement(factory, args) {
 		this.evaluatedChildren = parentEvaluatedChildren;
 
 		if (call_argnames.length > recurs_length) {
-			var it_name = call_argnames[recurs_length];
-			var it_values = call_argvalues[recurs_length];
-			var context = new Context(arg_context);
+			let it_name = call_argnames[recurs_length];
+			let it_values = call_argvalues[recurs_length];
+			let context = new Context(arg_context);
 
 			if (it_values instanceof Range) {
-				var range = it_values;
+				let range = it_values;
 				if (range.end < range.begin) {
-					var t = range.begin;
+					let t = range.begin;
 					range.begin = range.end;
 					range.end = t;
 				}
@@ -103,7 +103,7 @@ function ForLoopStatement(factory, args) {
 				}
 			}
 		} else if (recurs_length > 0) {
-			var evaluatedInstanceChildren = inst.evaluateChildren(arg_context);
+			let evaluatedInstanceChildren = inst.evaluateChildren(arg_context);
 			if (_.isArray(evaluatedInstanceChildren)) {
 				this.evaluatedChildren = this.evaluatedChildren.concat(evaluatedInstanceChildren);
 			} else {
@@ -119,7 +119,7 @@ function ForLoopStatement(factory, args) {
 
 		// Note: we union here so subsequent actions (e.g. translate) can be performed on the entire result of the for loop.
 		if (_.isArray(this.evaluatedChildren) && this.evaluatedChildren.length > 1) {
-			var unionedEvaluatedChildren =
+			let unionedEvaluatedChildren =
 				_.first(this.evaluatedChildren) +
 				"." +
 				this.csgOp +
@@ -145,8 +145,8 @@ function Echo(a) {
 }
 
 Echo.prototype.evaluate = function (parentContext, inst) {
-	var context = new Context(parentContext);
-	var argvalues = [];
+	let context = new Context(parentContext);
+	let argvalues = [];
 
 	_.each(inst.argexpr, function (expr, index, list) {
 		argvalues.push(Globals.convertForStrFunction(expr.evaluate(context)));

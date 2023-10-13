@@ -1,11 +1,11 @@
-var _ = require("lodash");
-var Module = require("./Module");
-var Context = require("./Context");
-var Globals = require("./Globals");
-var FunctionDef = require("./FunctionDef");
-var support = require("./openscad-parser-support");
+let _ = require("lodash");
+let Module = require("./Module");
+let Context = require("./Context");
+let Globals = require("./Globals");
+let FunctionDef = require("./FunctionDef");
+let support = require("./openscad-parser-support");
 
-var currmodule = new Module("root");
+let currmodule = new Module("root");
 
 function resetModule() {
 	currmodule = new Module("root");
@@ -14,11 +14,11 @@ function resetModule() {
 }
 
 function processModule(yy) {
-	var lines = [];
+	let lines = [];
 	lines.push("function main(){");
 	lines.push("\n");
 
-	var context = undefined;
+	let context = undefined;
 	if (yy.context !== undefined) {
 		context = yy.context;
 	} else {
@@ -29,9 +29,9 @@ function processModule(yy) {
 		context.setVariable("importCache", yy.importCache);
 	}
 
-	var res = currmodule.evaluate(context);
+	let res = currmodule.evaluate(context);
 
-	var evaluatedLines = _.flatten(res);
+	let evaluatedLines = _.flatten(res);
 	if (evaluatedLines.length == 1) {
 		lines.push("return " + evaluatedLines[0] + ";");
 	} else if (evaluatedLines.length > 1) {
@@ -41,14 +41,14 @@ function processModule(yy) {
 	}
 	lines.push("};");
 
-	var x = {lines: lines, context: Globals.context_stack[Globals.context_stack.length - 1]};
+	let x = {lines: lines, context: Globals.context_stack[Globals.context_stack.length - 1]};
 	resetModule();
 
 	return x;
 }
 
 function stashModule(newName, newArgNames, newArgExpr) {
-	var p_currmodule = currmodule;
+	let p_currmodule = currmodule;
 	Globals.module_stack.push(currmodule);
 
 	currmodule = new Module(newName);
@@ -74,7 +74,7 @@ function addModuleAssignmentVar(name, value) {
 }
 
 function addModuleFunction(name, expr, argnames, argexpr) {
-	var func = new FunctionDef();
+	let func = new FunctionDef();
 	func.argnames = argnames;
 	func.argexpr = argexpr;
 	func.expr = expr;

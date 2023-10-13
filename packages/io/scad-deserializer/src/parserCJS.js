@@ -75,75 +75,75 @@ const IfElseModuleInstantiation = require("./IfElseModuleInstantiation");
     recoverable: (boolean: TRUE when the parser has a error recovery rule available for this particular error)
   }
 */
-var parser = (function () {
-	var o = function (k, v, o, l) {
+let parser = (function () {
+	let o = function (k, v, o, l) {
 		for (o = o || {}, l = k.length; l--; o[k[l]] = v);
 		return o;
 	};
-	var $V0 = [1, 9, 10, 15, 16, 21, 22, 26, 31, 32, 33, 34];
-	var $V1 = [10, 15, 16, 21, 22, 26, 31, 32, 33, 34];
-	var $V2 = [2, 7];
-	var $V3 = [1, 5];
-	var $V4 = [1, 20];
-	var $V5 = [1, 15];
-	var $V6 = [1, 16];
-	var $V7 = [1, 17];
-	var $V8 = [1, 18];
-	var $V9 = [1, 9, 10, 15, 16, 17, 21, 22, 26, 31, 32, 33, 34];
-	var $Va = [9, 10, 15, 16, 17, 21, 22, 26, 31, 32, 33, 34];
-	var $Vb = [1, 24];
-	var $Vc = [1, 30];
-	var $Vd = [1, 29];
-	var $Ve = [1, 9, 10, 15, 16, 17, 21, 22, 26, 28, 31, 32, 33, 34];
-	var $Vf = [1, 44];
-	var $Vg = [1, 51];
-	var $Vh = [1, 50];
-	var $Vi = [1, 41];
-	var $Vj = [1, 42];
-	var $Vk = [1, 43];
-	var $Vl = [1, 45];
-	var $Vm = [1, 46];
-	var $Vn = [1, 47];
-	var $Vo = [1, 48];
-	var $Vp = [1, 49];
-	var $Vq = [14, 57];
-	var $Vr = [2, 70];
-	var $Vs = [1, 55];
-	var $Vt = [10, 17, 26, 31, 32, 33, 34];
-	var $Vu = [10, 15, 16, 26, 31, 32, 33, 34];
-	var $Vv = [2, 65];
-	var $Vw = [1, 62];
-	var $Vx = [1, 67];
-	var $Vy = [1, 65];
-	var $Vz = [1, 64];
-	var $VA = [1, 79];
-	var $VB = [1, 66];
-	var $VC = [1, 68];
-	var $VD = [1, 69];
-	var $VE = [1, 70];
-	var $VF = [1, 71];
-	var $VG = [1, 72];
-	var $VH = [1, 73];
-	var $VI = [1, 74];
-	var $VJ = [1, 75];
-	var $VK = [1, 76];
-	var $VL = [1, 77];
-	var $VM = [1, 78];
-	var $VN = [14, 15, 33, 34, 38, 41, 42, 43, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-	var $VO = [2, 33];
-	var $VP = [1, 80];
-	var $VQ = [2, 62];
-	var $VR = [1, 84];
-	var $VS = [1, 90];
-	var $VT = [1, 97];
-	var $VU = [43, 57];
-	var $VV = [10, 11, 14, 31, 35, 36, 37, 39, 40, 41, 43, 46, 47];
-	var $VW = [14, 15, 42, 43, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-	var $VX = [14, 15, 33, 34, 42, 43, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-	var $VY = [14, 15, 42, 43, 48, 49, 52, 53, 54, 55, 56, 57];
-	var $VZ = [14, 15, 42, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-	var $V_ = [2, 61];
-	var parser = {
+	let $V0 = [1, 9, 10, 15, 16, 21, 22, 26, 31, 32, 33, 34];
+	let $V1 = [10, 15, 16, 21, 22, 26, 31, 32, 33, 34];
+	let $V2 = [2, 7];
+	let $V3 = [1, 5];
+	let $V4 = [1, 20];
+	let $V5 = [1, 15];
+	let $V6 = [1, 16];
+	let $V7 = [1, 17];
+	let $V8 = [1, 18];
+	let $V9 = [1, 9, 10, 15, 16, 17, 21, 22, 26, 31, 32, 33, 34];
+	let $Va = [9, 10, 15, 16, 17, 21, 22, 26, 31, 32, 33, 34];
+	let $Vb = [1, 24];
+	let $Vc = [1, 30];
+	let $Vd = [1, 29];
+	let $Ve = [1, 9, 10, 15, 16, 17, 21, 22, 26, 28, 31, 32, 33, 34];
+	let $Vf = [1, 44];
+	let $Vg = [1, 51];
+	let $Vh = [1, 50];
+	let $Vi = [1, 41];
+	let $Vj = [1, 42];
+	let $Vk = [1, 43];
+	let $Vl = [1, 45];
+	let $Vm = [1, 46];
+	let $Vn = [1, 47];
+	let $Vo = [1, 48];
+	let $Vp = [1, 49];
+	let $Vq = [14, 57];
+	let $Vr = [2, 70];
+	let $Vs = [1, 55];
+	let $Vt = [10, 17, 26, 31, 32, 33, 34];
+	let $Vu = [10, 15, 16, 26, 31, 32, 33, 34];
+	let $Vv = [2, 65];
+	let $Vw = [1, 62];
+	let $Vx = [1, 67];
+	let $Vy = [1, 65];
+	let $Vz = [1, 64];
+	let $VA = [1, 79];
+	let $VB = [1, 66];
+	let $VC = [1, 68];
+	let $VD = [1, 69];
+	let $VE = [1, 70];
+	let $VF = [1, 71];
+	let $VG = [1, 72];
+	let $VH = [1, 73];
+	let $VI = [1, 74];
+	let $VJ = [1, 75];
+	let $VK = [1, 76];
+	let $VL = [1, 77];
+	let $VM = [1, 78];
+	let $VN = [14, 15, 33, 34, 38, 41, 42, 43, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+	let $VO = [2, 33];
+	let $VP = [1, 80];
+	let $VQ = [2, 62];
+	let $VR = [1, 84];
+	let $VS = [1, 90];
+	let $VT = [1, 97];
+	let $VU = [43, 57];
+	let $VV = [10, 11, 14, 31, 35, 36, 37, 39, 40, 41, 43, 46, 47];
+	let $VW = [14, 15, 42, 43, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+	let $VX = [14, 15, 33, 34, 42, 43, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+	let $VY = [14, 15, 42, 43, 48, 49, 52, 53, 54, 55, 56, 57];
+	let $VZ = [14, 15, 42, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+	let $V_ = [2, 61];
+	let parser = {
 		trace: function trace() {},
 		yy: {},
 		symbols_: {
@@ -337,7 +337,7 @@ var parser = (function () {
 		) {
 			/* this == yyval */
 
-			var $0 = $$.length - 1;
+			let $0 = $$.length - 1;
 			switch (yystate) {
 				case 1:
 					return ext.processModule(yy);
@@ -1695,22 +1695,22 @@ var parser = (function () {
 			}
 		},
 		parse: function parse(input) {
-			var self = this;
-			var stack = [0];
-			var tstack = [];
-			var vstack = [null];
-			var lstack = [];
-			var table = this.table;
-			var yytext = "";
-			var yylineno = 0;
-			var yyleng = 0;
-			var recovering = 0;
-			var TERROR = 2;
-			var EOF = 1;
-			var args = lstack.slice.call(arguments, 1);
-			var lexer = Object.create(this.lexer);
-			var sharedState = {yy: {}};
-			for (var k in this.yy) {
+			let self = this;
+			let stack = [0];
+			let tstack = [];
+			let vstack = [null];
+			let lstack = [];
+			let table = this.table;
+			let yytext = "";
+			let yylineno = 0;
+			let yyleng = 0;
+			let recovering = 0;
+			let TERROR = 2;
+			let EOF = 1;
+			let args = lstack.slice.call(arguments, 1);
+			let lexer = Object.create(this.lexer);
+			let sharedState = {yy: {}};
+			for (let k in this.yy) {
 				if (Object.prototype.hasOwnProperty.call(this.yy, k)) {
 					sharedState.yy[k] = this.yy[k];
 				}
@@ -1721,9 +1721,9 @@ var parser = (function () {
 			if (typeof lexer.yylloc === "undefined") {
 				lexer.yylloc = {};
 			}
-			var yyloc = lexer.yylloc;
+			let yyloc = lexer.yylloc;
 			lstack.push(yyloc);
-			var ranges = lexer.options && lexer.options.ranges;
+			let ranges = lexer.options && lexer.options.ranges;
 			if (typeof sharedState.yy.parseError === "function") {
 				this.parseError = sharedState.yy.parseError;
 			} else {
@@ -1734,25 +1734,25 @@ var parser = (function () {
 				vstack.length = vstack.length - n;
 				lstack.length = lstack.length - n;
 			}
-			_token_stack: var lex = function () {
-				var token;
+			let lex = function () {
+				let token;
 				token = lexer.lex() || EOF;
 				if (typeof token !== "number") {
 					token = self.symbols_[token] || token;
 				}
 				return token;
 			};
-			var symbol;
-			var preErrorSymbol;
-			var state;
-			var action;
-			var a;
-			var r;
-			var yyval = {};
-			var p;
-			var len;
-			var newState;
-			var expected;
+			let symbol;
+			let preErrorSymbol;
+			let state;
+			let action;
+			let a;
+			let r;
+			let yyval = {};
+			let p;
+			let len;
+			let newState;
+			let expected;
 			while (true) {
 				state = stack[stack.length - 1];
 				if (this.defaultActions[state]) {
@@ -1764,7 +1764,7 @@ var parser = (function () {
 					action = table[state] && table[state][symbol];
 				}
 				if (typeof action === "undefined" || !action.length || !action[0]) {
-					var errStr = "";
+					let errStr = "";
 					expected = [];
 					for (p in table[state]) {
 						if (this.terminals_[p] && p > TERROR) {
@@ -1864,8 +1864,8 @@ var parser = (function () {
 	};
 
 	/* generated by jison-lex 0.3.4 */
-	var lexer = (function () {
-		var lexer = {
+	let lexer = (function () {
+		let lexer = {
 			EOF: 1,
 
 			parseError: function parseError(str, hash) {
@@ -1899,13 +1899,13 @@ var parser = (function () {
 
 			// consumes and returns one char from the input
 			input: function () {
-				var ch = this._input[0];
+				let ch = this._input[0];
 				this.yytext += ch;
 				this.yyleng++;
 				this.offset++;
 				this.match += ch;
 				this.matched += ch;
-				var lines = ch.match(/(?:\r\n?|\n).*/g);
+				let lines = ch.match(/(?:\r\n?|\n).*/g);
 				if (lines) {
 					this.yylineno++;
 					this.yylloc.last_line++;
@@ -1922,21 +1922,21 @@ var parser = (function () {
 
 			// unshifts one char (or a string) into the input
 			unput: function (ch) {
-				var len = ch.length;
-				var lines = ch.split(/(?:\r\n?|\n)/g);
+				let len = ch.length;
+				let lines = ch.split(/(?:\r\n?|\n)/g);
 
 				this._input = ch + this._input;
 				this.yytext = this.yytext.substr(0, this.yytext.length - len);
 				// this.yyleng -= len;
 				this.offset -= len;
-				var oldLines = this.match.split(/(?:\r\n?|\n)/g);
+				let oldLines = this.match.split(/(?:\r\n?|\n)/g);
 				this.match = this.match.substr(0, this.match.length - 1);
 				this.matched = this.matched.substr(0, this.matched.length - 1);
 
 				if (lines.length - 1) {
 					this.yylineno -= lines.length - 1;
 				}
-				var r = this.yylloc.range;
+				let r = this.yylloc.range;
 
 				this.yylloc = {
 					first_line: this.yylloc.first_line,
@@ -1989,13 +1989,13 @@ var parser = (function () {
 
 			// displays already matched input, i.e. for error messages
 			pastInput: function () {
-				var past = this.matched.substr(0, this.matched.length - this.match.length);
+				let past = this.matched.substr(0, this.matched.length - this.match.length);
 				return (past.length > 20 ? "..." : "") + past.substr(-20).replace(/\n/g, "");
 			},
 
 			// displays upcoming input, i.e. for error messages
 			upcomingInput: function () {
-				var next = this.match;
+				let next = this.match;
 				if (next.length < 20) {
 					next += this._input.substr(0, 20 - next.length);
 				}
@@ -2004,14 +2004,14 @@ var parser = (function () {
 
 			// displays the character position where the lexing error occurred, i.e. for error messages
 			showPosition: function () {
-				var pre = this.pastInput();
-				var c = new Array(pre.length + 1).join("-");
+				let pre = this.pastInput();
+				let c = new Array(pre.length + 1).join("-");
 				return pre + this.upcomingInput() + "\n" + c + "^";
 			},
 
 			// test the lexed token: return FALSE when not a match, otherwise return token
 			test_match: function (match, indexed_rule) {
-				var token, lines, backup;
+				let token, lines, backup;
 
 				if (this.options.backtrack_lexer) {
 					// save context
@@ -2077,7 +2077,7 @@ var parser = (function () {
 					return token;
 				} else if (this._backtrack) {
 					// recover context
-					for (var k in backup) {
+					for (let k in backup) {
 						this[k] = backup[k];
 					}
 					return false; // rule action called reject() implying the next rule should be tested instead.
@@ -2094,13 +2094,13 @@ var parser = (function () {
 					this.done = true;
 				}
 
-				var token, match, tempMatch, index;
+				let token, match, tempMatch, index;
 				if (!this._more) {
 					this.yytext = "";
 					this.match = "";
 				}
-				var rules = this._currentRules();
-				for (var i = 0; i < rules.length; i++) {
+				let rules = this._currentRules();
+				for (let i = 0; i < rules.length; i++) {
 					tempMatch = this._input.match(this.rules[rules[i]]);
 					if (tempMatch && (!match || tempMatch[0].length > match[0].length)) {
 						match = tempMatch;
@@ -2148,7 +2148,7 @@ var parser = (function () {
 
 			// return next match that has a token
 			lex: function lex() {
-				var r = this.next();
+				let r = this.next();
 				if (r) {
 					return r;
 				} else {
@@ -2163,7 +2163,7 @@ var parser = (function () {
 
 			// pop the previously active lexer condition state off the condition stack
 			popState: function popState() {
-				var n = this.conditionStack.length - 1;
+				let n = this.conditionStack.length - 1;
 				if (n > 0) {
 					return this.conditionStack.pop();
 				} else {
@@ -2201,7 +2201,7 @@ var parser = (function () {
 			},
 			options: {flex: true},
 			performAction: function anonymous(yy, yy_, $avoiding_name_collisions, YY_START) {
-				var YYSTATE = YY_START;
+				let YYSTATE = YY_START;
 				switch ($avoiding_name_collisions) {
 					case 0:
 						this.begin("cond_include");
@@ -2460,7 +2460,7 @@ if (typeof require !== "undefined" && typeof exports !== "undefined") {
 			console.log("Usage: " + args[0] + " FILE");
 			process.exit(1);
 		}
-		var source = require("fs").readFileSync(require("path").normalize(args[1]), "utf8");
+		let source = require("fs").readFileSync(require("path").normalize(args[1]), "utf8");
 		return exports.parser.parse(source);
 	};
 	if (typeof module !== "undefined" && require.main === module) {

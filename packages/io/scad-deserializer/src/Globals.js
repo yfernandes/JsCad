@@ -1,8 +1,8 @@
-var _ = require("lodash");
+let _ = require("lodash");
 
-var singleLineModuleRegex = /(module\s*\w*\([^\)]*\)[\w\n]*)([^{};]*);/gm;
-var singleLineModuleReplacement = "$1 {$2;};";
-var multiLineCommentRegex = /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/gm;
+let singleLineModuleRegex = /(module\s*\w*\([^\)]*\)[\w\n]*)([^{};]*);/gm;
+let singleLineModuleReplacement = "$1 {$2;};";
+let multiLineCommentRegex = /((?:\/\*(?:[^*]|(?:\*+[^*\/]))*\*+\/)|(?:\/\/.*))/gm;
 
 function stripString(s) {
 	if (/^\".*\"$/.test(s)) {
@@ -18,7 +18,7 @@ function convertForStrFunction(val) {
 	}
 
 	if (_.isArray(val)) {
-		var mapped = _.map(val, function (value, key, list) {
+		let mapped = _.map(val, function (value, key, list) {
 			return convertForStrFunction(value);
 		});
 

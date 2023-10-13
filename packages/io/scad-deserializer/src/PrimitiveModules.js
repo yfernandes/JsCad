@@ -1,6 +1,6 @@
-var _ = require("lodash");
-var Context = require("./Context");
-var Globals = require("./Globals");
+let _ = require("lodash");
+let Context = require("./Context");
+let Globals = require("./Globals");
 
 function PrimitiveModule() {}
 
@@ -9,18 +9,18 @@ function Sphere(a) {
 }
 
 Sphere.prototype.evaluate = function (parentContext, inst) {
-	var context = new Context(parentContext);
+	let context = new Context(parentContext);
 
-	var argnames = ["r", "$fn"];
-	var argexpr = [];
+	let argnames = ["r", "$fn"];
+	let argexpr = [];
 
 	context.args(argnames, argexpr, inst.argnames, inst.argvalues);
 
-	var r = Context.contextVariableLookup(context, "r", 1);
+	let r = Context.contextVariableLookup(context, "r", 1);
 
-	var resolution = Context.get_fragments_from_r(r, context);
+	let resolution = Context.get_fragments_from_r(r, context);
 
-	var openjscadParameters = {center: [0, 0, 0], resolution: resolution, radius: r};
+	let openjscadParameters = {center: [0, 0, 0], resolution: resolution, radius: r};
 
 	return _.template(
 		"CSG.sphere({center: [<%=String(center)%>], radius: <%= radius %>, resolution: <%= resolution%>})"
@@ -32,28 +32,28 @@ function Cylinder(a) {
 }
 
 Cylinder.prototype.evaluate = function (parentContext, inst) {
-	var context = new Context(parentContext);
+	let context = new Context(parentContext);
 
-	var argnames = ["h", "r1", "r2", "center", "$fn", "$fa", "$fs"];
-	var argexpr = [];
+	let argnames = ["h", "r1", "r2", "center", "$fn", "$fa", "$fs"];
+	let argexpr = [];
 
 	context.args(argnames, argexpr, inst.argnames, inst.argvalues);
 
-	var openjscadArgs = {
+	let openjscadArgs = {
 		start: [0, 0, 0],
 		end: [0, 0, 1],
 		radiusStart: 1,
 		radiusEnd: 1,
 		resolution: Globals.DEFAULT_RESOLUTION,
 	};
-	var isCentered = Context.contextVariableLookup(context, "center", false);
-	var h = Context.contextVariableLookup(context, "h", 1);
-	var r = Context.contextVariableLookup(context, "r", 1);
-	var r1 = Context.contextVariableLookup(context, "r1", undefined);
-	var r2 = Context.contextVariableLookup(context, "r2", undefined);
+	let isCentered = Context.contextVariableLookup(context, "center", false);
+	let h = Context.contextVariableLookup(context, "h", 1);
+	let r = Context.contextVariableLookup(context, "r", 1);
+	let r1 = Context.contextVariableLookup(context, "r1", undefined);
+	let r2 = Context.contextVariableLookup(context, "r2", undefined);
 
-	var startZ = isCentered ? -(h / 2) : 0;
-	var endZ = isCentered ? h / 2 : h;
+	let startZ = isCentered ? -(h / 2) : 0;
+	let endZ = isCentered ? h / 2 : h;
 
 	openjscadArgs.start = [0, 0, startZ];
 	openjscadArgs.end = [0, 0, endZ];
@@ -95,11 +95,11 @@ function Cube(a) {
 }
 
 Cube.prototype.evaluate = function (parentContext, inst) {
-	var context = Context.newContext(parentContext, ["size", "center"], [], inst);
+	let context = Context.newContext(parentContext, ["size", "center"], [], inst);
 
-	var openjscadArgs = {resolution: Globals.DEFAULT_RESOLUTION};
-	var isCentered = Context.contextVariableLookup(context, "center", false);
-	var size = Context.contextVariableLookup(context, "size", 1);
+	let openjscadArgs = {resolution: Globals.DEFAULT_RESOLUTION};
+	let isCentered = Context.contextVariableLookup(context, "center", false);
+	let size = Context.contextVariableLookup(context, "size", 1);
 
 	if (size instanceof Array) {
 		openjscadArgs.radius = [size[0] / 2, size[1] / 2, size[2] / 2];
@@ -127,10 +127,10 @@ function Circle(a) {
 }
 
 Circle.prototype.evaluate = function (parentContext, inst) {
-	var context = Context.newContext(parentContext, ["r", "$fn"], [], inst);
+	let context = Context.newContext(parentContext, ["r", "$fn"], [], inst);
 
-	var r = Context.contextVariableLookup(context, "r", 1);
-	var resolution = Context.get_fragments_from_r(r, context);
+	let r = Context.contextVariableLookup(context, "r", 1);
+	let resolution = Context.get_fragments_from_r(r, context);
 
 	return _.template("CAG.circle({center: [0,0], radius: <%=r%>, resolution: <%=resolution%>})")({
 		r: r,
@@ -143,12 +143,12 @@ function Square(a) {
 }
 
 Square.prototype.evaluate = function (parentContext, inst) {
-	var context = Context.newContext(parentContext, ["size", "center"], [], inst);
+	let context = Context.newContext(parentContext, ["size", "center"], [], inst);
 
-	var size = Context.contextVariableLookup(context, "size", [0.5, 0.5]);
-	var center = Context.contextVariableLookup(context, "center", false);
+	let size = Context.contextVariableLookup(context, "size", [0.5, 0.5]);
+	let center = Context.contextVariableLookup(context, "center", false);
 	var radius = _.isArray(size) ? (radius = [size[0] / 2, size[1] / 2]) : [size / 2, size / 2];
-	var centerPoint = [0, 0];
+	let centerPoint = [0, 0];
 	if (!center) {
 		centerPoint = [size[0] / 2, size[1] / 2];
 	}
@@ -164,11 +164,11 @@ function Polygon(a) {
 }
 
 Polygon.prototype.evaluate = function (parentContext, inst) {
-	var context = Context.newContext(parentContext, ["points", "paths", "convexity"], [], inst);
+	let context = Context.newContext(parentContext, ["points", "paths", "convexity"], [], inst);
 
-	var points = Context.contextVariableLookup(context, "points", []);
-	var paths = Context.contextVariableLookup(context, "paths", []);
-	var pointsMap = [];
+	let points = Context.contextVariableLookup(context, "points", []);
+	let paths = Context.contextVariableLookup(context, "paths", []);
+	let pointsMap = [];
 
 	function formatPoints(points) {
 		return _.map(points, function (x) {
@@ -181,7 +181,7 @@ Polygon.prototype.evaluate = function (parentContext, inst) {
 	}
 
 	if (paths.length > 1) {
-		var lines = "";
+		let lines = "";
 
 		_.each(_.first(paths), function (x) {
 			pointsMap.push(points[x]);
@@ -190,7 +190,7 @@ Polygon.prototype.evaluate = function (parentContext, inst) {
 			points: formatPoints(pointsMap),
 		});
 
-		var holes = [];
+		let holes = [];
 
 		_.each(_.tail(paths), function (shape) {
 			pointsMap = [];
@@ -222,12 +222,12 @@ function Polyhedron(a) {
 }
 
 Polyhedron.prototype.evaluate = function (parentContext, inst) {
-	var context = Context.newContext(parentContext, ["points", "triangles", "convexity"], [], inst);
+	let context = Context.newContext(parentContext, ["points", "triangles", "convexity"], [], inst);
 
-	var points = Context.contextVariableLookup(context, "points", []);
-	var triangles = Context.contextVariableLookup(context, "triangles", []);
+	let points = Context.contextVariableLookup(context, "points", []);
+	let triangles = Context.contextVariableLookup(context, "triangles", []);
 
-	var polygons = [];
+	let polygons = [];
 
 	_.each(triangles, function (triangle) {
 		polygons.push(

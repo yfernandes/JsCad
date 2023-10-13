@@ -3,9 +3,9 @@ const assert = require("assert");
 const parser = require("../src/parser");
 
 function check(testFileName) {
-	var test = fs.readFileSync("examples/" + testFileName + ".scad", "utf8");
-	var expected = fs.readFileSync("examples/" + testFileName + ".jscad", "utf8").replace(/\n/g, "");
-	var actual = parser.parse(test).lines.join("").replace(/\n/g, "");
+	let test = fs.readFileSync("examples/" + testFileName + ".scad", "utf8");
+	let expected = fs.readFileSync("examples/" + testFileName + ".jscad", "utf8").replace(/\n/g, "");
+	let actual = parser.parse(test).lines.join("").replace(/\n/g, "");
 	// assert.equal(actual, expected, console.log("\nExpected:\n" + expected + "\n\nActual:\n" + actual + "\n"))
 	assert.equal(actual, expected);
 }

@@ -104,8 +104,8 @@
 	// This is the seedrandom function described above.
 	//
 	math.seedrandom = function seedrandom(seed, use_entropy) {
-		var key = [];
-		var arc4;
+		let key = [];
+		let arc4;
 
 		// Flatten the seed string or build one from local entropy if needed.
 		seed = mixkey(
@@ -129,9 +129,9 @@
 
 		math.random = function random() {
 			// Closure to return a random double:
-			var n = arc4.g(chunks); // Start with a numerator n < 2 ^ 48
-			var d = startdenom; //   and denominator d = 2 ^ 48.
-			var x = 0; //   and no 'extra last byte'.
+			let n = arc4.g(chunks); // Start with a numerator n < 2 ^ 48
+			let d = startdenom; //   and denominator d = 2 ^ 48.
+			let x = 0; //   and no 'extra last byte'.
 			while (n < significance) {
 				// Fill up all significant digits by
 				n = (n + x) * width; //   shifting numerator and
@@ -163,12 +163,12 @@
 	//
 	/** @constructor */
 	function ARC4(key) {
-		var t;
-		var u;
-		var me = this;
-		var keylen = key.length;
-		var i = 0;
-		var j = (me.i = me.j = me.m = 0);
+		let t;
+		let u;
+		let me = this;
+		let keylen = key.length;
+		let i = 0;
+		let j = (me.i = me.j = me.m = 0);
 		me.S = [];
 		me.c = [];
 
@@ -191,14 +191,14 @@
 
 		// The "g" method returns the next (count) outputs as one number.
 		me.g = function getnext(count) {
-			var s = me.S;
-			var i = lowbits(me.i + 1);
-			var t = s[i];
-			var j = lowbits(me.j + t);
-			var u = s[j];
+			let s = me.S;
+			let i = lowbits(me.i + 1);
+			let t = s[i];
+			let j = lowbits(me.j + t);
+			let u = s[j];
 			s[i] = u;
 			s[j] = t;
-			var r = s[lowbits(t + u)];
+			let r = s[lowbits(t + u)];
 			while (--count) {
 				i = lowbits(i + 1);
 				t = s[i];

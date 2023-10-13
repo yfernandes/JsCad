@@ -1,12 +1,12 @@
-var assert = require("assert");
-var parser = require("../src/openscad-parser").parser;
+let assert = require("assert");
+let parser = require("../src/openscad-parser").parser;
 
 function check(test, expected) {
 	assert.equal(parse(test), expected);
 }
 
 function run(test) {
-	var f = new Function(parse(test));
+	let f = new Function(parse(test));
 	return f();
 }
 
@@ -54,11 +54,11 @@ exports["test operations"] = function () {
 };
 
 exports["test Variables are set at compile-time, not run-time"] = function () {
-	var openscad =
+	let openscad =
 		"// The value of 'a' reflects only the last set value\na = 0;\necho(a);\na = 5;\necho(a);";
 
-	var stdout = process.stdout;
-	var stdoutLog = [];
+	let stdout = process.stdout;
+	let stdoutLog = [];
 
 	install_hook_to(stdout);
 
@@ -82,8 +82,8 @@ var install_hook_to = function (obj) {
 	}
 
 	obj.hook = function (_meth_name, _fn, _is_async) {
-		var self = this;
-		var meth_ref;
+		let self = this;
+		let meth_ref;
 
 		// Make sure method exists
 		if (!(Object.prototype.toString.call(self[_meth_name]) === "[object Function]")) {
@@ -99,7 +99,7 @@ var install_hook_to = function (obj) {
 		meth_ref = self.unhook.methods[_meth_name] = self[_meth_name];
 
 		self[_meth_name] = function () {
-			var args = Array.prototype.slice.call(arguments);
+			let args = Array.prototype.slice.call(arguments);
 
 			// Our hook should take the same number of arguments
 			// as the original method so we must fill with undefined
@@ -110,7 +110,7 @@ var install_hook_to = function (obj) {
 
 			// Last argument is always original method call
 			args.push(function () {
-				var args = arguments;
+				let args = arguments;
 
 				if (_is_async) {
 					process.nextTick(function () {
@@ -126,8 +126,8 @@ var install_hook_to = function (obj) {
 	};
 
 	obj.unhook = function (_meth_name) {
-		var self = this;
-		var ref = self.unhook.methods[_meth_name];
+		let self = this;
+		let ref = self.unhook.methods[_meth_name];
 
 		if (ref) {
 			self[_meth_name] = self.unhook.methods[_meth_name];

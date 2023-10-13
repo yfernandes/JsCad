@@ -1,6 +1,6 @@
-var _ = require("lodash");
-var Context = require("./Context");
-var Globals = require("./Globals");
+let _ = require("lodash");
+let Context = require("./Context");
+let Globals = require("./Globals");
 
 function Child(factory) {
 	this.factory = factory;
@@ -12,16 +12,16 @@ Child.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, [], [], inst);
+	let context = Context.newContext(parentContext, [], [], inst);
 
-	var childIndex = 0;
+	let childIndex = 0;
 	if (inst.argvalues[0] !== undefined) {
 		childIndex = inst.argvalues[0];
 	}
 
-	var evaluatedChildren = [];
+	let evaluatedChildren = [];
 
-	for (var i = Globals.context_stack.length - 1; i >= 0; i--) {
+	for (let i = Globals.context_stack.length - 1; i >= 0; i--) {
 		var ctx = Globals.context_stack[i];
 
 		if (ctx.inst_p !== undefined) {
@@ -32,7 +32,7 @@ Child.prototype.evaluate = function (parentContext, inst) {
 					childInst.argvalues.push(expr.evaluate(ctx.inst_p.ctx));
 				});
 
-				var childAdaptor = this.factory.getAdaptor(childInst);
+				let childAdaptor = this.factory.getAdaptor(childInst);
 				evaluatedChildren.push(childAdaptor.evaluate(ctx.inst_p.ctx, childInst));
 			}
 			return evaluatedChildren;

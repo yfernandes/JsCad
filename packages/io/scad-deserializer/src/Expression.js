@@ -1,6 +1,6 @@
-var Range = require("./Range");
-var Sylvester = require("sylvester");
-var _ = require("lodash");
+let Range = require("./Range");
+let Sylvester = require("sylvester");
+let _ = require("lodash");
 
 function Expression(value) {
 	this.children = [];
@@ -30,7 +30,7 @@ function getValueObject(x) {
 }
 
 Sylvester.Matrix.prototype.toString = function () {
-	var x = _.map(this.elements, function (y) {
+	let x = _.map(this.elements, function (y) {
 		return "[" + y.join(",") + "]";
 	});
 	return "[" + x.join(",") + "]";

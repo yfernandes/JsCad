@@ -1,5 +1,5 @@
-var parser = require("./parserCJS");
-var Globals = require("./Globals");
+let parser = require("./parserCJS");
+let Globals = require("./Globals");
 
 module.exports = {
 	parse: function (text) {
@@ -7,8 +7,8 @@ module.exports = {
 			parser.yy = {};
 		}
 
-		var openSCADText = Globals.preParse(text);
-		var openJSCADResult = parser.parse(openSCADText);
+		let openSCADText = Globals.preParse(text);
+		let openJSCADResult = parser.parse(openSCADText);
 		return openJSCADResult.lines.join("\n");
 	},
 };

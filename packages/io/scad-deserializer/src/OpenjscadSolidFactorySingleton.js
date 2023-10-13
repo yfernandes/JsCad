@@ -1,5 +1,5 @@
-var OpenjscadSolidFactory = require("./OpenjscadSolidFactory");
-var factory = new OpenjscadSolidFactory();
+let OpenjscadSolidFactory = require("./OpenjscadSolidFactory");
+let factory = new OpenjscadSolidFactory();
 
 module.exports = {
 	getInstance: function () {

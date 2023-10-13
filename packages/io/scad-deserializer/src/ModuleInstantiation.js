@@ -1,5 +1,5 @@
-var _ = require("lodash");
-var OpenjscadSolidFactorySingleton = require("./OpenjscadSolidFactorySingleton");
+let _ = require("lodash");
+let OpenjscadSolidFactorySingleton = require("./OpenjscadSolidFactorySingleton");
 
 function ModuleInstantiation() {
 	this.name;
@@ -12,13 +12,13 @@ function ModuleInstantiation() {
 }
 
 ModuleInstantiation.prototype.evaluate = function (context) {
-	var evaluatedModule;
+	let evaluatedModule;
 
 	// NOTE: not sure how we should handle this in javascript ... is it necessary?
 	// if (this.context === null) {
 	//    console.log("WARNING: Ignoring recursive module instantiation of ", this.name)
 	// } else {
-	var that = this;
+	let that = this;
 
 	this.argvalues = [];
 
@@ -38,12 +38,12 @@ ModuleInstantiation.prototype.evaluate = function (context) {
 };
 
 ModuleInstantiation.prototype.evaluateChildren = function (context) {
-	var childModules = [];
+	let childModules = [];
 
-	for (var i = 0; i < this.children.length; i++) {
-		var childInst = this.children[i];
+	for (let i = 0; i < this.children.length; i++) {
+		let childInst = this.children[i];
 
-		var evaluatedChild = childInst.evaluate(context);
+		let evaluatedChild = childInst.evaluate(context);
 		if (evaluatedChild !== undefined) {
 			childModules.push(evaluatedChild);
 		}

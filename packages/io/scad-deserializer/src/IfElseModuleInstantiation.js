@@ -1,4 +1,4 @@
-var ModuleInstantiation = require("./ModuleInstantiation");
+let ModuleInstantiation = require("./ModuleInstantiation");
 
 function IfElseModuleInstantiation() {
 	ModuleInstantiation.call(this);

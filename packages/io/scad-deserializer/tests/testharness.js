@@ -1,7 +1,7 @@
-var parser = require("../src/OpenscadOpenjscadParser");
-var fs = require("fs");
+let parser = require("../src/OpenscadOpenjscadParser");
+let fs = require("fs");
 
-var openSCADText = fs.readFileSync(__dirname + "/test.scad", "UTF8");
-var openJSCADResult = parser.parse(openSCADText);
+let openSCADText = fs.readFileSync(__dirname + "/test.scad", "UTF8");
+let openJSCADResult = parser.parse(openSCADText);
 
 console.log(openJSCADResult);

@@ -1,5 +1,5 @@
-var _ = require("lodash");
-var Globals = require("./Globals");
+let _ = require("lodash");
+let Globals = require("./Globals");
 
 function Context(parentContext) {
 	this.vars = parentContext
@@ -30,7 +30,7 @@ Context.prototype.args = function (argnames, argexpr, call_argnames, call_argval
 			this.setVariable(argnames[i], undefined);
 		}
 	}
-	var posarg = 0;
+	let posarg = 0;
 	for (var i = 0; i < call_argnames.length; i++) {
 		if (call_argnames[i] === undefined) {
 			if (posarg < argnames.length) {
@@ -73,9 +73,9 @@ Context.prototype.evaluateFunction = function (name, argnames, argvalues) {
 };
 
 Context.prototype.evaluateModule = function (inst, factory) {
-	var that = this;
+	let that = this;
 
-	var customModule = _.find(this.modules_p, function (x) {
+	let customModule = _.find(this.modules_p, function (x) {
 		return x.name == inst.name;
 	});
 	if (customModule !== undefined) {
@@ -83,7 +83,7 @@ Context.prototype.evaluateModule = function (inst, factory) {
 	}
 
 	if (inst.isSubmodule === undefined || !inst.isSubmodule) {
-		var adaptor = factory.getAdaptor(inst);
+		let adaptor = factory.getAdaptor(inst);
 		if (adaptor !== undefined) {
 			return adaptor.evaluate(this, inst);
 		}
@@ -98,13 +98,13 @@ Context.prototype.evaluateModule = function (inst, factory) {
 };
 
 Context.newContext = function (parentContext, argnames, argexpr, inst) {
-	var context = new Context(parentContext);
+	let context = new Context(parentContext);
 	context.args(argnames, argexpr, inst.argnames, inst.argvalues);
 	return context;
 };
 
 Context.contextVariableLookup = function (context, name, defaultValue) {
-	var val = context.lookupVariable(name);
+	let val = context.lookupVariable(name);
 	if (val === undefined) {
 		val = defaultValue;
 	}
@@ -123,11 +123,11 @@ Context.printContext = function (c) {
   the three special variables $fn, $fs and $fa
 */
 Context.get_fragments_from_r = function (r, context) {
-	var fn = Context.contextVariableLookup(context, "$fn", Globals.FN_DEFAULT);
-	var fs = Context.contextVariableLookup(context, "$fs", Globals.FS_DEFAULT);
-	var fa = Context.contextVariableLookup(context, "$fa", Globals.FA_DEFAULT);
+	let fn = Context.contextVariableLookup(context, "$fn", Globals.FN_DEFAULT);
+	let fs = Context.contextVariableLookup(context, "$fs", Globals.FS_DEFAULT);
+	let fa = Context.contextVariableLookup(context, "$fa", Globals.FA_DEFAULT);
 
-	var GRID_FINE = 0.000001;
+	let GRID_FINE = 0.000001;
 	if (r < GRID_FINE) return 0;
 	if (fn > 0.0) {
 		return parseInt(fn);
@@ -187,12 +187,12 @@ var functionNameLookup = {
 		return Math.tan(deg2rad(degree));
 	},
 	rands: function (min_value, max_value, value_count, seed_value) {
-		var values = [];
+		let values = [];
 		if (seed_value !== undefined) {
 			Math.seedrandom(seed_value);
 		}
-		for (var i = 0; i < value_count; i++) {
-			var random_value = min_value + Math.random() * (max_value - min_value);
+		for (let i = 0; i < value_count; i++) {
+			let random_value = min_value + Math.random() * (max_value - min_value);
 			values[i] = random_value;
 		}
 		return values;
@@ -268,7 +268,7 @@ var functionNameLookup = {
 		if (_.isUndefined(x) || _.isNaN(x)) {
 			return undefined;
 		}
-		var y = _.isString(x) ? Globals.stripString(x) : x;
+		let y = _.isString(x) ? Globals.stripString(x) : x;
 		return y.length;
 	},
 	log: function () {
@@ -292,7 +292,7 @@ var functionNameLookup = {
 		}
 	},
 	str: function () {
-		var vals = [];
+		let vals = [];
 		_.each(arguments, function (x) {
 			vals.push(Globals.convertForStrFunction(x));
 		});
@@ -306,14 +306,14 @@ var functionNameLookup = {
 		return x > 0 ? 1.0 : x < 0 ? -1.0 : 0;
 	},
 	lookup: function () {
-		var low_p, low_v, high_p, high_v;
+		let low_p, low_v, high_p, high_v;
 		if (arguments.length < 2) {
 			console.log("Lookup arguments are invalid. Incorrect parameter count. " + arguments);
 			return undefined;
 		}
 
-		var p = arguments[0];
-		var vector = arguments[1];
+		let p = arguments[0];
+		let vector = arguments[1];
 		if (
 			!_.isNumber(p) || // First must be a number
 			!_.isArray(vector) || // Second must be a vector of vectors
@@ -340,8 +340,8 @@ var functionNameLookup = {
 
 		_.each(vector.slice(1), function (v) {
 			if (v.length == 2) {
-				var this_p = v[0];
-				var this_v = v[1];
+				let this_p = v[0];
+				let this_v = v[1];
 
 				if (this_p <= p && (this_p > low_p || low_p > p)) {
 					low_p = this_p;
@@ -362,7 +362,7 @@ var functionNameLookup = {
 			return high_v;
 		}
 
-		var f = (p - low_p) / (high_p - low_p);
+		let f = (p - low_p) / (high_p - low_p);
 		return high_v * f + low_v * (1 - f);
 	},
 };

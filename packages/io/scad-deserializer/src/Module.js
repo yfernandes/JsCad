@@ -1,6 +1,6 @@
-var _ = require("lodash");
-var Context = require("./Context");
-var Globals = require("./Globals");
+let _ = require("lodash");
+let Context = require("./Context");
+let Globals = require("./Globals");
 
 function Module(name) {
 	this.name = name;
@@ -13,9 +13,9 @@ function Module(name) {
 }
 
 Module.prototype.evaluate = function (parentContext, inst) {
-	var lines = [];
+	let lines = [];
 
-	var context = new Context(parentContext);
+	let context = new Context(parentContext);
 
 	if (parentContext === undefined) {
 		context.setVariable("$fn", Globals.DEFAULT_RESOLUTION);
@@ -35,7 +35,7 @@ Module.prototype.evaluate = function (parentContext, inst) {
 		context.setVariable(key, value.evaluate(context));
 	});
 
-	var controlChildren = _.filter(this.children, function (child) {
+	let controlChildren = _.filter(this.children, function (child) {
 		return child && child.name == "echo";
 	});
 
@@ -43,13 +43,13 @@ Module.prototype.evaluate = function (parentContext, inst) {
 		child.evaluate(context);
 	});
 
-	var nonControlChildren = _.reject(this.children, function (child) {
+	let nonControlChildren = _.reject(this.children, function (child) {
 		return !child || child.name == "echo";
 	});
 
-	var evaluatedLines = [];
+	let evaluatedLines = [];
 	_.each(nonControlChildren, function (child, index, list) {
-		var evaluatedChild = child.evaluate(context);
+		let evaluatedChild = child.evaluate(context);
 		if (evaluatedChild == undefined || (_.isArray(evaluatedChild) && _.isEmpty(evaluatedChild))) {
 			// ignore
 		} else {
@@ -57,7 +57,7 @@ Module.prototype.evaluate = function (parentContext, inst) {
 		}
 	});
 
-	var cleanedLines = _.compact(evaluatedLines);
+	let cleanedLines = _.compact(evaluatedLines);
 	if (cleanedLines.length == 1) {
 		lines.push(cleanedLines[0]);
 	} else if (cleanedLines.length > 1) {

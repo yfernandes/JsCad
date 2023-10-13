@@ -37,12 +37,12 @@
   # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   */
 
-var HDR_LEN = 80;
+let HDR_LEN = 80;
 
 function STL(data) {
-	var buf = new ArrayBuffer(data.length);
+	let buf = new ArrayBuffer(data.length);
 	this.data = new Uint8Array(buf);
-	for (var i = 0, dataLen = data.length; i < dataLen; i++) {
+	for (let i = 0, dataLen = data.length; i < dataLen; i++) {
 		this.data[i] = data.charCodeAt(i);
 	}
 
@@ -65,7 +65,7 @@ function STL(data) {
 }
 
 STL.prototype.findEndPos = function (stt) {
-	var i = stt;
+	let i = stt;
 	while (i < this.data.length - 1) {
 		// seek linefeed
 		if (this.data[i] == 10) {
@@ -77,28 +77,28 @@ STL.prototype.findEndPos = function (stt) {
 };
 
 STL.prototype.bin2String = function (sttPos, endPos) {
-	var buf = "";
-	for (var i = sttPos; i < endPos; i++) {
-		var char = this.data[i].toString();
+	let buf = "";
+	for (let i = sttPos; i < endPos; i++) {
+		let char = this.data[i].toString();
 		buf += String.fromCharCode(char);
 	}
 	return buf.replace("\r", "");
 };
 
 STL.prototype.readUInt16 = function () {
-	var b1, b2;
+	let b1, b2;
 	b1 = this.data[this.pos++];
 	b2 = this.data[this.pos++] << 8;
 	return b1 | b2;
 };
 
 STL.prototype.readUInt32 = function () {
-	var b1, b2, b3, b4;
+	let b1, b2, b3, b4;
 	b1 = this.data[this.pos++];
 	b2 = this.data[this.pos++] << 8;
 	b3 = this.data[this.pos++] << 16;
 	b4 = this.data[this.pos++] << 24;
-	var num = b1 | b2 | b3 | b4;
+	let num = b1 | b2 | b3 | b4;
 	return num;
 };
 
@@ -108,16 +108,16 @@ STL.prototype.readReal32 = function () {
 		return 0;
 	}
 
-	var byteArray = [0, 0, 0, 0];
+	let byteArray = [0, 0, 0, 0];
 	byteArray[3] = this.data[this.pos++];
 	byteArray[2] = this.data[this.pos++];
 	byteArray[1] = this.data[this.pos++];
 	byteArray[0] = this.data[this.pos++];
 
-	var sign = this.parseSign(byteArray);
-	var exponent = this.parseExponent(byteArray);
-	var mantissa = this.parseSignificand(byteArray);
-	var num = sign * exponent * mantissa;
+	let sign = this.parseSign(byteArray);
+	let exponent = this.parseExponent(byteArray);
+	let mantissa = this.parseSignificand(byteArray);
+	let num = sign * exponent * mantissa;
 	return num;
 };
 
@@ -129,7 +129,7 @@ STL.prototype.parseSign = function (byteArray) {
 };
 
 STL.prototype.parseExponent = function (byteArray) {
-	var ex = byteArray[0] & 0x7f;
+	let ex = byteArray[0] & 0x7f;
 	ex = ex << 1;
 
 	if ((byteArray[1] & 0x80) != 0) {
@@ -141,24 +141,24 @@ STL.prototype.parseExponent = function (byteArray) {
 };
 
 STL.prototype.parseSignificand = function (byteArray) {
-	var num = 0;
-	var bit;
-	var mask = 0x40;
-	for (var i = 1; i < 8; i++) {
+	let num = 0;
+	let bit;
+	let mask = 0x40;
+	for (let i = 1; i < 8; i++) {
 		if ((byteArray[1] & mask) != 0) {
 			num += 1 / Math.pow(2, i);
 		}
 		mask = mask >> 1;
 	}
 	mask = 0x80;
-	for (var j = 0; j < 8; j++) {
+	for (let j = 0; j < 8; j++) {
 		if ((byteArray[2] & mask) != 0) {
 			num += 1 / Math.pow(2, j + 8);
 		}
 		mask = mask >> 1;
 	}
 	mask = 0x80;
-	for (var k = 0; k < 8; k++) {
+	for (let k = 0; k < 8; k++) {
 		if ((byteArray[2] & mask) != 0) {
 			num += 1 / Math.pow(2, k + 16);
 		}
@@ -168,15 +168,15 @@ STL.prototype.parseSignificand = function (byteArray) {
 };
 
 STL.prototype.readNormal = function (index) {
-	var sttPos = this.listNormal[index];
-	var endPos = this.findEndPos(sttPos); // return EOF pos if not found
-	var vString = this.bin2String(sttPos, endPos);
-	var pos = vString.indexOf(this.TYPE_NORMAL);
+	let sttPos = this.listNormal[index];
+	let endPos = this.findEndPos(sttPos); // return EOF pos if not found
+	let vString = this.bin2String(sttPos, endPos);
+	let pos = vString.indexOf(this.TYPE_NORMAL);
 	vString = vString.substring(pos + this.TYPE_NORMAL.length + 1, vString.length);
-	var list = vString.split(" ");
+	let list = vString.split(" ");
 
-	var normal = new Array();
-	for (var i = 0; i < list.length; i++) {
+	let normal = new Array();
+	for (let i = 0; i < list.length; i++) {
 		if (list[i].length) {
 			normal.push(Number(list[i]));
 		}
@@ -190,15 +190,15 @@ STL.prototype.readNormal = function (index) {
 };
 
 STL.prototype.readVertex = function (index) {
-	var sttPos = this.listVertex[index];
-	var endPos = this.findEndPos(sttPos); // return EOF pos if not found
-	var vString = this.bin2String(sttPos, endPos);
-	var pos = vString.indexOf(this.TYPE_VERTEX);
+	let sttPos = this.listVertex[index];
+	let endPos = this.findEndPos(sttPos); // return EOF pos if not found
+	let vString = this.bin2String(sttPos, endPos);
+	let pos = vString.indexOf(this.TYPE_VERTEX);
 	vString = vString.substring(pos + this.TYPE_VERTEX.length + 1, vString.length);
-	var list = vString.split(" ");
+	let list = vString.split(" ");
 
-	var vertex = new Array();
-	for (var i = 0; i < list.length; i++) {
+	let vertex = new Array();
+	for (let i = 0; i < list.length; i++) {
 		if (list[i].length) {
 			vertex.push(Number(list[i]));
 		}
@@ -215,9 +215,9 @@ STL.prototype.decode = function () {
 		return this.dataType;
 	}
 
-	var str = this.bin2String(0, 10).toLocaleLowerCase();
-	var endPos = 0;
-	var sttPos = 0;
+	let str = this.bin2String(0, 10).toLocaleLowerCase();
+	let endPos = 0;
+	let sttPos = 0;
 
 	if (str.indexOf(this.ASCII_TITLE) >= 0) {
 		this.dataType = this.TYPE_ASCII;
@@ -244,8 +244,8 @@ STL.prototype.decode = function () {
 };
 
 STL.prototype.getCSG = function () {
-	var csgPolygons = [];
-	var numTriangles;
+	let csgPolygons = [];
+	let numTriangles;
 
 	if (this.dataType == this.TYPE_BINARY) {
 		this.pos = HDR_LEN;
@@ -259,18 +259,18 @@ STL.prototype.getCSG = function () {
 		for (let i = 0; i < numTriangles; i++) {
 			var csgVertices = [];
 
-			var normal = [0, 0, 0];
+			let normal = [0, 0, 0];
 			for (var j = 0; j < 3; j++) {
 				normal[j] = this.readReal32();
 			}
 
-			var csgNormal = new CSG.Vector3D(normal);
-			var csgPlane = new CSG.Plane(csgNormal, 1);
+			let csgNormal = new CSG.Vector3D(normal);
+			let csgPlane = new CSG.Plane(csgNormal, 1);
 
 			for (var j = 0; j < 3; j++) {
-				var x = this.readReal32();
-				var y = this.readReal32();
-				var z = this.readReal32();
+				let x = this.readReal32();
+				let y = this.readReal32();
+				let z = this.readReal32();
 				csgVertices.push(new CSG.Vertex(new CSG.Vector3D(x, y, z)));
 			}
 
@@ -282,7 +282,7 @@ STL.prototype.getCSG = function () {
 		for (let i = 0; i < numTriangles; i++) {
 			var csgVertices = [];
 			for (var j = 0; j < 3; j++) {
-				var vtx = this.readVertex(i * 3 + j);
+				let vtx = this.readVertex(i * 3 + j);
 				csgVertices.push(new CSG.Vertex(new CSG.Vector3D(vtx)));
 			}
 			csgPolygons.push(new CSG.Polygon(csgVertices, null));
@@ -293,8 +293,8 @@ STL.prototype.getCSG = function () {
 };
 
 STL.prototype.getCSGString = function () {
-	var csgPolygons = [];
-	var numTriangles;
+	let csgPolygons = [];
+	let numTriangles;
 
 	if (this.dataType == this.TYPE_BINARY) {
 		this.pos = HDR_LEN;
@@ -308,19 +308,19 @@ STL.prototype.getCSGString = function () {
 		for (let i = 0; i < numTriangles; i++) {
 			var csgVertices = [];
 
-			var normal = [0, 0, 0];
+			let normal = [0, 0, 0];
 			for (var j = 0; j < 3; j++) {
 				normal[j] = this.readReal32();
 			}
 
-			var csgPlane = _.template("new CSG.Plane(new CSG.Vector3D([<%=normal%>]), 1)")({
+			let csgPlane = _.template("new CSG.Plane(new CSG.Vector3D([<%=normal%>]), 1)")({
 				normal: normal,
 			});
 
 			for (var j = 0; j < 3; j++) {
-				var x = this.readReal32();
-				var y = this.readReal32();
-				var z = this.readReal32();
+				let x = this.readReal32();
+				let y = this.readReal32();
+				let z = this.readReal32();
 				csgVertices.push(
 					_.template("new CSG.Vertex(new CSG.Vector3D([<%=vertex%>]))")({vertex: [x, y, z]})
 				);
@@ -335,7 +335,7 @@ STL.prototype.getCSGString = function () {
 		for (let i = 0; i < numTriangles; i++) {
 			var csgVertices = [];
 			for (var j = 0; j < 3; j++) {
-				var vertex = this.readVertex(i * 3 + j);
+				let vertex = this.readVertex(i * 3 + j);
 				csgVertices.push(
 					_.template("new CSG.Vertex(new CSG.Vector3D([<%=vertex%>]))")({vertex: vertex})
 				);
@@ -358,8 +358,8 @@ STL.prototype.drawWireFrame = function (
 	rY,
 	rZ
 ) {
-	var numTriangles;
-	var i;
+	let numTriangles;
+	let i;
 
 	if (this.dataType == this.TYPE_BINARY) {
 		this.pos = HDR_LEN;
@@ -371,8 +371,8 @@ STL.prototype.drawWireFrame = function (
 	if (this.dataType == this.TYPE_BINARY) {
 		for (i = 0; i < numTriangles; i++) {
 			// retrieve normal
-			var normal = [0, 0, 0];
-			for (var j = 0; j < 3; j++) {
+			let normal = [0, 0, 0];
+			for (let j = 0; j < 3; j++) {
 				normal[j] = this.readReal32();
 			}
 
@@ -399,18 +399,18 @@ STL.prototype.drawTriangles = function (
 	rZ
 ) {
 	// [in] amount of rotation Z
-	var vtx0 = [0, 0, 0];
-	var vtx1 = [0, 0, 0];
-	var offX = w / 2;
-	var offY = h / 2;
+	let vtx0 = [0, 0, 0];
+	let vtx1 = [0, 0, 0];
+	let offX = w / 2;
+	let offY = h / 2;
 	context.beginPath();
 
 	// convert rotation from degrees to radian
-	var radX = (Math.PI / 180.0) * rX;
-	var radY = (Math.PI / 180.0) * rY;
-	var radZ = (Math.PI / 180.0) * rZ;
+	let radX = (Math.PI / 180.0) * rX;
+	let radY = (Math.PI / 180.0) * rY;
+	let radZ = (Math.PI / 180.0) * rZ;
 
-	for (var j = 0; j < 3; j++) {
+	for (let j = 0; j < 3; j++) {
 		if (this.dataType == this.TYPE_ASCII) {
 			vtx1 = this.readVertex(this.triangleIndex * 3 + j);
 		} else {
@@ -420,12 +420,12 @@ STL.prototype.drawTriangles = function (
 		}
 
 		// vtx1[0] = vtx1[0];
-		var y = vtx1[1];
-		var z = vtx1[2];
+		let y = vtx1[1];
+		let z = vtx1[2];
 		vtx1[1] = Math.cos(radX) * y - Math.sin(radX) * z;
 		vtx1[2] = Math.sin(radX) * y + Math.cos(radX) * z;
 
-		var x = vtx1[0];
+		let x = vtx1[0];
 		z = vtx1[2];
 		vtx1[0] = Math.cos(radY) * x + Math.sin(radY) * z;
 		// vtx1[1] = vtx1[1];

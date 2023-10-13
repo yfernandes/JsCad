@@ -1,22 +1,22 @@
-var _ = require("lodash");
-var Context = require("./Context");
-var Globals = require("./Globals");
+let _ = require("lodash");
+let Context = require("./Context");
+let Globals = require("./Globals");
 
 function TransformModule(factory) {
 	var factory = factory;
 
 	this.transformChildren = function (children, context, cb) {
-		var childModules = [];
+		let childModules = [];
 
-		for (var i = 0; i < children.length; i++) {
+		for (let i = 0; i < children.length; i++) {
 			var childInst = children[i];
 			childInst.argvalues = [];
 
 			_.each(childInst.argexpr, function (expr, index, list) {
 				childInst.argvalues.push(expr.evaluate(context));
 			});
-			var childAdaptor = factory.getAdaptor(childInst);
-			var transformedChild = childAdaptor.evaluate(context, childInst);
+			let childAdaptor = factory.getAdaptor(childInst);
+			let transformedChild = childAdaptor.evaluate(context, childInst);
 			if (transformedChild) {
 				transformedChild += cb();
 				childModules.push(transformedChild);
@@ -42,15 +42,15 @@ ColorTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, ["c", "alpha"], [], inst);
+	let context = Context.newContext(parentContext, ["c", "alpha"], [], inst);
 
-	var c = Context.contextVariableLookup(context, "c", undefined);
-	var color = "white";
+	let c = Context.contextVariableLookup(context, "c", undefined);
+	let color = "white";
 	if (c !== undefined) {
 		color = _.isString(c) ? colorNameLookup[Globals.stripString(c.toLowerCase())] : c;
 	}
 
-	var alpha = Context.contextVariableLookup(context, "alpha", undefined);
+	let alpha = Context.contextVariableLookup(context, "alpha", undefined);
 	if (alpha !== undefined) {
 		color[3] = alpha;
 	}
@@ -71,12 +71,12 @@ MirrorTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, ["v"], [], inst);
+	let context = Context.newContext(parentContext, ["v"], [], inst);
 
-	var v = Context.contextVariableLookup(context, "v", [0, 0, 0]);
+	let v = Context.contextVariableLookup(context, "v", [0, 0, 0]);
 
 	if (!(v instanceof Array)) {
-		var val = v;
+		let val = v;
 		v = [val, val, val];
 	}
 
@@ -96,9 +96,9 @@ RotateTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, ["a", "v"], [], inst);
+	let context = Context.newContext(parentContext, ["a", "v"], [], inst);
 
-	var a = Context.contextVariableLookup(context, "a", undefined);
+	let a = Context.contextVariableLookup(context, "a", undefined);
 
 	if (_.isArray(a)) {
 		return this.transformChildren(inst.children, context, function () {
@@ -109,7 +109,7 @@ RotateTransform.prototype.evaluate = function (parentContext, inst) {
 			});
 		});
 	} else {
-		var v = Context.contextVariableLookup(context, "v", undefined);
+		let v = Context.contextVariableLookup(context, "v", undefined);
 		return this.transformChildren(inst.children, context, function () {
 			if (v === undefined || v.toString() == "0,0,0") {
 				v = [0, 0, 1];
@@ -133,12 +133,12 @@ ScaleTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, ["v"], [], inst);
+	let context = Context.newContext(parentContext, ["v"], [], inst);
 
-	var v = Context.contextVariableLookup(context, "v", [0, 0, 0]);
+	let v = Context.contextVariableLookup(context, "v", [0, 0, 0]);
 
 	if (!(v instanceof Array)) {
-		var val = v;
+		let val = v;
 		v = [val, val, val];
 	}
 
@@ -158,9 +158,9 @@ TranslateTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, ["v"], [], inst);
+	let context = Context.newContext(parentContext, ["v"], [], inst);
 
-	var v = Context.contextVariableLookup(context, "v", [0, 0, 0]);
+	let v = Context.contextVariableLookup(context, "v", [0, 0, 0]);
 
 	return this.transformChildren(inst.children, context, function () {
 		return _.template(".translate([<%=v%>])")({v: v});
@@ -178,9 +178,9 @@ RenderModule.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, [], [], inst);
+	let context = Context.newContext(parentContext, [], [], inst);
 
-	var childIndex = 0;
+	let childIndex = 0;
 	if (inst.argvalues[0] !== undefined) {
 		childIndex = inst.argvalues[0];
 	}
@@ -194,11 +194,11 @@ function MultimatrixTransform(a) {
 	TransformModule.call(this, a);
 
 	this.transposeMatrix = function (m) {
-		var t = [];
-		var ti = 0;
+		let t = [];
+		let ti = 0;
 
-		for (var j in _.range(4)) {
-			for (var i in _.range(4)) {
+		for (let j in _.range(4)) {
+			for (let i in _.range(4)) {
 				t[ti++] = m[i][j];
 			}
 		}
@@ -213,11 +213,11 @@ MultimatrixTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(parentContext, ["m"], [], inst);
+	let context = Context.newContext(parentContext, ["m"], [], inst);
 
-	var m = Context.contextVariableLookup(context, "m", undefined);
+	let m = Context.contextVariableLookup(context, "m", undefined);
 
-	var matrix;
+	let matrix;
 	if (m !== undefined) {
 		matrix = this.transposeMatrix(m);
 	}
@@ -238,7 +238,7 @@ ExtrudeTransform.prototype.evaluate = function (parentContext, inst) {
 		inst.argvalues.push(expr.evaluate(parentContext));
 	});
 
-	var context = Context.newContext(
+	let context = Context.newContext(
 		parentContext,
 		[
 			"file",
@@ -257,13 +257,13 @@ ExtrudeTransform.prototype.evaluate = function (parentContext, inst) {
 		inst
 	);
 
-	var height = Context.contextVariableLookup(context, "height", 100);
-	var center = Context.contextVariableLookup(context, "center", false);
-	var twist = Number(Context.contextVariableLookup(context, "twist", 0)) / -1; // note inverse for openjscad
-	var slices = Context.contextVariableLookup(context, "slices", undefined);
-	var fn = Context.contextVariableLookup(context, "$fn", Globals.FN_DEFAULT);
-	var fs = Context.contextVariableLookup(context, "$fs", Globals.FS_DEFAULT);
-	var fa = Context.contextVariableLookup(context, "$fa", Globals.FA_DEFAULT);
+	let height = Context.contextVariableLookup(context, "height", 100);
+	let center = Context.contextVariableLookup(context, "center", false);
+	let twist = Number(Context.contextVariableLookup(context, "twist", 0)) / -1; // note inverse for openjscad
+	let slices = Context.contextVariableLookup(context, "slices", undefined);
+	let fn = Context.contextVariableLookup(context, "$fn", Globals.FN_DEFAULT);
+	let fs = Context.contextVariableLookup(context, "$fs", Globals.FS_DEFAULT);
+	let fa = Context.contextVariableLookup(context, "$fa", Globals.FA_DEFAULT);
 
 	if (slices === undefined) {
 		slices = parseInt(
@@ -272,11 +272,11 @@ ExtrudeTransform.prototype.evaluate = function (parentContext, inst) {
 	}
 
 	return this.transformChildren(inst.children, context, function () {
-		var template = _.template(
+		let template = _.template(
 			".extrude({offset: [0, 0, <%=height%>], twistangle: <%=twist%>,twiststeps: <%=slices%>})"
 		)({height: height, twist: twist, slices: slices});
 		if (center) {
-			var offset = -height / 2;
+			let offset = -height / 2;
 			template += _.template(".translate([0,0,<%=offset%>])")({offset: offset});
 		}
 		return template;

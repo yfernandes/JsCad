@@ -13,7 +13,7 @@ define([
 	ModuleInstantiation,
 	IfElseModuleInstantiation
 ) {
-	var parser = {
+	let parser = {
 		trace: function trace() {},
 		yy: {},
 		symbols_: {
@@ -197,7 +197,7 @@ define([
 			[59, 3],
 		],
 		performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate, $$, _$) {
-			var $0 = $$.length - 1;
+			let $0 = $$.length - 1;
 			switch (yystate) {
 				case 1:
 					return ext.processModule(yy);
@@ -2630,17 +2630,17 @@ define([
 			throw new Error(str);
 		},
 		parse: function parse(input) {
-			var self = this;
-			var stack = [0];
-			var vstack = [null];
-			var lstack = [];
-			var table = this.table;
-			var yytext = "";
-			var yylineno = 0;
-			var yyleng = 0;
-			var recovering = 0;
-			var TERROR = 2;
-			var EOF = 1;
+			let self = this;
+			let stack = [0];
+			let vstack = [null];
+			let lstack = [];
+			let table = this.table;
+			let yytext = "";
+			let yylineno = 0;
+			let yyleng = 0;
+			let recovering = 0;
+			let TERROR = 2;
+			let EOF = 1;
 			this.lexer.setInput(input);
 			this.lexer.yy = this.yy;
 			this.yy.lexer = this.lexer;
@@ -2648,9 +2648,9 @@ define([
 			if (typeof this.lexer.yylloc === "undefined") {
 				this.lexer.yylloc = {};
 			}
-			var yyloc = this.lexer.yylloc;
+			let yyloc = this.lexer.yylloc;
 			lstack.push(yyloc);
-			var ranges = this.lexer.options && this.lexer.options.ranges;
+			let ranges = this.lexer.options && this.lexer.options.ranges;
 			if (typeof this.yy.parseError === "function") {
 				this.parseError = this.yy.parseError;
 			}
@@ -2660,24 +2660,24 @@ define([
 				lstack.length = lstack.length - n;
 			}
 			function lex() {
-				var token;
+				let token;
 				token = self.lexer.lex() || 1;
 				if (typeof token !== "number") {
 					token = self.symbols_[token] || token;
 				}
 				return token;
 			}
-			var symbol;
-			var preErrorSymbol;
-			var state;
-			var action;
-			var a;
-			var r;
-			var yyval = {};
-			var p;
-			var len;
-			var newState;
-			var expected;
+			let symbol;
+			let preErrorSymbol;
+			let state;
+			let action;
+			let a;
+			let r;
+			let yyval = {};
+			let p;
+			let len;
+			let newState;
+			let expected;
 			while (true) {
 				state = stack[stack.length - 1];
 				if (this.defaultActions[state]) {
@@ -2689,7 +2689,7 @@ define([
 					action = table[state] && table[state][symbol];
 				}
 				if (typeof action === "undefined" || !action.length || !action[0]) {
-					var errStr = "";
+					let errStr = "";
 					if (!recovering) {
 						expected = [];
 						for (p in table[state]) {
@@ -2796,8 +2796,8 @@ define([
 		},
 	};
 	/* Jison generated lexer */
-	var lexer = (function () {
-		var lexer = {
+	let lexer = (function () {
+		let lexer = {
 			EOF: 1,
 			parseError: function parseError(str, hash) {
 				if (this.yy.parser) {
@@ -2818,13 +2818,13 @@ define([
 				return this;
 			},
 			input: function () {
-				var ch = this._input[0];
+				let ch = this._input[0];
 				this.yytext += ch;
 				this.yyleng++;
 				this.offset++;
 				this.match += ch;
 				this.matched += ch;
-				var lines = ch.match(/(?:\r\n?|\n).*/g);
+				let lines = ch.match(/(?:\r\n?|\n).*/g);
 				if (lines) {
 					this.yylineno++;
 					this.yylloc.last_line++;
@@ -2837,19 +2837,19 @@ define([
 				return ch;
 			},
 			unput: function (ch) {
-				var len = ch.length;
-				var lines = ch.split(/(?:\r\n?|\n)/g);
+				let len = ch.length;
+				let lines = ch.split(/(?:\r\n?|\n)/g);
 
 				this._input = ch + this._input;
 				this.yytext = this.yytext.substr(0, this.yytext.length - len - 1);
 				// this.yyleng -= len;
 				this.offset -= len;
-				var oldLines = this.match.split(/(?:\r\n?|\n)/g);
+				let oldLines = this.match.split(/(?:\r\n?|\n)/g);
 				this.match = this.match.substr(0, this.match.length - 1);
 				this.matched = this.matched.substr(0, this.matched.length - 1);
 
 				if (lines.length - 1) this.yylineno -= lines.length - 1;
-				var r = this.yylloc.range;
+				let r = this.yylloc.range;
 
 				this.yylloc = {
 					first_line: this.yylloc.first_line,
@@ -2875,19 +2875,19 @@ define([
 				this.unput(this.match.slice(n));
 			},
 			pastInput: function () {
-				var past = this.matched.substr(0, this.matched.length - this.match.length);
+				let past = this.matched.substr(0, this.matched.length - this.match.length);
 				return (past.length > 20 ? "..." : "") + past.substr(-20).replace(/\n/g, "");
 			},
 			upcomingInput: function () {
-				var next = this.match;
+				let next = this.match;
 				if (next.length < 20) {
 					next += this._input.substr(0, 20 - next.length);
 				}
 				return (next.substr(0, 20) + (next.length > 20 ? "..." : "")).replace(/\n/g, "");
 			},
 			showPosition: function () {
-				var pre = this.pastInput();
-				var c = new Array(pre.length + 1).join("-");
+				let pre = this.pastInput();
+				let c = new Array(pre.length + 1).join("-");
 				return pre + this.upcomingInput() + "\n" + c + "^";
 			},
 			next: function () {
@@ -2896,13 +2896,13 @@ define([
 				}
 				if (!this._input) this.done = true;
 
-				var token, match, tempMatch, index, col, lines;
+				let token, match, tempMatch, index, col, lines;
 				if (!this._more) {
 					this.yytext = "";
 					this.match = "";
 				}
-				var rules = this._currentRules();
-				for (var i = 0; i < rules.length; i++) {
+				let rules = this._currentRules();
+				for (let i = 0; i < rules.length; i++) {
 					tempMatch = this._input.match(this.rules[rules[i]]);
 					if (tempMatch && (!match || tempMatch[0].length > match[0].length)) {
 						match = tempMatch;
@@ -2955,7 +2955,7 @@ define([
 				}
 			},
 			lex: function lex() {
-				var r = this.next();
+				let r = this.next();
 				if (typeof r !== "undefined") {
 					return r;
 				} else {
@@ -2980,7 +2980,7 @@ define([
 		};
 		lexer.options = {flex: true};
 		lexer.performAction = function anonymous(yy, yy_, $avoiding_name_collisions, YY_START) {
-			var YYSTATE = YY_START;
+			let YYSTATE = YY_START;
 			switch ($avoiding_name_collisions) {
 				case 0:
 					this.begin("cond_include");

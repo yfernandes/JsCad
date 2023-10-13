@@ -1,13 +1,13 @@
-var Context = require("./Context");
-var Globals = require("./Globals");
-var PrimitiveModules = require("./PrimitiveModules");
-var TransformModules = require("./TransformModules");
-var ControlModules = require("./ControlModules");
-var CSGModule = require("./CSGModule");
+let Context = require("./Context");
+let Globals = require("./Globals");
+let PrimitiveModules = require("./PrimitiveModules");
+let TransformModules = require("./TransformModules");
+let ControlModules = require("./ControlModules");
+let CSGModule = require("./CSGModule");
 
-var ChildModule = require("./ChildModule");
-var ModuleAdaptor = require("./ModuleAdaptor");
-var ImportModule = require("./ImportModule");
+let ChildModule = require("./ChildModule");
+let ModuleAdaptor = require("./ModuleAdaptor");
+let ImportModule = require("./ImportModule");
 
 function OpenjscadSolidFactory() {}
 
