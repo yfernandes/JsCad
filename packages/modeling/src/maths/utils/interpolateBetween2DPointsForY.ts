@@ -1,3 +1,5 @@
+import {Vec2} from "../types.js";
+
 /**
  * Get the X coordinate of a point with a certain Y coordinate, interpolated between two points.
  * Interpolation is robust even if the points have the same Y coordinate
@@ -7,7 +9,7 @@
  * @return {Array} X and Y of interpolated point
  * @alias module:modeling/maths/utils.interpolateBetween2DPointsForY
  */
-export const interpolateBetween2DPointsForY = (point1, point2, y) => {
+export const interpolateBetween2DPointsForY = (point1: Vec2, point2: Vec2, y: number): number => {
 	let f1 = y - point1[1];
 	let f2 = point2[1] - point1[1];
 	if (f2 < 0) {

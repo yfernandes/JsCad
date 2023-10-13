@@ -1,26 +1,28 @@
 import * as mat4 from "../mat4/index.js";
-
+import {Plane, Vec2, Vec3, Mat4} from "../types.js"; // Import missing types
 import * as vec2 from "../vec2/index.js";
 import * as vec3 from "../vec3/index.js";
 
 /*
- * Class that defines the formula for convertion to/from orthonomal basis vectors.
+ * Class that defines the formula for conversion to/from orthonormal basis vectors.
  * @see https://www.kristakingmath.com/blog/orthonormal-basis-for-a-vector-set
  */
 export class OrthonormalFormula {
+	private plane: Plane;
+	private v: Vec3;
+	private u: Vec3;
+	private planeOrigin: Vec3;
+	private basisMap: Map<Vec2, Vec3>;
+
 	/**
 	 * Construct the standard basis formula from the given plane.
 	 * @param {Plane} plane - the plane of which to convert vertices to/from the orthonormal basis
 	 */
-	constructor(plane) {
-		// plane normal is one component
+	constructor(plane: Plane) {
 		this.plane = plane;
-		// orthogonal vector to plane normal is one component
 		const rightVector = vec3.orthogonal(vec3.create(), plane);
 		this.v = vec3.normalize(rightVector, vec3.cross(rightVector, plane, rightVector));
-		// cross between plane normal and orthogonal vector is one component
 		this.u = vec3.cross(vec3.create(), this.v, plane);
-
 		this.planeOrigin = vec3.scale(vec3.create(), plane, plane[3]);
 		this.basisMap = new Map();
 	}
@@ -29,7 +31,7 @@ export class OrthonormalFormula {
 	 * Convert the basis formula to a projection matrix.
 	 * @return {Mat4} matrix which can be used to convert 3D vertices to 2D points
 	 */
-	getProjectionMatrix() {
+	getProjectionMatrix(): Mat4 {
 		return mat4.fromValues(
 			this.u[0],
 			this.v[0],
@@ -54,7 +56,7 @@ export class OrthonormalFormula {
 	 * Convert the basis formula to an inverse projection matrix.
 	 * @return {Mat4} matrix which can be used to convert 2D points to 3D vertices
 	 */
-	getInverseProjectionMatrix() {
+	getInverseProjectionMatrix(): Mat4 {
 		return mat4.fromValues(
 			this.u[0],
 			this.u[1],
@@ -80,7 +82,7 @@ export class OrthonormalFormula {
 	 * @param {Vec3} vertex - 3D vertex which lies within the original basis (set)
 	 * @return {Vec2} - 2D point which lies within the orthonormal basis
 	 */
-	to2D(vertex) {
+	to2D(vertex: Vec3): Vec2 {
 		const point = vec2.fromValues(vec3.dot(vertex, this.u), vec3.dot(vertex, this.v));
 		this.basisMap.set(point, vertex);
 		return point;
@@ -91,12 +93,9 @@ export class OrthonormalFormula {
 	 * @param {Vec2} point - 2D point which lies within the orthonormal basis
 	 * @return {Vec3} - 3D vertex which lies within the original basis (set)
 	 */
-	to3D(point) {
-		// return the original vertex if possible, i.e. no floating point error
+	to3D(point: Vec2): Vec3 {
 		const original = this.basisMap.get(point);
 		if (original) return original;
-
-		// calculate a new 3D vertex from the orthonormal basis formula
 		const v1 = vec3.scale(vec3.create(), this.u, point[0]);
 		const v2 = vec3.scale(vec3.create(), this.v, point[1]);
 		const v3 = vec3.add(v1, v1, this.planeOrigin);

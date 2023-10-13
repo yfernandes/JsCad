@@ -3,7 +3,7 @@ import {NEPS} from "../constants.js";
 /*
  * Returns zero if n is within epsilon of zero, otherwise return n
  */
-const rezero = (n) => (Math.abs(n) < NEPS ? 0 : n);
+const rezero = (n: number): number => (Math.abs(n) < NEPS ? 0 : n);
 
 /**
  * Return Math.sin but accurate for TAU / 4 rotations.
@@ -16,7 +16,7 @@ const rezero = (n) => (Math.abs(n) < NEPS ? 0 : n);
  * sin(TAU / 2) == 0
  * sin(TAU) == 0
  */
-export const sin = (radians) => rezero(Math.sin(radians));
+export const sin = (radians: number): number => rezero(Math.sin(radians));
 
 /**
  * Return Math.cos but accurate for TAU / 4 rotations.
@@ -29,4 +29,4 @@ export const sin = (radians) => rezero(Math.sin(radians));
  * cos(TAU * 0.25) == 0
  * cos(TAU * 0.75) == 0
  */
-export const cos = (radians) => rezero(Math.cos(radians));
+export const cos = (radians: number): number => rezero(Math.cos(radians));

@@ -1,10 +1,12 @@
+import {Vec2} from "../types.js";
+
 /**
  * Calculate the area under the given points.
  * @param {Array} points - list of 2D points
  * @return {number} area under the given points
  * @alias module:modeling/maths/utils.area
  */
-export const area = (points) => {
+export const area = (points: Array<Vec2>): number => {
 	let area = 0;
 	for (let i = 0; i < points.length; i++) {
 		const j = (i + 1) % points.length;

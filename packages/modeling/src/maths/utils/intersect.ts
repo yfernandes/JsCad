@@ -1,3 +1,5 @@
+import {Vec2} from "../types.js";
+
 /**
  * Calculate the intersect point of the two line segments (p1-p2 and p3-p4).
  * If the endpointTouch parameter is false, intersections at segment end points are excluded.
@@ -11,7 +13,7 @@
  * @returns {Vec2} intersection point of the two line segments, or undefined
  * @alias module:modeling/maths/utils.intersect
  */
-export const intersect = (p1, p2, p3, p4, endpointTouch = true) => {
+export const intersect = (p1: Vec2, p2: Vec2, p3: Vec2, p4: Vec2, endpointTouch = true): Vec2 => {
 	// Check if none of the lines are of length 0
 	if ((p1[0] === p2[0] && p1[1] === p2[1]) || (p3[0] === p4[0] && p3[1] === p4[1])) {
 		return undefined;

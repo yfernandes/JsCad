@@ -1,4 +1,13 @@
-export const solve2Linear = (a, b, c, d, u, v) => {
+import {Vec2} from "../types.js";
+
+export const solve2Linear = (
+	a: number,
+	b: number,
+	c: number,
+	d: number,
+	u: number,
+	v: number
+): Vec2 => {
 	const det = a * d - b * c;
 	const invdet = 1.0 / det;
 	let x = u * d - b * v;
