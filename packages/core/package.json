@@ -1,56 +1,56 @@
 {
-  "name": "@jscad/core",
-  "version": "3.0.0-alpha.0",
-  "description": "Core functionality for JSCAD Applications",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "main": "src/index.js",
-  "type": "module",
-  "unpkg": "dist/jscad-core.min.js",
-  "module": "dist/jscad-core.es.js",
-  "scripts": {
-    "build": "rollup --config",
-    "coverage": "c8 --all --reporter=html --reporter=text pnpm test",
-    "test": "ava './src/**/*.test.js' --verbose --timeout 2m"
-  },
-  "contributors": [
-    {
-      "name": "Rene K. Mueller",
-      "url": "https://github.com/Spiritdude"
-    },
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    },
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "core",
-    "application",
-    "functions"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "@jscad/array-utils": "workspace:3.0.0-alpha.0",
-    "@jscad/io": "workspace:3.0.0-alpha.0",
-    "@jscad/io-utils": "workspace:3.0.0-alpha.0",
-    "@jscad/modeling": "workspace:3.0.0-alpha.0",
-    "json5": "2.2.3",
-    "strip-bom": "4.0.0"
-  },
-  "devDependencies": {
-    "ava": "^4.3.3",
-    "c8": "^8.0.0"
-  },
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/openjscad",
-    "logo": "https://opencollective.com/openjscad/logo.txt"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/core",
+	"version": "3.0.0-alpha.0",
+	"description": "Core functionality for JSCAD Applications",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"main": "src/index.js",
+	"type": "module",
+	"unpkg": "dist/jscad-core.min.js",
+	"module": "dist/jscad-core.es.js",
+	"scripts": {
+		"build": "rollup --config",
+		"coverage": "c8 --all --reporter=html --reporter=text pnpm test",
+		"test": "ava './src/**/*.test.js' --verbose --timeout 2m"
+	},
+	"contributors": [
+		{
+			"name": "Rene K. Mueller",
+			"url": "https://github.com/Spiritdude"
+		},
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		},
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"core",
+		"application",
+		"functions"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"@jscad/array-utils": "workspace:*",
+		"@jscad/io": "workspace:*",
+		"@jscad/io-utils": "workspace:*",
+		"@jscad/modeling": "workspace:*",
+		"json5": "2.2.3",
+		"strip-bom": "4.0.0"
+	},
+	"devDependencies": {
+		"ava": "^4.3.3",
+		"c8": "^8.0.0"
+	},
+	"collective": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/openjscad",
+		"logo": "https://opencollective.com/openjscad/logo.txt"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }

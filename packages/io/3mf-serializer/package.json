@@ -1,51 +1,51 @@
 {
-  "name": "@jscad/3mf-serializer",
-  "version": "3.0.0-alpha.0",
-  "description": "3MF serializer for JSCAD project",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "type": "module",
-  "main": "src/index.js",
-  "unpkg": "dist/jscad-3mf-serializer.min.js",
-  "module": "dist/jscad-3mf-serializer.es.js",
-  "scripts": {
-    "build": "rollup --config",
-    "coverage": "c8 --reporter=html --reporter=text pnpm test",
-    "test": "ava --concurrency 3 --verbose --timeout 40000 './tests/*.test.js'",
-    "version": "pnpm run build && git add dist"
-  },
-  "contributors": [
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "export",
-    "serializer",
-    "3mf"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@jscad/array-utils": "workspace:3.0.0-alpha.0",
-    "@jscad/io-utils": "workspace:^3.0.0-alpha.0",
-    "@jscad/modeling": "workspace:3.0.0-alpha.0",
-    "fflate": "^0.7.3",
-    "onml": "^1.2.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^23.0.4",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.4.3",
-    "ava": "^4.3.3",
-    "c8": "^8.0.0",
-    "rollup": "^2.79.1",
-    "rollup-plugin-banner": "^0.2.1"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/3mf-serializer",
+	"version": "3.0.0-alpha.0",
+	"description": "3MF serializer for JSCAD project",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"type": "module",
+	"main": "src/index.js",
+	"unpkg": "dist/jscad-3mf-serializer.min.js",
+	"module": "dist/jscad-3mf-serializer.es.js",
+	"scripts": {
+		"build": "rollup --config",
+		"coverage": "c8 --reporter=html --reporter=text pnpm test",
+		"test": "ava --concurrency 3 --verbose --timeout 40000 './tests/*.test.js'",
+		"version": "pnpm run build && git add dist"
+	},
+	"contributors": [
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"export",
+		"serializer",
+		"3mf"
+	],
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@jscad/array-utils": "workspace:*",
+		"@jscad/io-utils": "workspace:*",
+		"@jscad/modeling": "workspace:*",
+		"fflate": "^0.7.3",
+		"onml": "^1.2.0"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^23.0.4",
+		"@rollup/plugin-node-resolve": "^15.0.1",
+		"@rollup/plugin-terser": "^0.4.3",
+		"ava": "^4.3.3",
+		"c8": "^8.0.0",
+		"rollup": "^2.79.1",
+		"rollup-plugin-banner": "^0.2.1"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }

@@ -1,52 +1,52 @@
 {
-  "name": "@jscad/obj-deserializer",
-  "version": "3.0.0-alpha.0",
-  "description": "OBJ Deserializer for JSCAD",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "type": "module",
-  "main": "src/index.js",
-  "unpkg": "dist/jscad-obj-deserializer.min.js",
-  "module": "dist/jscad-obj-deserializer.es.js",
-  "scripts": {
-    "build": "rollup --config",
-    "coverage": "c8 --all --reporter=html --reporter=text pnpm test",
-    "test": "ava --verbose --timeout 2m './tests/*.test.js'",
-    "version": "pnpm run build && git add dist"
-  },
-  "contributors": [
-    {
-      "name": "Rene K. Mueller",
-      "url": "https://github.com/Spiritdude"
-    },
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    },
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "import",
-    "deserializer",
-    "obj"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "@jscad/modeling": "workspace:3.0.0-alpha.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.1",
-    "@rollup/plugin-terser": "^0.4.3",
-    "ava": "^4.3.3",
-    "c8": "^8.0.0",
-    "rollup": "^2.79.1",
-    "rollup-plugin-banner": "^0.2.1",
-    "rollup-plugin-version-injector": "^1.3.3"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/obj-deserializer",
+	"version": "3.0.0-alpha.0",
+	"description": "OBJ Deserializer for JSCAD",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"type": "module",
+	"main": "src/index.js",
+	"unpkg": "dist/jscad-obj-deserializer.min.js",
+	"module": "dist/jscad-obj-deserializer.es.js",
+	"scripts": {
+		"build": "rollup --config",
+		"coverage": "c8 --all --reporter=html --reporter=text pnpm test",
+		"test": "ava --verbose --timeout 2m './tests/*.test.js'",
+		"version": "pnpm run build && git add dist"
+	},
+	"contributors": [
+		{
+			"name": "Rene K. Mueller",
+			"url": "https://github.com/Spiritdude"
+		},
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		},
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"import",
+		"deserializer",
+		"obj"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"@jscad/modeling": "workspace:*"
+	},
+	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^15.2.1",
+		"@rollup/plugin-terser": "^0.4.3",
+		"ava": "^4.3.3",
+		"c8": "^8.0.0",
+		"rollup": "^2.79.1",
+		"rollup-plugin-banner": "^0.2.1",
+		"rollup-plugin-version-injector": "^1.3.3"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }

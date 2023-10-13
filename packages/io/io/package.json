@@ -1,60 +1,60 @@
 {
-  "name": "@jscad/io",
-  "version": "3.0.0-alpha.0",
-  "description": "Meta Package for JSCAD IO Packages",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "main": "src/index.js",
-  "type": "module",
-  "scripts": {
-    "coverage": "c8 --all --reporter=html --reporter=text npm test",
-    "test": "ava --verbose --timeout 2m './tests/*.test.js'"
-  },
-  "contributors": [
-    {
-      "name": "Rene K. Mueller",
-      "url": "https://github.com/Spiritdude"
-    },
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    },
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "io",
-    "formats",
-    "serializer",
-    "deserializer"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "@jscad/3mf-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/3mf-serializer": "workspace:3.0.0-alpha.0",
-    "@jscad/array-utils": "workspace:3.0.0-alpha.0",
-    "@jscad/dxf-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/dxf-serializer": "workspace:3.0.0-alpha.0",
-    "@jscad/io-utils": "workspace:3.0.0-alpha.0",
-    "@jscad/json-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/json-serializer": "workspace:3.0.0-alpha.0",
-    "@jscad/modeling": "workspace:3.0.0-alpha.0",
-    "@jscad/obj-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/obj-serializer": "workspace:3.0.0-alpha.0",
-    "@jscad/stl-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/stl-serializer": "workspace:3.0.0-alpha.0",
-    "@jscad/svg-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/svg-serializer": "workspace:3.0.0-alpha.0",
-    "@jscad/x3d-deserializer": "workspace:3.0.0-alpha.0",
-    "@jscad/x3d-serializer": "workspace:3.0.0-alpha.0"
-  },
-  "devDependencies": {
-    "ava": "^4.3.3",
-    "c8": "^8.0.0"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/io",
+	"version": "3.0.0-alpha.0",
+	"description": "Meta Package for JSCAD IO Packages",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"main": "src/index.js",
+	"type": "module",
+	"scripts": {
+		"coverage": "c8 --all --reporter=html --reporter=text npm test",
+		"test": "ava --verbose --timeout 2m './tests/*.test.js'"
+	},
+	"contributors": [
+		{
+			"name": "Rene K. Mueller",
+			"url": "https://github.com/Spiritdude"
+		},
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		},
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"io",
+		"formats",
+		"serializer",
+		"deserializer"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"@jscad/3mf-deserializer": "workspace:*",
+		"@jscad/3mf-serializer": "workspace:*",
+		"@jscad/array-utils": "workspace:*",
+		"@jscad/dxf-deserializer": "workspace:*",
+		"@jscad/dxf-serializer": "workspace:*",
+		"@jscad/io-utils": "workspace:*",
+		"@jscad/json-deserializer": "workspace:*",
+		"@jscad/json-serializer": "workspace:*",
+		"@jscad/modeling": "workspace:*",
+		"@jscad/obj-deserializer": "workspace:*",
+		"@jscad/obj-serializer": "workspace:*",
+		"@jscad/stl-deserializer": "workspace:*",
+		"@jscad/stl-serializer": "workspace:*",
+		"@jscad/svg-deserializer": "workspace:*",
+		"@jscad/svg-serializer": "workspace:*",
+		"@jscad/x3d-deserializer": "workspace:*",
+		"@jscad/x3d-serializer": "workspace:*"
+	},
+	"devDependencies": {
+		"ava": "^4.3.3",
+		"c8": "^8.0.0"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }

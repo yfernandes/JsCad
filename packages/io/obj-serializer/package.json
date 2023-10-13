@@ -1,51 +1,51 @@
 {
-  "name": "@jscad/obj-serializer",
-  "version": "3.0.0-alpha.0",
-  "description": "OBJ Serializer for JSCAD",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "type": "module",
-  "main": "src/index.js",
-  "unpkg": "dist/jscad-obj-serializer.min.js",
-  "module": "dist/jscad-obj-serializer.es.js",
-  "scripts": {
-    "build": "rollup --config",
-    "coverage": "c8 --all --reporter=html --reporter=text pnpm test",
-    "test": "ava --verbose --timeout 2m 'tests/**/*.test.js'",
-    "version": "pnpm run build && git add dist"
-  },
-  "contributors": [
-    {
-      "name": "platypii",
-      "url": "https://github.com/platypii"
-    },
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "export",
-    "serializer",
-    "obj"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@jscad/array-utils": "workspace:3.0.0-alpha.0",
-    "@jscad/modeling": "workspace:3.0.0-alpha.0"
-  },
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.4.3",
-    "ava": "^4.3.3",
-    "c8": "^8.0.0",
-    "rollup": "^2.79.1",
-    "rollup-plugin-banner": "^0.2.1"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/obj-serializer",
+	"version": "3.0.0-alpha.0",
+	"description": "OBJ Serializer for JSCAD",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"type": "module",
+	"main": "src/index.js",
+	"unpkg": "dist/jscad-obj-serializer.min.js",
+	"module": "dist/jscad-obj-serializer.es.js",
+	"scripts": {
+		"build": "rollup --config",
+		"coverage": "c8 --all --reporter=html --reporter=text pnpm test",
+		"test": "ava --verbose --timeout 2m 'tests/**/*.test.js'",
+		"version": "pnpm run build && git add dist"
+	},
+	"contributors": [
+		{
+			"name": "platypii",
+			"url": "https://github.com/platypii"
+		},
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"export",
+		"serializer",
+		"obj"
+	],
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@jscad/array-utils": "workspace:*",
+		"@jscad/modeling": "workspace:*"
+	},
+	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^15.0.1",
+		"@rollup/plugin-terser": "^0.4.3",
+		"ava": "^4.3.3",
+		"c8": "^8.0.0",
+		"rollup": "^2.79.1",
+		"rollup-plugin-banner": "^0.2.1"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }

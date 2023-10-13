@@ -1,42 +1,42 @@
 {
-  "name": "@jscad/io-utils",
-  "version": "3.0.0-alpha.0",
-  "description": "Utilities for JSCAD IO Packages",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "type": "module",
-  "main": "src/index.js",
-  "scripts": {
-    "coverage": "c8 --all --reporter=html --reporter=text npm test",
-    "test": "ava './tests/*.test.js' --verbose --timeout 2m"
-  },
-  "contributors": [
-    {
-      "name": "Rene K. Mueller",
-      "url": "https://github.com/Spiritdude"
-    },
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    },
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "utilities",
-    "formats",
-    "serializer",
-    "deserializer"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@jscad/modeling": "workspace:3.0.0-alpha.0",
-    "ava": "^4.3.3",
-    "c8": "^8.0.0"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/io-utils",
+	"version": "3.0.0-alpha.0",
+	"description": "Utilities for JSCAD IO Packages",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"type": "module",
+	"main": "src/index.js",
+	"scripts": {
+		"coverage": "c8 --all --reporter=html --reporter=text npm test",
+		"test": "ava './tests/*.test.js' --verbose --timeout 2m"
+	},
+	"contributors": [
+		{
+			"name": "Rene K. Mueller",
+			"url": "https://github.com/Spiritdude"
+		},
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		},
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"utilities",
+		"formats",
+		"serializer",
+		"deserializer"
+	],
+	"license": "MIT",
+	"devDependencies": {
+		"@jscad/modeling": "workspace:*",
+		"ava": "^4.3.3",
+		"c8": "^8.0.0"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }
