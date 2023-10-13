@@ -13,9 +13,9 @@
  * const { deserializer, extension } = require('@jscad/json-deserializer')
  */
 
-import { flatten, toArray } from '@jscad/array-utils'
+import {flatten, toArray} from "@jscad/array-utils";
 
-const version = '[VI]{version}[/VI]' // version is injected by rollup
+const version = "[VI]{version}[/VI]"; // version is injected by rollup
 
 /**
  * Deserialize the given JSON notation (string) into either a script or an array of geometry.
@@ -29,40 +29,39 @@ const version = '[VI]{version}[/VI]' // version is injected by rollup
  * @alias module:io/json-deserializer.deserialize
  */
 const deserialize = (options, input) => {
-  const defaults = {
-    filename: 'json',
-    output: 'script',
-    version,
-    addMetaData: true
-  }
-  options = Object.assign({}, defaults, options)
+	const defaults = {
+		filename: "json",
+		output: "script",
+		version,
+		addMetaData: true,
+	};
+	options = Object.assign({}, defaults, options);
 
-  // convert the JSON notation into anonymous object(s)
-  let objects = JSON.parse(input)
+	// convert the JSON notation into anonymous object(s)
+	let objects = JSON.parse(input);
 
-  // cleanup the objects
-  objects = flatten(toArray(objects))
+	// cleanup the objects
+	objects = flatten(toArray(objects));
 
-  return options.output === 'script' ? translate(options, objects) : objects
-}
+	return options.output === "script" ? translate(options, objects) : objects;
+};
 
 //
 // translate the given objects (geometries) into a  JSCAD script
 //
 const translate = (options, objects) => {
-  const { addMetaData, filename, version } = options
+	const {addMetaData, filename, version} = options;
 
-  let script = addMetaData
-    ? `//
+	let script = addMetaData
+		? `//
 // Produced by JSCAD IO Library : JSON Deserializer (${version})
 // date: ${new Date()}
 // source: ${filename}
 //
 `
-    : ''
+		: "";
 
-  script +=
-`
+	script += `
 const { geometries } = require('@jscad/modeling')
 
 const main = () => {
@@ -73,22 +72,21 @@ const main = () => {
 ${translateToObjects(objects)}
 
 module.exports = { main }
-`
+`;
 
-  return script
-}
+	return script;
+};
 
-const translateToList = (objects) => objects.reduce((script, object, index) => script + ` json${index},`, '')
+const translateToList = (objects) =>
+	objects.reduce((script, object, index) => script + ` json${index},`, "");
 
-const translateToObjects = (objects) => objects.reduce((script, object, index) => script + translateToObject(object, index), '')
+const translateToObjects = (objects) =>
+	objects.reduce((script, object, index) => script + translateToObject(object, index), "");
 
 // translate the given object to JSON notation (AGAIN)
 // NOTE: this implies that the original JSON was correct :)
-const translateToObject = (object, index) => `const json${index} = ${JSON.stringify(object)}\n`
+const translateToObject = (object, index) => `const json${index} = ${JSON.stringify(object)}\n`;
 
-const mimeType = 'application/json'
+const mimeType = "application/json";
 
-export {
-  mimeType,
-  deserialize
-}
+export {mimeType, deserialize};

@@ -1,4 +1,4 @@
-import { angleRadians } from './angleRadians.js'
+import {angleRadians} from "./angleRadians.js";
 
 /**
  * Calculate the angle of the given vector.
@@ -7,4 +7,4 @@ import { angleRadians } from './angleRadians.js'
  * @returns {number} angle in degrees
  * @alias module:modeling/maths/vec2.angleDegrees
  */
-export const angleDegrees = (vector) => angleRadians(vector) * 57.29577951308232
+export const angleDegrees = (vector) => angleRadians(vector) * 57.29577951308232;

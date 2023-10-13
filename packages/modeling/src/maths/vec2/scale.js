@@ -8,7 +8,7 @@
  * @alias module:modeling/maths/vec2.scale
  */
 export const scale = (out, vector, amount) => {
-  out[0] = vector[0] * amount
-  out[1] = vector[1] * amount
-  return out
-}
+	out[0] = vector[0] * amount;
+	out[1] = vector[1] * amount;
+	return out;
+};

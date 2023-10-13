@@ -9,9 +9,9 @@
  * @alias module:modeling/maths/vec2.lerp
  */
 export const lerp = (out, a, b, t) => {
-  const ax = a[0]
-  const ay = a[1]
-  out[0] = ax + t * (b[0] - ax)
-  out[1] = ay + t * (b[1] - ay)
-  return out
-}
+	const ax = a[0];
+	const ay = a[1];
+	out[0] = ax + t * (b[0] - ax);
+	out[1] = ay + t * (b[1] - ay);
+	return out;
+};

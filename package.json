@@ -9,7 +9,7 @@
 		"coverage": "lerna run --concurrency 1 --stream coverage",
 		"test": "lerna run --stream test",
 		"test:tsd": "lerna run test:tsd",
-		"lint": "standardx 'packages/**/*.js'",
+		"lint": "prettier ./packages --write",
 		"changed": "lerna changed",
 		"graph": "lerna list --graph",
 		"list": "lerna ls",

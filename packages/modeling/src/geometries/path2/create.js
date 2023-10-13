@@ -1,4 +1,4 @@
-import * as mat4 from '../../maths/mat4/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
 
 /**
  * Represents a 2D geometry consisting of a list of ordered points.
@@ -22,12 +22,12 @@ import * as mat4 from '../../maths/mat4/index.js'
  * let newPath = create()
  */
 export const create = (points) => {
-  if (points === undefined) {
-    points = []
-  }
-  return {
-    points: points,
-    isClosed: false,
-    transforms: mat4.create()
-  }
-}
+	if (points === undefined) {
+		points = [];
+	}
+	return {
+		points: points,
+		isClosed: false,
+		transforms: mat4.create(),
+	};
+};

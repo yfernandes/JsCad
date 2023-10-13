@@ -1,4 +1,4 @@
-import { toOutlines } from './toOutlines.js'
+import {toOutlines} from "./toOutlines.js";
 
 /**
  * Produces an array of sides from the given geometry.
@@ -12,12 +12,12 @@ import { toOutlines } from './toOutlines.js'
  * let sharedSides = toSides(geometry)
  */
 export const toSides = (geometry) => {
-  const sides = []
-  toOutlines(geometry).forEach((outline) => {
-    outline.forEach((point, i) => {
-      const j = (i + 1) % outline.length
-      sides.push([point, outline[j]])
-    })
-  })
-  return sides
-}
+	const sides = [];
+	toOutlines(geometry).forEach((outline) => {
+		outline.forEach((point, i) => {
+			const j = (i + 1) % outline.length;
+			sides.push([point, outline[j]]);
+		});
+	});
+	return sides;
+};

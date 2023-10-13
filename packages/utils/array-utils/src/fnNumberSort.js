@@ -8,4 +8,4 @@
  * const numbers = [2, 1, 4, 3, 6, 5, 8, 7, 9, 0]
  * const sorted = numbers.sort(fnNumberSort)
  */
-export const fnNumberSort = (a, b) => a - b
+export const fnNumberSort = (a, b) => a - b;

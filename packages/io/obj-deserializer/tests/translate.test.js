@@ -1,18 +1,18 @@
-import fs from 'fs'
-import path from 'path'
+import fs from "fs";
+import path from "path";
 
-import test from 'ava'
+import test from "ava";
 
-import { deserialize } from '../src/index.js'
+import {deserialize} from "../src/index.js";
 
-const samplesPath = '../../../node_modules/@jscad/sample-files'
+const samplesPath = "../../../node_modules/@jscad/sample-files";
 
-test('translate simple obj file to jscad script', (t) => {
-  const inputPath = path.resolve(samplesPath, 'obj/cube.obj')
-  const inputFile = fs.readFileSync(inputPath, 'utf8')
+test("translate simple obj file to jscad script", (t) => {
+	const inputPath = path.resolve(samplesPath, "obj/cube.obj");
+	const inputFile = fs.readFileSync(inputPath, "utf8");
 
-  const observed = deserialize({ output: 'script', addMetaData: false }, inputFile)
-  const expected = `import * from '@jscad/modeling'
+	const observed = deserialize({output: "script", addMetaData: false}, inputFile);
+	const expected = `import * from '@jscad/modeling'
 
 // groups: 1
 // points: 8
@@ -58,13 +58,13 @@ const group0 = (points) => {
   return polyhedron({ orientation: 'outward', points, faces, colors })
 }
 
-`
+`;
 
-  t.deepEqual(observed, expected)
-})
+	t.deepEqual(observed, expected);
+});
 
-test('translate absolute face references to jscad script', (t) => {
-  const data = `
+test("translate absolute face references to jscad script", (t) => {
+	const data = `
 v 0.000000 2.000000 2.000000
 v 0.000000 0.000000 2.000000
 v 2.000000 0.000000 2.000000
@@ -81,9 +81,9 @@ f 4 3 7 8
 f 5 1 4 8
 f 5 6 2 1
 f 2 6 7 3
-`
-  const observed = deserialize({ filename: 'absolute', output: 'script', addMetaData: false }, data)
-  const expected = `import * from '@jscad/modeling'
+`;
+	const observed = deserialize({filename: "absolute", output: "script", addMetaData: false}, data);
+	const expected = `import * from '@jscad/modeling'
 
 // groups: 1
 // points: 8
@@ -129,13 +129,13 @@ const group0 = (points) => {
   return polyhedron({ orientation: 'outward', points, faces, colors })
 }
 
-`
+`;
 
-  t.deepEqual(observed, expected)
-})
+	t.deepEqual(observed, expected);
+});
 
-test('translate relative face references to jscad script', (t) => {
-  const data = `
+test("translate relative face references to jscad script", (t) => {
+	const data = `
 v 0.000000 2.000000 2.000000
 v 0.000000 0.000000 2.000000
 v 2.000000 0.000000 2.000000
@@ -166,9 +166,9 @@ v 0.000000 0.000000 0.000000
 v 2.000000 0.000000 0.000000
 v 2.000000 0.000000 2.000000
 f -4 -3 -2 -1
-`
-  const observed = deserialize({ output: 'script', addMetaData: false }, data)
-  const expected = `import * from '@jscad/modeling'
+`;
+	const observed = deserialize({output: "script", addMetaData: false}, data);
+	const expected = `import * from '@jscad/modeling'
 
 // groups: 1
 // points: 24
@@ -230,6 +230,6 @@ const group0 = (points) => {
   return polyhedron({ orientation: 'outward', points, faces, colors })
 }
 
-`
-  t.deepEqual(observed, expected)
-})
+`;
+	t.deepEqual(observed, expected);
+});

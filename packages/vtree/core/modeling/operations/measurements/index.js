@@ -1,5 +1,5 @@
 module.exports = {
-  measureArea: require('./measureArea'),
-  measureBounds: require('./measureBounds'),
-  measureVolume: require('./measureVolume')
-}
+	measureArea: require("./measureArea"),
+	measureBounds: require("./measureBounds"),
+	measureVolume: require("./measureVolume"),
+};

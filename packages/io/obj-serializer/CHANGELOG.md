@@ -7,12 +7,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
-* **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
 
 ## [2.1.15](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/obj-serializer@2.1.14...@jscad/obj-serializer@2.1.15) (2023-06-27)
 
@@ -78,16 +78,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **obj-serializer:** added default material when serializing objects without colors ([#947](https://github.com/jscad/OpenJSCAD.org/issues/947)) ([843865b](https://github.com/jscad/OpenJSCAD.org/commit/843865b94f4d348ea67523b6d442f9c562bef021))
+- **obj-serializer:** added default material when serializing objects without colors ([#947](https://github.com/jscad/OpenJSCAD.org/issues/947)) ([843865b](https://github.com/jscad/OpenJSCAD.org/commit/843865b94f4d348ea67523b6d442f9c562bef021))
 
 ### Features
 
-* **io:** new serializer for OBJ ([#942](https://github.com/jscad/OpenJSCAD.org/issues/942)) ([baaae18](https://github.com/jscad/OpenJSCAD.org/commit/baaae18ad55252ec71b074bd85dea7d137a22eb8))
+- **io:** new serializer for OBJ ([#942](https://github.com/jscad/OpenJSCAD.org/issues/942)) ([baaae18](https://github.com/jscad/OpenJSCAD.org/commit/baaae18ad55252ec71b074bd85dea7d137a22eb8))
 
 # 2.0.0 (2021-10-25)
 
 ### Features
 
-* **obj-serializer:** create OBJ serializer (#515)
+- **obj-serializer:** create OBJ serializer (#515)
 
 **Note:** Version bump only for package @jscad/obj-serializer

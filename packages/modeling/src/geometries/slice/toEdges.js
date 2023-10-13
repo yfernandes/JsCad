@@ -9,12 +9,12 @@
  * let sharedEdges = toEdges(slice)
  */
 export const toEdges = (slice) => {
-  const edges = []
-  slice.contours.forEach((contour) => {
-    contour.forEach((vertex, i) => {
-      const next = contour[(i + 1) % contour.length]
-      edges.push([vertex, next])
-    })
-  })
-  return edges
-}
+	const edges = [];
+	slice.contours.forEach((contour) => {
+		contour.forEach((vertex, i) => {
+			const next = contour[(i + 1) % contour.length];
+			edges.push([vertex, next]);
+		});
+	});
+	return edges;
+};

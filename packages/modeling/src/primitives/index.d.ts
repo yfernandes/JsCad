@@ -1,21 +1,21 @@
-export { arc, ArcOptions } from './arc.js'
-export { circle, CircleOptions } from './circle.js'
-export { cube, CubeOptions } from './cube.js'
-export { cuboid, CuboidOptions } from './cuboid.js'
-export { cylinder, CylinderOptions } from './cylinder.js'
-export { cylinderElliptic, CylinderEllipticOptions } from './cylinderElliptic.js'
-export { ellipse, EllipseOptions } from './ellipse.js'
-export { ellipsoid, EllipsoidOptions } from './ellipsoid.js'
-export { geodesicSphere, GeodesicSphereOptions } from './geodesicSphere.js'
-export { line } from './line.js'
-export { polygon, PolygonOptions } from './polygon.js'
-export { polyhedron, PolyhedronOptions } from './polyhedron.js'
-export { rectangle, RectangleOptions } from './rectangle.js'
-export { roundedCuboid, RoundedCuboidOptions } from './roundedCuboid.js'
-export { roundedCylinder, RoundedCylinderOptions } from './roundedCylinder.js'
-export { roundedRectangle, RoundedRectangleOptions } from './roundedRectangle.js'
-export { sphere, SphereOptions } from './sphere.js'
-export { square, SquareOptions } from './square.js'
-export { star, StarOptions } from './star.js'
-export { torus, TorusOptions } from './torus.js'
-export { triangle, TriangleOptions } from './triangle.js'
+export {arc, ArcOptions} from "./arc.js";
+export {circle, CircleOptions} from "./circle.js";
+export {cube, CubeOptions} from "./cube.js";
+export {cuboid, CuboidOptions} from "./cuboid.js";
+export {cylinder, CylinderOptions} from "./cylinder.js";
+export {cylinderElliptic, CylinderEllipticOptions} from "./cylinderElliptic.js";
+export {ellipse, EllipseOptions} from "./ellipse.js";
+export {ellipsoid, EllipsoidOptions} from "./ellipsoid.js";
+export {geodesicSphere, GeodesicSphereOptions} from "./geodesicSphere.js";
+export {line} from "./line.js";
+export {polygon, PolygonOptions} from "./polygon.js";
+export {polyhedron, PolyhedronOptions} from "./polyhedron.js";
+export {rectangle, RectangleOptions} from "./rectangle.js";
+export {roundedCuboid, RoundedCuboidOptions} from "./roundedCuboid.js";
+export {roundedCylinder, RoundedCylinderOptions} from "./roundedCylinder.js";
+export {roundedRectangle, RoundedRectangleOptions} from "./roundedRectangle.js";
+export {sphere, SphereOptions} from "./sphere.js";
+export {square, SquareOptions} from "./square.js";
+export {star, StarOptions} from "./star.js";
+export {torus, TorusOptions} from "./torus.js";
+export {triangle, TriangleOptions} from "./triangle.js";

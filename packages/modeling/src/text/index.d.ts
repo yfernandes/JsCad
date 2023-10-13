@@ -1,2 +1,2 @@
-export { vectorChar, VectorChar, VectorCharOptions } from './vectorChar.js'
-export { vectorText, VectorText, VectorTextOptions } from './vectorText.js'
+export {vectorChar, VectorChar, VectorCharOptions} from "./vectorChar.js";
+export {vectorText, VectorText, VectorTextOptions} from "./vectorText.js";

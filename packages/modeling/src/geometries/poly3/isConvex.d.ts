@@ -1,3 +1,3 @@
-import type { Poly3 } from './type.d.ts'
+import type {Poly3} from "./type.d.ts";
 
-export function isConvex(polygon: Poly3): boolean
+export function isConvex(polygon: Poly3): boolean;

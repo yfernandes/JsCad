@@ -1,6 +1,6 @@
-import * as mat4 from '../../maths/mat4/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
 
-import { reverse } from './reverse.js'
+import {reverse} from "./reverse.js";
 
 /**
  * Transform the given geometry using the given matrix.
@@ -15,12 +15,12 @@ import { reverse } from './reverse.js'
  * let newGeometry = transform(fromZRotation(TAU / 4), geometry)
  */
 export const transform = (matrix, geometry) => {
-  const transforms = mat4.multiply(mat4.create(), matrix, geometry.transforms)
-  const transformed = Object.assign({}, geometry, { transforms })
-  // determine if the transform is mirroring in 2D
-  if (matrix[0] * matrix[5] - matrix[4] * matrix[1] < 0) {
-    // reverse the order to preserve the orientation
-    return reverse(transformed)
-  }
-  return transformed
-}
+	const transforms = mat4.multiply(mat4.create(), matrix, geometry.transforms);
+	const transformed = Object.assign({}, geometry, {transforms});
+	// determine if the transform is mirroring in 2D
+	if (matrix[0] * matrix[5] - matrix[4] * matrix[1] < 0) {
+		// reverse the order to preserve the orientation
+		return reverse(transformed);
+	}
+	return transformed;
+};

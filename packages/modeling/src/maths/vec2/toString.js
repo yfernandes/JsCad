@@ -5,4 +5,4 @@
  * @returns {string} string representation
  * @alias module:modeling/maths/vec2.toString
  */
-export const toString = (vector) => `[${vector[0].toFixed(7)}, ${vector[1].toFixed(7)}]`
+export const toString = (vector) => `[${vector[0].toFixed(7)}, ${vector[1].toFixed(7)}]`;

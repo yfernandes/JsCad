@@ -8,16 +8,16 @@
  * import { geometries } from '@jscad/modeling'
  * let myShape = geometries.geom2.create([ [[-1,-1], [1,-1], [1,1], [-1,1]] ])
  */
-export { clone } from './clone.js'
-export { create } from './create.js'
-export { fromSides } from './fromSides.js'
-export { fromCompactBinary } from './fromCompactBinary.js'
-export { isA } from './isA.js'
-export { reverse } from './reverse.js'
-export { toOutlines } from './toOutlines.js'
-export { toPoints } from './toPoints.js'
-export { toSides } from './toSides.js'
-export { toString } from './toString.js'
-export { toCompactBinary } from './toCompactBinary.js'
-export { transform } from './transform.js'
-export { validate } from './validate.js'
+export {clone} from "./clone.js";
+export {create} from "./create.js";
+export {fromSides} from "./fromSides.js";
+export {fromCompactBinary} from "./fromCompactBinary.js";
+export {isA} from "./isA.js";
+export {reverse} from "./reverse.js";
+export {toOutlines} from "./toOutlines.js";
+export {toPoints} from "./toPoints.js";
+export {toSides} from "./toSides.js";
+export {toString} from "./toString.js";
+export {toCompactBinary} from "./toCompactBinary.js";
+export {transform} from "./transform.js";
+export {validate} from "./validate.js";

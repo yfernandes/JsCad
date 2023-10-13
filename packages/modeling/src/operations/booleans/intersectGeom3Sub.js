@@ -1,8 +1,8 @@
-import * as geom3 from '../../geometries/geom3/index.js'
+import * as geom3 from "../../geometries/geom3/index.js";
 
-import { Tree } from './trees/index.js'
+import {Tree} from "./trees/index.js";
 
-import { mayOverlap } from './mayOverlap.js'
+import {mayOverlap} from "./mayOverlap.js";
 
 /*
  * Return a new 3D geometry representing the space in both the first geometry and
@@ -12,21 +12,21 @@ import { mayOverlap } from './mayOverlap.js'
  * @returns {Geom3} new 3D geometry
  */
 export const intersectGeom3Sub = (geometry1, geometry2) => {
-  if (!mayOverlap(geometry1, geometry2)) {
-    return geom3.create() // empty geometry
-  }
+	if (!mayOverlap(geometry1, geometry2)) {
+		return geom3.create(); // empty geometry
+	}
 
-  const a = new Tree(geom3.toPolygons(geometry1))
-  const b = new Tree(geom3.toPolygons(geometry2))
+	const a = new Tree(geom3.toPolygons(geometry1));
+	const b = new Tree(geom3.toPolygons(geometry2));
 
-  a.invert()
-  b.clipTo(a)
-  b.invert()
-  a.clipTo(b)
-  b.clipTo(a)
-  a.addPolygons(b.allPolygons())
-  a.invert()
+	a.invert();
+	b.clipTo(a);
+	b.invert();
+	a.clipTo(b);
+	b.clipTo(a);
+	a.addPolygons(b.allPolygons());
+	a.invert();
 
-  const newPolygons = a.allPolygons()
-  return geom3.create(newPolygons)
-}
+	const newPolygons = a.allPolygons();
+	return geom3.create(newPolygons);
+};

@@ -1,3 +1,3 @@
-import type { Mat4 } from './type.d.ts'
+import type {Mat4} from "./type.d.ts";
 
-export function isIdentity(matrix: Mat4): boolean
+export function isIdentity(matrix: Mat4): boolean;

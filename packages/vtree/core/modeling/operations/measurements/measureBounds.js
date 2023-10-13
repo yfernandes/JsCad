@@ -1,7 +1,7 @@
-const measureBounds = require('@jscad/modeling').measurements.measureBounds
+const measureBounds = require("@jscad/modeling").measurements.measureBounds;
 
-const cacheWithInvalidation = require('../../../cacheWithInvalidation')
-const cachedGenerator = require('../../../generators/geometry-generator-cached-csg')
+const cacheWithInvalidation = require("../../../cacheWithInvalidation");
+const cachedGenerator = require("../../../generators/geometry-generator-cached-csg");
 
 /**
  * Unlike most 'virtual' functions measurement of bounds pre-computes the needed geometric data
@@ -12,15 +12,15 @@ const cachedGenerator = require('../../../generators/geometry-generator-cached-c
  * @returns {Function} the actual function made for measuring bounds
  **/
 const makeMeasureBounds = (specials) => {
-  const _measureBounds = (solids) => {
-    // we create a preemptive cache
-    const cache = cacheWithInvalidation()
-    const operands = cachedGenerator([solids], cache)
-    const bounds = measureBounds(operands)
-    specials.push({ cache, result: bounds })
-    return bounds
-  }
-  return _measureBounds
-}
+	const _measureBounds = (solids) => {
+		// we create a preemptive cache
+		const cache = cacheWithInvalidation();
+		const operands = cachedGenerator([solids], cache);
+		const bounds = measureBounds(operands);
+		specials.push({cache, result: bounds});
+		return bounds;
+	};
+	return _measureBounds;
+};
 
-module.exports = makeMeasureBounds
+module.exports = makeMeasureBounds;

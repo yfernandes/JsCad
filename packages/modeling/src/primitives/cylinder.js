@@ -1,6 +1,6 @@
-import { cylinderElliptic } from './cylinderElliptic.js'
-import { isGTE } from './commonChecks.js'
-import * as geom3 from '../geometries/geom3/index.js'
+import {cylinderElliptic} from "./cylinderElliptic.js";
+import {isGTE} from "./commonChecks.js";
+import * as geom3 from "../geometries/geom3/index.js";
 
 /**
  * Construct a Z axis-aligned cylinder in three dimensional space.
@@ -17,26 +17,26 @@ import * as geom3 from '../geometries/geom3/index.js'
  * let myshape = cylinder({height: 2, radius: 10})
  */
 export const cylinder = (options) => {
-  const defaults = {
-    center: [0, 0, 0],
-    height: 2,
-    radius: 1,
-    segments: 32
-  }
-  const { center, height, radius, segments } = Object.assign({}, defaults, options)
+	const defaults = {
+		center: [0, 0, 0],
+		height: 2,
+		radius: 1,
+		segments: 32,
+	};
+	const {center, height, radius, segments} = Object.assign({}, defaults, options);
 
-  if (!isGTE(radius, 0)) throw new Error('radius must be positive')
+	if (!isGTE(radius, 0)) throw new Error("radius must be positive");
 
-  // if size is zero return empty geometry
-  if (height === 0 || radius === 0) return geom3.create()
+	// if size is zero return empty geometry
+	if (height === 0 || radius === 0) return geom3.create();
 
-  const newOptions = {
-    center,
-    height,
-    startRadius: [radius, radius],
-    endRadius: [radius, radius],
-    segments
-  }
+	const newOptions = {
+		center,
+		height,
+		startRadius: [radius, radius],
+		endRadius: [radius, radius],
+		segments,
+	};
 
-  return cylinderElliptic(newOptions)
-}
+	return cylinderElliptic(newOptions);
+};

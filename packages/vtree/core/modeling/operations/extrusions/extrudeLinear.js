@@ -1,8 +1,8 @@
-const { flatten } = require('@jscad/array-utils')
+const {flatten} = require("@jscad/array-utils");
 
 const extrudeLinear = (params, ...objects) => {
-  objects = flatten(objects)
-  return { children: objects, type: 'extrudeLinear', params }
-}
+	objects = flatten(objects);
+	return {children: objects, type: "extrudeLinear", params};
+};
 
-module.exports = extrudeLinear
+module.exports = extrudeLinear;

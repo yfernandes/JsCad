@@ -10,14 +10,16 @@ Oh! Don't forget that each language (file) needs a new entry, e.g. "chinese":"ä¸
 Translations are easy using BING translator, etc.
 
 Finally, the new language needs to be registered by changing the following files.
+
 ```
 src/index.js
 src/sideEffects/i18n/index.js
 ```
 
 Be sure to test the new language by running...
+
 ```
 npm run dev
 ```
-And opening the given URL.
 
+And opening the given URL.

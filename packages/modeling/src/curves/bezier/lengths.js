@@ -1,4 +1,4 @@
-import { valueAt } from './valueAt.js'
+import {valueAt} from "./valueAt.js";
 
 /**
  * Divides the bezier curve into line segments and returns the cumulative length of those segments as an array.
@@ -13,17 +13,17 @@ import { valueAt } from './valueAt.js'
  * @returns an array containing the cumulative length of the segments.
  */
 export const lengths = (segments, bezier) => {
-  let sum = 0
-  const lengths = [0]
-  let previous = valueAt(0, bezier)
-  for (let index = 1; index <= segments; index++) {
-    const current = valueAt(index / segments, bezier)
-    sum += distanceBetween(current, previous)
-    lengths.push(sum)
-    previous = current
-  }
-  return lengths
-}
+	let sum = 0;
+	const lengths = [0];
+	let previous = valueAt(0, bezier);
+	for (let index = 1; index <= segments; index++) {
+		const current = valueAt(index / segments, bezier);
+		sum += distanceBetween(current, previous);
+		lengths.push(sum);
+		previous = current;
+	}
+	return lengths;
+};
 
 /**
  * Calculates the Euclidean distance between two n-dimensional points.
@@ -37,18 +37,18 @@ export const lengths = (segments, bezier) => {
  * @returns {number} - distance.
  */
 const distanceBetween = (a, b) => {
-  if (Number.isFinite(a) && Number.isFinite(b)) {
-    return Math.abs(a - b)
-  } else if (Array.isArray(a) && Array.isArray(b)) {
-    if (a.length !== b.length) {
-      throw new Error('The operands must have the same number of dimensions.')
-    }
-    let sum = 0
-    for (let i = 0; i < a.length; i++) {
-      sum += (b[i] - a[i]) * (b[i] - a[i])
-    }
-    return Math.sqrt(sum)
-  } else {
-    throw new Error('The operands must be of the same type, either number or array.')
-  }
-}
+	if (Number.isFinite(a) && Number.isFinite(b)) {
+		return Math.abs(a - b);
+	} else if (Array.isArray(a) && Array.isArray(b)) {
+		if (a.length !== b.length) {
+			throw new Error("The operands must have the same number of dimensions.");
+		}
+		let sum = 0;
+		for (let i = 0; i < a.length; i++) {
+			sum += (b[i] - a[i]) * (b[i] - a[i]);
+		}
+		return Math.sqrt(sum);
+	} else {
+		throw new Error("The operands must be of the same type, either number or array.");
+	}
+};

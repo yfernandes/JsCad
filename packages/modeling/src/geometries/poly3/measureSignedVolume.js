@@ -1,4 +1,4 @@
-import * as vec3 from '../../maths/vec3/index.js'
+import * as vec3 from "../../maths/vec3/index.js";
 
 /**
  * Measure the signed volume of the given polygon, which must be convex.
@@ -10,14 +10,14 @@ import * as vec3 from '../../maths/vec3/index.js'
  * @alias module:modeling/geometries/poly3.measureSignedVolume
  */
 export const measureSignedVolume = (polygon) => {
-  let signedVolume = 0
-  const vertices = polygon.vertices
-  // calculate based on triangular polygons
-  const cross = vec3.create()
-  for (let i = 0; i < vertices.length - 2; i++) {
-    vec3.cross(cross, vertices[i + 1], vertices[i + 2])
-    signedVolume += vec3.dot(vertices[0], cross)
-  }
-  signedVolume /= 6
-  return signedVolume
-}
+	let signedVolume = 0;
+	const vertices = polygon.vertices;
+	// calculate based on triangular polygons
+	const cross = vec3.create();
+	for (let i = 0; i < vertices.length - 2; i++) {
+		vec3.cross(cross, vertices[i + 1], vertices[i + 2]);
+		signedVolume += vec3.dot(vertices[0], cross);
+	}
+	signedVolume /= 6;
+	return signedVolume;
+};

@@ -1,4 +1,4 @@
-import * as mat4 from '../../maths/mat4/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
 
 /**
  * Transform the given geometry using the given matrix.
@@ -13,6 +13,6 @@ import * as mat4 from '../../maths/mat4/index.js'
  * let newGeometry = transform(fromXRotation(TAU / 4), geometry)
  */
 export const transform = (matrix, geometry) => {
-  const transforms = mat4.multiply(mat4.create(), matrix, geometry.transforms)
-  return Object.assign({}, geometry, { transforms })
-}
+	const transforms = mat4.multiply(mat4.create(), matrix, geometry.transforms);
+	return Object.assign({}, geometry, {transforms});
+};

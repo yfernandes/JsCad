@@ -17,8 +17,8 @@
  * const polygon = create([[1, 0], [0, 1], [0, 0]])
  */
 export const create = (vertices) => {
-  if (vertices === undefined || vertices.length < 3) {
-    vertices = [] // empty contents
-  }
-  return { vertices }
-}
+	if (vertices === undefined || vertices.length < 3) {
+		vertices = []; // empty contents
+	}
+	return {vertices};
+};

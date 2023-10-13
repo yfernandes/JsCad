@@ -1,1 +1,1 @@
-export function fnNumberSort(a: number, b: number): number
+export function fnNumberSort(a: number, b: number): number;

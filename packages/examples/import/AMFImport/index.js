@@ -9,8 +9,8 @@
  */
 
 // Load the AMF files using require
-const rook = require('./Rook.amf')
+const rook = require("./Rook.amf");
 
-const main = () => rook
+const main = () => rook;
 
-module.exports = { main }
+module.exports = {main};

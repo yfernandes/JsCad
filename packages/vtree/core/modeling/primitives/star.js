@@ -1,1 +1,1 @@
-module.exports = (params) => Object.assign({}, params, { type: 'star' })
+module.exports = (params) => Object.assign({}, params, {type: "star"});

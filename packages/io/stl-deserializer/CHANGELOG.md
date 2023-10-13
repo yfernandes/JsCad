@@ -7,11 +7,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
 
 ## [2.1.22](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.1.21...@jscad/stl-deserializer@2.1.22) (2023-06-27)
 
@@ -105,25 +105,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **modeling:** rework math objects to conform with gl-matrix ([#804](https://github.com/jscad/OpenJSCAD.org/issues/804)) ([2e52f10](https://github.com/jscad/OpenJSCAD.org/commit/2e52f104e569f2bb7dd9e1be3d238f471f4d3dfa))
+- **modeling:** rework math objects to conform with gl-matrix ([#804](https://github.com/jscad/OpenJSCAD.org/issues/804)) ([2e52f10](https://github.com/jscad/OpenJSCAD.org/commit/2e52f104e569f2bb7dd9e1be3d238f471f4d3dfa))
 
 ## [2.0.2](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.0...@jscad/stl-deserializer@2.0.2) (2021-04-20)
 
 ### Bug Fixes
 
-* **all:** V2 : allow other file types to be loaded into the fake FS of the WEB UI ([#709](https://github.com/jscad/OpenJSCAD.org/issues/709)) ([1d4304a](https://github.com/jscad/OpenJSCAD.org/commit/1d4304ae6b42c51b0526cba369eab1806fe8f274))
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
-* **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
+- **all:** V2 : allow other file types to be loaded into the fake FS of the WEB UI ([#709](https://github.com/jscad/OpenJSCAD.org/issues/709)) ([1d4304a](https://github.com/jscad/OpenJSCAD.org/commit/1d4304ae6b42c51b0526cba369eab1806fe8f274))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
 
 ## [2.0.1](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.0...@jscad/stl-deserializer@2.0.1) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** V2 : allow other file types to be loaded into the fake FS of the WEB UI ([#709](https://github.com/jscad/OpenJSCAD.org/issues/709)) ([1d4304a](https://github.com/jscad/OpenJSCAD.org/commit/1d4304ae6b42c51b0526cba369eab1806fe8f274))
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
-* **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
+- **all:** V2 : allow other file types to be loaded into the fake FS of the WEB UI ([#709](https://github.com/jscad/OpenJSCAD.org/issues/709)) ([1d4304a](https://github.com/jscad/OpenJSCAD.org/commit/1d4304ae6b42c51b0526cba369eab1806fe8f274))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.12...@jscad/stl-deserializer@2.0.0) (2021-04-12)
 
@@ -133,7 +133,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
+- **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
 
 # [2.0.0-alpha.11](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.10...@jscad/stl-deserializer@2.0.0-alpha.11) (2021-02-07)
 
@@ -151,19 +151,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0-alpha.7](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.6...@jscad/stl-deserializer@2.0.0-alpha.7) (2020-10-24)
 
 ### Bug Fixes
 
-* **all:** V2 : allow other file types to be loaded into the fake FS of the WEB UI ([#709](https://github.com/jscad/OpenJSCAD.org/issues/709)) ([1d4304a](https://github.com/jscad/OpenJSCAD.org/commit/1d4304ae6b42c51b0526cba369eab1806fe8f274))
+- **all:** V2 : allow other file types to be loaded into the fake FS of the WEB UI ([#709](https://github.com/jscad/OpenJSCAD.org/issues/709)) ([1d4304a](https://github.com/jscad/OpenJSCAD.org/commit/1d4304ae6b42c51b0526cba369eab1806fe8f274))
 
 # [2.0.0-alpha.6](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.5...@jscad/stl-deserializer@2.0.0-alpha.6) (2020-10-11)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0-alpha.5](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/stl-deserializer@2.0.0-alpha.4...@jscad/stl-deserializer@2.0.0-alpha.5) (2020-09-29)
 
@@ -189,63 +189,73 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **stl-deserializer:** updated for V2 (#466)
-* **io:** change api to deserialize(options, source)
+- **stl-deserializer:** updated for V2 (#466)
+- **io:** change api to deserialize(options, source)
 
 <a name="0.3.3"></a>
+
 ## [0.3.3](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.3.2...@jscad/stl-deserializer@0.3.3) (2018-11-25)
 
 **Note:** Version bump only for package @jscad/stl-deserializer
 
 <a name="0.3.2"></a>
+
 ## [0.3.2](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.3.1...@jscad/stl-deserializer@0.3.2) (2018-09-02)
 
 ### Bug Fixes
 
-* **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
+- **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
 
 <a name="0.3.1"></a>
+
 ## [0.3.1](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.3.0...@jscad/stl-deserializer@0.3.1) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/stl-deserializer
 
 <a name="0.3.0"></a>
+
 # [0.3.0](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.2.0...@jscad/stl-deserializer@0.3.0) (2017-11-29)
 
 ### Features
 
-* add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
+- add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
 
 <a name="0.2.0"></a>
+
 # [0.2.0](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.1.2...@jscad/stl-deserializer@0.2.0) (2017-11-14)
 
 ### Features
 
-* **deserializers:** added csg output capabilities to amf & obj deserializers & basic tests ([#47](https://github.com/jscad/io/issues/47)) ([abf3040](https://github.com/jscad/io/commit/abf3040))
+- **deserializers:** added csg output capabilities to amf & obj deserializers & basic tests ([#47](https://github.com/jscad/io/issues/47)) ([abf3040](https://github.com/jscad/io/commit/abf3040))
 
 <a name="0.1.2"></a>
+
 ## [0.1.2](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.1.1...@jscad/stl-deserializer@0.1.2) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/stl-deserializer
 
 <a name="0.1.1"></a>
+
 ## [0.1.1](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.1.0...@jscad/stl-deserializer@0.1.1) (2017-10-30)
 
 **Note:** Version bump only for package @jscad/stl-deserializer
 
 <a name="0.1.0"></a>
+
 # [0.1.0](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.0.5...@jscad/stl-deserializer@0.1.0) (2017-10-15)
 
 ### Features
 
-* **stl-deserializer:** add ability to deserialize stl to csg ([#32](https://github.com/jscad/io/issues/32)) ([a90dcf4](https://github.com/jscad/io/commit/a90dcf4))
+- **stl-deserializer:** add ability to deserialize stl to csg ([#32](https://github.com/jscad/io/issues/32)) ([a90dcf4](https://github.com/jscad/io/commit/a90dcf4))
 
 <a name="0.0.5"></a>
+
 ## [0.0.5](https://github.com/jscad/io/compare/@jscad/stl-deserializer@0.0.4...@jscad/stl-deserializer@0.0.5) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/stl-deserializer
 
 <a name="0.0.4"></a>
+
 ## 0.0.4 (2017-10-10)
 
 **Note:** Version bump only for package @jscad/stl-deserializer

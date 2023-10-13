@@ -1,19 +1,19 @@
 // const writeOutput = require('./io/writeOutput')
-const { toArray } = require('@jscad/array-utils')
+const {toArray} = require("@jscad/array-utils");
 
-const makeBuildCachedGeometryFromTree = require('../core/buildCachedGeometryFromTree')
+const makeBuildCachedGeometryFromTree = require("../core/buildCachedGeometryFromTree");
 // const { runCompare } = require('./runCompare')
 // const { runBenchMark, spawnBenchMark } = require('./runBenchmark')
 
 // spawnBenchMark('user/run-optimised.js')
 // spawnBenchMark('user/run-vanilla.js')
 
-const buildCachedGeometryFromTree = makeBuildCachedGeometryFromTree()
-const vtree = require('./examples/caching-shape-measurements')()
-console.log('vtree', vtree)
-const result = buildCachedGeometryFromTree(undefined, vtree)
+const buildCachedGeometryFromTree = makeBuildCachedGeometryFromTree();
+const vtree = require("./examples/caching-shape-measurements")();
+console.log("vtree", vtree);
+const result = buildCachedGeometryFromTree(undefined, vtree);
 // result = vtree
-console.log('result', toArray(result)[0].polygons.length)
+console.log("result", toArray(result)[0].polygons.length);
 
 /* runCompare('./examples/logo')
 runCompare('./examples/basic')

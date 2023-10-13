@@ -6,5 +6,5 @@
  * @example
  * import { hull, hullChain } from '@jscad/modeling'
  */
-export { hull } from './hull.js'
-export { hullChain } from './hullChain.js'
+export {hull} from "./hull.js";
+export {hullChain} from "./hullChain.js";

@@ -1,19 +1,19 @@
-import test from 'ava'
+import test from "ava";
 
-import { TAU } from '../maths/constants.js'
+import {TAU} from "../maths/constants.js";
 
-import { degToRad } from './index.js'
+import {degToRad} from "./index.js";
 
-test('utils: degToRad() should return correct values', (t) => {
-  const obs1 = degToRad(0)
-  t.true(obs1 === 0)
+test("utils: degToRad() should return correct values", (t) => {
+	const obs1 = degToRad(0);
+	t.true(obs1 === 0);
 
-  const obs2 = degToRad(90)
-  t.true(obs2 === (TAU / 4))
+	const obs2 = degToRad(90);
+	t.true(obs2 === TAU / 4);
 
-  const obs3 = degToRad(180)
-  t.true(obs3 === (TAU / 2))
+	const obs3 = degToRad(180);
+	t.true(obs3 === TAU / 2);
 
-  const obs4 = degToRad(270)
-  t.true(obs4 === (TAU * 0.75))
-})
+	const obs4 = degToRad(270);
+	t.true(obs4 === TAU * 0.75);
+});

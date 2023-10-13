@@ -1,1 +1,1 @@
-export function degToRad(degrees: number): number
+export function degToRad(degrees: number): number;

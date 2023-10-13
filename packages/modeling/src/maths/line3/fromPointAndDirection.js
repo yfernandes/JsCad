@@ -1,4 +1,4 @@
-import * as vec3 from '../vec3/index.js'
+import * as vec3 from "../vec3/index.js";
 
 /**
  * Create a line from the given point (origin) and direction.
@@ -15,9 +15,9 @@ import * as vec3 from '../vec3/index.js'
  * @alias module:modeling/maths/line3.fromPointAndDirection
  */
 export const fromPointAndDirection = (out, point, direction) => {
-  const unit = vec3.normalize(vec3.create(), direction)
+	const unit = vec3.normalize(vec3.create(), direction);
 
-  vec3.copy(out[0], point)
-  vec3.copy(out[1], unit)
-  return out
-}
+	vec3.copy(out[0], point);
+	vec3.copy(out[1], unit);
+	return out;
+};

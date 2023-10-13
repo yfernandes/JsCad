@@ -8,7 +8,7 @@
  * @alias module:modeling/maths/vec2.add
  */
 export const add = (out, a, b) => {
-  out[0] = a[0] + b[0]
-  out[1] = a[1] + b[1]
-  return out
-}
+	out[0] = a[0] + b[0];
+	out[1] = a[1] + b[1];
+	return out;
+};

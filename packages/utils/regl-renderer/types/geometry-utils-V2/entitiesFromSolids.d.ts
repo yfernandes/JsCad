@@ -1,4 +1,4 @@
-import { Geom2, Geom3, Geometry } from '@jscad/modeling/src/geometries/types'
+import {Geom2, Geom3, Geometry} from "@jscad/modeling/src/geometries/types";
 
 export = entitiesFromSolids;
 /**
@@ -10,4 +10,7 @@ export = entitiesFromSolids;
  * @param {Boolean} [options.smoothNormals=true] - smooth the normals of 3d solids, rendering a smooth surface
  * @returns {Array} an array of renderable entities
  */
-declare function entitiesFromSolids(options: { color?: number[]; smoothNormals?: boolean }, ...solids:Geom2[] | Geom3[]): Geometry[];
+declare function entitiesFromSolids(
+	options: {color?: number[]; smoothNormals?: boolean},
+	...solids: Geom2[] | Geom3[]
+): Geometry[];

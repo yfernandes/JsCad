@@ -5,12 +5,12 @@
  * @alias module:modeling/geometries/geom3.isA
  */
 export const isA = (object) => {
-  if (object && typeof object === 'object') {
-    if ('polygons' in object && 'transforms' in object) {
-      if (Array.isArray(object.polygons) && 'length' in object.transforms) {
-        return true
-      }
-    }
-  }
-  return false
-}
+	if (object && typeof object === "object") {
+		if ("polygons" in object && "transforms" in object) {
+			if (Array.isArray(object.polygons) && "length" in object.transforms) {
+				return true;
+			}
+		}
+	}
+	return false;
+};

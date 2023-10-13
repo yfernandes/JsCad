@@ -1,4 +1,4 @@
-import { toOutlines } from './toOutlines.js'
+import {toOutlines} from "./toOutlines.js";
 
 /**
  * Produces an array of points from the given geometry.
@@ -12,11 +12,11 @@ import { toOutlines } from './toOutlines.js'
  * let sharedPoints = toPoints(geometry)
  */
 export const toPoints = (geometry) => {
-  const points = []
-  toOutlines(geometry).forEach((outline) => {
-    outline.forEach((point) => {
-      points.push(point)
-    })
-  })
-  return points
-}
+	const points = [];
+	toOutlines(geometry).forEach((outline) => {
+		outline.forEach((point) => {
+			points.push(point);
+		});
+	});
+	return points;
+};

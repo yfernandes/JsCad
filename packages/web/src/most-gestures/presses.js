@@ -1,52 +1,67 @@
-const { just, merge } = require('most')
-const { exists } = require('./utils')
+const {just, merge} = require("most");
+const {exists} = require("./utils");
 
 /* alternative "clicks" (ie mouseDown -> mouseUp ) implementation, with more fine grained control */
-const basePresses = ({ mouseDowns$, mouseUps$, mouseMoves$, touchStarts$, touchEnds$, touchMoves$ }, settings) => {
-  touchMoves$ = touchMoves$.filter((t) => t.touches.length === 1)
+const basePresses = (
+	{mouseDowns$, mouseUps$, mouseMoves$, touchStarts$, touchEnds$, touchMoves$},
+	settings
+) => {
+	touchMoves$ = touchMoves$.filter((t) => t.touches.length === 1);
 
-  const starts$ = merge(mouseDowns$, touchStarts$) // mouse & touch interactions starts
-  const ends$ = merge(mouseUps$, touchEnds$) // mouse & touch interactions ends
-  // only doing any "clicks if the time between mDOWN and mUP is below longpressDelay"
-  // any small mouseMove is ignored (shaky hands)
+	const starts$ = merge(mouseDowns$, touchStarts$); // mouse & touch interactions starts
+	const ends$ = merge(mouseUps$, touchEnds$); // mouse & touch interactions ends
+	// only doing any "clicks if the time between mDOWN and mUP is below longpressDelay"
+	// any small mouseMove is ignored (shaky hands)
 
-  return starts$.timestamp()
-    .flatMap((downEvent) => merge(just(downEvent), ends$.take(1).timestamp()))
-    .loop((acc, current) => {
-      let result
-      if (acc.length === 1) {
-        const timeDelta = current.time - acc[0].time
+	return starts$
+		.timestamp()
+		.flatMap((downEvent) => merge(just(downEvent), ends$.take(1).timestamp()))
+		.loop((acc, current) => {
+			let result;
+			if (acc.length === 1) {
+				const timeDelta = current.time - acc[0].time;
 
-        const curX = 'touches' in current.value ? current.value.changedTouches[0].pageX : current.value.pageX//* pixelRatio
-        const curY = 'touches' in current.value ? current.value.changedTouches[0].pageY : current.value.pageY//* pixelRatio
+				const curX =
+					"touches" in current.value ? current.value.changedTouches[0].pageX : current.value.pageX; //* pixelRatio
+				const curY =
+					"touches" in current.value ? current.value.changedTouches[0].pageY : current.value.pageY; //* pixelRatio
 
-        const prevX = 'touches' in acc[0].value ? acc[0].value.touches[0].pageX : acc[0].value.pageX
-        const prevY = 'touches' in acc[0].value ? acc[0].value.touches[0].pageY : acc[0].value.pageY
+				const prevX =
+					"touches" in acc[0].value ? acc[0].value.touches[0].pageX : acc[0].value.pageX;
+				const prevY =
+					"touches" in acc[0].value ? acc[0].value.touches[0].pageY : acc[0].value.pageY;
 
-        let delta = [curX - prevX, curY - prevY] // FIXME: duplicate of mouseDrags !
-        delta = delta[0] * delta[0] + delta[1] * delta[1] // squared distance
-        const moveDelta = {
-          x: prevX - curX,
-          y: curY - prevY,
-          sqrd: delta
-        }
+				let delta = [curX - prevX, curY - prevY]; // FIXME: duplicate of mouseDrags !
+				delta = delta[0] * delta[0] + delta[1] * delta[1]; // squared distance
+				const moveDelta = {
+					x: prevX - curX,
+					y: curY - prevY,
+					sqrd: delta,
+				};
 
-        result = { value: current.value, originalEvent: current.value, timeDelta, moveDelta, x: curX, y: curY }
-        acc = []
-      } else {
-        acc.push(current)
-      }
-      return { seed: acc, value: result }
-    }, [])
-    .filter(exists)
-    .filter((x) => x.value !== undefined)
-    .multicast()
-}
+				result = {
+					value: current.value,
+					originalEvent: current.value,
+					timeDelta,
+					moveDelta,
+					x: curX,
+					y: curY,
+				};
+				acc = [];
+			} else {
+				acc.push(current);
+			}
+			return {seed: acc, value: result};
+		}, [])
+		.filter(exists)
+		.filter((x) => x.value !== undefined)
+		.multicast();
+};
 
 const presses = (baseInteractions, settings) => {
-  const presses$ = basePresses(baseInteractions, settings)
+	const presses$ = basePresses(baseInteractions, settings);
 
-  /*
+	/*
   // exploring of more composition based system : much clearer, but needs work
 
   // Imagine map and filter are curried
@@ -76,7 +91,7 @@ const presses = (baseInteractions, settings) => {
 
   //const tapsByNumber = tapCount => compose(filterc(x => x.nb === tapCount), firstInList()) */
 
-  return presses$
-}
+	return presses$;
+};
 
-module.exports = { presses }
+module.exports = {presses};

@@ -1,3 +1,3 @@
-import type { Plane } from './type.d.ts'
+import type {Plane} from "./type.d.ts";
 
-export function clone(plane: Plane): Plane
+export function clone(plane: Plane): Plane;

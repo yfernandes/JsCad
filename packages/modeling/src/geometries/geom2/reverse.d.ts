@@ -1,3 +1,3 @@
-import type { Geom2 } from './type.d.ts'
+import type {Geom2} from "./type.d.ts";
 
-export function reverse(geometry: Geom2): Geom2
+export function reverse(geometry: Geom2): Geom2;

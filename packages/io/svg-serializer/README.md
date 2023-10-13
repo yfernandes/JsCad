@@ -23,6 +23,7 @@ This serializer outputs a 'blobable' array of data from one or more JSCAD geomet
 The array of data can either be used to create a Blob (`new Blob(blobable)`), or converted to a Node.js buffer.
 
 The serialization of the following geometries are possible.
+
 - serialization of 2D geometry (geom2) to continuous SVG paths, where the color (initial fill) is 'black' if not provided
 - serialization of 2D paths (path2) to individual SVG paths, where the color (initial stroke) is 'none' if not provided
 
@@ -44,13 +45,12 @@ npm install @jscad/svg-serializer
 ## Usage
 
 ```javascript
-const svgSerializer = require('@jscad/svg-serializer')
+const svgSerializer = require("@jscad/svg-serializer");
 
-const rawData = svgSerializer.serialize({unit: 'cm'}, object)
+const rawData = svgSerializer.serialize({unit: "cm"}, object);
 
 // within a browser (with browserify etc)
-const blob = new Blob(rawData)
-
+const blob = new Blob(rawData);
 ```
 
 ## Contributing
@@ -58,15 +58,15 @@ const blob = new Blob(rawData)
 The various JSCAD packages and all source code are part of the JSCAD Organization, and maintained by a group of volunteers.
 We welcome and encourage anyone to pitch in but please take a moment to read the following guidelines.
 
-* If you want to submit a bug report please make sure to follow the [Reporting Issues](https://github.com/jscad/OpenJSCAD.org/wiki/Reporting-Issues) guide. Bug reports are accepted as [Issues](https://github.com/jscad/OpenJSCAD.org/issues/) via GitHub.
+- If you want to submit a bug report please make sure to follow the [Reporting Issues](https://github.com/jscad/OpenJSCAD.org/wiki/Reporting-Issues) guide. Bug reports are accepted as [Issues](https://github.com/jscad/OpenJSCAD.org/issues/) via GitHub.
 
-* If you want to submit a change or a patch, please read the [Contributing Guide](../../CONTRIBUTING.md). New contributions are accepted as [Pull Requests](https://github.com/jscad/OpenJSCAD.org/pulls/) via GitHub.
+- If you want to submit a change or a patch, please read the [Contributing Guide](../../CONTRIBUTING.md). New contributions are accepted as [Pull Requests](https://github.com/jscad/OpenJSCAD.org/pulls/) via GitHub.
 
-* We only accept bug reports and pull requests on **GitHub**.
+- We only accept bug reports and pull requests on **GitHub**.
 
-* If you have a question about how to use JSCAD, then please start a conversation at the [JSCAD User Group](https://openjscad.xyz/forum.html). You might find the answer in the [JSCAD User Guide](https://openjscad.xyz/guide.html).
+- If you have a question about how to use JSCAD, then please start a conversation at the [JSCAD User Group](https://openjscad.xyz/forum.html). You might find the answer in the [JSCAD User Guide](https://openjscad.xyz/guide.html).
 
-* If you have a change or new feature in mind, please start a conversation with the [Core Developers](https://openjscad.xyz/forum.html) and start contributing changes.
+- If you have a change or new feature in mind, please start a conversation with the [Core Developers](https://openjscad.xyz/forum.html) and start contributing changes.
 
 Small Note: If editing this README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 

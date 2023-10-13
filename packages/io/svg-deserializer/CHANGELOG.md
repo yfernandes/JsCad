@@ -7,12 +7,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
-* **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
 
 ## [2.5.6](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.5.5...@jscad/svg-deserializer@2.5.6) (2023-06-27)
 
@@ -22,7 +22,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **svg-deserializer:** fix conversions of quadratic bezier paths ([2b62d76](https://github.com/jscad/OpenJSCAD.org/commit/2b62d762056aadca75006ac4b1eebd08bd7addaa))
+- **svg-deserializer:** fix conversions of quadratic bezier paths ([2b62d76](https://github.com/jscad/OpenJSCAD.org/commit/2b62d762056aadca75006ac4b1eebd08bd7addaa))
 
 ## [2.5.4](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.5.3...@jscad/svg-deserializer@2.5.4) (2022-11-26)
 
@@ -32,7 +32,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **svg-deserializer:** corrected logic to allow path start == end point ([#1142](https://github.com/jscad/OpenJSCAD.org/issues/1142)) ([c49b540](https://github.com/jscad/OpenJSCAD.org/commit/c49b5409aee76c956fd365a43b0b49fde3d0894b))
+- **svg-deserializer:** corrected logic to allow path start == end point ([#1142](https://github.com/jscad/OpenJSCAD.org/issues/1142)) ([c49b540](https://github.com/jscad/OpenJSCAD.org/commit/c49b5409aee76c956fd365a43b0b49fde3d0894b))
 
 ## [2.5.2](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.5.1...@jscad/svg-deserializer@2.5.2) (2022-08-21)
 
@@ -46,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **x3d-serializer:** enhanced to convert 2D geometry and path to X3D Polyline2D ([#1091](https://github.com/jscad/OpenJSCAD.org/issues/1091)) ([4f763a8](https://github.com/jscad/OpenJSCAD.org/commit/4f763a8def39f3b0454f2079f3c1fd7da52dd880))
+- **x3d-serializer:** enhanced to convert 2D geometry and path to X3D Polyline2D ([#1091](https://github.com/jscad/OpenJSCAD.org/issues/1091)) ([4f763a8](https://github.com/jscad/OpenJSCAD.org/commit/4f763a8def39f3b0454f2079f3c1fd7da52dd880))
 
 ## [2.4.12](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.4.11...@jscad/svg-deserializer@2.4.12) (2022-05-15)
 
@@ -100,17 +100,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **modeling:** corrected concat to ignore duplicate points ([#913](https://github.com/jscad/OpenJSCAD.org/issues/913))corrected appendArc to maintain last point ([3eea3ef](https://github.com/jscad/OpenJSCAD.org/commit/3eea3efed3b3d4bacb49c1ee4691bfc159b08261))
+- **modeling:** corrected concat to ignore duplicate points ([#913](https://github.com/jscad/OpenJSCAD.org/issues/913))corrected appendArc to maintain last point ([3eea3ef](https://github.com/jscad/OpenJSCAD.org/commit/3eea3efed3b3d4bacb49c1ee4691bfc159b08261))
 
 ### Features
 
-* **svg-deserializer:** reworked to use saxes library, and standard module layout ([56f5725](https://github.com/jscad/OpenJSCAD.org/commit/56f572518c85d767ac680aa2da1af46c4847e63c))
+- **svg-deserializer:** reworked to use saxes library, and standard module layout ([56f5725](https://github.com/jscad/OpenJSCAD.org/commit/56f572518c85d767ac680aa2da1af46c4847e63c))
 
 # [2.3.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.2.4...@jscad/svg-deserializer@2.3.0) (2021-09-09)
 
 ### Features
 
-* **svg-deserializer:** added pathSelfClosed option to control construction of overlapping paths ([043f59d](https://github.com/jscad/OpenJSCAD.org/commit/043f59d928fcf397b0bb23e744e35d7eda5be626))
+- **svg-deserializer:** added pathSelfClosed option to control construction of overlapping paths ([043f59d](https://github.com/jscad/OpenJSCAD.org/commit/043f59d928fcf397b0bb23e744e35d7eda5be626))
 
 ## [2.2.4](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.2.3...@jscad/svg-deserializer@2.2.4) (2021-06-20)
 
@@ -120,7 +120,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **svg-deserializer:** corrected conversion of stroke/fill to geometry color ([73f4d50](https://github.com/jscad/OpenJSCAD.org/commit/73f4d50e2622a9ba86fd5abc747778795391382b))
+- **svg-deserializer:** corrected conversion of stroke/fill to geometry color ([73f4d50](https://github.com/jscad/OpenJSCAD.org/commit/73f4d50e2622a9ba86fd5abc747778795391382b))
 
 ## [2.2.2](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.2.1...@jscad/svg-deserializer@2.2.2) (2021-06-01)
 
@@ -134,27 +134,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 ### Features
 
-* **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
-* **svg-deserializer:** add support for new segments option ([9bdc7f5](https://github.com/jscad/OpenJSCAD.org/commit/9bdc7f59dff8847c250c8c63a91babb1a69a03a6))
-* **svg-deserializer:** V2 - enhance SVG deserializer for mirror transforms ([#733](https://github.com/jscad/OpenJSCAD.org/issues/733)) ([a50b584](https://github.com/jscad/OpenJSCAD.org/commit/a50b5847645009a385636852398257b12c6b0949))
+- **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
+- **svg-deserializer:** add support for new segments option ([9bdc7f5](https://github.com/jscad/OpenJSCAD.org/commit/9bdc7f59dff8847c250c8c63a91babb1a69a03a6))
+- **svg-deserializer:** V2 - enhance SVG deserializer for mirror transforms ([#733](https://github.com/jscad/OpenJSCAD.org/issues/733)) ([a50b584](https://github.com/jscad/OpenJSCAD.org/commit/a50b5847645009a385636852398257b12c6b0949))
 
 # [2.1.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.0.0-alpha.0...@jscad/svg-deserializer@2.1.0) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 ### Features
 
-* **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
-* **svg-deserializer:** add support for new segments option ([9bdc7f5](https://github.com/jscad/OpenJSCAD.org/commit/9bdc7f59dff8847c250c8c63a91babb1a69a03a6))
-* **svg-deserializer:** V2 - enhance SVG deserializer for mirror transforms ([#733](https://github.com/jscad/OpenJSCAD.org/issues/733)) ([a50b584](https://github.com/jscad/OpenJSCAD.org/commit/a50b5847645009a385636852398257b12c6b0949))
+- **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
+- **svg-deserializer:** add support for new segments option ([9bdc7f5](https://github.com/jscad/OpenJSCAD.org/commit/9bdc7f59dff8847c250c8c63a91babb1a69a03a6))
+- **svg-deserializer:** V2 - enhance SVG deserializer for mirror transforms ([#733](https://github.com/jscad/OpenJSCAD.org/issues/733)) ([a50b584](https://github.com/jscad/OpenJSCAD.org/commit/a50b5847645009a385636852398257b12c6b0949))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.0.0-alpha.11...@jscad/svg-deserializer@2.0.0) (2021-04-12)
 
@@ -164,7 +164,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
+- **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
 
 # [2.0.0-alpha.10](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.0.0-alpha.9...@jscad/svg-deserializer@2.0.0-alpha.10) (2021-02-07)
 
@@ -178,19 +178,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **svg-deserializer:** V2 - enhance SVG deserializer for mirror transforms ([#733](https://github.com/jscad/OpenJSCAD.org/issues/733)) ([a50b584](https://github.com/jscad/OpenJSCAD.org/commit/a50b5847645009a385636852398257b12c6b0949))
+- **svg-deserializer:** V2 - enhance SVG deserializer for mirror transforms ([#733](https://github.com/jscad/OpenJSCAD.org/issues/733)) ([a50b584](https://github.com/jscad/OpenJSCAD.org/commit/a50b5847645009a385636852398257b12c6b0949))
 
 # [2.0.0-alpha.7](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/svg-deserializer@2.0.0-alpha.6...@jscad/svg-deserializer@2.0.0-alpha.7) (2020-11-07)
 
 ### Bug Fixes
 
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0-alpha.6](https://github.com/jscad/compare/@jscad/svg-deserializer@2.0.0-alpha.5...@jscad/svg-deserializer@2.0.0-alpha.6) (2020-10-11)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/issues/705)) ([62017a4](https://github.com/jscad/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/issues/705)) ([62017a4](https://github.com/jscad/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0-alpha.5](https://github.com/jscad/compare/@jscad/svg-deserializer@2.0.0-alpha.4...@jscad/svg-deserializer@2.0.0-alpha.5) (2020-09-29)
 
@@ -204,7 +204,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **svg-deserializer:** add support for new segments option ([9bdc7f5](https://github.com/jscad/commit/9bdc7f59dff8847c250c8c63a91babb1a69a03a6))
+- **svg-deserializer:** add support for new segments option ([9bdc7f5](https://github.com/jscad/commit/9bdc7f59dff8847c250c8c63a91babb1a69a03a6))
 
 # [2.0.0-alpha.2](https://github.com/jscad/compare/@jscad/svg-deserializer@2.0.0-alpha.1...@jscad/svg-deserializer@2.0.0-alpha.2) (2020-09-08)
 
@@ -218,71 +218,80 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **colors:** colorize is now immutable & returns new geometries ([#566](https://github.com/jscad/issues/566)) ([916824c](https://github.com/jscad/commit/916824c63a0bf8896d1b6f85a82b129a013bec58))
-* **svg-deserializer:** adds require / export to the translation & some minor fixes & tweaks([#524](https://github.com/jscad/issues/524)) ([5ee1509](https://github.com/jscad/commit/5ee15099552c2201259eaa1f4664cd83d761af4b))
-* **svg-deserializer:** corrected svg transforms while instantiating shapes
-* **svg-deserializer:** corrected conversion of shapes when target is geometry
+- **colors:** colorize is now immutable & returns new geometries ([#566](https://github.com/jscad/issues/566)) ([916824c](https://github.com/jscad/commit/916824c63a0bf8896d1b6f85a82b129a013bec58))
+- **svg-deserializer:** adds require / export to the translation & some minor fixes & tweaks([#524](https://github.com/jscad/issues/524)) ([5ee1509](https://github.com/jscad/commit/5ee15099552c2201259eaa1f4664cd83d761af4b))
+- **svg-deserializer:** corrected svg transforms while instantiating shapes
+- **svg-deserializer:** corrected conversion of shapes when target is geometry
 
 ### Features
 
-* **svg-deserializer:** overhaul for V2 (#463)
-* **io:** change api to deserialize(options, source)
+- **svg-deserializer:** overhaul for V2 (#463)
+- **io:** change api to deserialize(options, source)
 
 <a name="0.4.3"></a>
+
 ## [0.4.3](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.4.2...@jscad/svg-deserializer@0.4.3) (2018-11-25)
 
 **Note:** Version bump only for package @jscad/svg-deserializer
 
 <a name="0.4.2"></a>
+
 ## [0.4.2](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.4.1...@jscad/svg-deserializer@0.4.2) (2018-09-02)
 
 ### Bug Fixes
 
-* **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
+- **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
 
 <a name="0.4.1"></a>
+
 ## [0.4.1](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.4.0...@jscad/svg-deserializer@0.4.1) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/svg-deserializer
 
 <a name="0.4.0"></a>
+
 # [0.4.0](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.3.0...@jscad/svg-deserializer@0.4.0) (2017-11-29)
 
 ### Features
 
-* add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
+- add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
 
 <a name="0.3.0"></a>
+
 # [0.3.0](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.2.3...@jscad/svg-deserializer@0.3.0) (2017-11-14)
 
 ### Features
 
-* **deserializers:** added csg output capabilities to amf & obj deserializers & basic tests ([#47](https://github.com/jscad/io/issues/47)) ([abf3040](https://github.com/jscad/io/commit/abf3040))
+- **deserializers:** added csg output capabilities to amf & obj deserializers & basic tests ([#47](https://github.com/jscad/io/issues/47)) ([abf3040](https://github.com/jscad/io/commit/abf3040))
 
 <a name="0.2.3"></a>
+
 ## [0.2.3](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.2.2...@jscad/svg-deserializer@0.2.3) (2017-11-04)
 
 ### Bug Fixes
 
-* **svg transforms:** fixes weird new issue with undefined vs null transforms ([#46](https://github.com/jscad/io/issues/46)) ([4a47f00](https://github.com/jscad/io/commit/4a47f00))
+- **svg transforms:** fixes weird new issue with undefined vs null transforms ([#46](https://github.com/jscad/io/issues/46)) ([4a47f00](https://github.com/jscad/io/commit/4a47f00))
 
 <a name="0.2.2"></a>
+
 ## [0.2.2](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.2.1...@jscad/svg-deserializer@0.2.2) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/svg-deserializer
 
 <a name="0.2.1"></a>
+
 ## [0.2.1](https://github.com/jscad/io/compare/@jscad/svg-deserializer@0.2.0...@jscad/svg-deserializer@0.2.1) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/svg-deserializer
 
 <a name="0.2.0"></a>
+
 # 0.2.0 (2017-10-10)
 
 ### Bug Fixes
 
-* **svg-deserializer:** m/M commands can have implicit lineTo ([#20](https://github.com/jscad/io/issues/20)) ([969d0da](https://github.com/jscad/io/commit/969d0da))
+- **svg-deserializer:** m/M commands can have implicit lineTo ([#20](https://github.com/jscad/io/issues/20)) ([969d0da](https://github.com/jscad/io/commit/969d0da))
 
 ### Features
 
-* **svg-deserializer:** add ability to deserialize svg data to csg objects directly ([#25](https://github.com/jscad/io/issues/25)) ([cb0ce71](https://github.com/jscad/io/commit/cb0ce71))
+- **svg-deserializer:** add ability to deserialize svg data to csg objects directly ([#25](https://github.com/jscad/io/issues/25)) ([cb0ce71](https://github.com/jscad/io/commit/cb0ce71))

@@ -1,4 +1,4 @@
-import * as mat4 from '../../maths/mat4/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
 
 /**
  * Represents a 2D geometry consisting of outlines, where each outline is an ordered list of points.
@@ -21,6 +21,6 @@ import * as mat4 from '../../maths/mat4/index.js'
  * let myShape = create([ [[-1,-1], [1,-1], [1,1], [-1,1]] ])
  */
 export const create = (outlines = []) => ({
-  outlines,
-  transforms: mat4.create()
-})
+	outlines,
+	transforms: mat4.create(),
+});

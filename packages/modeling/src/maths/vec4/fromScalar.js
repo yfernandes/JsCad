@@ -7,9 +7,9 @@
  * @alias module:modeling/maths/vec4.fromScalar
  */
 export const fromScalar = (out, scalar) => {
-  out[0] = scalar
-  out[1] = scalar
-  out[2] = scalar
-  out[3] = scalar
-  return out
-}
+	out[0] = scalar;
+	out[1] = scalar;
+	out[2] = scalar;
+	out[3] = scalar;
+	return out;
+};

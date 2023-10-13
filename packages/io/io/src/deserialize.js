@@ -1,16 +1,16 @@
-import { deserializers } from './deserializers.js'
+import {deserializers} from "./deserializers.js";
 
 /*
  * Transform the source into ES6 javascript
  */
 
 // no transform required, just pass through the source
-const nullTransform = (options, source) => source
+const nullTransform = (options, source) => source;
 
 // TODO : how to transform CommonJS code?
 const transformers = {
-  'application/javascript': nullTransform
-}
+	"application/javascript": nullTransform,
+};
 
 /**
  * Deserialize the given source as per the given mimeType.
@@ -26,36 +26,36 @@ const transformers = {
  * const myobjects = deserialize({output: 'geometry', target: 'path2'}, mimetype, source)
  */
 export const deserialize = (options, mimeType, source) => {
-  // commonly used defaults from the deserializers
-  const defaults = {
-    addMetaData: true,
-    segments: 32
-  }
-  options = Object.assign({}, defaults, options)
+	// commonly used defaults from the deserializers
+	const defaults = {
+		addMetaData: true,
+		segments: 32,
+	};
+	options = Object.assign({}, defaults, options);
 
-  if (options.output) {
-    if (options.output === 'script') {
-      // transform souce code if possible
-      if (mimeType in transformers) {
-        const transformer = transformers[mimeType]
-        return transformer(options, source)
-      }
-      // deserialize know formats if possible
-      if (mimeType in deserializers) {
-        const deserializer = deserializers[mimeType]
-        return deserializer(options, source)
-      }
-      throw new Error(`Unknown mime type (${mimeType})`)
-    }
+	if (options.output) {
+		if (options.output === "script") {
+			// transform souce code if possible
+			if (mimeType in transformers) {
+				const transformer = transformers[mimeType];
+				return transformer(options, source);
+			}
+			// deserialize know formats if possible
+			if (mimeType in deserializers) {
+				const deserializer = deserializers[mimeType];
+				return deserializer(options, source);
+			}
+			throw new Error(`Unknown mime type (${mimeType})`);
+		}
 
-    if (options.output === 'geometry') {
-      // deserialize know formats if possible
-      if (mimeType in deserializers) {
-        const deserializer = deserializers[mimeType]
-        return deserializer(options, source)
-      }
-      throw new Error(`Unknown mime type (${mimeType})`)
-    }
-  }
-  throw new Error(`Unknown output option (${options.output}), only 'script' or 'geometry' allowed`)
-}
+		if (options.output === "geometry") {
+			// deserialize know formats if possible
+			if (mimeType in deserializers) {
+				const deserializer = deserializers[mimeType];
+				return deserializer(options, source);
+			}
+			throw new Error(`Unknown mime type (${mimeType})`);
+		}
+	}
+	throw new Error(`Unknown output option (${options.output}), only 'script' or 'geometry' allowed`);
+};

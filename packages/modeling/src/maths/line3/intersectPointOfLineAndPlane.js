@@ -1,4 +1,4 @@
-import * as vec3 from '../vec3/index.js'
+import * as vec3 from "../vec3/index.js";
 
 /**
  * Determine the closest point on the given plane to the given line.
@@ -12,15 +12,15 @@ import * as vec3 from '../vec3/index.js'
  * @alias module:modeling/maths/line3.intersectPointOfLineAndPlane
  */
 export const intersectPointOfLineAndPlane = (line, plane) => {
-  // plane: plane.normal * p = plane.w
-  const pNormal = plane
-  const pw = plane[3]
+	// plane: plane.normal * p = plane.w
+	const pNormal = plane;
+	const pw = plane[3];
 
-  const lPoint = line[0]
-  const lDirection = line[1]
+	const lPoint = line[0];
+	const lDirection = line[1];
 
-  // point: p = line.point + labda * line.direction
-  const labda = (pw - vec3.dot(pNormal, lPoint)) / vec3.dot(pNormal, lDirection)
+	// point: p = line.point + labda * line.direction
+	const labda = (pw - vec3.dot(pNormal, lPoint)) / vec3.dot(pNormal, lDirection);
 
-  return vec3.add(vec3.create(), lPoint, vec3.scale(vec3.create(), lDirection, labda))
-}
+	return vec3.add(vec3.create(), lPoint, vec3.scale(vec3.create(), lDirection, labda));
+};

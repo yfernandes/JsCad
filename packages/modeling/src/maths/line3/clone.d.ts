@@ -1,3 +1,3 @@
-import type { Line3 } from './type.d.ts'
+import type {Line3} from "./type.d.ts";
 
-export function clone(line: Line3): Line3
+export function clone(line: Line3): Line3;

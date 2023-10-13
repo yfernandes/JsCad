@@ -8,7 +8,7 @@
  * @alias module:modeling/maths/vec2.snap
  */
 export const snap = (out, vector, epsilon) => {
-  out[0] = Math.round(vector[0] / epsilon) * epsilon + 0
-  out[1] = Math.round(vector[1] / epsilon) * epsilon + 0
-  return out
-}
+	out[0] = Math.round(vector[0] / epsilon) * epsilon + 0;
+	out[1] = Math.round(vector[1] / epsilon) * epsilon + 0;
+	return out;
+};

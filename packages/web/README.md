@@ -32,7 +32,7 @@ This is the Web based UI for JSCAD, either to host yourself, or use directly at 
 
 ### Immediate Use (no installation)
 
-Go to *[openjscad.xyz](https://openjscad.xyz)*
+Go to _[openjscad.xyz](https://openjscad.xyz)_
 
 > Note: Tested browsers include Chrome, Firefox, Opera, Safari, Edge
 
@@ -48,7 +48,8 @@ cp ../examples ./examples // copy the examples here
 ```
 
 And then access the contents via the URL of the web-site.
-  * index.html for the standard version
+
+- index.html for the standard version
 
 > NOTE: You might need configuration changes to allow access to the some of the contents (examples etc).
 
@@ -59,13 +60,15 @@ from the web based user interface, but without the hassle with CORS issues,
 then you can use a proxy file (see [remote.pl](./remote.pl) & [remote.php](./remote.php)):
 
 This is a server side script that does the following
+
 - caches the remote file locally on the server
 - returns the local path to the downloaded file for local use by the web UI
 
 use and path of the proxy can be set by:
+
 - changing the `proxyUrl` value in [src/ui/index.js](src/ui/index.js)
 - since this is hardcoded , if you do not use the provided dev server,
- rebuild your main file (See [Contributing](#contributing))
+  rebuild your main file (See [Contributing](#contributing))
 
 then you can use it like so:
 
@@ -85,30 +88,31 @@ https://YOURSITE/#http://www.thingiverse.com/download:164128
 There are a few known issues, please be sure to check this out before submitting additional bug reports/issues.
 
 - Q: Attempting to use JSCAD from file:// in Chrome results in errors like
-"File Error: [EncodingError] Please check permissions error."
-- A: This is a permissions issue in Chrome :  restart chrome using the "--allow-file-access-from-files" option
+  "File Error: [EncodingError] Please check permissions error."
+- A: This is a permissions issue in Chrome : restart chrome using the "--allow-file-access-from-files" option
 
 ## Contributing
 
 The various JSCAD packages and all source code are part of the JSCAD Organization, and maintained by a group of volunteers.
 We welcome and encourage anyone to pitch in but please take a moment to read the following guidelines.
 
-* If you want to submit a bug report please make sure to follow the [Reporting Issues](https://github.com/jscad/OpenJSCAD.org/wiki/Reporting-Issues) guide. Bug reports are accepted as [Issues](https://github.com/jscad/OpenJSCAD.org/issues/) via GitHub.
+- If you want to submit a bug report please make sure to follow the [Reporting Issues](https://github.com/jscad/OpenJSCAD.org/wiki/Reporting-Issues) guide. Bug reports are accepted as [Issues](https://github.com/jscad/OpenJSCAD.org/issues/) via GitHub.
 
-* If you want to submit a change or a patch, please read the [Contributing Guide](../../CONTRIBUTING.md). New contributions are accepted as [Pull Requests](https://github.com/jscad/OpenJSCAD.org/pulls/) via GitHub.
+- If you want to submit a change or a patch, please read the [Contributing Guide](../../CONTRIBUTING.md). New contributions are accepted as [Pull Requests](https://github.com/jscad/OpenJSCAD.org/pulls/) via GitHub.
 
-* We only accept bug reports and pull requests on **GitHub**.
+- We only accept bug reports and pull requests on **GitHub**.
 
-* If you have a question about how to use JSCAD, then please start a conversation at the [JSCAD User Group](https://openjscad.xyz/forum.html). You might find the answer in the [JSCAD User Guide](https://openjscad.xyz/guide.html).
+- If you have a question about how to use JSCAD, then please start a conversation at the [JSCAD User Group](https://openjscad.xyz/forum.html). You might find the answer in the [JSCAD User Guide](https://openjscad.xyz/guide.html).
 
-* If you have a change or new feature in mind, please start a conversation with the [Core Developers](https://openjscad.xyz/forum.html) and start contributing changes.
+- If you have a change or new feature in mind, please start a conversation with the [Core Developers](https://openjscad.xyz/forum.html) and start contributing changes.
 
 Small Note: If editing this README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## Community
 
 See for more details
-* [JSCAD User Group](https://openjscad.xyz/forum.html)
+
+- [JSCAD User Group](https://openjscad.xyz/forum.html)
 
 HUGE THANKS and SHOUTOUT to [nodeBB](https://nodebb.org/) for hosting our (awesome) forum for free ! Thanks a lot !
 
@@ -137,4 +141,3 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 
 [The MIT License (MIT)](../../LICENSE)
 (unless specified otherwise)
-

@@ -1,10 +1,10 @@
-import { flatten, toArray } from '@jscad/array-utils'
-import { generalize, geom3, geom2, path2 } from '@jscad/modeling'
+import {flatten, toArray} from "@jscad/array-utils";
+import {generalize, geom3, geom2, path2} from "@jscad/modeling";
 
-import { dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects } from './autocad_AC2017.js'
-import { colorIndex } from './colorindex2017.js'
+import {dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects} from "./autocad_AC2017.js";
+import {colorIndex} from "./colorindex2017.js";
 
-const mimeType = 'image/vnd.dxf'
+const mimeType = "image/vnd.dxf";
 
 /**
  * Serializer of JSCAD geometries to DXF entities.
@@ -26,27 +26,27 @@ const mimeType = 'image/vnd.dxf'
  * const dxfData = serializer({geom3To: '3dface'}, geometry)
  */
 const serialize = (options, ...objects) => {
-  const defaults = {
-    geom2To: 'lwpolyline', // or polyline
-    geom3To: '3dface', // or polyline
-    pathTo: 'lwpolyline',
-    statusCallback: null,
-    colorIndex
-  }
-  options = Object.assign({}, defaults, options)
+	const defaults = {
+		geom2To: "lwpolyline", // or polyline
+		geom3To: "3dface", // or polyline
+		pathTo: "lwpolyline",
+		statusCallback: null,
+		colorIndex,
+	};
+	options = Object.assign({}, defaults, options);
 
-  options.entityId = 0 // sequence id for entities created
+	options.entityId = 0; // sequence id for entities created
 
-  objects = flatten(objects)
+	objects = flatten(objects);
 
-  objects = objects.filter((object) => geom3.isA(object) || geom2.isA(object) || path2.isA(object))
+	objects = objects.filter((object) => geom3.isA(object) || geom2.isA(object) || path2.isA(object));
 
-  if (objects.length === 0) throw new Error('only JSCAD geometries can be serialized to DXF')
+	if (objects.length === 0) throw new Error("only JSCAD geometries can be serialized to DXF");
 
-  // convert to triangles
-  objects = toArray(generalize({ snap: true, triangulate: true }, objects))
+	// convert to triangles
+	objects = toArray(generalize({snap: true, triangulate: true}, objects));
 
-  const dxfContent = `999
+	const dxfContent = `999
 Created by JSCAD
 ${dxfHeaders(options)}
 ${dxfClasses(options)}
@@ -56,9 +56,9 @@ ${dxfEntities(objects, options)}
 ${dxfObjects(options)}
   0
 EOF
-`
-  return [dxfContent]
-}
+`;
+	return [dxfContent];
+};
 
 /**
  * Serialize the given objects as a DXF entity section
@@ -67,47 +67,47 @@ EOF
  * @returns {Object} serialized contents, DXF format
  */
 const dxfEntities = (objects, options) => {
-  const entityContents = objects.map((object, i) => {
-    if (geom2.isA(object)) {
-      const color = object.color
-      const name = object.name
-      const outlines = geom2.toOutlines(object)
-      const paths = outlines.map((outline) => ({ closed: true, points: outline, color, name }))
-      if (options.geom2To === 'polyline') {
-        return PathsToPolyine(paths, options)
-      }
-      return PathsToLwpolyline(paths, options)
-    }
-    if (geom3.isA(object)) {
-      // TODO object = ensureManifoldness(object)
-      if (options.geom3To === 'polyline') {
-        return PolygonsToPolyline(object, options)
-      }
-      return PolygonsTo3DFaces(object, options)
-    }
-    if (path2.isA(object)) {
-      // mimic a path (outline) from geom2
-      const color = object.color
-      const name = object.name
-      const path = { closed: object.isClosed, points: path2.toPoints(object), color, name }
-      return PathsToLwpolyline([path], options)
-    }
-    return ''
-  })
-  let section = `  0
+	const entityContents = objects.map((object, i) => {
+		if (geom2.isA(object)) {
+			const color = object.color;
+			const name = object.name;
+			const outlines = geom2.toOutlines(object);
+			const paths = outlines.map((outline) => ({closed: true, points: outline, color, name}));
+			if (options.geom2To === "polyline") {
+				return PathsToPolyine(paths, options);
+			}
+			return PathsToLwpolyline(paths, options);
+		}
+		if (geom3.isA(object)) {
+			// TODO object = ensureManifoldness(object)
+			if (options.geom3To === "polyline") {
+				return PolygonsToPolyline(object, options);
+			}
+			return PolygonsTo3DFaces(object, options);
+		}
+		if (path2.isA(object)) {
+			// mimic a path (outline) from geom2
+			const color = object.color;
+			const name = object.name;
+			const path = {closed: object.isClosed, points: path2.toPoints(object), color, name};
+			return PathsToLwpolyline([path], options);
+		}
+		return "";
+	});
+	let section = `  0
 SECTION
   2
 ENTITIES
-`
-  entityContents.forEach((content) => {
-    if (content) {
-      section += content
-    }
-  })
-  section += `  0
-ENDSEC`
-  return section
-}
+`;
+	entityContents.forEach((content) => {
+		if (content) {
+			section += content;
+		}
+	});
+	section += `  0
+ENDSEC`;
+	return section;
+};
 
 //
 // convert the given paths (from 2D outlines) to DXF lwpolyline entities
@@ -120,12 +120,12 @@ ENDSEC`
 // 100 -
 //
 const PathsToLwpolyline = (paths, options) => {
-  options.statusCallback && options.statusCallback({ progress: 0 })
-  let str = ''
-  paths.forEach((path, i) => {
-    if (path.points.length < 1) return
-    const numpointsClosed = path.points.length + (path.closed ? 1 : 0)
-    str += `  0
+	options.statusCallback && options.statusCallback({progress: 0});
+	let str = "";
+	paths.forEach((path, i) => {
+		if (path.points.length < 1) return;
+		const numpointsClosed = path.points.length + (path.closed ? 1 : 0);
+		str += `  0
 LWPOLYLINE
   5
 ${getEntityId(options)}
@@ -144,34 +144,34 @@ AcDbPolyline
   90
 ${numpointsClosed}
   70
-${(path.closed ? 1 : 0)}
-`
-    for (let pointindex = 0; pointindex < numpointsClosed; pointindex++) {
-      let pointindexwrapped = pointindex
-      if (pointindexwrapped >= path.points.length) pointindexwrapped -= path.points.length
-      const point = path.points[pointindexwrapped]
-      str += `  10
+${path.closed ? 1 : 0}
+`;
+		for (let pointindex = 0; pointindex < numpointsClosed; pointindex++) {
+			let pointindexwrapped = pointindex;
+			if (pointindexwrapped >= path.points.length) pointindexwrapped -= path.points.length;
+			const point = path.points[pointindexwrapped];
+			str += `  10
 ${point[0]}
   20
 ${point[1]}
-`
-    }
-    options.statusCallback && options.statusCallback({ progress: 100 * i / paths.length })
-  })
-  options.statusCallback && options.statusCallback({ progress: 100 })
-  return [str]
-}
+`;
+		}
+		options.statusCallback && options.statusCallback({progress: (100 * i) / paths.length});
+	});
+	options.statusCallback && options.statusCallback({progress: 100});
+	return [str];
+};
 
 //
 // convert the given paths (from outlines) to DXF polyline (2D line) entities
 // @return array of strings
 //
 const PathsToPolyine = (paths, options) => {
-  options.statusCallback && options.statusCallback({ progress: 0 })
-  let str = ''
-  paths.forEach((path, i) => {
-    const numpointsClosed = path.points.length + (path.closed ? 1 : 0)
-    str += `  0
+	options.statusCallback && options.statusCallback({progress: 0});
+	let str = "";
+	paths.forEach((path, i) => {
+		const numpointsClosed = path.points.length + (path.closed ? 1 : 0);
+		str += `  0
 POLYLINE
   5
 ${getEntityId(options)}
@@ -185,12 +185,12 @@ ${getName(path, options)}
 ${getColorNumber(path, options)}
   100
 AcDb2dPolyline
-`
-    for (let pointindex = 0; pointindex < numpointsClosed; pointindex++) {
-      let pointindexwrapped = pointindex
-      if (pointindexwrapped >= path.points.length) pointindexwrapped -= path.points.length
-      const point = path.points[pointindexwrapped]
-      str += `  0
+`;
+		for (let pointindex = 0; pointindex < numpointsClosed; pointindex++) {
+			let pointindexwrapped = pointindex;
+			if (pointindexwrapped >= path.points.length) pointindexwrapped -= path.points.length;
+			const point = path.points[pointindexwrapped];
+			str += `  0
 VERTEX
   5
 ${getEntityId(options)}
@@ -206,66 +206,66 @@ AcDb2dVertex
 ${point[0]}
  20
 ${point[1]}
-`
-    }
-    str += `  0
+`;
+		}
+		str += `  0
 SEQEND
   5
 ${getEntityId(options)}
   100
 AcDbEntity
-`
-    options.statusCallback && options.statusCallback({ progress: 100 * i / paths.length })
-  })
-  options.statusCallback && options.statusCallback({ progress: 100 })
-  return [str]
-}
+`;
+		options.statusCallback && options.statusCallback({progress: (100 * i) / paths.length});
+	});
+	options.statusCallback && options.statusCallback({progress: 100});
+	return [str];
+};
 
 //
 // convert the given object (geom3) to DXF 3D face entities
 // @return array of strings
 //
 const PolygonsTo3DFaces = (object, options) => {
-  options.statusCallback && options.statusCallback({ progress: 0 })
-  let str = ''
-  const polygons = geom3.toPolygons(object)
-  const objectColor = getColorNumber(object, options)
-  polygons.forEach((polygon, i) => {
-    const polyColor = polygon.color ? getColorNumber(polygon, options) : objectColor
-    const triangles = polygonToTriangles(polygon)
-    triangles.forEach((triangle, i) => {
-      str += triangleTo3DFaces(triangle, options, polyColor)
-    })
-  })
-  options.statusCallback && options.statusCallback({ progress: 100 })
-  return [str]
-}
+	options.statusCallback && options.statusCallback({progress: 0});
+	let str = "";
+	const polygons = geom3.toPolygons(object);
+	const objectColor = getColorNumber(object, options);
+	polygons.forEach((polygon, i) => {
+		const polyColor = polygon.color ? getColorNumber(polygon, options) : objectColor;
+		const triangles = polygonToTriangles(polygon);
+		triangles.forEach((triangle, i) => {
+			str += triangleTo3DFaces(triangle, options, polyColor);
+		});
+	});
+	options.statusCallback && options.statusCallback({progress: 100});
+	return [str];
+};
 
 //
 // convert the given polygon to triangles
 //
 // NOTE: This only works for CONVEX polygons
 const polygonToTriangles = (polygon) => {
-  const length = polygon.vertices.length - 2
-  if (length < 1) return []
+	const length = polygon.vertices.length - 2;
+	if (length < 1) return [];
 
-  const pivot = polygon.vertices[0]
-  const triangles = []
-  for (let i = 0; i < length; i++) {
-    triangles.push([pivot, polygon.vertices[i + 1], polygon.vertices[i + 2]])
-  }
-  return triangles
-}
+	const pivot = polygon.vertices[0];
+	const triangles = [];
+	for (let i = 0; i < length; i++) {
+		triangles.push([pivot, polygon.vertices[i + 1], polygon.vertices[i + 2]]);
+	}
+	return triangles;
+};
 
 //
 // convert the given triangle to DXF 3D face entity
 //
 const triangleTo3DFaces = (triangle, options, color) => {
-  const corner10 = triangle[0]
-  const corner11 = triangle[1]
-  const corner12 = triangle[2]
-  const corner13 = triangle[2] // same in DXF
-  const str = `  0
+	const corner10 = triangle[0];
+	const corner11 = triangle[1];
+	const corner12 = triangle[2];
+	const corner13 = triangle[2]; // same in DXF
+	const str = `  0
 3DFACE
   5
 ${getEntityId(options)}
@@ -303,18 +303,18 @@ ${corner13[0]}
 ${corner13[1]}
   33
 ${corner13[2]}
-`
-  return str
-}
+`;
+	return str;
+};
 
 // convert the given object (geom3) to DXF POLYLINE (polyface mesh)
 // FIXME The entity types are wrong, resulting in imterpretation as a 3D lines, not faces
 // @return array of strings
 const PolygonsToPolyline = (object, options) => {
-  let str = ''
-  const mesh = polygons2polyfaces(geom3.toPolygons(object))
-  if (mesh.faces.length > 0) {
-    str += `  0
+	let str = "";
+	const mesh = polygons2polyfaces(geom3.toPolygons(object));
+	if (mesh.faces.length > 0) {
+		str += `  0
 POLYLINE
   5
 ${getEntityId(options)}
@@ -334,9 +334,9 @@ AcDb3dPolyline
 ${mesh.vertices.length}
   72
 ${mesh.faces.length}
-`
-    mesh.vertices.forEach((vertex) => {
-      str += `  0
+`;
+		mesh.vertices.forEach((vertex) => {
+			str += `  0
 VERTEX
   5
 ${getEntityId(options)}
@@ -356,10 +356,10 @@ ${vertex[1]}
 ${vertex[2]}
   70
 192
-`
-    })
-    mesh.faces.forEach((face) => {
-      str += `  0
+`;
+		});
+		mesh.faces.forEach((face) => {
+			str += `  0
 VERTEX
   5
 ${getEntityId(options)}
@@ -387,70 +387,69 @@ ${face[1]}
 ${face[2]}
   74
 ${face[3]}
-`
-    })
-  }
-  return [str]
-}
+`;
+		});
+	}
+	return [str];
+};
 
 // convert the given polygons to polyfaces (DXF)
 // @return array of faces, array of vertices
 const polygons2polyfaces = (polygons) => {
-  const faces = []
-  const vertices = []
-  for (let i = 0; i < polygons.length; ++i) {
-    const polygon = polygons[i]
-    const face = []
-    for (let j = 0; j < polygon.vertices.length; ++j) {
-      const vv = polygon.vertices[j]
-      vertices.push([vv[0], vv[1], vv[2]])
-      face.push(vertices.length)
-    }
-    while (face.length < 4) { face.push(0) }
-    faces.push(face)
-  }
-  return { faces: faces, vertices: vertices }
-}
+	const faces = [];
+	const vertices = [];
+	for (let i = 0; i < polygons.length; ++i) {
+		const polygon = polygons[i];
+		const face = [];
+		for (let j = 0; j < polygon.vertices.length; ++j) {
+			const vv = polygon.vertices[j];
+			vertices.push([vv[0], vv[1], vv[2]]);
+			face.push(vertices.length);
+		}
+		while (face.length < 4) {
+			face.push(0);
+		}
+		faces.push(face);
+	}
+	return {faces: faces, vertices: vertices};
+};
 
 // get a unique id for a DXF entity
 // @return unique id string
 const getEntityId = (options) => {
-  options.entityId++
-  // add more zeros if the id needs to be larger
-  const padded = '00000' + options.entityId.toString(16).toUpperCase()
-  return 'CAD' + padded.substr(padded.length - 5)
-}
+	options.entityId++;
+	// add more zeros if the id needs to be larger
+	const padded = "00000" + options.entityId.toString(16).toUpperCase();
+	return "CAD" + padded.substr(padded.length - 5);
+};
 
 const getName = (object, options) => {
-  if (object.name) return object.name
-  // add more zeros if the id needs to be larger
-  const padded = '00000' + options.entityId.toString(16).toUpperCase()
-  return 'CAD' + padded.substr(padded.length - 5)
-}
+	if (object.name) return object.name;
+	// add more zeros if the id needs to be larger
+	const padded = "00000" + options.entityId.toString(16).toUpperCase();
+	return "CAD" + padded.substr(padded.length - 5);
+};
 
 const getColorNumber = (object, options) => {
-  let colorNumber = 256
-  if (object.color) {
-    const r = Math.floor(object.color[0] * 255)
-    const g = Math.floor(object.color[1] * 255)
-    const b = Math.floor(object.color[2] * 255)
-    // find the closest Autocad color number
-    const index = options.colorIndex
-    let closest = 255 + 255 + 255
-    for (let i = 1; i < index.length; i++) {
-      const rgb = index[i]
-      const diff = Math.abs(r - rgb[0]) + Math.abs(g - rgb[1]) + Math.abs(b - rgb[2])
-      if (diff < closest) {
-        colorNumber = i
-        if (diff === 0) break
-        closest = diff
-      }
-    }
-  }
-  return colorNumber
-}
+	let colorNumber = 256;
+	if (object.color) {
+		const r = Math.floor(object.color[0] * 255);
+		const g = Math.floor(object.color[1] * 255);
+		const b = Math.floor(object.color[2] * 255);
+		// find the closest Autocad color number
+		const index = options.colorIndex;
+		let closest = 255 + 255 + 255;
+		for (let i = 1; i < index.length; i++) {
+			const rgb = index[i];
+			const diff = Math.abs(r - rgb[0]) + Math.abs(g - rgb[1]) + Math.abs(b - rgb[2]);
+			if (diff < closest) {
+				colorNumber = i;
+				if (diff === 0) break;
+				closest = diff;
+			}
+		}
+	}
+	return colorNumber;
+};
 
-export {
-  mimeType,
-  serialize
-}
+export {mimeType, serialize};

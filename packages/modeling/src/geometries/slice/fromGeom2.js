@@ -1,7 +1,7 @@
-import * as vec3 from '../../maths/vec3/index.js'
-import { toOutlines } from '../geom2/index.js'
+import * as vec3 from "../../maths/vec3/index.js";
+import {toOutlines} from "../geom2/index.js";
 
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Create a slice from a geom2.
@@ -11,7 +11,9 @@ import { create } from './create.js'
  * @alias module:modeling/geometries/slice.fromGeom2
  */
 export const fromGeom2 = (geometry) => {
-  // Convert from 2D points to 3D vertices
-  const contours = toOutlines(geometry).map((outline) => outline.map((point) => vec3.fromVec2(vec3.create(), point)))
-  return create(contours)
-}
+	// Convert from 2D points to 3D vertices
+	const contours = toOutlines(geometry).map((outline) =>
+		outline.map((point) => vec3.fromVec2(vec3.create(), point))
+	);
+	return create(contours);
+};

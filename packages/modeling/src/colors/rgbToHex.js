@@ -1,4 +1,4 @@
-import { flatten } from '../utils/flatten.js'
+import {flatten} from "../utils/flatten.js";
 
 /**
  * Convert the given RGB color values to CSS color notation (string)
@@ -8,18 +8,20 @@ import { flatten } from '../utils/flatten.js'
  * @alias module:modeling/colors.rgbToHex
  */
 export const rgbToHex = (...values) => {
-  values = flatten(values)
-  if (values.length < 3) throw new Error('values must contain R, G and B values')
+	values = flatten(values);
+	if (values.length < 3) throw new Error("values must contain R, G and B values");
 
-  const r = values[0] * 255
-  const g = values[1] * 255
-  const b = values[2] * 255
+	const r = values[0] * 255;
+	const g = values[1] * 255;
+	const b = values[2] * 255;
 
-  let s = `#${Number(0x1000000 + r * 0x10000 + g * 0x100 + b).toString(16).substring(1, 7)}`
+	let s = `#${Number(0x1000000 + r * 0x10000 + g * 0x100 + b)
+		.toString(16)
+		.substring(1, 7)}`;
 
-  if (values.length > 3) {
-    // convert alpha to opacity
-    s = s + Number(values[3] * 255).toString(16)
-  }
-  return s
-}
+	if (values.length > 3) {
+		// convert alpha to opacity
+		s = s + Number(values[3] * 255).toString(16);
+	}
+	return s;
+};

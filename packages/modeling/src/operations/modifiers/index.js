@@ -5,6 +5,6 @@
  * @example
  * import { generalize, snap } from '@jscad/modeling'
  */
-export { generalize } from './generalize.js'
-export { snap } from './snap.js'
-export { retessellate } from './retessellate.js'
+export {generalize} from "./generalize.js";
+export {snap} from "./snap.js";
+export {retessellate} from "./retessellate.js";

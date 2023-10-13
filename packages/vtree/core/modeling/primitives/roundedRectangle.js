@@ -1,1 +1,1 @@
-module.exports = (params) => Object.assign({}, params, { type: 'roundedRectangle' })
+module.exports = (params) => Object.assign({}, params, {type: "roundedRectangle"});

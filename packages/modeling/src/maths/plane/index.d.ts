@@ -1,15 +1,15 @@
-export { clone } from './clone.js'
-export { copy } from './copy.js'
-export { create } from './create.js'
-export { equals } from './equals.js'
-export { flip } from './flip.js'
-export { fromNormalAndPoint } from './fromNormalAndPoint.js'
-export { fromValues } from './fromValues.js'
-export { fromPoints } from './fromPoints.js'
-export { fromPointsRandom } from './fromPointsRandom.js'
-export { signedDistanceToPoint } from './signedDistanceToPoint.js'
-export { projectionOfPoint } from './projectionOfPoint.js'
-export { toString } from './toString.js'
-export { transform } from './transform.js'
+export {clone} from "./clone.js";
+export {copy} from "./copy.js";
+export {create} from "./create.js";
+export {equals} from "./equals.js";
+export {flip} from "./flip.js";
+export {fromNormalAndPoint} from "./fromNormalAndPoint.js";
+export {fromValues} from "./fromValues.js";
+export {fromPoints} from "./fromPoints.js";
+export {fromPointsRandom} from "./fromPointsRandom.js";
+export {signedDistanceToPoint} from "./signedDistanceToPoint.js";
+export {projectionOfPoint} from "./projectionOfPoint.js";
+export {toString} from "./toString.js";
+export {transform} from "./transform.js";
 
-export type { Plane } from './type.d.ts'
+export type {Plane} from "./type.d.ts";

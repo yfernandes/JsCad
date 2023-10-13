@@ -1,8 +1,8 @@
-import { TAU } from '../maths/constants.js'
+import {TAU} from "../maths/constants.js";
 
-import { ellipse } from './ellipse.js'
+import {ellipse} from "./ellipse.js";
 
-import { isGTE } from './commonChecks.js'
+import {isGTE} from "./commonChecks.js";
 
 /**
  * Construct a circle in two dimensional space where all points are at the same distance from the center.
@@ -19,18 +19,18 @@ import { isGTE } from './commonChecks.js'
  * let myshape = circle({radius: 10})
  */
 export const circle = (options) => {
-  const defaults = {
-    center: [0, 0],
-    radius: 1,
-    startAngle: 0,
-    endAngle: TAU,
-    segments: 32
-  }
-  let { center, radius, startAngle, endAngle, segments } = Object.assign({}, defaults, options)
+	const defaults = {
+		center: [0, 0],
+		radius: 1,
+		startAngle: 0,
+		endAngle: TAU,
+		segments: 32,
+	};
+	let {center, radius, startAngle, endAngle, segments} = Object.assign({}, defaults, options);
 
-  if (!isGTE(radius, 0)) throw new Error('radius must be positive')
+	if (!isGTE(radius, 0)) throw new Error("radius must be positive");
 
-  radius = [radius, radius]
+	radius = [radius, radius];
 
-  return ellipse({ center, radius, startAngle, endAngle, segments })
-}
+	return ellipse({center, radius, startAngle, endAngle, segments});
+};

@@ -22,7 +22,7 @@ void main() {
   vec4 glPosition = projection * view * model * vec4(position, 1);
   gl_Position = glPosition;
 }
-`
+`;
 
 const frag = `
 precision mediump float;
@@ -31,5 +31,5 @@ varying vec4 vColor;
 void main () {
   gl_FragColor = vColor;
 }
-`
-export { frag, vert }
+`;
+export {frag, vert};

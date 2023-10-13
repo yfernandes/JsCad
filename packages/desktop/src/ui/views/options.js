@@ -1,13 +1,17 @@
-const html = require('bel')
+const html = require("bel");
 
-module.exports = function options (state, i18n) {
-  const languages = state.availableLanguages.map((language) => {
-    const selected = state.locale === language.code
-    return html`<option value='${language.code}' selected=${selected}>${i18n.translate(language.fullName)}</option>`
-  })
-  const shortcuts = require('./shortcuts')(state, i18n)
-  return html`
-<section id='options' style='visibility:${state.showOptions ? 'visible' : 'hidden'}; color:${state.themeSettings.secondaryTextColor}'>   
+module.exports = function options(state, i18n) {
+	const languages = state.availableLanguages.map((language) => {
+		const selected = state.locale === language.code;
+		return html`<option value="${language.code}" selected=${selected}>
+			${i18n.translate(language.fullName)}
+		</option>`;
+	});
+	const shortcuts = require("./shortcuts")(state, i18n);
+	return html`
+<section id='options' style='visibility:${state.showOptions ? "visible" : "hidden"}; color:${
+		state.themeSettings.secondaryTextColor
+	}'>   
   <br>
   <fieldset>
     <legend> <h3> ${i18n`language`}</legend>
@@ -19,8 +23,8 @@ module.exports = function options (state, i18n) {
   <fieldset>
     <legend> <h3> ${i18n`theme`} </h3> </legend>
     <select id='themeSwitcher'>
-      <option value='dark' selected=${state.themeName === 'dark'}>dark</option>
-      <option value='light' selected=${state.themeName === 'light'}>light</option>
+      <option value='dark' selected=${state.themeName === "dark"}>dark</option>
+      <option value='light' selected=${state.themeName === "light"}>light</option>
     </select>
   </fieldset>
 
@@ -30,7 +34,9 @@ module.exports = function options (state, i18n) {
       <input id='toggleVtreeMode' type='checkbox' checked=${state.design.vtreeMode}/>
     </label>
     <label>${i18n`timeout for solids generation`}
-      <input id='solidsTimeout' type='number' min=0 max=200000 value=${state.solidsTimeOut} disabled />
+      <input id='solidsTimeout' type='number' min=0 max=200000 value=${
+				state.solidsTimeOut
+			} disabled />
     </label>
   </fieldset>
 
@@ -51,5 +57,5 @@ module.exports = function options (state, i18n) {
       </label>
     </fieldset>
     ${shortcuts}
-</section>`
-}
+</section>`;
+};

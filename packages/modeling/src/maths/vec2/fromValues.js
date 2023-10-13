@@ -1,4 +1,4 @@
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Creates a new vector initialized with the given values.
@@ -9,8 +9,8 @@ import { create } from './create.js'
  * @alias module:modeling/maths/vec2.fromValues
  */
 export const fromValues = (x, y) => {
-  const out = create()
-  out[0] = x
-  out[1] = y
-  return out
-}
+	const out = create();
+	out[0] = x;
+	out[1] = y;
+	return out;
+};

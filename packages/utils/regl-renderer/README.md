@@ -18,20 +18,22 @@
 <a href="https://opencollective.com/openjscad"><img src="https://opencollective.com/openjscad/donate/button.png?color=blue" alt="Open Collective"></a>
 
 ## What is it?
+
 - webgl renderer (barebones, uses regl)
 - small, compact, and fast
 - works in all browsers
 - works in Node.js projects (headless rendering to PNG images)
 
-
 ## Installation
 
 This package is published and available for download via [NPM](https://www.npmjs.com/org/jscad)
+
 ```
 npm install @jscad/regl-renderer
 ```
 
 In addition this package is hosted at [UNPKG](https://unpkg.com/), and can be imported directly into webpages.
+
 ```
   <script type="module" id="MODELING">
 import { cameras, commands, controls, entitiesFromSolids, prepareRender } from "./dist/jscad-regl-renderer.es.js"
@@ -52,7 +54,7 @@ NOTE: There are issues with continous integration testing, so 'gl' is not instal
 pnpm install gl
 ```
 
-Try the demo by running ```pnpm run demo-cli```.
+Try the demo by running `pnpm run demo-cli`.
 
 If all goes well you should end up with an image (test.png) that renders the demo design.
 
@@ -67,7 +69,7 @@ NOTE: 'demo.es.html' cannot be opened from the local file system. This is due to
 
 ### Developers
 
-Run the development web server using ```pnpm run dev```, then open the URL shown using any browser.
+Run the development web server using `pnpm run dev`, then open the URL shown using any browser.
 From the index of files, select 'demo.es.html'.
 
 If all goes well you should end up with a web page that displays the demo design (a few solids).
@@ -75,7 +77,7 @@ The standard mouse controls are also available for rotation, etc.
 
 After making changes, just reload the web page.
 
-If making changes, please make sure that all tests must pass. Run ```pnpm test```
+If making changes, please make sure that all tests must pass. Run `pnpm test`
 
 ## License
 

@@ -1,35 +1,35 @@
 {
-  "name": "@jscad/examples",
-  "version": "2.4.2",
-  "description": "Example Files for JSCAD",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "scripts": {},
-  "private": true,
-  "contributors": [
-    {
-      "name": "Rene K. Mueller",
-      "url": "https://github.com/Spiritdude"
-    },
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    },
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "examples",
-    "tutorials"
-  ],
-  "license": "MIT",
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/openjscad",
-    "logo": "https://opencollective.com/openjscad/logo.txt"
-  }
+	"name": "@jscad/examples",
+	"version": "2.4.2",
+	"description": "Example Files for JSCAD",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"scripts": {},
+	"private": true,
+	"contributors": [
+		{
+			"name": "Rene K. Mueller",
+			"url": "https://github.com/Spiritdude"
+		},
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		},
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"examples",
+		"tutorials"
+	],
+	"license": "MIT",
+	"collective": {
+		"type": "opencollective",
+		"url": "https://opencollective.com/openjscad",
+		"logo": "https://opencollective.com/openjscad/logo.txt"
+	}
 }

@@ -7,7 +7,7 @@
  * const array = toArray(1) // [1]
  */
 export const toArray = (array) => {
-  if (Array.isArray(array)) return array
-  if (array === undefined || array === null) return []
-  return [array]
-}
+	if (Array.isArray(array)) return array;
+	if (array === undefined || array === null) return [];
+	return [array];
+};

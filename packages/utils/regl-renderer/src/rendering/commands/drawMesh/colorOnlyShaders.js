@@ -5,5 +5,5 @@ uniform vec4 ucolor;
 void main () {
   gl_FragColor = ucolor;
 }
-`
-export { frag }
+`;
+export {frag};

@@ -1,4 +1,4 @@
-import * as mat4 from '../../maths/mat4/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
 
 /**
  * Represents a 3D geometry consisting of a list of polygons.
@@ -25,11 +25,11 @@ import * as mat4 from '../../maths/mat4/index.js'
  * @alias module:modeling/geometries/geom3.create
  */
 export const create = (polygons) => {
-  if (polygons === undefined) {
-    polygons = [] // empty contents
-  }
-  return {
-    polygons,
-    transforms: mat4.create()
-  }
-}
+	if (polygons === undefined) {
+		polygons = []; // empty contents
+	}
+	return {
+		polygons,
+		transforms: mat4.create(),
+	};
+};

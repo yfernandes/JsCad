@@ -1,1 +1,1 @@
-export function validate(object: any): void
+export function validate(object: any): void;

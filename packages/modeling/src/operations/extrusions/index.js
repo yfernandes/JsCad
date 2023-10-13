@@ -5,8 +5,8 @@
  * @example
  * import { extrudeFromSlices, extrudeHelical, extrudeLinear, extrudeRotate, project } from '@jscad/modeling'
  */
-export { extrudeFromSlices } from './extrudeFromSlices.js'
-export { extrudeLinear } from './extrudeLinear.js'
-export { extrudeRotate } from './extrudeRotate.js'
-export { extrudeHelical } from './extrudeHelical.js'
-export { project } from './project.js'
+export {extrudeFromSlices} from "./extrudeFromSlices.js";
+export {extrudeLinear} from "./extrudeLinear.js";
+export {extrudeRotate} from "./extrudeRotate.js";
+export {extrudeHelical} from "./extrudeHelical.js";
+export {project} from "./project.js";

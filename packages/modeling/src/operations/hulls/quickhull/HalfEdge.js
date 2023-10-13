@@ -1,4 +1,4 @@
-import { distance, squaredDistance } from '../../../maths/vec3/index.js'
+import {distance, squaredDistance} from "../../../maths/vec3/index.js";
 
 /*
  * Original source from quickhull3d (https://github.com/mauriciopoppe/quickhull3d)
@@ -8,46 +8,38 @@ import { distance, squaredDistance } from '../../../maths/vec3/index.js'
  */
 
 export class HalfEdge {
-  constructor (vertex, face) {
-    this.vertex = vertex
-    this.face = face
-    this.next = null
-    this.prev = null
-    this.opposite = null
-  }
+	constructor(vertex, face) {
+		this.vertex = vertex;
+		this.face = face;
+		this.next = null;
+		this.prev = null;
+		this.opposite = null;
+	}
 
-  head () {
-    return this.vertex
-  }
+	head() {
+		return this.vertex;
+	}
 
-  tail () {
-    return this.prev
-      ? this.prev.vertex
-      : null
-  }
+	tail() {
+		return this.prev ? this.prev.vertex : null;
+	}
 
-  length () {
-    if (this.tail()) {
-      return distance(
-        this.tail().point,
-        this.head().point
-      )
-    }
-    return -1
-  }
+	length() {
+		if (this.tail()) {
+			return distance(this.tail().point, this.head().point);
+		}
+		return -1;
+	}
 
-  lengthSquared () {
-    if (this.tail()) {
-      return squaredDistance(
-        this.tail().point,
-        this.head().point
-      )
-    }
-    return -1
-  }
+	lengthSquared() {
+		if (this.tail()) {
+			return squaredDistance(this.tail().point, this.head().point);
+		}
+		return -1;
+	}
 
-  setOpposite (edge) {
-    this.opposite = edge
-    edge.opposite = this
-  }
+	setOpposite(edge) {
+		this.opposite = edge;
+		edge.opposite = this;
+	}
 }

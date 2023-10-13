@@ -35,10 +35,13 @@ The JSCAD project always develops with the latest LTS releases, so install these
 ### Install the CLI for General Use
 
 The CLI can be installed for general use using NPM.
+
 ```
 npm install -g @jscad/cli
 ```
+
 Once installed, the CLI can be invoked using
+
 ```
 jscad -v
 jscad
@@ -47,16 +50,19 @@ jscad
 ### Install the CLI as Part of a Project
 
 If a general installation is not possible or desired, then installation as part of a project is possible.
+
 ```
 cd myproject
 npm install -D @jscad/cli
 ```
 
 This will add the CLI package as a development dependency. The CLI can be invoked using
+
 ```
 npx jscad -v
 npx jscad
 ```
+
 These two commands will show the version of the CLI, and a general help message.
 
 ### Using the CLI
@@ -65,57 +71,65 @@ Simply invoke 'jscad' using various options. Here are some examples.
 
 Examples:
 
-```jscad mydesign.js                            # -- convert mydesign.js to mydesign.stl as default```
+`jscad mydesign.js                            # -- convert mydesign.js to mydesign.stl as default`
 
-```jscad mydesign.js -o test.stl                # -- convert mydesign.js to test.stl```
+`jscad mydesign.js -o test.stl                # -- convert mydesign.js to test.stl`
 
-```jscad frog.stl -o test.js                    # -- convert frog.stl to test.js```
+`jscad frog.stl -o test.js                    # -- convert frog.stl to test.js`
 
-```jscad mydesign.js -of amf                    # -- convert mydesign.js into mydesign.amf```
+`jscad mydesign.js -of amf                    # -- convert mydesign.js into mydesign.amf`
 
 For multi-part models, you can pass the `generateParts` flag `-gp` to output each part as a separate, numbered file:
 
-```jscad mydesign.js -gp                         # -- convert mydesign.js into mydesign-part-1-of-2.stl and mydesign-part-2-of-2.stl```
+`jscad mydesign.js -gp                         # -- convert mydesign.js into mydesign-part-1-of-2.stl and mydesign-part-2-of-2.stl`
 
 You may also pass the `zip` flag `-z` to zip generated files into one .zip file:
 
-```jscad mydesign.js -z                          # -- convert mydesign.js into mydesign.zip which contains: mydesign.stl```
+`jscad mydesign.js -z                          # -- convert mydesign.js into mydesign.zip which contains: mydesign.stl`
 
-```jscad mydesign.js -gp -z                      # -- convert mydesign.js into mydesign.zip which contains: mydesign-part-1-of-2.stl and mydesign-part-2-of-2.stl```
+`jscad mydesign.js -gp -z                      # -- convert mydesign.js into mydesign.zip which contains: mydesign-part-1-of-2.stl and mydesign-part-2-of-2.stl`
 
 The '-o' option can be used to control where the output will be placed.
 While, the '-of' option can be used to control the format of the output.
 
 You can also provide the parameters to a design by passing --<paramName> <value> to the CLI.
 
-```jscad mydesign.js --name "Just Me" --title "Geek" -o output.stl```
+`jscad mydesign.js --name "Just Me" --title "Geek" -o output.stl`
 
 Also, design projects (directories) can be used as the input to the CLI.
 
-```jscad myproject/ -o ./test.stl               # -- convert the project mydesign to test.stl```
+`jscad myproject/ -o ./test.stl               # -- convert the project mydesign to test.stl`
 
 > Note: The CLI will search for the design entry point just like NPM.
+>
 > - if there is a package.json file in the project, then try to load the 'main' property
 > - if not, then try to load from 'index.js'
 
 ### Using the CLI with the JSCAD Examples
 
 The easiest way to use the examples is to create a new NPM project.
+
 ```
 mkdir newproject
 cd newproject
 npm init
 ```
+
 Then add both the examples and the CLI to the project.
+
 ```
 npm install @jscad/examples
 npm install @jscad/cli
 ```
+
 And finally, make the examples local to the project.
+
 ```
 ln -s node_modules/@jscad/examples ./examples
 ```
+
 The examples are just single file designs, or multiple file projects.
+
 ```
 npx jscad examples/core/booleans/basicBooleans.js -o ./test.stl
 npx jscad examples/module-design/ -of dxf
@@ -131,22 +145,23 @@ npx jscad examples/module-design/ -of dxf
 The various JSCAD packages and all source code are part of the JSCAD Organization, and maintained by a group of volunteers.
 We welcome and encourage anyone to pitch in but please take a moment to read the following guidelines.
 
-* If you want to submit a bug report please make sure to follow the [Reporting Issues](https://github.com/jscad/OpenJSCAD.org/wiki/Reporting-Issues) guide. Bug reports are accepted as [Issues](https://github.com/jscad/OpenJSCAD.org/issues/) via GitHub.
+- If you want to submit a bug report please make sure to follow the [Reporting Issues](https://github.com/jscad/OpenJSCAD.org/wiki/Reporting-Issues) guide. Bug reports are accepted as [Issues](https://github.com/jscad/OpenJSCAD.org/issues/) via GitHub.
 
-* If you want to submit a change or a patch, please read the [Contributing Guide](../../CONTRIBUTING.md). New contributions are accepted as [Pull Requests](https://github.com/jscad/OpenJSCAD.org/pulls/) via GitHub.
+- If you want to submit a change or a patch, please read the [Contributing Guide](../../CONTRIBUTING.md). New contributions are accepted as [Pull Requests](https://github.com/jscad/OpenJSCAD.org/pulls/) via GitHub.
 
-* We only accept bug reports and pull requests on **GitHub**.
+- We only accept bug reports and pull requests on **GitHub**.
 
-* If you have a question about how to use JSCAD, then please start a conversation at the [JSCAD User Group](https://openjscad.xyz/forum.html). You might find the answer in the [JSCAD User Guide](https://openjscad.xyz/guide.html).
+- If you have a question about how to use JSCAD, then please start a conversation at the [JSCAD User Group](https://openjscad.xyz/forum.html). You might find the answer in the [JSCAD User Guide](https://openjscad.xyz/guide.html).
 
-* If you have a change or new feature in mind, please start a conversation with the [Core Developers](https://openjscad.xyz/forum.html) and start contributing changes.
+- If you have a change or new feature in mind, please start a conversation with the [Core Developers](https://openjscad.xyz/forum.html) and start contributing changes.
 
 Small Note: If editing this README, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## Community
 
 See for more details
-* [JSCAD User Group](https://openjscad.xyz/forum.html)
+
+- [JSCAD User Group](https://openjscad.xyz/forum.html)
 
 ## Backers
 

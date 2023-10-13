@@ -1,11 +1,11 @@
-import { areAllShapesTheSameType } from '../../utils/areAllShapesTheSameType.js'
-import { flatten } from '../../utils/flatten.js'
+import {areAllShapesTheSameType} from "../../utils/areAllShapesTheSameType.js";
+import {flatten} from "../../utils/flatten.js";
 
-import * as geom2 from '../../geometries/geom2/index.js'
-import * as geom3 from '../../geometries/geom3/index.js'
+import * as geom2 from "../../geometries/geom2/index.js";
+import * as geom3 from "../../geometries/geom3/index.js";
 
-import { unionGeom2 } from './unionGeom2.js'
-import { unionGeom3 } from './unionGeom3.js'
+import {unionGeom2} from "./unionGeom2.js";
+import {unionGeom3} from "./unionGeom3.js";
 
 /**
  * Return a new geometry representing the total space in the given geometries.
@@ -29,16 +29,16 @@ import { unionGeom3 } from './unionGeom3.js'
  *      +-------+            +-------+
  */
 export const union = (...geometries) => {
-  geometries = flatten(geometries)
-  if (geometries.length === 0) throw new Error('union wrong number of arguments')
+	geometries = flatten(geometries);
+	if (geometries.length === 0) throw new Error("union wrong number of arguments");
 
-  if (!areAllShapesTheSameType(geometries)) {
-    throw new Error('union arguments must be the same geometry type')
-  }
+	if (!areAllShapesTheSameType(geometries)) {
+		throw new Error("union arguments must be the same geometry type");
+	}
 
-  const geometry = geometries[0]
-  // if (path.isA(geometry)) return unionPath(matrix, geometries)
-  if (geom2.isA(geometry)) return unionGeom2(geometries)
-  if (geom3.isA(geometry)) return unionGeom3(geometries)
-  throw new Error('union unsupported geometry type')
-}
+	const geometry = geometries[0];
+	// if (path.isA(geometry)) return unionPath(matrix, geometries)
+	if (geom2.isA(geometry)) return unionGeom2(geometries);
+	if (geom3.isA(geometry)) return unionGeom3(geometries);
+	throw new Error("union unsupported geometry type");
+};

@@ -1,51 +1,51 @@
-import test from 'ava'
+import test from "ava";
 
-import { geom2, rectangle } from '@jscad/modeling'
+import {geom2, rectangle} from "@jscad/modeling";
 
-import { serialize } from '../src/index.js'
-import { dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects } from '../src/autocad_AC2017.js'
+import {serialize} from "../src/index.js";
+import {dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects} from "../src/autocad_AC2017.js";
 
-test('2D GEOMETRY to DXF LWPOLYLINE', (t) => {
-  const cag1 = geom2.create()
-  t.is(cag1.outlines.length, 0)
+test("2D GEOMETRY to DXF LWPOLYLINE", (t) => {
+	const cag1 = geom2.create();
+	t.is(cag1.outlines.length, 0);
 
-  const obs1 = serialize({}, cag1)
-  const exp1 = [empty]
-  t.deepEqual(obs1, exp1)
+	const obs1 = serialize({}, cag1);
+	const exp1 = [empty];
+	t.deepEqual(obs1, exp1);
 
-  const cag2 = rectangle()
-  t.is(cag2.outlines.length, 1)
-  t.is(cag2.outlines[0].length, 4)
+	const cag2 = rectangle();
+	t.is(cag2.outlines.length, 1);
+	t.is(cag2.outlines[0].length, 4);
 
-  const obs2 = serialize({}, cag2)
-  const exp2 = [lwpolyline0]
-  t.deepEqual(obs2, exp2)
+	const obs2 = serialize({}, cag2);
+	const exp2 = [lwpolyline0];
+	t.deepEqual(obs2, exp2);
 
-  const obs3 = serialize({ geom2To: 'lwpolyline' }, cag1, cag2)
-  const exp3 = [lwpolyline1]
-  t.deepEqual(obs3, exp3)
+	const obs3 = serialize({geom2To: "lwpolyline"}, cag1, cag2);
+	const exp3 = [lwpolyline1];
+	t.deepEqual(obs3, exp3);
 
-  const obs4 = serialize({}, cag2, cag2)
-  const exp4 = [lwpolylineByTwo]
-  t.deepEqual(obs4, exp4)
-})
+	const obs4 = serialize({}, cag2, cag2);
+	const exp4 = [lwpolylineByTwo];
+	t.deepEqual(obs4, exp4);
+});
 
-test('2D GEOMETRY to DXF POLYLINE', (t) => {
-  const cag1 = geom2.create()
-  t.is(cag1.outlines.length, 0)
+test("2D GEOMETRY to DXF POLYLINE", (t) => {
+	const cag1 = geom2.create();
+	t.is(cag1.outlines.length, 0);
 
-  const obs1 = serialize({ geom2To: 'polyline' }, cag1)
-  const exp1 = [empty]
-  t.deepEqual(obs1, exp1)
+	const obs1 = serialize({geom2To: "polyline"}, cag1);
+	const exp1 = [empty];
+	t.deepEqual(obs1, exp1);
 
-  const cag2 = rectangle()
-  t.is(cag2.outlines.length, 1)
-  t.is(cag2.outlines[0].length, 4)
+	const cag2 = rectangle();
+	t.is(cag2.outlines.length, 1);
+	t.is(cag2.outlines[0].length, 4);
 
-  const obs2 = serialize({ geom2To: 'polyline' }, cag2)
-  const exp2 = [polyline1]
-  t.deepEqual(obs2, exp2)
-})
+	const obs2 = serialize({geom2To: "polyline"}, cag2);
+	const exp2 = [polyline1];
+	t.deepEqual(obs2, exp2);
+});
 
 const empty = `999
 Created by JSCAD
@@ -62,7 +62,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const lwpolyline0 = `999
 Created by JSCAD
@@ -119,7 +119,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const lwpolyline1 = `999
 Created by JSCAD
@@ -176,7 +176,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const lwpolylineByTwo = `999
 Created by JSCAD
@@ -273,7 +273,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const polyline1 = `999
 Created by JSCAD
@@ -390,4 +390,4 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;

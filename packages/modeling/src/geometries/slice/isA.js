@@ -5,12 +5,12 @@
  * @alias module:modeling/geometries/slice.isA
  */
 export const isA = (object) => {
-  if (object && typeof object === 'object') {
-    if ('contours' in object) {
-      if (Array.isArray(object.contours)) {
-        return true
-      }
-    }
-  }
-  return false
-}
+	if (object && typeof object === "object") {
+		if ("contours" in object) {
+			if (Array.isArray(object.contours)) {
+				return true;
+			}
+		}
+	}
+	return false;
+};

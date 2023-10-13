@@ -1,34 +1,34 @@
-import test from 'ava'
+import test from "ava";
 
-import { arc, path2 } from '@jscad/modeling'
+import {arc, path2} from "@jscad/modeling";
 
-import { serialize } from '../src/index.js'
-import { dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects } from '../src/autocad_AC2017.js'
+import {serialize} from "../src/index.js";
+import {dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects} from "../src/autocad_AC2017.js";
 
-test('2D Path to DXF LWPOLYLINE', (t) => {
-  const p1 = path2.create()
+test("2D Path to DXF LWPOLYLINE", (t) => {
+	const p1 = path2.create();
 
-  const obs1 = serialize({}, p1)
-  const exp1 = [empty]
-  t.deepEqual(obs1, exp1)
+	const obs1 = serialize({}, p1);
+	const exp1 = [empty];
+	t.deepEqual(obs1, exp1);
 
-  const p2 = arc({ center: [5, 5], endAngle: 45, segments: 16 })
+	const p2 = arc({center: [5, 5], endAngle: 45, segments: 16});
 
-  const obs2 = serialize({}, p2)
-  const exp2 = [lwpolyline0]
-  t.deepEqual(obs2, exp2)
+	const obs2 = serialize({}, p2);
+	const exp2 = [lwpolyline0];
+	t.deepEqual(obs2, exp2);
 
-  // TODO
-  // const path3 = path2.fromPoints({}, [[10, -20]])
-  // path3 = path3.appendBezier([[10, -10], [25, -10], [25, -20]], { resolution: 8 })
-  // t.is(path3.points.length, 6)
+	// TODO
+	// const path3 = path2.fromPoints({}, [[10, -20]])
+	// path3 = path3.appendBezier([[10, -10], [25, -10], [25, -20]], { resolution: 8 })
+	// t.is(path3.points.length, 6)
 
-  // const obs3 = serialize({}, [path2, path3])
-  // const exp3 = [lwpolyline1]
-  // t.deepEqual(obs3, exp3)
+	// const obs3 = serialize({}, [path2, path3])
+	// const exp3 = [lwpolyline1]
+	// t.deepEqual(obs3, exp3)
 
-  // TODO test multiple paths
-})
+	// TODO test multiple paths
+});
 
 const empty = `999
 Created by JSCAD
@@ -45,7 +45,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const lwpolyline0 = `999
 Created by JSCAD
@@ -98,7 +98,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const lwpolyline1 = `999
 Created by JSCAD
@@ -203,4 +203,4 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;

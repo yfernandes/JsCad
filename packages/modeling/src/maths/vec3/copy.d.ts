@@ -1,3 +1,3 @@
-import type { Vec3 } from './type.d.ts'
+import type {Vec3} from "./type.d.ts";
 
-export function copy(out: Vec3, vector: Vec3): Vec3
+export function copy(out: Vec3, vector: Vec3): Vec3;

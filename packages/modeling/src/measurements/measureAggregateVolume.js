@@ -1,6 +1,6 @@
-import { flatten } from '../utils/flatten.js'
+import {flatten} from "../utils/flatten.js";
 
-import { measureVolume } from './measureVolume.js'
+import {measureVolume} from "./measureVolume.js";
 
 /**
  * Measure the total (aggregate) volume for the given geometries.
@@ -13,12 +13,12 @@ import { measureVolume } from './measureVolume.js'
  * let totalVolume = measureAggregateVolume(sphere(),cube())
  */
 export const measureAggregateVolume = (...geometries) => {
-  geometries = flatten(geometries)
-  if (geometries.length === 0) throw new Error('measureAggregateVolume: no geometries supplied')
-  const volumes = measureVolume(geometries)
-  if (geometries.length === 1) {
-    return volumes
-  }
-  const result = 0
-  return volumes.reduce((result, volume) => result + volume, result)
-}
+	geometries = flatten(geometries);
+	if (geometries.length === 0) throw new Error("measureAggregateVolume: no geometries supplied");
+	const volumes = measureVolume(geometries);
+	if (geometries.length === 1) {
+		return volumes;
+	}
+	const result = 0;
+	return volumes.reduce((result, volume) => result + volume, result);
+};

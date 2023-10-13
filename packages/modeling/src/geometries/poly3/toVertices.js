@@ -5,4 +5,4 @@
  * @return {Array} list of vertices (3D)
  * @alias module:modeling/geometries/poly3.toVertices
  */
-export const toVertices = (polygon) => polygon.vertices
+export const toVertices = (polygon) => polygon.vertices;

@@ -6,7 +6,7 @@
  * @alias module:modeling/maths/vec2.squaredLength
  */
 export const squaredLength = (vector) => {
-  const x = vector[0]
-  const y = vector[1]
-  return x * x + y * y
-}
+	const x = vector[0];
+	const y = vector[1];
+	return x * x + y * y;
+};

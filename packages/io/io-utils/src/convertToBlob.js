@@ -1,6 +1,6 @@
-import { makeBlob } from './makeBlob.js'
+import {makeBlob} from "./makeBlob.js";
 
-const Blob = makeBlob()
+const Blob = makeBlob();
 
 /**
  * Convert the given input into a BLOB of data for export.
@@ -14,7 +14,7 @@ const Blob = makeBlob()
  * const blob2 = convertToBlob({ data: [Int32Array.from('12345').buffer], mimeType: 'application/mine' })
  */
 export const convertToBlob = (input) => {
-  const { data, mimeType } = input
-  const blob = new Blob(data, { type: mimeType })
-  return blob
-}
+	const {data, mimeType} = input;
+	const blob = new Blob(data, {type: mimeType});
+	return blob;
+};

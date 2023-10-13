@@ -1,8 +1,8 @@
-const { flatten } = require('@jscad/array-utils')
+const {flatten} = require("@jscad/array-utils");
 
 const hullChain = (...objects) => {
-  objects = flatten(objects)
-  return { children: objects, type: 'hullChain', params: undefined }
-}
+	objects = flatten(objects);
+	return {children: objects, type: "hullChain", params: undefined};
+};
 
-module.exports = hullChain
+module.exports = hullChain;

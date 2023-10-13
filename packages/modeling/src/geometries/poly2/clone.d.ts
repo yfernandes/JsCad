@@ -1,3 +1,3 @@
-import type { Poly2 } from './type.d.ts'
+import type {Poly2} from "./type.d.ts";
 
-export function clone(polygon: Poly2): Poly2
+export function clone(polygon: Poly2): Poly2;

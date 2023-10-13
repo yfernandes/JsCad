@@ -1,4 +1,4 @@
-import { compareVectors } from './compareVectors.js'
+import {compareVectors} from "./compareVectors.js";
 
 /**
  * Compare two polygons for equality
@@ -7,8 +7,12 @@ import { compareVectors } from './compareVectors.js'
  * @returns {boolean} result of comparison
  */
 export const comparePolygons = (poly1, poly2) => {
-  if (poly1.vertices.length === poly2.vertices.length) {
-    return poly1.vertices.reduce((valid, vertex, index) => valid && compareVectors(poly1.vertices[index], poly2.vertices[index]), true)
-  }
-  return false
-}
+	if (poly1.vertices.length === poly2.vertices.length) {
+		return poly1.vertices.reduce(
+			(valid, vertex, index) =>
+				valid && compareVectors(poly1.vertices[index], poly2.vertices[index]),
+			true
+		);
+	}
+	return false;
+};

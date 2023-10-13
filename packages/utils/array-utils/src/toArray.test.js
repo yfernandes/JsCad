@@ -1,25 +1,31 @@
-import test from 'ava'
+import test from "ava";
 
-import { toArray } from './index.js'
+import {toArray} from "./index.js";
 
-test('array-utils: toArray() should return arrays', (t) => {
-  let obs = toArray()
-  let exp = []
-  t.deepEqual(obs, exp)
+test("array-utils: toArray() should return arrays", (t) => {
+	let obs = toArray();
+	let exp = [];
+	t.deepEqual(obs, exp);
 
-  obs = toArray(null)
-  exp = []
-  t.deepEqual(obs, exp)
+	obs = toArray(null);
+	exp = [];
+	t.deepEqual(obs, exp);
 
-  obs = toArray(1)
-  exp = [1]
-  t.deepEqual(obs, exp)
+	obs = toArray(1);
+	exp = [1];
+	t.deepEqual(obs, exp);
 
-  obs = toArray([1, 2])
-  exp = [1, 2]
-  t.deepEqual(obs, exp)
+	obs = toArray([1, 2]);
+	exp = [1, 2];
+	t.deepEqual(obs, exp);
 
-  obs = toArray([[1, 2], [3, 4]])
-  exp = [[1, 2], [3, 4]]
-  t.deepEqual(obs, exp)
-})
+	obs = toArray([
+		[1, 2],
+		[3, 4],
+	]);
+	exp = [
+		[1, 2],
+		[3, 4],
+	];
+	t.deepEqual(obs, exp);
+});

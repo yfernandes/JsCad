@@ -1,1 +1,1 @@
-module.exports = (params) => Object.assign({}, params, { type: 'polyhedron' })
+module.exports = (params) => Object.assign({}, params, {type: "polyhedron"});

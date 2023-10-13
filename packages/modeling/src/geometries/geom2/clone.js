@@ -4,4 +4,4 @@
  * @returns {Geom2} new geometry
  * @alias module:modeling/geometries/geom2.clone
  */
-export const clone = (geometry) => Object.assign({}, geometry)
+export const clone = (geometry) => Object.assign({}, geometry);

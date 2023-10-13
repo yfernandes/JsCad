@@ -7,9 +7,9 @@
  * @alias module:modeling/utils.padArrayToLength
  */
 export const padArrayToLength = (anArray, padding, targetLength) => {
-  anArray = anArray.slice()
-  while (anArray.length < targetLength) {
-    anArray.push(padding)
-  }
-  return anArray
-}
+	anArray = anArray.slice();
+	while (anArray.length < targetLength) {
+		anArray.push(padding);
+	}
+	return anArray;
+};

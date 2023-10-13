@@ -1,9 +1,9 @@
-import * as mat4 from '../../maths/mat4/index.js'
-import * as vec3 from '../../maths/vec3/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
+import * as vec3 from "../../maths/vec3/index.js";
 
-import * as slice from '../../geometries/slice/index.js'
+import * as slice from "../../geometries/slice/index.js";
 
-import { extrudeFromSlices } from './extrudeFromSlices.js'
+import {extrudeFromSlices} from "./extrudeFromSlices.js";
 
 /*
  * Extrude the given geometry using the given options.
@@ -15,45 +15,49 @@ import { extrudeFromSlices } from './extrudeFromSlices.js'
  * @param {boolean} [options.repair] - repair gaps in the geometry
  * @param {Geom2} geometry - the geometry to extrude
  * @returns {Geom3} the extruded 3D geometry
-*/
+ */
 export const extrudeLinearGeom2 = (options, geometry) => {
-  const defaults = {
-    offset: [0, 0, 1],
-    twistAngle: 0,
-    twistSteps: 12,
-    repair: true
-  }
-  let { offset, twistAngle, twistSteps, repair } = Object.assign({ }, defaults, options)
+	const defaults = {
+		offset: [0, 0, 1],
+		twistAngle: 0,
+		twistSteps: 12,
+		repair: true,
+	};
+	let {offset, twistAngle, twistSteps, repair} = Object.assign({}, defaults, options);
 
-  if (twistSteps < 1) throw new Error('twistSteps must be 1 or more')
+	if (twistSteps < 1) throw new Error("twistSteps must be 1 or more");
 
-  if (twistAngle === 0) {
-    twistSteps = 1
-  }
+	if (twistAngle === 0) {
+		twistSteps = 1;
+	}
 
-  // convert to vector in order to perform transforms
-  const offsetV = vec3.clone(offset)
+	// convert to vector in order to perform transforms
+	const offsetV = vec3.clone(offset);
 
-  let baseSlice = slice.fromGeom2(geometry)
-  if (offsetV[2] < 0) baseSlice = slice.reverse(baseSlice)
+	let baseSlice = slice.fromGeom2(geometry);
+	if (offsetV[2] < 0) baseSlice = slice.reverse(baseSlice);
 
-  const matrix = mat4.create()
-  const createTwist = (progress, index, base) => {
-    const Zrotation = index / twistSteps * twistAngle
-    const Zoffset = vec3.scale(vec3.create(), offsetV, index / twistSteps)
-    mat4.multiply(matrix, mat4.fromZRotation(matrix, Zrotation), mat4.fromTranslation(mat4.create(), Zoffset))
+	const matrix = mat4.create();
+	const createTwist = (progress, index, base) => {
+		const Zrotation = (index / twistSteps) * twistAngle;
+		const Zoffset = vec3.scale(vec3.create(), offsetV, index / twistSteps);
+		mat4.multiply(
+			matrix,
+			mat4.fromZRotation(matrix, Zrotation),
+			mat4.fromTranslation(mat4.create(), Zoffset)
+		);
 
-    return slice.transform(matrix, base)
-  }
+		return slice.transform(matrix, base);
+	};
 
-  options = {
-    numberOfSlices: twistSteps + 1,
-    capStart: true,
-    capEnd: true,
-    repair,
-    callback: createTwist
-  }
-  const output = extrudeFromSlices(options, baseSlice)
-  if (geometry.color) output.color = geometry.color
-  return output
-}
+	options = {
+		numberOfSlices: twistSteps + 1,
+		capStart: true,
+		capEnd: true,
+		repair,
+		callback: createTwist,
+	};
+	const output = extrudeFromSlices(options, baseSlice);
+	if (geometry.color) output.color = geometry.color;
+	return output;
+};

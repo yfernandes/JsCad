@@ -7,12 +7,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
-* **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
 
 ## [2.0.26](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/json-deserializer@2.0.25...@jscad/json-deserializer@2.0.26) (2023-06-27)
 
@@ -114,13 +114,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 ## [2.0.1](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/json-deserializer@2.0.0-alpha.0...@jscad/json-deserializer@2.0.1) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/json-deserializer@2.0.0-alpha.11...@jscad/json-deserializer@2.0.0) (2021-04-12)
 
@@ -150,7 +150,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0-alpha.5](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/json-deserializer@2.0.0-alpha.4...@jscad/json-deserializer@2.0.0-alpha.5) (2020-09-29)
 
@@ -176,39 +176,45 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **json-deserializer:** Upgrade/overhaul JSON Deserializer for V2
-* **io:** change api to deserialize(options, source)
+- **json-deserializer:** Upgrade/overhaul JSON Deserializer for V2
+- **io:** change api to deserialize(options, source)
 
 <a name="0.1.2"></a>
+
 ## [0.1.2](https://github.com/jscad/io/compare/@jscad/json-deserializer@0.1.1...@jscad/json-deserializer@0.1.2) (2018-09-02)
 
 ### Bug Fixes
 
-* **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
+- **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
 
 <a name="0.1.1"></a>
+
 ## [0.1.1](https://github.com/jscad/io/compare/@jscad/json-deserializer@0.1.0...@jscad/json-deserializer@0.1.1) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/json-deserializer
 
 <a name="0.1.0"></a>
+
 # [0.1.0](https://github.com/jscad/io/compare/@jscad/json-deserializer@0.0.4...@jscad/json-deserializer@0.1.0) (2017-11-29)
 
 ### Features
 
-* add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
+- add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
 
 <a name="0.0.4"></a>
+
 ## [0.0.4](https://github.com/jscad/io/compare/@jscad/json-deserializer@0.0.3...@jscad/json-deserializer@0.0.4) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/json-deserializer
 
 <a name="0.0.3"></a>
+
 ## [0.0.3](https://github.com/jscad/io/compare/@jscad/json-deserializer@0.0.2...@jscad/json-deserializer@0.0.3) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/json-deserializer
 
 <a name="0.0.2"></a>
+
 ## 0.0.2 (2017-10-10)
 
 **Note:** Version bump only for package @jscad/json-deserializer

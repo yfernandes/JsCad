@@ -1,5 +1,5 @@
-import { concat } from './concat.js'
-import { create } from './create.js'
+import {concat} from "./concat.js";
+import {create} from "./create.js";
 
 /**
  * Append the given list of points to the end of the given geometry.
@@ -10,4 +10,4 @@ import { create } from './create.js'
  * @example
  * let newPath = appendPoints([[3, 4], [4, 5]], oldPath)
  */
-export const appendPoints = (points, geometry) => concat(geometry, create(points))
+export const appendPoints = (points, geometry) => concat(geometry, create(points));

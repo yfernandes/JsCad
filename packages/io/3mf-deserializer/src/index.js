@@ -22,12 +22,12 @@ All code released under MIT license
  * import { deserializer, mimeType } from '@jscad/3mf-serializer'
  */
 
-import { unzipSync, strFromU8 } from 'fflate'
+import {unzipSync, strFromU8} from "fflate";
 
-import { translateModels } from './translate.js'
-import { instantiateModels } from './instantiate.js'
+import {translateModels} from "./translate.js";
+import {instantiateModels} from "./instantiate.js";
 
-const version = '[VI]{version}[/VI]' // version is injected by rollup
+const version = "[VI]{version}[/VI]"; // version is injected by rollup
 
 /**
  * Deserialize the given 3MF source into either a script or an array of geometry.
@@ -45,38 +45,37 @@ const version = '[VI]{version}[/VI]' // version is injected by rollup
  * @alias module:io/3mf-deserializer.deserialize
  */
 const deserialize = (options, input) => {
-  const defaults = {
-    output: 'script',
-    version,
-    addMetaData: true,
-    includedItems: 'build', // or all
-    includedType: 'all' // or model, solidsupport, surface, other
-  }
-  options = Object.assign({}, defaults, options)
+	const defaults = {
+		output: "script",
+		version,
+		addMetaData: true,
+		includedItems: "build", // or all
+		includedType: "all", // or model, solidsupport, surface, other
+	};
+	options = Object.assign({}, defaults, options);
 
-  let models = []
-  try {
-    // 3MF packaging (OPC)
-    const decompressed = unzipSync(input)
-    Object.keys(decompressed).forEach((key) => {
-      if (key.endsWith('3dmodel.model')) {
-        // convert the buffer to UTF8 string
-        const contents = strFromU8(decompressed[key])
-        models.push(contents)
-      }
-    })
-  } catch (e) {
-    // 3MF contents (XML)
-    models = [input]
-  }
-  return options.output === 'script' ? translateModels(options, models) : instantiateModels(options, models)
-}
+	let models = [];
+	try {
+		// 3MF packaging (OPC)
+		const decompressed = unzipSync(input);
+		Object.keys(decompressed).forEach((key) => {
+			if (key.endsWith("3dmodel.model")) {
+				// convert the buffer to UTF8 string
+				const contents = strFromU8(decompressed[key]);
+				models.push(contents);
+			}
+		});
+	} catch (e) {
+		// 3MF contents (XML)
+		models = [input];
+	}
+	return options.output === "script"
+		? translateModels(options, models)
+		: instantiateModels(options, models);
+};
 
-const isBuffer = (obj) => (obj.byteLength !== undefined && typeof obj.slice === 'function')
+const isBuffer = (obj) => obj.byteLength !== undefined && typeof obj.slice === "function";
 
-const mimeType = 'model/3mf'
+const mimeType = "model/3mf";
 
-export {
-  mimeType,
-  deserialize
-}
+export {mimeType, deserialize};

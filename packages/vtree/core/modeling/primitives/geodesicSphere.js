@@ -1,1 +1,1 @@
-module.exports = (params) => Object.assign({}, params, { type: 'geodesicSphere' })
+module.exports = (params) => Object.assign({}, params, {type: "geodesicSphere"});

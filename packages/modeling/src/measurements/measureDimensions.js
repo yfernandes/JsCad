@@ -1,6 +1,6 @@
-import { flatten } from '../utils/flatten.js'
+import {flatten} from "../utils/flatten.js";
 
-import { measureBoundingBox } from './measureBoundingBox.js'
+import {measureBoundingBox} from "./measureBoundingBox.js";
 
 /**
  * Measure the dimensions of the given geometries.
@@ -12,15 +12,15 @@ import { measureBoundingBox } from './measureBoundingBox.js'
  * let dimensions = measureDimensions(sphere())
  */
 export const measureDimensions = (...geometries) => {
-  geometries = flatten(geometries)
+	geometries = flatten(geometries);
 
-  const results = geometries.map((geometry) => {
-    const boundingBox = measureBoundingBox(geometry)
-    return [
-      boundingBox[1][0] - boundingBox[0][0],
-      boundingBox[1][1] - boundingBox[0][1],
-      boundingBox[1][2] - boundingBox[0][2]
-    ]
-  })
-  return results.length === 1 ? results[0] : results
-}
+	const results = geometries.map((geometry) => {
+		const boundingBox = measureBoundingBox(geometry);
+		return [
+			boundingBox[1][0] - boundingBox[0][0],
+			boundingBox[1][1] - boundingBox[0][1],
+			boundingBox[1][2] - boundingBox[0][2],
+		];
+	});
+	return results.length === 1 ? results[0] : results;
+};

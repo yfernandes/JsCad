@@ -4,16 +4,16 @@
  * @param  {} apiMainPath
  */
 export const modulifySource = (source, apiMainPath) => {
-  const getParamsString = source.includes('getParameterDefinitions')
-    ? 'export getParameterDefinitions'
-    : ''
-  const updatedSource = `
+	const getParamsString = source.includes("getParameterDefinitions")
+		? "export getParameterDefinitions"
+		: "";
+	const updatedSource = `
     import * from '${apiMainPath}'
 
     ${source}
 
     export main
     ${getParamsString}
-  `
-  return updatedSource
-}
+  `;
+	return updatedSource;
+};

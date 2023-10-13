@@ -1,3 +1,3 @@
-import type { Vec4 } from './type.d.ts'
+import type {Vec4} from "./type.d.ts";
 
-export function fromScalar(out: Vec4, scalar: number): Vec4
+export function fromScalar(out: Vec4, scalar: number): Vec4;

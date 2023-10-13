@@ -15,4 +15,4 @@
  * @example
  * const slice = create([ [[0,0,1], [4,0,1], [4,3,1]] ])
  */
-export const create = (contours = []) => ({ contours })
+export const create = (contours = []) => ({contours});

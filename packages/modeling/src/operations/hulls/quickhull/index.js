@@ -1,4 +1,4 @@
-import { QuickHull } from './QuickHull.js'
+import {QuickHull} from "./QuickHull.js";
 
 /*
  * Original source from quickhull3d (https://github.com/mauriciopoppe/quickhull3d)
@@ -8,7 +8,7 @@ import { QuickHull } from './QuickHull.js'
  */
 
 export const runner = (points, options = {}) => {
-  const instance = new QuickHull(points)
-  instance.build()
-  return instance.collectFaces(options.skipTriangulation)
-}
+	const instance = new QuickHull(points);
+	instance.build();
+	return instance.collectFaces(options.skipTriangulation);
+};

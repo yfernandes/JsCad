@@ -7,14 +7,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **3mf-deserializer:** initial version of 3MF deserializer and tests ([b22a27f](https://github.com/jscad/OpenJSCAD.org/commit/b22a27fa14c4f42b9160553cdd7b3c126ac72459))
-* **cli:** reworked logic to use new io package exports and functions ([#1199](https://github.com/jscad/OpenJSCAD.org/issues/1199)) ([71a3d27](https://github.com/jscad/OpenJSCAD.org/commit/71a3d27a4cf416b1a9fea57a1fe40f5cfdaa905c))
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
-* **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
+- **3mf-deserializer:** initial version of 3MF deserializer and tests ([b22a27f](https://github.com/jscad/OpenJSCAD.org/commit/b22a27fa14c4f42b9160553cdd7b3c126ac72459))
+- **cli:** reworked logic to use new io package exports and functions ([#1199](https://github.com/jscad/OpenJSCAD.org/issues/1199)) ([71a3d27](https://github.com/jscad/OpenJSCAD.org/commit/71a3d27a4cf416b1a9fea57a1fe40f5cfdaa905c))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
 
 ## [2.4.6](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.4.5...@jscad/io@2.4.6) (2023-06-27)
 
@@ -44,7 +44,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **x3d-serializer:** enhanced to convert 2D geometry and path to X3D Polyline2D ([#1091](https://github.com/jscad/OpenJSCAD.org/issues/1091)) ([4f763a8](https://github.com/jscad/OpenJSCAD.org/commit/4f763a8def39f3b0454f2079f3c1fd7da52dd880))
+- **x3d-serializer:** enhanced to convert 2D geometry and path to X3D Polyline2D ([#1091](https://github.com/jscad/OpenJSCAD.org/issues/1091)) ([4f763a8](https://github.com/jscad/OpenJSCAD.org/commit/4f763a8def39f3b0454f2079f3c1fd7da52dd880))
 
 ## [2.3.3](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.3.2...@jscad/io@2.3.3) (2022-05-15)
 
@@ -62,7 +62,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **3mf-serializer:** new serializer from JSCAD geometry to 3MF packages ([6b51aed](https://github.com/jscad/OpenJSCAD.org/commit/6b51aed63ee40674822a04ced773564552689763))
+- **3mf-serializer:** new serializer from JSCAD geometry to 3MF packages ([6b51aed](https://github.com/jscad/OpenJSCAD.org/commit/6b51aed63ee40674822a04ced773564552689763))
 
 ## [2.2.6](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.2.5...@jscad/io@2.2.6) (2022-03-13)
 
@@ -92,13 +92,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **io:** new serializer for OBJ ([#942](https://github.com/jscad/OpenJSCAD.org/issues/942)) ([baaae18](https://github.com/jscad/OpenJSCAD.org/commit/baaae18ad55252ec71b074bd85dea7d137a22eb8))
+- **io:** new serializer for OBJ ([#942](https://github.com/jscad/OpenJSCAD.org/issues/942)) ([baaae18](https://github.com/jscad/OpenJSCAD.org/commit/baaae18ad55252ec71b074bd85dea7d137a22eb8))
 
 # [2.1.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.0.9...@jscad/io@2.1.0) (2021-10-17)
 
 ### Features
 
-* **io:** added registration of x3d-deserializer ([57aee3f](https://github.com/jscad/OpenJSCAD.org/commit/57aee3fee0626e8dd13bd89ea4a6a5f3f108bd54))
+- **io:** added registration of x3d-deserializer ([57aee3f](https://github.com/jscad/OpenJSCAD.org/commit/57aee3fee0626e8dd13bd89ea4a6a5f3f108bd54))
 
 ## [2.0.9](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.0.8...@jscad/io@2.0.9) (2021-10-04)
 
@@ -120,7 +120,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** corrected assembly of serialization options in generateOutputData ([c57d8da](https://github.com/jscad/OpenJSCAD.org/commit/c57d8daa23db27992bc0c09137d1df51c2f039e8))
+- **io:** corrected assembly of serialization options in generateOutputData ([c57d8da](https://github.com/jscad/OpenJSCAD.org/commit/c57d8daa23db27992bc0c09137d1df51c2f039e8))
 
 ## [2.0.4](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.0.3...@jscad/io@2.0.4) (2021-06-01)
 
@@ -134,15 +134,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** fix json import ([#675](https://github.com/jscad/OpenJSCAD.org/issues/675)) ([05caf60](https://github.com/jscad/OpenJSCAD.org/commit/05caf60efc3f090313b3e0bddcc0b4f94de67c78))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **all:** fix json import ([#675](https://github.com/jscad/OpenJSCAD.org/issues/675)) ([05caf60](https://github.com/jscad/OpenJSCAD.org/commit/05caf60efc3f090313b3e0bddcc0b4f94de67c78))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 ## [2.0.1](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.0.0-alpha.0...@jscad/io@2.0.1) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** fix json import ([#675](https://github.com/jscad/OpenJSCAD.org/issues/675)) ([05caf60](https://github.com/jscad/OpenJSCAD.org/commit/05caf60efc3f090313b3e0bddcc0b4f94de67c78))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **all:** fix json import ([#675](https://github.com/jscad/OpenJSCAD.org/issues/675)) ([05caf60](https://github.com/jscad/OpenJSCAD.org/commit/05caf60efc3f090313b3e0bddcc0b4f94de67c78))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io@2.0.0-alpha.13...@jscad/io@2.0.0) (2021-04-12)
 
@@ -168,7 +168,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0-alpha.8](https://github.com/jscad/io/compare/@jscad/io@2.0.0-alpha.7...@jscad/io@2.0.0-alpha.8) (2020-10-24)
 
@@ -190,7 +190,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** fix json import ([#675](https://github.com/jscad/io/issues/675)) ([05caf60](https://github.com/jscad/io/commit/05caf60efc3f090313b3e0bddcc0b4f94de67c78))
+- **all:** fix json import ([#675](https://github.com/jscad/io/issues/675)) ([05caf60](https://github.com/jscad/io/commit/05caf60efc3f090313b3e0bddcc0b4f94de67c78))
 
 # [2.0.0-alpha.3](https://github.com/jscad/io/compare/@jscad/io@2.0.0-alpha.2...@jscad/io@2.0.0-alpha.3) (2020-09-08)
 
@@ -208,115 +208,136 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **io:** merge IO packages into main repository (#436)
+- **io:** merge IO packages into main repository (#436)
 
 <a name="0.5.0"></a>
+
 # [0.5.0](https://github.com/jscad/io/compare/@jscad/io@0.4.8...@jscad/io@0.5.0) (2018-11-25)
 
 ### Features
 
-* **scad-deserializer:** added old openscad-openjscad-translator to the packages ([#75](https://github.com/jscad/io/issues/75)) ([0a20323](https://github.com/jscad/io/commit/0a20323))
+- **scad-deserializer:** added old openscad-openjscad-translator to the packages ([#75](https://github.com/jscad/io/issues/75)) ([0a20323](https://github.com/jscad/io/commit/0a20323))
 
 <a name="0.4.8"></a>
+
 ## [0.4.8](https://github.com/jscad/io/compare/@jscad/io@0.4.7...@jscad/io@0.4.8) (2018-11-22)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.7"></a>
+
 ## [0.4.7](https://github.com/jscad/io/compare/@jscad/io@0.4.6...@jscad/io@0.4.7) (2018-09-02)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.6"></a>
+
 ## [0.4.6](https://github.com/jscad/io/compare/@jscad/io@0.4.5...@jscad/io@0.4.6) (2018-06-11)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.5"></a>
+
 ## [0.4.5](https://github.com/jscad/io/compare/@jscad/io@0.4.4...@jscad/io@0.4.5) (2018-05-24)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.4"></a>
+
 ## [0.4.4](https://github.com/jscad/io/compare/@jscad/io@0.4.3...@jscad/io@0.4.4) (2018-04-07)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.3"></a>
+
 ## [0.4.3](https://github.com/jscad/io/compare/@jscad/io@0.4.2...@jscad/io@0.4.3) (2018-04-01)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.2"></a>
+
 ## [0.4.2](https://github.com/jscad/io/compare/@jscad/io@0.4.1...@jscad/io@0.4.2) (2018-04-01)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.1"></a>
+
 ## [0.4.1](https://github.com/jscad/io/compare/@jscad/io@0.4.0...@jscad/io@0.4.1) (2018-03-15)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.4.0"></a>
+
 # [0.4.0](https://github.com/jscad/io/compare/@jscad/io@0.3.12...@jscad/io@0.4.0) (2018-02-24)
 
 ### Features
 
-* **DXF Deserializer:** Adds dxf deserializer and all associated code ([ae4a6c0](https://github.com/jscad/io/commit/ae4a6c0)), closes [#10](https://github.com/jscad/io/issues/10)
+- **DXF Deserializer:** Adds dxf deserializer and all associated code ([ae4a6c0](https://github.com/jscad/io/commit/ae4a6c0)), closes [#10](https://github.com/jscad/io/issues/10)
 
 <a name="0.3.12"></a>
+
 ## [0.3.12](https://github.com/jscad/io/compare/@jscad/io@0.3.11...@jscad/io@0.3.12) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.11"></a>
+
 ## [0.3.11](https://github.com/jscad/io/compare/@jscad/io@0.3.10...@jscad/io@0.3.11) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.10"></a>
+
 ## [0.3.10](https://github.com/jscad/io/compare/@jscad/io@0.3.9...@jscad/io@0.3.10) (2017-11-29)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.9"></a>
+
 ## [0.3.9](https://github.com/jscad/io/compare/@jscad/io@0.3.8...@jscad/io@0.3.9) (2017-11-20)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.8"></a>
+
 ## [0.3.8](https://github.com/jscad/io/compare/@jscad/io@0.3.7...@jscad/io@0.3.8) (2017-11-14)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.7"></a>
+
 ## [0.3.7](https://github.com/jscad/io/compare/@jscad/io@0.3.6...@jscad/io@0.3.7) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.6"></a>
+
 ## [0.3.6](https://github.com/jscad/io/compare/@jscad/io@0.3.5...@jscad/io@0.3.6) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.5"></a>
+
 ## [0.3.5](https://github.com/jscad/io/compare/@jscad/io@0.3.4...@jscad/io@0.3.5) (2017-10-30)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.4"></a>
+
 ## [0.3.4](https://github.com/jscad/io/compare/@jscad/io@0.3.3...@jscad/io@0.3.4) (2017-10-15)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.3"></a>
+
 ## [0.3.3](https://github.com/jscad/io/compare/@jscad/io@0.3.2...@jscad/io@0.3.3) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/io
 
 <a name="0.3.2"></a>
+
 ## 0.3.2 (2017-10-10)
 
 ### Bug Fixes
 
-* **io:** fixed bad version numbers for svg de/serializers ([#28](https://github.com/jscad/io/issues/28)) ([60d239c](https://github.com/jscad/io/commit/60d239c))
+- **io:** fixed bad version numbers for svg de/serializers ([#28](https://github.com/jscad/io/issues/28)) ([60d239c](https://github.com/jscad/io/commit/60d239c))

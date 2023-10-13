@@ -16,8 +16,8 @@
  * let polygon = create([[0,0], [4,0], [4,3]])
  */
 export const create = (points) => {
-  if (points === undefined || points.length < 3) {
-    points = [] // empty contents
-  }
-  return { points }
-}
+	if (points === undefined || points.length < 3) {
+		points = []; // empty contents
+	}
+	return {points};
+};

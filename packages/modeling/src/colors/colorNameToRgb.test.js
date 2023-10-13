@@ -1,14 +1,14 @@
-import test from 'ava'
+import test from "ava";
 
-import { colorNameToRgb } from './index.js'
+import {colorNameToRgb} from "./index.js";
 
-test('colorNameToRgb', (t) => {
-  let obs = colorNameToRgb('bad')
+test("colorNameToRgb", (t) => {
+	let obs = colorNameToRgb("bad");
 
-  t.is(obs, undefined)
+	t.is(obs, undefined);
 
-  obs = colorNameToRgb('lightblue')
-  const exp = [0.6784313725490196, 0.8470588235294118, 0.9019607843137255]
+	obs = colorNameToRgb("lightblue");
+	const exp = [0.6784313725490196, 0.8470588235294118, 0.9019607843137255];
 
-  t.deepEqual(obs, exp)
-})
+	t.deepEqual(obs, exp);
+});

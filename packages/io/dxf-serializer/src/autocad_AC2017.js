@@ -9,7 +9,7 @@ These are the common headers, classes, tables, blocks, and objects required for 
 //   INSUNITS = 4 : millimeters
 //
 export const dxfHeaders = function () {
-  const content = `  0
+	const content = `  0
 SECTION
   2
 HEADER
@@ -1130,12 +1130,12 @@ $SHADOWPLANELOCATION
  40
 0.0
   0
-ENDSEC`
-  return content
-}
+ENDSEC`;
+	return content;
+};
 
 export const dxfClasses = function () {
-  const content = `  0
+	const content = `  0
 SECTION
   2
 CLASSES
@@ -1556,12 +1556,12 @@ ObjectDBX Classes
 281
 1
   0
-ENDSEC`
-  return content
-}
+ENDSEC`;
+	return content;
+};
 
 export const dxfTables = function () {
-  const content = `  0
+	const content = `  0
 SECTION
   2
 TABLES
@@ -2496,12 +2496,12 @@ _Open30
   0
 ENDTAB
   0
-ENDSEC`
-  return content
-}
+ENDSEC`;
+	return content;
+};
 
 export const dxfBlocks = function () {
-  const content = `  0
+	const content = `  0
 SECTION
   2
 BLOCKS
@@ -2662,12 +2662,12 @@ AcDbEntity
 100
 AcDbBlockEnd
   0
-ENDSEC`
-  return content
-}
+ENDSEC`;
+	return content;
+};
 
 export const dxfObjects = function () {
-  const content = `  0
+	const content = `  0
 SECTION
   2
 OBJECTS
@@ -3098,6 +3098,6 @@ Layout1
 330
 58
   0
-ENDSEC`
-  return content
-}
+ENDSEC`;
+	return content;
+};

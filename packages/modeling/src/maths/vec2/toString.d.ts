@@ -1,3 +1,3 @@
-import type { Vec2 } from './type.d.ts'
+import type {Vec2} from "./type.d.ts";
 
-export function toString(vec: Vec2): string
+export function toString(vec: Vec2): string;

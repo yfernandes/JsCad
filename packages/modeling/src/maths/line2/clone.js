@@ -1,4 +1,4 @@
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Create a clone of the given line.
@@ -8,9 +8,9 @@ import { create } from './create.js'
  * @alias module:modeling/maths/line2.clone
  */
 export const clone = (line) => {
-  const out = create()
-  out[0] = line[0]
-  out[1] = line[1]
-  out[2] = line[2]
-  return out
-}
+	const out = create();
+	out[0] = line[0];
+	out[1] = line[1];
+	out[2] = line[2];
+	return out;
+};

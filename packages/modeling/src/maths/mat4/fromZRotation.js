@@ -1,4 +1,4 @@
-import { sin, cos } from '../utils/trigonometry.js'
+import {sin, cos} from "../utils/trigonometry.js";
 
 /**
  * Creates a matrix from the given angle around the Z axis.
@@ -15,25 +15,25 @@ import { sin, cos } from '../utils/trigonometry.js'
  * let matrix = fromZRotation(create(), TAU / 4)
  */
 export const fromZRotation = (out, radians) => {
-  const s = sin(radians)
-  const c = cos(radians)
+	const s = sin(radians);
+	const c = cos(radians);
 
-  // Perform axis-specific matrix multiplication
-  out[0] = c
-  out[1] = s
-  out[2] = 0
-  out[3] = 0
-  out[4] = -s
-  out[5] = c
-  out[6] = 0
-  out[7] = 0
-  out[8] = 0
-  out[9] = 0
-  out[10] = 1
-  out[11] = 0
-  out[12] = 0
-  out[13] = 0
-  out[14] = 0
-  out[15] = 1
-  return out
-}
+	// Perform axis-specific matrix multiplication
+	out[0] = c;
+	out[1] = s;
+	out[2] = 0;
+	out[3] = 0;
+	out[4] = -s;
+	out[5] = c;
+	out[6] = 0;
+	out[7] = 0;
+	out[8] = 0;
+	out[9] = 0;
+	out[10] = 1;
+	out[11] = 0;
+	out[12] = 0;
+	out[13] = 0;
+	out[14] = 0;
+	out[15] = 1;
+	return out;
+};

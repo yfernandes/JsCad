@@ -1,4 +1,4 @@
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Reverse the direction of points in the given polygon, rotating the opposite direction.
@@ -8,6 +8,6 @@ import { create } from './create.js'
  * @alias module:modeling/geometries/poly2.reverse
  */
 export const reverse = (polygon) => {
-  const points = polygon.points.slice().reverse()
-  return create(points)
-}
+	const points = polygon.points.slice().reverse();
+	return create(points);
+};

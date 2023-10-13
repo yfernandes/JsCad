@@ -1,4 +1,4 @@
-import { clone } from './clone.js'
+import {clone} from "./clone.js";
 
 /**
  * Reverses the path so that the points are in the opposite order.
@@ -11,8 +11,8 @@ import { clone } from './clone.js'
  * let newPath = reverse(myPath)
  */
 export const reverse = (geometry) => {
-  // NOTE: this only updates the order of the points
-  const cloned = clone(geometry)
-  cloned.points = geometry.points.slice().reverse()
-  return cloned
-}
+	// NOTE: this only updates the order of the points
+	const cloned = clone(geometry);
+	cloned.points = geometry.points.slice().reverse();
+	return cloned;
+};

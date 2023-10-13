@@ -1,4 +1,4 @@
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Creates a new line initialized with the given values.
@@ -10,9 +10,9 @@ import { create } from './create.js'
  * @alias module:modeling/maths/line2.fromValues
  */
 export const fromValues = (x, y, d) => {
-  const out = create()
-  out[0] = x
-  out[1] = y
-  out[2] = d
-  return out
-}
+	const out = create();
+	out[0] = x;
+	out[1] = y;
+	out[2] = d;
+	return out;
+};

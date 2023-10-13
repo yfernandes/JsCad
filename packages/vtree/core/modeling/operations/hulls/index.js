@@ -1,4 +1,4 @@
 module.exports = {
-  hull: require('./hull'),
-  hullChain: require('./hullChain')
-}
+	hull: require("./hull"),
+	hullChain: require("./hullChain"),
+};

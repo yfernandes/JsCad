@@ -1,6 +1,6 @@
-import * as poly3 from '../poly3/index.js'
+import * as poly3 from "../poly3/index.js";
 
-import { toPolygons } from './toPolygons.js'
+import {toPolygons} from "./toPolygons.js";
 
 /**
  * Return the given geometry as a list of points, after applying transforms.
@@ -10,6 +10,6 @@ import { toPolygons } from './toPolygons.js'
  * @alias module:modeling/geometries/geom3.toPoints
  */
 export const toPoints = (geometry) => {
-  const polygons = toPolygons(geometry)
-  return polygons.map((polygon) => poly3.toVertices(polygon))
-}
+	const polygons = toPolygons(geometry);
+	return polygons.map((polygon) => poly3.toVertices(polygon));
+};

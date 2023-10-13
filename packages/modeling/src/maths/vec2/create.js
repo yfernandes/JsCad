@@ -9,4 +9,4 @@
  * @returns {Vec2} a new vector
  * @alias module:modeling/maths/vec2.create
  */
-export const create = () => [0, 0]
+export const create = () => [0, 0];

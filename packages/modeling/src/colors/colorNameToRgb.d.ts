@@ -1,3 +1,3 @@
-import type { RGB } from './types.d.ts'
+import type {RGB} from "./types.d.ts";
 
-export function colorNameToRgb(s: string): RGB
+export function colorNameToRgb(s: string): RGB;

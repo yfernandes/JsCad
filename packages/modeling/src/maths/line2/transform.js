@@ -1,8 +1,8 @@
-import * as vec2 from '../vec2/index.js'
+import * as vec2 from "../vec2/index.js";
 
-import { fromPoints } from './fromPoints.js'
-import { origin } from './origin.js'
-import { direction } from './direction.js'
+import {fromPoints} from "./fromPoints.js";
+import {origin} from "./origin.js";
+import {direction} from "./direction.js";
 
 /**
  * Transforms the given line using the given matrix.
@@ -14,11 +14,11 @@ import { direction } from './direction.js'
  * @alias module:modeling/maths/line2.transform
  */
 export const transform = (out, line, matrix) => {
-  const org = origin(line)
-  const dir = direction(line)
+	const org = origin(line);
+	const dir = direction(line);
 
-  vec2.transform(org, org, matrix)
-  vec2.transform(dir, dir, matrix)
+	vec2.transform(org, org, matrix);
+	vec2.transform(dir, dir, matrix);
 
-  return fromPoints(out, org, dir)
-}
+	return fromPoints(out, org, dir);
+};

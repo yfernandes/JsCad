@@ -1,10 +1,10 @@
-import { flatten } from '../../utils/flatten.js'
+import {flatten} from "../../utils/flatten.js";
 
-import * as geom2 from '../../geometries/geom2/index.js'
-import * as path2 from '../../geometries/path2/index.js'
+import * as geom2 from "../../geometries/geom2/index.js";
+import * as path2 from "../../geometries/path2/index.js";
 
-import { extrudeLinearGeom2 } from './extrudeLinearGeom2.js'
-import { extrudeLinearPath2 } from './extrudeLinearPath2.js'
+import {extrudeLinearGeom2} from "./extrudeLinearGeom2.js";
+import {extrudeLinearPath2} from "./extrudeLinearPath2.js";
 
 /**
  * Extrude the given geometry in an upward linear direction using the given options.
@@ -22,24 +22,24 @@ import { extrudeLinearPath2 } from './extrudeLinearPath2.js'
  * let myshape = extrudeLinear({height: 10}, rectangle({size: [20, 25]}))
  */
 export const extrudeLinear = (options, ...objects) => {
-  const defaults = {
-    height: 1,
-    twistAngle: 0,
-    twistSteps: 1,
-    repair: true
-  }
-  const { height, twistAngle, twistSteps, repair } = Object.assign({ }, defaults, options)
+	const defaults = {
+		height: 1,
+		twistAngle: 0,
+		twistSteps: 1,
+		repair: true,
+	};
+	const {height, twistAngle, twistSteps, repair} = Object.assign({}, defaults, options);
 
-  objects = flatten(objects)
-  if (objects.length === 0) throw new Error('wrong number of arguments')
+	objects = flatten(objects);
+	if (objects.length === 0) throw new Error("wrong number of arguments");
 
-  options = { offset: [0, 0, height], twistAngle, twistSteps, repair }
+	options = {offset: [0, 0, height], twistAngle, twistSteps, repair};
 
-  const results = objects.map((object) => {
-    if (path2.isA(object)) return extrudeLinearPath2(options, object)
-    if (geom2.isA(object)) return extrudeLinearGeom2(options, object)
-    // if (geom3.isA(object)) return geom3.extrude(options, object)
-    return object
-  })
-  return results.length === 1 ? results[0] : results
-}
+	const results = objects.map((object) => {
+		if (path2.isA(object)) return extrudeLinearPath2(options, object);
+		if (geom2.isA(object)) return extrudeLinearGeom2(options, object);
+		// if (geom3.isA(object)) return geom3.extrude(options, object)
+		return object;
+	});
+	return results.length === 1 ? results[0] : results;
+};

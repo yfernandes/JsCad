@@ -1,27 +1,27 @@
-import fs from 'fs'
-import path from 'path'
+import fs from "fs";
+import path from "path";
 
-import test from 'ava'
+import test from "ava";
 
-import { deserialize } from '../src/index.js'
+import {deserialize} from "../src/index.js";
 
-const samplesPath = '../../../node_modules/@jscad/sample-files'
+const samplesPath = "../../../node_modules/@jscad/sample-files";
 
 const countOf = (search, string) => {
-  let count = 0
-  let index = string.indexOf(search)
-  while (index !== -1) {
-    count++
-    index = string.indexOf(search, index + 1)
-  }
-  return count
-}
+	let count = 0;
+	let index = string.indexOf(search);
+	while (index !== -1) {
+		count++;
+		index = string.indexOf(search, index + 1);
+	}
+	return count;
+};
 
-test('translate simple ascii stl to jscad code', (t) => {
-  const inputPath = path.resolve(samplesPath, 'stl/testcube_ascii.stl')
-  const inputFile = fs.readFileSync(inputPath, 'utf8')
+test("translate simple ascii stl to jscad code", (t) => {
+	const inputPath = path.resolve(samplesPath, "stl/testcube_ascii.stl");
+	const inputFile = fs.readFileSync(inputPath, "utf8");
 
-  const expected = `import * from '@jscad/modeling'
+	const expected = `import * from '@jscad/modeling'
 
 //
 // solid 1 : 36 points, 12 faces, 0 colors
@@ -86,17 +86,20 @@ const solid1 = () => {
 export const main = () => {
  return [solid1()]
 }
-`
+`;
 
-  const observed = deserialize({ filename: 'ascii', output: 'script', addMetaData: false }, inputFile)
-  t.deepEqual(observed, expected)
-})
+	const observed = deserialize(
+		{filename: "ascii", output: "script", addMetaData: false},
+		inputFile
+	);
+	t.deepEqual(observed, expected);
+});
 
-test('translate simple binary stl to jscad script', (t) => {
-  const inputPath = path.resolve(samplesPath, 'stl/testcube_10mm.stl')
-  const inputFile = fs.readFileSync(inputPath)
+test("translate simple binary stl to jscad script", (t) => {
+	const inputPath = path.resolve(samplesPath, "stl/testcube_10mm.stl");
+	const inputFile = fs.readFileSync(inputPath);
 
-  const expected = `import * from '@jscad/modeling'
+	const expected = `import * from '@jscad/modeling'
 
 //
 // solid 1 : 36 points, 12 faces, 0 colors
@@ -161,20 +164,20 @@ const solid1 = () => {
 export const main = () => {
  return [solid1()]
 }
-`
+`;
 
-  const observed = deserialize({ output: 'script', addMetaData: false }, inputFile)
-  t.deepEqual(observed, expected)
-})
+	const observed = deserialize({output: "script", addMetaData: false}, inputFile);
+	t.deepEqual(observed, expected);
+});
 
-test('translate stl with colors to jscad script', (t) => {
-  const inputPath = path.resolve(samplesPath, 'stl/colors.stl')
-  const inputFile = fs.readFileSync(inputPath)
+test("translate stl with colors to jscad script", (t) => {
+	const inputPath = path.resolve(samplesPath, "stl/colors.stl");
+	const inputFile = fs.readFileSync(inputPath);
 
-  const observed = deserialize({ output: 'script', addMetaData: false }, inputFile)
-  t.is(countOf('points', observed), 3) // comment, definition, useage
-  t.is(countOf('faces', observed), 3)
-  t.is(countOf('colors', observed), 3)
-  t.is(countOf('colors = [', observed), 1)
-  t.is(countOf('polyhedron', observed), 1)
-})
+	const observed = deserialize({output: "script", addMetaData: false}, inputFile);
+	t.is(countOf("points", observed), 3); // comment, definition, useage
+	t.is(countOf("faces", observed), 3);
+	t.is(countOf("colors", observed), 3);
+	t.is(countOf("colors = [", observed), 1);
+	t.is(countOf("polyhedron", observed), 1);
+});

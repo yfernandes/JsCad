@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ## [2.0.25](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io-utils@2.0.24...@jscad/io-utils@2.0.25) (2023-06-27)
 
@@ -57,7 +57,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** corrected Blob to allocate internal buffer based contents ([#1006](https://github.com/jscad/OpenJSCAD.org/issues/1006)) ([df4552a](https://github.com/jscad/OpenJSCAD.org/commit/df4552a842fd884680d618f6f9b97ac7c7eb9d8b))
+- **io:** corrected Blob to allocate internal buffer based contents ([#1006](https://github.com/jscad/OpenJSCAD.org/issues/1006)) ([df4552a](https://github.com/jscad/OpenJSCAD.org/commit/df4552a842fd884680d618f6f9b97ac7c7eb9d8b))
 
 ## [2.0.13](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io-utils@2.0.12...@jscad/io-utils@2.0.13) (2022-02-19)
 
@@ -107,15 +107,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 ## [2.0.1](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io-utils@2.0.0-alpha.0...@jscad/io-utils@2.0.1) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/io-utils@2.0.0-alpha.11...@jscad/io-utils@2.0.0) (2021-04-12)
 
@@ -141,13 +141,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0-alpha.6](https://github.com/jscad/io/compare/@jscad/io-utils@2.0.0-alpha.5...@jscad/io-utils@2.0.0-alpha.6) (2020-10-11)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/io/issues/705)) ([62017a4](https://github.com/jscad/io/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/io/issues/705)) ([62017a4](https://github.com/jscad/io/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0-alpha.5](https://github.com/jscad/io/compare/@jscad/io-utils@2.0.0-alpha.4...@jscad/io-utils@2.0.0-alpha.5) (2020-09-29)
 
@@ -173,38 +173,44 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **io:** move most of io code from core/io to io/io-utils
+- **io:** move most of io code from core/io to io/io-utils
 
 <a name="0.1.3"></a>
+
 ## [0.1.3](https://github.com/jscad/io/compare/@jscad/io-utils@0.1.2...@jscad/io-utils@0.1.3) (2018-09-02)
 
 ### Bug Fixes
 
-* **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
+- **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
 
 <a name="0.1.2"></a>
+
 ## [0.1.2](https://github.com/jscad/io/compare/@jscad/io-utils@0.1.1...@jscad/io-utils@0.1.2) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/io-utils
 
 <a name="0.1.1"></a>
+
 ## [0.1.1](https://github.com/jscad/io/compare/@jscad/io-utils@0.1.0...@jscad/io-utils@0.1.1) (2017-10-30)
 
 **Note:** Version bump only for package @jscad/io-utils
 
 <a name="0.1.0"></a>
+
 # [0.1.0](https://github.com/jscad/io/compare/@jscad/io-utils@0.0.4...@jscad/io-utils@0.1.0) (2017-10-15)
 
 ### Features
 
-* **stl-deserializer:** add ability to deserialize stl to csg ([#32](https://github.com/jscad/io/issues/32)) ([a90dcf4](https://github.com/jscad/io/commit/a90dcf4))
+- **stl-deserializer:** add ability to deserialize stl to csg ([#32](https://github.com/jscad/io/issues/32)) ([a90dcf4](https://github.com/jscad/io/commit/a90dcf4))
 
 <a name="0.0.4"></a>
+
 ## [0.0.4](https://github.com/jscad/io/compare/@jscad/io-utils@0.0.3...@jscad/io-utils@0.0.4) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/io-utils
 
 <a name="0.0.3"></a>
+
 ## 0.0.3 (2017-10-10)
 
 **Note:** Version bump only for package @jscad/io-utils

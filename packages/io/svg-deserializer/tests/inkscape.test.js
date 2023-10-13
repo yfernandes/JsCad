@@ -1,11 +1,11 @@
-import test from 'ava'
+import test from "ava";
 
-import { countOf } from '../../test/helpers/countOf.js'
+import {countOf} from "../../test/helpers/countOf.js";
 
-import { deserialize } from '../src/index.js'
+import {deserialize} from "../src/index.js";
 
-test('deserialize : translate svg produced by inkscape to script', (t) => {
-  const sourceSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+test("deserialize : translate svg produced by inkscape to script", (t) => {
+	const sourceSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -48,16 +48,22 @@ test('deserialize : translate svg produced by inkscape to script', (t) => {
     </g>
   </g>
 </svg>
-`
+`;
 
-  let obs = deserialize({ filename: 'inkscape', output: 'script', target: 'path', addMetaData: false }, sourceSvg)
-  t.is(typeof obs, 'string')
-  t.is(countOf('path2.fromPoints', obs), 2)
-  t.is(countOf('path2.close', obs), 2)
-  t.is(countOf('color', obs), 5)
+	let obs = deserialize(
+		{filename: "inkscape", output: "script", target: "path", addMetaData: false},
+		sourceSvg
+	);
+	t.is(typeof obs, "string");
+	t.is(countOf("path2.fromPoints", obs), 2);
+	t.is(countOf("path2.close", obs), 2);
+	t.is(countOf("color", obs), 5);
 
-  obs = deserialize({ filename: 'inkscape', output: 'script', target: 'geom2', addMetaData: false }, sourceSvg)
-  t.is(countOf('path2.fromPoints', obs), 2)
-  t.is(countOf('path2.close', obs), 2)
-  t.is(countOf('color', obs), 5)
-})
+	obs = deserialize(
+		{filename: "inkscape", output: "script", target: "geom2", addMetaData: false},
+		sourceSvg
+	);
+	t.is(countOf("path2.fromPoints", obs), 2);
+	t.is(countOf("path2.close", obs), 2);
+	t.is(countOf("color", obs), 5);
+});

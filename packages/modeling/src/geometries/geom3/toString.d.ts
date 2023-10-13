@@ -1,3 +1,3 @@
-import type { Geom3 } from './type.d.ts'
+import type {Geom3} from "./type.d.ts";
 
-export function toString(geometry: Geom3): string
+export function toString(geometry: Geom3): string;

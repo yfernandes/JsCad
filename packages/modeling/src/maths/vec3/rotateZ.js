@@ -9,20 +9,20 @@
  * @alias module:modeling/maths/vec3.rotateZ
  */
 export const rotateZ = (out, vector, origin, radians) => {
-  const p = []
-  const r = []
-  // Translate point to the origin
-  p[0] = vector[0] - origin[0]
-  p[1] = vector[1] - origin[1]
+	const p = [];
+	const r = [];
+	// Translate point to the origin
+	p[0] = vector[0] - origin[0];
+	p[1] = vector[1] - origin[1];
 
-  // perform rotation
-  r[0] = (p[0] * Math.cos(radians)) - (p[1] * Math.sin(radians))
-  r[1] = (p[0] * Math.sin(radians)) + (p[1] * Math.cos(radians))
+	// perform rotation
+	r[0] = p[0] * Math.cos(radians) - p[1] * Math.sin(radians);
+	r[1] = p[0] * Math.sin(radians) + p[1] * Math.cos(radians);
 
-  // translate to correct position
-  out[0] = r[0] + origin[0]
-  out[1] = r[1] + origin[1]
-  out[2] = vector[2]
+	// translate to correct position
+	out[0] = r[0] + origin[0];
+	out[1] = r[1] + origin[1];
+	out[2] = vector[2];
 
-  return out
-}
+	return out;
+};

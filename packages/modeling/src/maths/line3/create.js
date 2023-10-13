@@ -1,4 +1,4 @@
-import * as vec3 from '../vec3/index.js'
+import * as vec3 from "../vec3/index.js";
 
 /**
  * Represents an unbounded line in 3D space, positioned at a point of origin.
@@ -15,6 +15,6 @@ import * as vec3 from '../vec3/index.js'
  * @alias module:modeling/maths/line3.create
  */
 export const create = () => [
-  vec3.fromValues(0, 0, 0), // origin
-  vec3.fromValues(0, 0, 1) // direction
-]
+	vec3.fromValues(0, 0, 0), // origin
+	vec3.fromValues(0, 0, 1), // direction
+];

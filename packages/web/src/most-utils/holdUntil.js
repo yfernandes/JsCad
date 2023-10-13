@@ -1,4 +1,4 @@
-const withLatestFrom = require('./withLatestFrom')
+const withLatestFrom = require("./withLatestFrom");
 /*
   state    ---> A ------> B ---> c -->
   source   --------> C -------------->
@@ -11,8 +11,9 @@ const withLatestFrom = require('./withLatestFrom')
 // but ONLY after at least one event got through storeSource
 */
 const holdUntil = (startSignal) => {
-  const hold = (stream) => stream.skipUntil(startSignal).merge(startSignal.take(1).thru(withLatestFrom((x) => x, stream)))
-  return hold
-}
+	const hold = (stream) =>
+		stream.skipUntil(startSignal).merge(startSignal.take(1).thru(withLatestFrom((x) => x, stream)));
+	return hold;
+};
 
-module.exports = holdUntil
+module.exports = holdUntil;

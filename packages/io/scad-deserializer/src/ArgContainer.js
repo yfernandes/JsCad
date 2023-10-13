@@ -1,4 +1,4 @@
 module.exports = function () {
-  this.argname
-  this.argexpr
-}
+	this.argname;
+	this.argexpr;
+};

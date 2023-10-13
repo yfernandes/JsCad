@@ -1,16 +1,16 @@
-export { calculatePlane } from './calculatePlane.js'
-export { clone } from './clone.js'
-export { create } from './create.js'
-export { equals } from './equals.js'
-export { fromGeom2 } from './fromGeom2.js'
-export { fromVertices } from './fromVertices.js'
-export { isA } from './isA.js'
-export { reverse } from './reverse.js'
-export { toEdges } from './toEdges.js'
-export { toVertices } from './toVertices.js'
-export { toPolygons } from './toPolygons.js'
-export { toString } from './toString.js'
-export { transform } from './transform.js'
-export { validate } from './validate.js'
+export {calculatePlane} from "./calculatePlane.js";
+export {clone} from "./clone.js";
+export {create} from "./create.js";
+export {equals} from "./equals.js";
+export {fromGeom2} from "./fromGeom2.js";
+export {fromVertices} from "./fromVertices.js";
+export {isA} from "./isA.js";
+export {reverse} from "./reverse.js";
+export {toEdges} from "./toEdges.js";
+export {toVertices} from "./toVertices.js";
+export {toPolygons} from "./toPolygons.js";
+export {toString} from "./toString.js";
+export {transform} from "./transform.js";
+export {validate} from "./validate.js";
 
-export type { Slice } from './type.d.ts'
+export type {Slice} from "./type.d.ts";

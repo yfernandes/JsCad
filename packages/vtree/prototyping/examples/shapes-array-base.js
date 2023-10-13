@@ -1,5 +1,5 @@
-const { cube, sphere } = require('@jscad/csg/api').primitives3d
+const {cube, sphere} = require("@jscad/csg/api").primitives3d;
 
-const main = () => [cube(), sphere()]
+const main = () => [cube(), sphere()];
 
-module.exports = main
+module.exports = main;

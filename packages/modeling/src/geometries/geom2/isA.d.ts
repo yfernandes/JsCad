@@ -1,3 +1,3 @@
-import type { Geom2 } from './type.d.ts'
+import type {Geom2} from "./type.d.ts";
 
-export function isA(object: any): object is Geom2
+export function isA(object: any): object is Geom2;

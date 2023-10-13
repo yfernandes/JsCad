@@ -9,8 +9,8 @@
  * let value = nth([1, 2, 3, 4, 5], 3) // 4
  */
 export const nth = (array, index) => {
-  if (!Array.isArray(array) || array.length < index) {
-    return undefined
-  }
-  return array[index]
-}
+	if (!Array.isArray(array) || array.length < index) {
+		return undefined;
+	}
+	return array[index];
+};

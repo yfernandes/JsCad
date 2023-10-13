@@ -1,3 +1,3 @@
-import type { Vec3 } from './type.d.ts'
+import type {Vec3} from "./type.d.ts";
 
-export function snap(out: Vec3, vector: Vec3, epsilon: number): Vec3
+export function snap(out: Vec3, vector: Vec3, epsilon: number): Vec3;

@@ -1,6 +1,6 @@
-import { flatten } from '../utils/flatten.js'
+import {flatten} from "../utils/flatten.js";
 
-import { measureArea } from './measureArea.js'
+import {measureArea} from "./measureArea.js";
 
 /**
  * Measure the total (aggregate) area for the given geometries.
@@ -13,12 +13,12 @@ import { measureArea } from './measureArea.js'
  * let totalArea = measureAggregateArea(sphere(),cube())
  */
 export const measureAggregateArea = (...geometries) => {
-  geometries = flatten(geometries)
-  if (geometries.length === 0) throw new Error('measureAggregateArea: no geometries supplied')
-  const areas = measureArea(geometries)
-  if (geometries.length === 1) {
-    return areas
-  }
-  const result = 0
-  return areas.reduce((result, area) => result + area, result)
-}
+	geometries = flatten(geometries);
+	if (geometries.length === 0) throw new Error("measureAggregateArea: no geometries supplied");
+	const areas = measureArea(geometries);
+	if (geometries.length === 1) {
+		return areas;
+	}
+	const result = 0;
+	return areas.reduce((result, area) => result + area, result);
+};

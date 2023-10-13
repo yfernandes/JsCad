@@ -1,3 +1,3 @@
-import type { Poly2 } from './type.d.ts'
+import type {Poly2} from "./type.d.ts";
 
-export function isSimple(polygon: Poly2): boolean
+export function isSimple(polygon: Poly2): boolean;

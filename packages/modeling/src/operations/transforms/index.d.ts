@@ -1,7 +1,7 @@
-export { align, AlignOptions } from './align.js'
-export * from './center.js'
-export * from './mirror.js'
-export * from './rotate.js'
-export * from './scale.js'
-export * from './transform.js'
-export * from './translate.js'
+export {align, AlignOptions} from "./align.js";
+export * from "./center.js";
+export * from "./mirror.js";
+export * from "./rotate.js";
+export * from "./scale.js";
+export * from "./transform.js";
+export * from "./translate.js";

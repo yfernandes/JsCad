@@ -13,21 +13,21 @@
  * let matrix = fromScaling([1, 2, 0.5])
  */
 export const fromScaling = (out, vector) => {
-  out[0] = vector[0]
-  out[1] = 0
-  out[2] = 0
-  out[3] = 0
-  out[4] = 0
-  out[5] = vector[1]
-  out[6] = 0
-  out[7] = 0
-  out[8] = 0
-  out[9] = 0
-  out[10] = vector[2]
-  out[11] = 0
-  out[12] = 0
-  out[13] = 0
-  out[14] = 0
-  out[15] = 1
-  return out
-}
+	out[0] = vector[0];
+	out[1] = 0;
+	out[2] = 0;
+	out[3] = 0;
+	out[4] = 0;
+	out[5] = vector[1];
+	out[6] = 0;
+	out[7] = 0;
+	out[8] = 0;
+	out[9] = 0;
+	out[10] = vector[2];
+	out[11] = 0;
+	out[12] = 0;
+	out[13] = 0;
+	out[14] = 0;
+	out[15] = 1;
+	return out;
+};

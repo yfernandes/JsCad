@@ -7,8 +7,8 @@
  * let element = head([1, 2])
  */
 export const head = (array) => {
-  if (!Array.isArray(array) || array.length === 0) {
-    return undefined
-  }
-  return array[0]
-}
+	if (!Array.isArray(array) || array.length === 0) {
+		return undefined;
+	}
+	return array[0];
+};

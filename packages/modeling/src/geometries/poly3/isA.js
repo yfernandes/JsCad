@@ -5,12 +5,12 @@
  * @alias module:modeling/geometries/poly3.isA
  */
 export const isA = (object) => {
-  if (object && typeof object === 'object') {
-    if ('vertices' in object) {
-      if (Array.isArray(object.vertices)) {
-        return true
-      }
-    }
-  }
-  return false
-}
+	if (object && typeof object === "object") {
+		if ("vertices" in object) {
+			if (Array.isArray(object.vertices)) {
+				return true;
+			}
+		}
+	}
+	return false;
+};

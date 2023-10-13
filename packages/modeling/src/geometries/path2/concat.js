@@ -1,7 +1,7 @@
-import { equals } from '../../maths/vec2/index.js'
+import {equals} from "../../maths/vec2/index.js";
 
-import { fromPoints } from './fromPoints.js'
-import { toPoints } from './toPoints.js'
+import {fromPoints} from "./fromPoints.js";
+import {toPoints} from "./toPoints.js";
 
 /**
  * Concatenate the given paths.
@@ -18,17 +18,18 @@ import { toPoints } from './toPoints.js'
  * let newPath = concat(fromPoints({}, [[1, 2]]), fromPoints({}, [[3, 4]]))
  */
 export const concat = (...paths) => {
-  // Only the last path can be closed, producing a closed path.
-  let isClosed = false
-  let newPoints = []
-  paths.forEach((path, i) => {
-    const tmp = toPoints(path).slice()
-    if (newPoints.length > 0 && tmp.length > 0 && equals(tmp[0], newPoints[newPoints.length - 1])) tmp.shift()
-    if (tmp.length > 0 && isClosed) {
-      throw new Error(`Cannot concatenate to a closed path; check the ${i}th path`)
-    }
-    isClosed = path.isClosed
-    newPoints = newPoints.concat(tmp)
-  })
-  return fromPoints({ closed: isClosed }, newPoints)
-}
+	// Only the last path can be closed, producing a closed path.
+	let isClosed = false;
+	let newPoints = [];
+	paths.forEach((path, i) => {
+		const tmp = toPoints(path).slice();
+		if (newPoints.length > 0 && tmp.length > 0 && equals(tmp[0], newPoints[newPoints.length - 1]))
+			tmp.shift();
+		if (tmp.length > 0 && isClosed) {
+			throw new Error(`Cannot concatenate to a closed path; check the ${i}th path`);
+		}
+		isClosed = path.isClosed;
+		newPoints = newPoints.concat(tmp);
+	});
+	return fromPoints({closed: isClosed}, newPoints);
+};

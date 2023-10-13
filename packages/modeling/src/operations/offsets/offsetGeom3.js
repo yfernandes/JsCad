@@ -1,8 +1,8 @@
-import * as geom3 from '../../geometries/geom3/index.js'
+import * as geom3 from "../../geometries/geom3/index.js";
 
-import { union } from '../booleans/union.js'
+import {union} from "../booleans/union.js";
 
-import { offsetShell } from './offsetShell.js'
+import {offsetShell} from "./offsetShell.js";
 
 /*
  * Expand the given geometry (geom3) using the given options (if any).
@@ -14,20 +14,20 @@ import { offsetShell } from './offsetShell.js'
  * @returns {Geom3} expanded geometry
  */
 export const offsetGeom3 = (options, geometry) => {
-  const defaults = {
-    delta: 1,
-    corners: 'round',
-    segments: 12
-  }
-  const { delta, corners, segments } = Object.assign({ }, defaults, options)
+	const defaults = {
+		delta: 1,
+		corners: "round",
+		segments: 12,
+	};
+	const {delta, corners, segments} = Object.assign({}, defaults, options);
 
-  if (!(corners === 'round')) {
-    throw new Error('corners must be "round" for 3D geometries')
-  }
+	if (!(corners === "round")) {
+		throw new Error('corners must be "round" for 3D geometries');
+	}
 
-  options = { delta, corners, segments }
-  const expanded = offsetShell(options, geometry)
-  const output = union(geometry, expanded)
-  if (geometry.color) output.color = geometry.color
-  return output
-}
+	options = {delta, corners, segments};
+	const expanded = offsetShell(options, geometry);
+	const output = union(geometry, expanded);
+	if (geometry.color) output.color = geometry.color;
+	return output;
+};

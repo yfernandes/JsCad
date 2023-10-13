@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-Please add these to the package.json file, as ***devdependencies*** as we have removed them for now to avoid build issues in CI environments
+Please add these to the package.json file, as **_devdependencies_** as we have removed them for now to avoid build issues in CI environments
 
     "@jscad/stl-serializer": "1.0.0-alpha.fb542811",
     "@jscad/io-utils": "1.0.0-alpha.fb542811",

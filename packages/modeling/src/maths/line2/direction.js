@@ -1,4 +1,4 @@
-import * as vec2 from '../vec2/index.js'
+import * as vec2 from "../vec2/index.js";
 
 /**
  * Return the direction of the given line.
@@ -8,7 +8,7 @@ import * as vec2 from '../vec2/index.js'
  * @alias module:modeling/maths/line2.direction
  */
 export const direction = (line) => {
-  const vector = vec2.normal(vec2.create(), line)
-  vec2.negate(vector, vector)
-  return vector
-}
+	const vector = vec2.normal(vec2.create(), line);
+	vec2.negate(vector, vector);
+	return vector;
+};

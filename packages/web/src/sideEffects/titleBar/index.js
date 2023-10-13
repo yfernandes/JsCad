@@ -1,4 +1,4 @@
-const most = require('most')
+const most = require("most");
 /* const url = require('url')
 
 const fetchUriParams = (uri, paramName) => {
@@ -16,20 +16,21 @@ const getUriQuery = (uri) => {
 } */
 
 const makeTitleBarSideEffect = () => {
-  const sink = (outToTitle$) => {
-    outToTitle$.forEach((title) => {
-      document.title = title
-    })
-  }
+	const sink = (outToTitle$) => {
+		outToTitle$.forEach((title) => {
+			document.title = title;
+		});
+	};
 
-  const source = () => {
-    const _url = window.location.href
-    return most.just(_url)
-      .filter((x) => x !== undefined)
-      .multicast()
-      .skipRepeats()
-  }
-  return { sink, source }
-}
+	const source = () => {
+		const _url = window.location.href;
+		return most
+			.just(_url)
+			.filter((x) => x !== undefined)
+			.multicast()
+			.skipRepeats();
+	};
+	return {sink, source};
+};
 
-module.exports = makeTitleBarSideEffect
+module.exports = makeTitleBarSideEffect;

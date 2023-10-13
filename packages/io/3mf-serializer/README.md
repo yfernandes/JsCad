@@ -11,6 +11,7 @@ This serializer outputs a 'blobable' array of data from one or more JSCAD geomet
 The array of data can either be used to create a Blob (`new Blob(blobable)`), or converted to a Node.js buffer.
 
 The serialization of the following geometries are possible.
+
 - serialization of 3D geometry (geom3) to 3MF mesh(s)
 
 In addition, both color and name attributes are converted to 3MF attributes if found on the JSCAD geometry.
@@ -31,13 +32,12 @@ npm install @jscad/3mf-serializer
 ## Usage
 
 ```javascript
-const { serialize } = require('@jscad/3mf-serializer')
+const {serialize} = require("@jscad/3mf-serializer");
 
-const rawData = serialize({unit: inch}, geometry)
+const rawData = serialize({unit: inch}, geometry);
 
 //in browser (with browserify etc)
-const blob = new Blob(rawData)
-
+const blob = new Blob(rawData);
 ```
 
 ## Contribute

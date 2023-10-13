@@ -1,37 +1,37 @@
 {
-  "name": "@jscad/vtree",
-  "version": "2.0.26",
-  "description": "Experimental Object Caching for JSCAD",
-  "main": "index.js",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "output": "node user/index.js"
-  },
-  "contributors": [
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "vtree",
-    "cache"
-  ],
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "object-hash": "2.0.3"
-  },
-  "devDependencies": {
-    "decache": "^4.4.0",
-    "just-diff": "^2.1.1",
-    "serialize-to-js": "^3.0.2",
-    "simple-diff": "^1.6.0"
-  },
-  "gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
+	"name": "@jscad/vtree",
+	"version": "2.0.26",
+	"description": "Experimental Object Caching for JSCAD",
+	"main": "index.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"output": "node user/index.js"
+	},
+	"contributors": [
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"vtree",
+		"cache"
+	],
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"object-hash": "2.0.3"
+	},
+	"devDependencies": {
+		"decache": "^4.4.0",
+		"just-diff": "^2.1.1",
+		"serialize-to-js": "^3.0.2",
+		"simple-diff": "^1.6.0"
+	},
+	"gitHead": "a90b9bad95a417661c619dc733e62c587dc71a4a"
 }

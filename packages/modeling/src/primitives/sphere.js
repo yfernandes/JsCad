@@ -1,5 +1,5 @@
-import { ellipsoid } from './ellipsoid.js'
-import { isGTE } from './commonChecks.js'
+import {ellipsoid} from "./ellipsoid.js";
+import {isGTE} from "./commonChecks.js";
 
 /**
  * Construct a sphere in three dimensional space where all vertices are at the same distance from the center.
@@ -16,17 +16,21 @@ import { isGTE } from './commonChecks.js'
  * let myshape = sphere({radius: 5})
  */
 export const sphere = (options) => {
-  const defaults = {
-    center: [0, 0, 0],
-    radius: 1,
-    segments: 32,
-    axes: [[1, 0, 0], [0, -1, 0], [0, 0, 1]]
-  }
-  let { center, radius, segments, axes } = Object.assign({}, defaults, options)
+	const defaults = {
+		center: [0, 0, 0],
+		radius: 1,
+		segments: 32,
+		axes: [
+			[1, 0, 0],
+			[0, -1, 0],
+			[0, 0, 1],
+		],
+	};
+	let {center, radius, segments, axes} = Object.assign({}, defaults, options);
 
-  if (!isGTE(radius, 0)) throw new Error('radius must be positive')
+	if (!isGTE(radius, 0)) throw new Error("radius must be positive");
 
-  radius = [radius, radius, radius]
+	radius = [radius, radius, radius];
 
-  return ellipsoid({ center, radius, segments, axes })
-}
+	return ellipsoid({center, radius, segments, axes});
+};

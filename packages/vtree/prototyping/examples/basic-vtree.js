@@ -1,5 +1,5 @@
-const { cube } = require('../../core/index')
+const {cube} = require("../../core/index");
 
-const main = () => cube()
+const main = () => cube();
 
-module.exports = main
+module.exports = main;

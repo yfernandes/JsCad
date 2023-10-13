@@ -1,37 +1,37 @@
-import test from 'ava'
+import test from "ava";
 
-import { hexToRgb } from './index.js'
+import {hexToRgb} from "./index.js";
 
-test('hexToRgb (RGB notations)', (t) => {
-  let obs = hexToRgb('#ff007f')
-  let exp = [1, 0, 0.4980392156862745]
+test("hexToRgb (RGB notations)", (t) => {
+	let obs = hexToRgb("#ff007f");
+	let exp = [1, 0, 0.4980392156862745];
 
-  t.deepEqual(obs, exp)
+	t.deepEqual(obs, exp);
 
-  obs = hexToRgb('#FF007F')
-  exp = [1, 0, 0.4980392156862745]
+	obs = hexToRgb("#FF007F");
+	exp = [1, 0, 0.4980392156862745];
 
-  t.deepEqual(obs, exp)
+	t.deepEqual(obs, exp);
 
-  obs = hexToRgb('FF007F')
-  exp = [1, 0, 0.4980392156862745]
+	obs = hexToRgb("FF007F");
+	exp = [1, 0, 0.4980392156862745];
 
-  t.deepEqual(obs, exp)
-})
+	t.deepEqual(obs, exp);
+});
 
-test('hexToRgb (RGBA notations)', (t) => {
-  let obs = hexToRgb('#ff007f01')
-  let exp = [1, 0, 0.4980392156862745, 0.00392156862745098]
+test("hexToRgb (RGBA notations)", (t) => {
+	let obs = hexToRgb("#ff007f01");
+	let exp = [1, 0, 0.4980392156862745, 0.00392156862745098];
 
-  t.deepEqual(obs, exp)
+	t.deepEqual(obs, exp);
 
-  obs = hexToRgb('#FF007F01')
-  exp = [1, 0, 0.4980392156862745, 0.00392156862745098]
+	obs = hexToRgb("#FF007F01");
+	exp = [1, 0, 0.4980392156862745, 0.00392156862745098];
 
-  t.deepEqual(obs, exp)
+	t.deepEqual(obs, exp);
 
-  obs = hexToRgb('FF007F01')
-  exp = [1, 0, 0.4980392156862745, 0.00392156862745098]
+	obs = hexToRgb("FF007F01");
+	exp = [1, 0, 0.4980392156862745, 0.00392156862745098];
 
-  t.deepEqual(obs, exp)
-})
+	t.deepEqual(obs, exp);
+});

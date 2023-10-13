@@ -1,3 +1,3 @@
-import type { Vec2 } from './type.d.ts'
+import type {Vec2} from "./type.d.ts";
 
-export function squaredLength(vector: Vec2): number
+export function squaredLength(vector: Vec2): number;

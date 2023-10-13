@@ -1,36 +1,44 @@
-import test from 'ava'
+import test from "ava";
 
-import { colorize, line, path2 } from '@jscad/modeling'
+import {colorize, line, path2} from "@jscad/modeling";
 
-import { serialize } from '../src/index.js'
+import {serialize} from "../src/index.js";
 
-test('serialize 2D path (simple) objects to svg', (t) => {
-  // simple open path
-  const object1 = line([[0, 0], [1, 1], [-3, 3]])
-  let observed = serialize({}, object1)
-  t.deepEqual(observed, [expected1])
+test("serialize 2D path (simple) objects to svg", (t) => {
+	// simple open path
+	const object1 = line([
+		[0, 0],
+		[1, 1],
+		[-3, 3],
+	]);
+	let observed = serialize({}, object1);
+	t.deepEqual(observed, [expected1]);
 
-  // simple closed path
-  let object3 = path2.fromPoints({}, [
-    [42.33333, 0],
-    [21.166665, -56.44443999999999],
-    [63.49999499999999, -56.44443999999999]
-  ])
-  object3 = path2.close(object3)
+	// simple closed path
+	let object3 = path2.fromPoints({}, [
+		[42.33333, 0],
+		[21.166665, -56.44443999999999],
+		[63.49999499999999, -56.44443999999999],
+	]);
+	object3 = path2.close(object3);
 
-  observed = serialize({}, object3)
-  t.deepEqual(observed, [expected3])
-})
+	observed = serialize({}, object3);
+	t.deepEqual(observed, [expected3]);
+});
 
-test('serialize 2D path (color) objects to svg', (t) => {
-  // simple open path
-  let object1 = line([[0, 0], [1, 1], [-3, 3]])
-  object1 = colorize([0.5, 0.5, 0.5, 0.5], object1)
-  object1.id = 'l1'
-  object1.class = 'gray-line'
-  const observed = serialize({}, object1)
-  t.deepEqual(observed, [expected4])
-})
+test("serialize 2D path (color) objects to svg", (t) => {
+	// simple open path
+	let object1 = line([
+		[0, 0],
+		[1, 1],
+		[-3, 3],
+	]);
+	object1 = colorize([0.5, 0.5, 0.5, 0.5], object1);
+	object1.id = "l1";
+	object1.class = "gray-line";
+	const observed = serialize({}, object1);
+	t.deepEqual(observed, [expected4]);
+});
 
 // NOTE
 // NOTE: SVG coordinates are positive, starting from [0,0], so the points are OFFSET by the bounds
@@ -44,7 +52,7 @@ const expected1 = `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M3 3L4 2L0 0"/>
   </g>
 </svg>
-`
+`;
 
 const expected3 = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created by JSCAD SVG Serializer -->
@@ -54,7 +62,7 @@ const expected3 = `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M21.1667 0L0 56.4444L42.3333 56.4444L21.1667 0"/>
   </g>
 </svg>
-`
+`;
 
 const expected4 = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created by JSCAD SVG Serializer -->
@@ -64,4 +72,4 @@ const expected4 = `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M3 3L4 2L0 0" stroke="rgb(127.5,127.5,127.5,127.5)" id="l1" class="gray-line"/>
   </g>
 </svg>
-`
+`;

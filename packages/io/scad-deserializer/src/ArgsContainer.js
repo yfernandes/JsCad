@@ -1,4 +1,4 @@
 module.exports = function () {
-  this.argnames = []
-  this.argexpr = []
-}
+	this.argnames = [];
+	this.argexpr = [];
+};

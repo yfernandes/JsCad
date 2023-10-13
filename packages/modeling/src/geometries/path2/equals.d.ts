@@ -1,3 +1,3 @@
-import type { Path2 } from './type.d.ts'
+import type {Path2} from "./type.d.ts";
 
-export function equals(a: Path2, b: Path2): boolean
+export function equals(a: Path2, b: Path2): boolean;

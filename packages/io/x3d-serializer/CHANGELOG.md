@@ -7,24 +7,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
 
 ## [2.4.5](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.4.4...@jscad/x3d-serializer@2.4.5) (2023-06-27)
 
 ### Bug Fixes
 
-* **x3d-serializer:** added specular highlights and conversion of shape names ([ba26567](https://github.com/jscad/OpenJSCAD.org/commit/ba26567f207a3e7529778ec89436956cf03592bf))
+- **x3d-serializer:** added specular highlights and conversion of shape names ([ba26567](https://github.com/jscad/OpenJSCAD.org/commit/ba26567f207a3e7529778ec89436956cf03592bf))
 
 ## [2.4.4](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.4.3...@jscad/x3d-serializer@2.4.4) (2023-04-30)
 
 ### Bug Fixes
 
-* **x3d-serializer:** corrected color and transparency conversions ([cc99548](https://github.com/jscad/OpenJSCAD.org/commit/cc9954853c30c6a82fcd26cda686e7f51f9fa304))
-* **x3d-serializer:** corrected colors, orientation of scene to Y up, and added new option for smoothing ([3444e2d](https://github.com/jscad/OpenJSCAD.org/commit/3444e2d462446694e62da71b130dfb4e56e92f82))
+- **x3d-serializer:** corrected color and transparency conversions ([cc99548](https://github.com/jscad/OpenJSCAD.org/commit/cc9954853c30c6a82fcd26cda686e7f51f9fa304))
+- **x3d-serializer:** corrected colors, orientation of scene to Y up, and added new option for smoothing ([3444e2d](https://github.com/jscad/OpenJSCAD.org/commit/3444e2d462446694e62da71b130dfb4e56e92f82))
 
 ## [2.4.3](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.4.2...@jscad/x3d-serializer@2.4.3) (2022-11-26)
 
@@ -42,7 +42,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **x3d-serializer:** enhanced to convert 2D geometry and path to X3D Polyline2D ([#1091](https://github.com/jscad/OpenJSCAD.org/issues/1091)) ([4f763a8](https://github.com/jscad/OpenJSCAD.org/commit/4f763a8def39f3b0454f2079f3c1fd7da52dd880))
+- **x3d-serializer:** enhanced to convert 2D geometry and path to X3D Polyline2D ([#1091](https://github.com/jscad/OpenJSCAD.org/issues/1091)) ([4f763a8](https://github.com/jscad/OpenJSCAD.org/commit/4f763a8def39f3b0454f2079f3c1fd7da52dd880))
 
 ## [2.3.9](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.3.8...@jscad/x3d-serializer@2.3.9) (2022-05-15)
 
@@ -84,7 +84,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **io:** new serializer for OBJ ([#942](https://github.com/jscad/OpenJSCAD.org/issues/942)) ([baaae18](https://github.com/jscad/OpenJSCAD.org/commit/baaae18ad55252ec71b074bd85dea7d137a22eb8))
+- **io:** new serializer for OBJ ([#942](https://github.com/jscad/OpenJSCAD.org/issues/942)) ([baaae18](https://github.com/jscad/OpenJSCAD.org/commit/baaae18ad55252ec71b074bd85dea7d137a22eb8))
 
 ## [2.2.8](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.2.7...@jscad/x3d-serializer@2.2.8) (2021-10-17)
 
@@ -122,27 +122,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** update dependencies ([d8c713a](https://github.com/jscad/OpenJSCAD.org/commit/d8c713a933b97a6d179ed3d3e923e188e334f99e))
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
-* **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
+- **all:** update dependencies ([d8c713a](https://github.com/jscad/OpenJSCAD.org/commit/d8c713a933b97a6d179ed3d3e923e188e334f99e))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
 
 ### Features
 
-* **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
+- **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
 
 # [2.1.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.0.0-alpha.0...@jscad/x3d-serializer@2.1.0) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** update dependencies ([d8c713a](https://github.com/jscad/OpenJSCAD.org/commit/d8c713a933b97a6d179ed3d3e923e188e334f99e))
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
-* **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
+- **all:** update dependencies ([d8c713a](https://github.com/jscad/OpenJSCAD.org/commit/d8c713a933b97a6d179ed3d3e923e188e334f99e))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
 
 ### Features
 
-* **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
+- **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.0.0-alpha.12...@jscad/x3d-serializer@2.0.0) (2021-04-12)
 
@@ -152,11 +152,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
+- **modeling:** V2 revisit modifiers ([#773](https://github.com/jscad/OpenJSCAD.org/issues/773)) ([1e28120](https://github.com/jscad/OpenJSCAD.org/commit/1e28120d2b8505dc1882cf3d607296d6fcd5526d))
 
 ### Features
 
-* **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
+- **modeling:** V2 : rename option to align and center ([#775](https://github.com/jscad/OpenJSCAD.org/issues/775)) ([c5b0f48](https://github.com/jscad/OpenJSCAD.org/commit/c5b0f48bbd980b59876d73b673a0e3bef44d2b30))
 
 # [2.0.0-alpha.11](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.0.0-alpha.10...@jscad/x3d-serializer@2.0.0-alpha.11) (2021-02-07)
 
@@ -174,13 +174,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
+- **io:** io revisited ([#714](https://github.com/jscad/OpenJSCAD.org/issues/714)) ([22f04f1](https://github.com/jscad/OpenJSCAD.org/commit/22f04f1b2894a82e24952655875e73b74727bf86))
 
 # [2.0.0-alpha.7](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.0.0-alpha.6...@jscad/x3d-serializer@2.0.0-alpha.7) (2020-10-11)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0-alpha.6](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.0.0-alpha.5...@jscad/x3d-serializer@2.0.0-alpha.6) (2020-09-29)
 
@@ -202,7 +202,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** update dependencies ([d8c713a](https://github.com/jscad/OpenJSCAD.org/commit/d8c713a933b97a6d179ed3d3e923e188e334f99e))
+- **all:** update dependencies ([d8c713a](https://github.com/jscad/OpenJSCAD.org/commit/d8c713a933b97a6d179ed3d3e923e188e334f99e))
 
 # [2.0.0-alpha.1](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/x3d-serializer@2.0.0-alpha.0...@jscad/x3d-serializer@2.0.0-alpha.1) (2020-08-19)
 
@@ -212,46 +212,54 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **x3d-serializer:** overhaul for V2 (#476)
+- **x3d-serializer:** overhaul for V2 (#476)
 
 <a name="0.2.0"></a>
+
 # [0.2.0](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.1.2...@jscad/x3d-serializer@0.2.0) (2018-11-25)
 
 <a name="0.1.2"></a>
+
 ## [0.1.2](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.1.1...@jscad/x3d-serializer@0.1.2) (2018-09-02)
 
 ### Bug Fixes
 
-* **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
+- **svg deserializer:** fixed svg-deserializer to work with Inkscape files ([#72](https://github.com/jscad/io/issues/72)) ([f35ea5e](https://github.com/jscad/io/commit/f35ea5e))
 
 <a name="0.1.1"></a>
+
 ## [0.1.1](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.1.0...@jscad/x3d-serializer@0.1.1) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/x3d-serializer
 
 <a name="0.1.0"></a>
+
 # [0.1.0](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.0.6...@jscad/x3d-serializer@0.1.0) (2017-11-29)
 
 ### Features
 
-* add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
+- add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
 
 <a name="0.0.6"></a>
+
 ## [0.0.6](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.0.5...@jscad/x3d-serializer@0.0.6) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/x3d-serializer
 
 <a name="0.0.5"></a>
+
 ## [0.0.5](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.0.4...@jscad/x3d-serializer@0.0.5) (2017-10-30)
 
 **Note:** Version bump only for package @jscad/x3d-serializer
 
 <a name="0.0.4"></a>
+
 ## [0.0.4](https://github.com/jscad/io/compare/@jscad/x3d-serializer@0.0.3...@jscad/x3d-serializer@0.0.4) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/x3d-serializer
 
 <a name="0.0.3"></a>
+
 ## 0.0.3 (2017-10-10)
 
 **Note:** Version bump only for package @jscad/x3d-serializer

@@ -29,7 +29,7 @@ void main() {
   gl_Position = glPosition;
   //gl_Position = zBufferAdjust(glPosition, camNear, camFar);
 }
-`
+`;
 const frag = `
 precision mediump float;
 varying vec3 surfaceNormal, surfacePosition;
@@ -71,6 +71,6 @@ void main () {
 
   gl_FragColor = vec4((ambient + diffuse + specular), endColor.a);
 }
-`
+`;
 
-export { frag, vert }
+export {frag, vert};

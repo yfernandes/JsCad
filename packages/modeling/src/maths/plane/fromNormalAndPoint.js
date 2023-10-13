@@ -1,4 +1,4 @@
-import * as vec3 from '../vec3/index.js'
+import * as vec3 from "../vec3/index.js";
 
 /**
  * Represents a plane in 3D coordinate space as determined by a normal (perpendicular to the plane)
@@ -18,12 +18,12 @@ import * as vec3 from '../vec3/index.js'
  * @alias module:modeling/maths/plane.fromNormalAndPoint
  */
 export const fromNormalAndPoint = (out, normal, point) => {
-  const u = vec3.normalize(vec3.create(), normal)
-  const w = vec3.dot(point, u)
+	const u = vec3.normalize(vec3.create(), normal);
+	const w = vec3.dot(point, u);
 
-  out[0] = u[0]
-  out[1] = u[1]
-  out[2] = u[2]
-  out[3] = w
-  return out
-}
+	out[0] = u[0];
+	out[1] = u[1];
+	out[2] = u[2];
+	out[3] = w;
+	return out;
+};

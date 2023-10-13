@@ -8,8 +8,8 @@
  * @alias module:modeling/maths/vec2.cross
  */
 export const cross = (out, a, b) => {
-  out[0] = 0
-  out[1] = 0
-  out[2] = a[0] * b[1] - a[1] * b[0]
-  return out
-}
+	out[0] = 0;
+	out[1] = 0;
+	out[2] = a[0] * b[1] - a[1] * b[0];
+	return out;
+};

@@ -1,3 +1,3 @@
-import type { Plane } from './type.d.ts'
+import type {Plane} from "./type.d.ts";
 
-export function equals(a: Plane, b: Plane): boolean
+export function equals(a: Plane, b: Plane): boolean;

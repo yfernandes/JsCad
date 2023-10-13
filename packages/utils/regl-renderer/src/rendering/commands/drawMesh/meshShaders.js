@@ -27,7 +27,7 @@ void main () {
   vec3 diffuse2 = diffuseLightAmount * endColor.rgb * clamp(cosTheta2 , 0.0, 1.0 );
 
   gl_FragColor = vec4((ambient + diffuse + diffuse2 * v), endColor.a);
-}`
+}`;
 
 const vert = `
 precision mediump float;
@@ -49,6 +49,6 @@ void main() {
   vec4 glPosition = projection * view * model * vec4(position, 1);
   gl_Position = glPosition;
 }
-`
+`;
 
-export { vert, frag }
+export {vert, frag};

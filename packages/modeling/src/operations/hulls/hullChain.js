@@ -1,8 +1,8 @@
-import { flatten } from '../../utils/flatten.js'
+import {flatten} from "../../utils/flatten.js";
 
-import { union } from '../booleans/union.js'
+import {union} from "../booleans/union.js";
 
-import { hull } from './hull.js'
+import {hull} from "./hull.js";
 
 /**
  * Create a chain of hulled geometries from the given geometries.
@@ -30,14 +30,14 @@ import { hull } from './hull.js'
  *       +-------+                +-------+
  */
 export const hullChain = (...geometries) => {
-  geometries = flatten(geometries)
-  const hulls = []
+	geometries = flatten(geometries);
+	const hulls = [];
 
-  if (geometries.length === 0) throw new Error('wrong number of arguments')
-  if (geometries.length === 1) hulls.push(geometries[0])
+	if (geometries.length === 0) throw new Error("wrong number of arguments");
+	if (geometries.length === 1) hulls.push(geometries[0]);
 
-  for (let i = 1; i < geometries.length; i++) {
-    hulls.push(hull(geometries[i - 1], geometries[i]))
-  }
-  return union(hulls)
-}
+	for (let i = 1; i < geometries.length; i++) {
+		hulls.push(hull(geometries[i - 1], geometries[i]));
+	}
+	return union(hulls);
+};

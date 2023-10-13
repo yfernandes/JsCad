@@ -1,16 +1,16 @@
-const { create } = require('@most/create')
+const {create} = require("@most/create");
 
 const callBackToStream = () => {
-  let addWrap = function () {}
+	let addWrap = function () {};
 
-  const callbackTest = (externalData) => {
-    addWrap(externalData)
-  }
-  const callback = callbackTest
-  const stream = create((add, end, error) => {
-    addWrap = add
-  })
-  return { stream, callback }
-}
+	const callbackTest = (externalData) => {
+		addWrap(externalData);
+	};
+	const callback = callbackTest;
+	const stream = create((add, end, error) => {
+		addWrap = add;
+	});
+	return {stream, callback};
+};
 
-module.exports = callBackToStream
+module.exports = callBackToStream;

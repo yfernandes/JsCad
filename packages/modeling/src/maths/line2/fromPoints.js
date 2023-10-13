@@ -1,4 +1,4 @@
-import * as vec2 from '../vec2/index.js'
+import * as vec2 from "../vec2/index.js";
 
 /**
  * Create a new line that passes through the given points.
@@ -10,15 +10,15 @@ import * as vec2 from '../vec2/index.js'
  * @alias module:modeling/maths/line2.fromPoints
  */
 export const fromPoints = (out, point1, point2) => {
-  const vector = vec2.subtract(vec2.create(), point2, point1) // directional vector
+	const vector = vec2.subtract(vec2.create(), point2, point1); // directional vector
 
-  vec2.normal(vector, vector)
-  vec2.normalize(vector, vector) // normalized
+	vec2.normal(vector, vector);
+	vec2.normalize(vector, vector); // normalized
 
-  const distance = vec2.dot(point1, vector)
+	const distance = vec2.dot(point1, vector);
 
-  out[0] = vector[0]
-  out[1] = vector[1]
-  out[2] = distance
-  return out
-}
+	out[0] = vector[0];
+	out[1] = vector[1];
+	out[2] = distance;
+	return out;
+};

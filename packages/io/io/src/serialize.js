@@ -1,6 +1,6 @@
-import { flatten } from '@jscad/array-utils'
+import {flatten} from "@jscad/array-utils";
 
-import { serializers } from './serializers.js'
+import {serializers} from "./serializers.js";
 
 /**
  * Serialize the given objects as per the given mimeType into the external format.
@@ -17,19 +17,19 @@ import { serializers } from './serializers.js'
  * const output = serialize({units: 'inches'}, mimetype, shapes)
  */
 export const serialize = (options, mimeType, ...objects) => {
-  const defaults = {
-    unit: 'mm',
-    statusCallback: null
-  }
-  options = Object.assign({}, defaults, options)
+	const defaults = {
+		unit: "mm",
+		statusCallback: null,
+	};
+	options = Object.assign({}, defaults, options);
 
-  objects = flatten(objects)
+	objects = flatten(objects);
 
-  if (mimeType in serializers) {
-    const serializer = serializers[mimeType]
-    const data = serializer(options, ...objects)
-    return { data, mimeType }
-  } else {
-    throw new Error(`Unknown mime type (${mimeType})`)
-  }
-}
+	if (mimeType in serializers) {
+		const serializer = serializers[mimeType];
+		const data = serializer(options, ...objects);
+		return {data, mimeType};
+	} else {
+		throw new Error(`Unknown mime type (${mimeType})`);
+	}
+};

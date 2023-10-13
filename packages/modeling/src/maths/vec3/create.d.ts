@@ -1,3 +1,3 @@
-import type { Vec3 } from './type.d.ts'
+import type {Vec3} from "./type.d.ts";
 
-export function create(): Vec3
+export function create(): Vec3;

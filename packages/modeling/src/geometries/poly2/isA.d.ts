@@ -1,3 +1,3 @@
-import type { Poly2 } from './type.d.ts'
+import type {Poly2} from "./type.d.ts";
 
-export function isA(object: any): object is Poly2
+export function isA(object: any): object is Poly2;

@@ -1,4 +1,4 @@
-import { applyTransforms } from './applyTransforms.js'
+import {applyTransforms} from "./applyTransforms.js";
 
 /**
  * Produces an array of polygons from the given geometry, after applying transforms.
@@ -10,4 +10,4 @@ import { applyTransforms } from './applyTransforms.js'
  * @example
  * let sharedPolygons = toPolygons(geometry)
  */
-export const toPolygons = (geometry) => applyTransforms(geometry).polygons
+export const toPolygons = (geometry) => applyTransforms(geometry).polygons;

@@ -1,15 +1,15 @@
-import test from 'ava'
+import test from "ava";
 
-import { countOf } from '../../test/helpers/countOf.js'
+import {countOf} from "../../test/helpers/countOf.js";
 
-import { deserialize } from '../src/index.js'
+import {deserialize} from "../src/index.js";
 
 //
 // Test suite for DXF deserialization (import)
 //
-test('ASCII DXF 3D Polyline Entities translated to JSCAD Scripts', (t) => {
-  // DXF 3D POLYLINE with mesh, translates to script with CSG.fromPolygons
-  const dxf3 = `0
+test("ASCII DXF 3D Polyline Entities translated to JSCAD Scripts", (t) => {
+	// DXF 3D POLYLINE with mesh, translates to script with CSG.fromPolygons
+	const dxf3 = `0
 SECTION
 2
 ENTITIES
@@ -214,18 +214,18 @@ VERTEX
 0
 SEQEND
 0
-ENDSEC`
-  const src3 = deserialize({ filename: 'dxf3-test', output: 'script' }, dxf3)
-  t.is(countOf('main', src3), 1)
-  t.is(countOf('createPolygon', src3), 11)
-  t.is(countOf('geom3.create', src3), 1)
-  t.is(countOf('colorize', src3), 1)
+ENDSEC`;
+	const src3 = deserialize({filename: "dxf3-test", output: "script"}, dxf3);
+	t.is(countOf("main", src3), 1);
+	t.is(countOf("createPolygon", src3), 11);
+	t.is(countOf("geom3.create", src3), 1);
+	t.is(countOf("colorize", src3), 1);
 
-  // DXF 3D POLYLINE with faces, translates to script with 3D geometry
-})
+	// DXF 3D POLYLINE with faces, translates to script with 3D geometry
+});
 
-test('ASCII DXF 3D FACE Entities translated to JSCAD Scripts', (t) => {
-  const dxf1 = `0
+test("ASCII DXF 3D FACE Entities translated to JSCAD Scripts", (t) => {
+	const dxf1 = `0
 SECTION
 2
 ENTITIES
@@ -290,10 +290,10 @@ ENTITIES
 33
 0.5
 0
-ENDSEC`
-  // expect a script which calls createPolygon for each 3DFACE, and creates a new 3D geometry
-  const src1 = deserialize({ filename: 'dxf1-test', output: 'script' }, dxf1)
-  t.is(countOf('main', src1), 1)
-  t.is(countOf('createPolygon', src1), 3)
-  t.is(countOf('geom3.create', src1), 1)
-})
+ENDSEC`;
+	// expect a script which calls createPolygon for each 3DFACE, and creates a new 3D geometry
+	const src1 = deserialize({filename: "dxf1-test", output: "script"}, dxf1);
+	t.is(countOf("main", src1), 1);
+	t.is(countOf("createPolygon", src1), 3);
+	t.is(countOf("geom3.create", src1), 1);
+});

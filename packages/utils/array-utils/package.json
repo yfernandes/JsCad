@@ -1,45 +1,45 @@
 {
-  "name": "@jscad/array-utils",
-  "version": "3.0.0-alpha.0",
-  "description": "JSCAD Utility functions for arrays",
-  "homepage": "https://openjscad.xyz/",
-  "repository": "https://github.com/jscad/OpenJSCAD.org",
-  "type": "module",
-  "types": "src/index.d.ts",
-  "main": "src/index.js",
-  "unpkg": "dist/jscad-array-utils.min.js",
-  "module": "dist/jscad-array-utils.es.js",
-  "scripts": {
-    "build": "rollup --config",
-    "coverage": "c8 --all --reporter=html --reporter=text pnpm test",
-    "test": "ava 'src/*.test.js' --verbose --timeout 2m",
-    "version": "pnpm run build && git add dist"
-  },
-  "contributors": [
-    {
-      "name": "z3dev",
-      "url": "https://github.com/z3dev"
-    },
-    {
-      "name": "Mark 'kaosat-dev' Moissette",
-      "url": "https://github.com/kaosat-dev"
-    }
-  ],
-  "license": "MIT",
-  "keywords": [
-    "openjscad",
-    "jscad",
-    "utilities",
-    "array"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.3",
-    "ava": "^4.3.3",
-    "c8": "^8.0.0",
-    "rollup": "^2.79.1",
-    "rollup-plugin-banner": "^0.2.1"
-  }
+	"name": "@jscad/array-utils",
+	"version": "3.0.0-alpha.0",
+	"description": "JSCAD Utility functions for arrays",
+	"homepage": "https://openjscad.xyz/",
+	"repository": "https://github.com/jscad/OpenJSCAD.org",
+	"type": "module",
+	"types": "src/index.d.ts",
+	"main": "src/index.js",
+	"unpkg": "dist/jscad-array-utils.min.js",
+	"module": "dist/jscad-array-utils.es.js",
+	"scripts": {
+		"build": "rollup --config",
+		"coverage": "c8 --all --reporter=html --reporter=text pnpm test",
+		"test": "ava 'src/*.test.js' --verbose --timeout 2m",
+		"version": "pnpm run build && git add dist"
+	},
+	"contributors": [
+		{
+			"name": "z3dev",
+			"url": "https://github.com/z3dev"
+		},
+		{
+			"name": "Mark 'kaosat-dev' Moissette",
+			"url": "https://github.com/kaosat-dev"
+		}
+	],
+	"license": "MIT",
+	"keywords": [
+		"openjscad",
+		"jscad",
+		"utilities",
+		"array"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@rollup/plugin-terser": "^0.4.3",
+		"ava": "^4.3.3",
+		"c8": "^8.0.0",
+		"rollup": "^2.79.1",
+		"rollup-plugin-banner": "^0.2.1"
+	}
 }

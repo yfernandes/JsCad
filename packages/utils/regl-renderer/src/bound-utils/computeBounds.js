@@ -1,8 +1,8 @@
-import vec3 from 'gl-vec3'
+import vec3 from "gl-vec3";
 
-import { flatten } from '@jscad/array-utils'
+import {flatten} from "@jscad/array-utils";
 
-import { boundingBox } from './boundingBox.js'
+import {boundingBox} from "./boundingBox.js";
 
 /*
  * Compute the bounds of the given geometries.
@@ -18,35 +18,35 @@ import { boundingBox } from './boundingBox.js'
  * }
  */
 export const computeBounds = (...geometries) => {
-  geometries = flatten(geometries)
+	geometries = flatten(geometries);
 
-  let bbox // min and max
-  geometries.forEach((geometry) => {
-    let gbbox = boundingBox(geometry.positions)
-    gbbox = gbbox.map((bounds) => vec3.transformMat4(bounds, bounds, geometry.transforms))
-    if (bbox) {
-      vec3.min(bbox[0], bbox[0], gbbox[0])
-      vec3.max(bbox[1], bbox[1], gbbox[1])
-    } else {
-      bbox = gbbox
-    }
-  })
+	let bbox; // min and max
+	geometries.forEach((geometry) => {
+		let gbbox = boundingBox(geometry.positions);
+		gbbox = gbbox.map((bounds) => vec3.transformMat4(bounds, bounds, geometry.transforms));
+		if (bbox) {
+			vec3.min(bbox[0], bbox[0], gbbox[0]);
+			vec3.max(bbox[1], bbox[1], gbbox[1]);
+		} else {
+			bbox = gbbox;
+		}
+	});
 
-  const min = vec3.min(vec3.create(), bbox[1], bbox[0])
-  const max = vec3.max(vec3.create(), bbox[1], bbox[0])
+	const min = vec3.min(vec3.create(), bbox[1], bbox[0]);
+	const max = vec3.max(vec3.create(), bbox[1], bbox[0]);
 
-  const size = vec3.subtract(vec3.create(), max, min)
-  let center = vec3.scale(vec3.create(), size, 0.5)
-  center = vec3.add(center, min, center)
-  // aproximate diamter
-  const dia = vec3.distance(center, max)
+	const size = vec3.subtract(vec3.create(), max, min);
+	let center = vec3.scale(vec3.create(), size, 0.5);
+	center = vec3.add(center, min, center);
+	// aproximate diamter
+	const dia = vec3.distance(center, max);
 
-  const bounds = {
-    dia,
-    center: [...center],
-    min: [...min],
-    max: [...max],
-    size: [...size]
-  }
-  return bounds
-}
+	const bounds = {
+		dia,
+		center: [...center],
+		min: [...min],
+		max: [...max],
+		size: [...size],
+	};
+	return bounds;
+};

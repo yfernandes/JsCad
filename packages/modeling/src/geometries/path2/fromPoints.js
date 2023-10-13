@@ -1,9 +1,9 @@
-import { EPS } from '../../maths/constants.js'
+import {EPS} from "../../maths/constants.js";
 
-import * as vec2 from '../../maths/vec2/index.js'
+import * as vec2 from "../../maths/vec2/index.js";
 
-import { close } from './close.js'
-import { create } from './create.js'
+import {close} from "./close.js";
+import {create} from "./create.js";
 
 /**
  * Create a new path from the given points.
@@ -19,22 +19,22 @@ import { create } from './create.js'
  * my newPath = fromPoints({closed: true}, [[10, 10], [-10, 10]])
  */
 export const fromPoints = (options, points) => {
-  const defaults = { closed: false }
-  let { closed } = Object.assign({}, defaults, options)
+	const defaults = {closed: false};
+	let {closed} = Object.assign({}, defaults, options);
 
-  let created = create()
-  created.points = points.map((point) => vec2.clone(point))
+	let created = create();
+	created.points = points.map((point) => vec2.clone(point));
 
-  // check if first and last points are equal
-  if (created.points.length > 1) {
-    const p0 = created.points[0]
-    const pn = created.points[created.points.length - 1]
-    if (vec2.distance(p0, pn) < (EPS * EPS)) {
-      // and close automatically
-      closed = true
-    }
-  }
-  if (closed === true) created = close(created)
+	// check if first and last points are equal
+	if (created.points.length > 1) {
+		const p0 = created.points[0];
+		const pn = created.points[created.points.length - 1];
+		if (vec2.distance(p0, pn) < EPS * EPS) {
+			// and close automatically
+			closed = true;
+		}
+	}
+	if (closed === true) created = close(created);
 
-  return created
-}
+	return created;
+};

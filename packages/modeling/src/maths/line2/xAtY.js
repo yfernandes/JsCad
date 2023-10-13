@@ -1,4 +1,4 @@
-import { origin } from './origin.js'
+import {origin} from "./origin.js";
 
 /**
  * Determine the X coordinate of the given line at the Y coordinate.
@@ -11,10 +11,10 @@ import { origin } from './origin.js'
  * @alias module:modeling/maths/line2.xAtY
  */
 export const xAtY = (line, y) => {
-  let x = (line[2] - (line[1] * y)) / line[0]
-  if (Number.isNaN(x)) {
-    const org = origin(line)
-    x = org[0]
-  }
-  return x
-}
+	let x = (line[2] - line[1] * y) / line[0];
+	if (Number.isNaN(x)) {
+		const org = origin(line);
+		x = org[0];
+	}
+	return x;
+};

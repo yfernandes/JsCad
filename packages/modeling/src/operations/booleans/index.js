@@ -6,7 +6,7 @@
  * @example
  * import { intersect, scission, subtract, union } from '@jscad/modeling'
  */
-export { intersect } from './intersect.js'
-export { scission } from './scission.js'
-export { subtract } from './subtract.js'
-export { union } from './union.js'
+export {intersect} from "./intersect.js";
+export {scission} from "./scission.js";
+export {subtract} from "./subtract.js";
+export {union} from "./union.js";

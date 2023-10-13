@@ -1,3 +1,3 @@
-import type { Line3 } from './type.d.ts'
+import type {Line3} from "./type.d.ts";
 
-export function toString(line: Line3): string
+export function toString(line: Line3): string;

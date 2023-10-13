@@ -1,8 +1,8 @@
-import { flatten } from '../../utils/flatten.js'
+import {flatten} from "../../utils/flatten.js";
 
-import { retessellate } from '../modifiers/retessellate.js'
+import {retessellate} from "../modifiers/retessellate.js";
 
-import { intersectGeom3Sub } from './intersectGeom3Sub.js'
+import {intersectGeom3Sub} from "./intersectGeom3Sub.js";
 
 /*
  * Return a new 3D geometry representing space in both the first geometry and
@@ -11,13 +11,13 @@ import { intersectGeom3Sub } from './intersectGeom3Sub.js'
  * @returns {Geom3} new 3D geometry
  */
 export const intersectGeom3 = (...geometries) => {
-  geometries = flatten(geometries)
+	geometries = flatten(geometries);
 
-  let newGeometry = geometries.shift()
-  geometries.forEach((geometry) => {
-    newGeometry = intersectGeom3Sub(newGeometry, geometry)
-  })
+	let newGeometry = geometries.shift();
+	geometries.forEach((geometry) => {
+		newGeometry = intersectGeom3Sub(newGeometry, geometry);
+	});
 
-  newGeometry = retessellate(newGeometry)
-  return newGeometry
-}
+	newGeometry = retessellate(newGeometry);
+	return newGeometry;
+};

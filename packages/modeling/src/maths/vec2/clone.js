@@ -1,4 +1,4 @@
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Create a clone of the given vector.
@@ -8,8 +8,8 @@ import { create } from './create.js'
  * @alias module:modeling/maths/vec2.clone
  */
 export const clone = (vector) => {
-  const out = create()
-  out[0] = vector[0]
-  out[1] = vector[1]
-  return out
-}
+	const out = create();
+	out[0] = vector[0];
+	out[1] = vector[1];
+	return out;
+};

@@ -8,7 +8,7 @@
  * @alias module:modeling/maths/vec2.max
  */
 export const max = (out, a, b) => {
-  out[0] = Math.max(a[0], b[0])
-  out[1] = Math.max(a[1], b[1])
-  return out
-}
+	out[0] = Math.max(a[0], b[0]);
+	out[1] = Math.max(a[1], b[1]);
+	return out;
+};

@@ -1,1 +1,1 @@
-module.exports = (params) => Object.assign({}, params, { type: 'polygon' })
+module.exports = (params) => Object.assign({}, params, {type: "polygon"});

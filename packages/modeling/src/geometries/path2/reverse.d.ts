@@ -1,3 +1,3 @@
-import type { Path2 } from './type.d.ts'
+import type {Path2} from "./type.d.ts";
 
-export function reverse(path: Path2): Path2
+export function reverse(path: Path2): Path2;

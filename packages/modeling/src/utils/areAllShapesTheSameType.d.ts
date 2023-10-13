@@ -1,3 +1,3 @@
-import type { Geometry } from '../geometries/types.d.ts'
+import type {Geometry} from "../geometries/types.d.ts";
 
-export function areAllShapesTheSameType(shapes: Array<Geometry>): boolean
+export function areAllShapesTheSameType(shapes: Array<Geometry>): boolean;

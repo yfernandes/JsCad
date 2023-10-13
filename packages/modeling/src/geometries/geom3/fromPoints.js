@@ -1,6 +1,6 @@
-import * as poly3 from '../poly3/index.js'
+import * as poly3 from "../poly3/index.js";
 
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Construct a new 3D geometry from a list of vertices.
@@ -12,9 +12,9 @@ import { create } from './create.js'
  * @alias module:modeling/geometries/geom3.fromPoints
  */
 export const fromPoints = (listOfLists) => {
-  if (!Array.isArray(listOfLists)) {
-    throw new Error('the given vertices must be an array')
-  }
+	if (!Array.isArray(listOfLists)) {
+		throw new Error("the given vertices must be an array");
+	}
 
-  return create(listOfLists.map(poly3.create))
-}
+	return create(listOfLists.map(poly3.create));
+};

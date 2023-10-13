@@ -1,4 +1,4 @@
-import { sin, cos } from '../utils/trigonometry.js'
+import {sin, cos} from "../utils/trigonometry.js";
 
 /**
  * Creates a matrix from the given Tait–Bryan angles.
@@ -16,38 +16,38 @@ import { sin, cos } from '../utils/trigonometry.js'
  * let matrix = fromTaitBryanRotation(create(), TAU / 4, 0, TAU / 2)
  */
 export const fromTaitBryanRotation = (out, yaw, pitch, roll) => {
-  // precompute sines and cosines of Euler angles
-  const sy = sin(yaw)
-  const cy = cos(yaw)
-  const sp = sin(pitch)
-  const cp = cos(pitch)
-  const sr = sin(roll)
-  const cr = cos(roll)
+	// precompute sines and cosines of Euler angles
+	const sy = sin(yaw);
+	const cy = cos(yaw);
+	const sp = sin(pitch);
+	const cp = cos(pitch);
+	const sr = sin(roll);
+	const cr = cos(roll);
 
-  // create and populate rotation matrix
-  // left-hand-rule rotation
-  // const els = [
-  //  cp*cy, sr*sp*cy - cr*sy, sr*sy + cr*sp*cy, 0,
-  //  cp*sy, cr*cy + sr*sp*sy, cr*sp*sy - sr*cy, 0,
-  //  -sp, sr*cp, cr*cp, 0,
-  //  0, 0, 0, 1
-  // ]
-  // right-hand-rule rotation
-  out[0] = cp * cy
-  out[1] = cp * sy
-  out[2] = -sp
-  out[3] = 0
-  out[4] = sr * sp * cy - cr * sy
-  out[5] = cr * cy + sr * sp * sy
-  out[6] = sr * cp
-  out[7] = 0
-  out[8] = sr * sy + cr * sp * cy
-  out[9] = cr * sp * sy - sr * cy
-  out[10] = cr * cp
-  out[11] = 0
-  out[12] = 0
-  out[13] = 0
-  out[14] = 0
-  out[15] = 1
-  return out
-}
+	// create and populate rotation matrix
+	// left-hand-rule rotation
+	// const els = [
+	//  cp*cy, sr*sp*cy - cr*sy, sr*sy + cr*sp*cy, 0,
+	//  cp*sy, cr*cy + sr*sp*sy, cr*sp*sy - sr*cy, 0,
+	//  -sp, sr*cp, cr*cp, 0,
+	//  0, 0, 0, 1
+	// ]
+	// right-hand-rule rotation
+	out[0] = cp * cy;
+	out[1] = cp * sy;
+	out[2] = -sp;
+	out[3] = 0;
+	out[4] = sr * sp * cy - cr * sy;
+	out[5] = cr * cy + sr * sp * sy;
+	out[6] = sr * cp;
+	out[7] = 0;
+	out[8] = sr * sy + cr * sp * cy;
+	out[9] = cr * sp * sy - sr * cy;
+	out[10] = cr * cp;
+	out[11] = 0;
+	out[12] = 0;
+	out[13] = 0;
+	out[14] = 0;
+	out[15] = 1;
+	return out;
+};

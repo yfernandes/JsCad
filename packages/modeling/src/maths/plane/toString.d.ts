@@ -1,3 +1,3 @@
-import type { Plane } from './type.d.ts'
+import type {Plane} from "./type.d.ts";
 
-export function toString(plane: Plane): string
+export function toString(plane: Plane): string;

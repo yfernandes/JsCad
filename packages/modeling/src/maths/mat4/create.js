@@ -9,9 +9,4 @@
  * @returns {Mat4} a new matrix
  * @alias module:modeling/maths/mat4.create
  */
-export const create = () => [
-  1, 0, 0, 0,
-  0, 1, 0, 0,
-  0, 0, 1, 0,
-  0, 0, 0, 1
-]
+export const create = () => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];

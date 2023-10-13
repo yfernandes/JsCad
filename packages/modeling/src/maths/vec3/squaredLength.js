@@ -6,8 +6,8 @@
  * @alias module:modeling/maths/vec3.squaredLength
  */
 export const squaredLength = (vector) => {
-  const x = vector[0]
-  const y = vector[1]
-  const z = vector[2]
-  return x * x + y * y + z * z
-}
+	const x = vector[0];
+	const y = vector[1];
+	const z = vector[2];
+	return x * x + y * y + z * z;
+};

@@ -1,4 +1,4 @@
-import * as vec3 from '../../maths/vec3/index.js'
+import * as vec3 from "../../maths/vec3/index.js";
 
 /**
  * Convert the given slice to a readable string.
@@ -7,10 +7,10 @@ import * as vec3 from '../../maths/vec3/index.js'
  * @alias module:modeling/geometries/slice.toString
  */
 export const toString = (slice) => {
-  let result = 'slice (' + slice.contours.length + ' contours):\n[\n'
-  slice.contours.forEach((contour) => {
-    result += '  [' + contour.map(vec3.toString).join() + '],\n'
-  })
-  result += ']\n'
-  return result
-}
+	let result = "slice (" + slice.contours.length + " contours):\n[\n";
+	slice.contours.forEach((contour) => {
+		result += "  [" + contour.map(vec3.toString).join() + "],\n";
+	});
+	result += "]\n";
+	return result;
+};

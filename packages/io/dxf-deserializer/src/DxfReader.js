@@ -1,10 +1,6 @@
-export const reader = (options) => new DxfReader(options)
+export const reader = (options) => new DxfReader(options);
 
-const STATES = [
-  'start',
-  'end',
-  'error'
-]
+const STATES = ["start", "end", "error"];
 
 /**
  * Class DxfReader
@@ -28,154 +24,154 @@ const STATES = [
  * reader.write(src).close()
  */
 export class DxfReader {
-  constructor (options) {
-    const defaults = {
-      strict: false,
-      track: true
-    }
-    this.options = Object.assign({ }, defaults, options)
+	constructor(options) {
+		const defaults = {
+			strict: false,
+			track: true,
+		};
+		this.options = Object.assign({}, defaults, options);
 
-    this.trackPosition = this.options.track
-    if (this.trackPosition) {
-      this.line = 0
-      this.column = 0
-      this.c = 0
-    }
-  }
+		this.trackPosition = this.options.track;
+		if (this.trackPosition) {
+			this.line = 0;
+			this.column = 0;
+			this.c = 0;
+		}
+	}
 
-  // set a handler for the given state
-  // see dxf.STATES above
-  on (state, callback) {
-    // verify the state
-    // set the callback
-    this['on' + state] = callback
-    return this
-  }
+	// set a handler for the given state
+	// see dxf.STATES above
+	on(state, callback) {
+		// verify the state
+		// set the callback
+		this["on" + state] = callback;
+		return this;
+	}
 
-  // set a handler for the given group and value
-  absorb (group, callback) {
-    if (this.absorbers === undefined) {
-      this.absorbers = new Map()
-    }
-    this.absorbers.set(group, callback)
-    return this
-  }
+	// set a handler for the given group and value
+	absorb(group, callback) {
+		if (this.absorbers === undefined) {
+			this.absorbers = new Map();
+		}
+		this.absorbers.set(group, callback);
+		return this;
+	}
 
-  // write the given data into the reader, initiating parsing
-  write (data) {
-    parse(this, data)
-    return this
-  }
+	// write the given data into the reader, initiating parsing
+	write(data) {
+		parse(this, data);
+		return this;
+	}
 
-  // close and clear all state
-  close () {
-    this.isclosed = true
-    return this
-  }
+	// close and clear all state
+	close() {
+		this.isclosed = true;
+		return this;
+	}
 }
 
 //
 // emit the start of processing to the onstart handler if any
 //
-const emitstart = (reader) => emitstate(reader, 'onstart', reader.data)
+const emitstart = (reader) => emitstate(reader, "onstart", reader.data);
 
 //
 // emit the group (code and value) to asorbers
 //
 const emitgroup = (reader, group, value) => {
-  // emit this group to all listeners
-  if (reader.absorbers !== undefined) {
-    const absorber = reader.absorbers.get(group)
-    if (absorber !== undefined) {
-      absorber(reader, group, value)
-    }
-  }
-}
+	// emit this group to all listeners
+	if (reader.absorbers !== undefined) {
+		const absorber = reader.absorbers.get(group);
+		if (absorber !== undefined) {
+			absorber(reader, group, value);
+		}
+	}
+};
 
 //
 // wrap and emit the given error to the onerror handler if any
 //
 const emiterror = (reader, er) => {
-  // closeText(reader)
-  if (reader.trackPosition) {
-    er += `
+	// closeText(reader)
+	if (reader.trackPosition) {
+		er += `
 Line: ${reader.line}
 Column: ${reader.column}
-Char: ${reader.c}`
-  }
-  er = new Error(er)
-  reader.error = er
-  return emitstate(reader, 'onerror', er)
-}
+Char: ${reader.c}`;
+	}
+	er = new Error(er);
+	reader.error = er;
+	return emitstate(reader, "onerror", er);
+};
 
 //
 // emit the end of processing to the onend handler if any
 //
-const emitend = (reader) => emitstate(reader, 'onend', reader.data)
+const emitend = (reader) => emitstate(reader, "onend", reader.data);
 
 const emitstate = (reader, state, data) => {
-  const onhandler = state.toString()
-  reader[onhandler] && reader[onhandler](reader, data)
-  return reader
-}
+	const onhandler = state.toString();
+	reader[onhandler] && reader[onhandler](reader, data);
+	return reader;
+};
 
 //
 // parse the given data in the context of the given reader
 //
 const parse = (reader, data) => {
-// check reader state
-  if (reader.error) {
-    throw reader.error // throw the last error
-  }
-  if (reader.isclosed) {
-    return emiterror(reader, 'Cannot write after close')
-  }
+	// check reader state
+	if (reader.error) {
+		throw reader.error; // throw the last error
+	}
+	if (reader.isclosed) {
+		return emiterror(reader, "Cannot write after close");
+	}
 
-  emitstart(reader)
+	emitstart(reader);
 
-  if (data === null) {
-    return emitend(reader)
-  }
+	if (data === null) {
+		return emitend(reader);
+	}
 
-  // initial state to initiate parsing
-  reader.group = null
-  reader.value = null
-  reader.error = null
+	// initial state to initiate parsing
+	reader.group = null;
+	reader.value = null;
+	reader.error = null;
 
-  reader.position = 0
-  reader.line = 0
-  reader.column = 0
+	reader.position = 0;
+	reader.line = 0;
+	reader.column = 0;
 
-  // use or convert the data to String
-  let i = 0
-  let c = ''
-  let l = ''
-  while (reader.error === null) {
-    c = charAt(data, i++)
-    if (!c) {
-      break
-    }
-    if (reader.trackPosition) {
-      reader.position++
-      if (c === '\n') {
-        reader.line++
-        reader.column = 0
-      } else {
-        reader.column++
-      }
-    }
-    // dxf files are parsed line by line
-    if (c === '\n') {
-      parseLine(reader, l)
-      l = ''
-    } else {
-      l += c
-    }
-  }
-  // emit state change
-  emitend(reader)
-  return reader
-}
+	// use or convert the data to String
+	let i = 0;
+	let c = "";
+	let l = "";
+	while (reader.error === null) {
+		c = charAt(data, i++);
+		if (!c) {
+			break;
+		}
+		if (reader.trackPosition) {
+			reader.position++;
+			if (c === "\n") {
+				reader.line++;
+				reader.column = 0;
+			} else {
+				reader.column++;
+			}
+		}
+		// dxf files are parsed line by line
+		if (c === "\n") {
+			parseLine(reader, l);
+			l = "";
+		} else {
+			l += c;
+		}
+	}
+	// emit state change
+	emitend(reader);
+	return reader;
+};
 
 /**
  * Parse the given line in the context of the given reader, emitting group value pairs
@@ -183,22 +179,22 @@ const parse = (reader, data) => {
  * @param line {String} - line to parse
  */
 const parseLine = (reader, line) => {
-  line = line.trim()
-  if (reader.group === null) {
-    setDxfGroup(reader, line)
-    reader.value = null
-  } else {
-    setDxfValue(reader, line)
-  }
-  // handle group and value pairs
-  if (reader.group !== null && reader.value !== null) {
-    // emit events for group and value pairs
-    emitgroup(reader, reader.group, reader.value)
+	line = line.trim();
+	if (reader.group === null) {
+		setDxfGroup(reader, line);
+		reader.value = null;
+	} else {
+		setDxfValue(reader, line);
+	}
+	// handle group and value pairs
+	if (reader.group !== null && reader.value !== null) {
+		// emit events for group and value pairs
+		emitgroup(reader, reader.group, reader.value);
 
-    reader.group = null
-    reader.value = null
-  }
-}
+		reader.group = null;
+		reader.value = null;
+	}
+};
 
 /**
  * Parse the given line in the context of the given reader, and update the group
@@ -206,15 +202,15 @@ const parseLine = (reader, line) => {
  * @param line {String} - line to parse
  */
 const setDxfGroup = (reader, line) => {
-// groups are numeric
-  const code = parseInt(line)
-  if (isNaN(code)) {
-    emiterror(reader, 'Invalid group (int)')
-    reader.group = null
-  } else {
-    reader.group = code
-  }
-}
+	// groups are numeric
+	const code = parseInt(line);
+	if (isNaN(code)) {
+		emiterror(reader, "Invalid group (int)");
+		reader.group = null;
+	} else {
+		reader.group = code;
+	}
+};
 
 /**
  * Parse the given line in the context of the given reader, and update the (group) value
@@ -222,20 +218,20 @@ const setDxfGroup = (reader, line) => {
  * @param line {String} - line to parse
  */
 const setDxfValue = (reader, line) => {
-  if (reader.options.strict) {
-    // TODO evaluate the value based on DXF specifications
-    reader.value = line
-  } else {
-    reader.value = line
-  }
-}
+	if (reader.options.strict) {
+		// TODO evaluate the value based on DXF specifications
+		reader.value = line;
+	} else {
+		reader.value = line;
+	}
+};
 
 //
 // helper function to return expected values
 //
 const charAt = (data, i) => {
-  if (data && data.length > i) {
-    return data.charAt(i)
-  }
-  return ''
-}
+	if (data && data.length > i) {
+		return data.charAt(i);
+	}
+	return "";
+};

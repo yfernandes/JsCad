@@ -1,1 +1,1 @@
-module.exports = (params) => Object.assign({}, params, { type: 'roundedCuboid' })
+module.exports = (params) => Object.assign({}, params, {type: "roundedCuboid"});

@@ -1,6 +1,6 @@
-import * as vec3 from '../../maths/vec3/index.js'
+import * as vec3 from "../../maths/vec3/index.js";
 
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Transform the given slice using the given matrix.
@@ -14,6 +14,8 @@ import { create } from './create.js'
  * let newSlice = transform(matrix, oldSlice)
  */
 export const transform = (matrix, slice) => {
-  const contours = slice.contours.map((contour) => contour.map((vertex) => vec3.transform(vec3.create(), vertex, matrix)))
-  return create(contours)
-}
+	const contours = slice.contours.map((contour) =>
+		contour.map((vertex) => vec3.transform(vec3.create(), vertex, matrix))
+	);
+	return create(contours);
+};

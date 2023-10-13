@@ -1,39 +1,39 @@
-import test from 'ava'
+import test from "ava";
 
-import { cube, geom3 } from '@jscad/modeling'
+import {cube, geom3} from "@jscad/modeling";
 
-import { serialize } from '../src/index.js'
-import { dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects } from '../src/autocad_AC2017.js'
+import {serialize} from "../src/index.js";
+import {dxfHeaders, dxfClasses, dxfTables, dxfBlocks, dxfObjects} from "../src/autocad_AC2017.js";
 
-test('3D Geometry to DXF 3DFACE', (t) => {
-  const csg1 = geom3.create()
+test("3D Geometry to DXF 3DFACE", (t) => {
+	const csg1 = geom3.create();
 
-  const obs1 = serialize({}, csg1)
-  const exp1 = [empty]
-  t.deepEqual(obs1, exp1)
+	const obs1 = serialize({}, csg1);
+	const exp1 = [empty];
+	t.deepEqual(obs1, exp1);
 
-  const csg2 = cube()
-  t.is(csg2.polygons.length, 6)
+	const csg2 = cube();
+	t.is(csg2.polygons.length, 6);
 
-  const obs2 = serialize({}, csg2)
-  const exp2 = [threeface1]
-  t.deepEqual(obs2, exp2)
-})
+	const obs2 = serialize({}, csg2);
+	const exp2 = [threeface1];
+	t.deepEqual(obs2, exp2);
+});
 
-test('3D Geometry to DXF POLYLINE FACES', (t) => {
-  const csg1 = geom3.create()
+test("3D Geometry to DXF POLYLINE FACES", (t) => {
+	const csg1 = geom3.create();
 
-  const obs1 = serialize({ geom3To: 'polyline' }, csg1)
-  const exp1 = [empty]
-  t.deepEqual(obs1, exp1)
+	const obs1 = serialize({geom3To: "polyline"}, csg1);
+	const exp1 = [empty];
+	t.deepEqual(obs1, exp1);
 
-  const csg2 = cube()
-  t.is(csg2.polygons.length, 6)
+	const csg2 = cube();
+	t.is(csg2.polygons.length, 6);
 
-  const obs2 = serialize({ geom3To: 'polyline' }, csg2)
-  const exp2 = [polyline1]
-  t.deepEqual(obs2, exp2)
-})
+	const obs2 = serialize({geom3To: "polyline"}, csg2);
+	const exp2 = [polyline1];
+	t.deepEqual(obs2, exp2);
+});
 
 const empty = `999
 Created by JSCAD
@@ -50,7 +50,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const threeface1 = `999
 Created by JSCAD
@@ -523,7 +523,7 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;
 
 const polyline1 = `999
 Created by JSCAD
@@ -1616,4 +1616,4 @@ ENDSEC
 ${dxfObjects({})}
   0
 EOF
-`
+`;

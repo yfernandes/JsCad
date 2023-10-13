@@ -5,4 +5,4 @@
  * import { curves } from '@jscad/modeling'
  * const { bezier } = curves
  */
-export * as bezier from './bezier/index.js'
+export * as bezier from "./bezier/index.js";

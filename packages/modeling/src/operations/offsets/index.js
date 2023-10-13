@@ -5,5 +5,5 @@
  * @example
  * import { offset } from '@jscad/modeling'
  */
-export { offset } from './offset.js'
-export { offsetFromPoints } from './offsetFromPoints.js'
+export {offset} from "./offset.js";
+export {offsetFromPoints} from "./offsetFromPoints.js";

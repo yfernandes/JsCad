@@ -1,11 +1,11 @@
-import { areAllShapesTheSameType } from '../../utils/areAllShapesTheSameType.js'
-import { flatten } from '../../utils/flatten.js'
+import {areAllShapesTheSameType} from "../../utils/areAllShapesTheSameType.js";
+import {flatten} from "../../utils/flatten.js";
 
-import * as geom2 from '../../geometries/geom2/index.js'
-import * as geom3 from '../../geometries/geom3/index.js'
+import * as geom2 from "../../geometries/geom2/index.js";
+import * as geom3 from "../../geometries/geom3/index.js";
 
-import { intersectGeom2 } from './intersectGeom2.js'
-import { intersectGeom3 } from './intersectGeom3.js'
+import {intersectGeom2} from "./intersectGeom2.js";
+import {intersectGeom3} from "./intersectGeom3.js";
 
 /**
  * Return a new geometry representing space in both the first geometry and
@@ -30,16 +30,16 @@ import { intersectGeom3 } from './intersectGeom3.js'
  *      +-------+
  */
 export const intersect = (...geometries) => {
-  geometries = flatten(geometries)
-  if (geometries.length === 0) throw new Error('intersect wrong number of arguments')
+	geometries = flatten(geometries);
+	if (geometries.length === 0) throw new Error("intersect wrong number of arguments");
 
-  if (!areAllShapesTheSameType(geometries)) {
-    throw new Error('intersect arguments must be the same geometry type')
-  }
+	if (!areAllShapesTheSameType(geometries)) {
+		throw new Error("intersect arguments must be the same geometry type");
+	}
 
-  const geometry = geometries[0]
-  // if (path.isA(geometry)) return intersectPath(matrix, geometries)
-  if (geom2.isA(geometry)) return intersectGeom2(geometries)
-  if (geom3.isA(geometry)) return intersectGeom3(geometries)
-  throw new Error('intersect unsupported geometry type')
-}
+	const geometry = geometries[0];
+	// if (path.isA(geometry)) return intersectPath(matrix, geometries)
+	if (geom2.isA(geometry)) return intersectGeom2(geometries);
+	if (geom3.isA(geometry)) return intersectGeom3(geometries);
+	throw new Error("intersect unsupported geometry type");
+};

@@ -1,31 +1,32 @@
-import test from 'ava'
+import test from "ava";
 
-import { countOf } from '../../test/helpers/countOf.js'
+import {countOf} from "../../test/helpers/countOf.js";
 
-import { deserialize, getMimeType } from '../src/index.js'
+import {deserialize, getMimeType} from "../src/index.js";
 
-test('deserialize svg (simple) to objects', (t) => {
-  const mimeType = 'image/svg+xml'
-  const objects = deserialize({ output: 'geometry' }, mimeType, source1)
-  const expected1 = [{
-    isClosed: false,
-    points: [[3, -3], [4, -2], [0, 0]],
-    transforms: [
-      1, 0, 0, 0,
-      0, 1, 0, 0,
-      0, 0, 1, 0,
-      0, 0, 0, 1
-    ]
-  }]
-  t.deepEqual(expected1, objects)
-})
+test("deserialize svg (simple) to objects", (t) => {
+	const mimeType = "image/svg+xml";
+	const objects = deserialize({output: "geometry"}, mimeType, source1);
+	const expected1 = [
+		{
+			isClosed: false,
+			points: [
+				[3, -3],
+				[4, -2],
+				[0, 0],
+			],
+			transforms: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+		},
+	];
+	t.deepEqual(expected1, objects);
+});
 
-test('deserialize svg (simple) to script', (t) => {
-  const mimeType = getMimeType('svg')
-  const script = deserialize({ output: 'script', addMetaData: false }, mimeType, source1)
-  t.is(countOf('main(params)', script), 1)
-  t.is(countOf('path2', script), 3)
-})
+test("deserialize svg (simple) to script", (t) => {
+	const mimeType = getMimeType("svg");
+	const script = deserialize({output: "script", addMetaData: false}, mimeType, source1);
+	t.is(countOf("main(params)", script), 1);
+	t.is(countOf("path2", script), 3);
+});
 
 const source1 = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created by JSCAD SVG Serializer -->
@@ -35,11 +36,11 @@ const source1 = `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M3 3L4 2L0 0"/>
   </g>
 </svg>
-`
+`;
 
-test('deserialize JS code to JS code', (t) => {
-  const mimeType = 'application/javascript'
-  const code = 'const a - 1;'
-  const script = deserialize({ output: 'script', addMetaData: false }, mimeType, code)
-  t.deepEqual(script, code)
-})
+test("deserialize JS code to JS code", (t) => {
+	const mimeType = "application/javascript";
+	const code = "const a - 1;";
+	const script = deserialize({output: "script", addMetaData: false}, mimeType, code);
+	t.deepEqual(script, code);
+});

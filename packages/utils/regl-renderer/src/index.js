@@ -1,5 +1,5 @@
-export * as cameras from './cameras/index.js'
-export * as commands from './rendering/commands/index.js'
-export * as controls from './controls/index.js'
-export { entitiesFromSolids } from './geometry-utils-V3/entitiesFromSolids.js'
-export { prepareRender } from './rendering/render.js'
+export * as cameras from "./cameras/index.js";
+export * as commands from "./rendering/commands/index.js";
+export * as controls from "./controls/index.js";
+export {entitiesFromSolids} from "./geometry-utils-V3/entitiesFromSolids.js";
+export {prepareRender} from "./rendering/render.js";

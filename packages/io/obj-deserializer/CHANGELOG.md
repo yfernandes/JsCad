@@ -7,12 +7,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
+- **io:** fix io after V3 refactoring ([7a12bbd](https://github.com/jscad/OpenJSCAD.org/commit/7a12bbdb7b4b3df792a4c5b3c8b30a6a985a48f0))
 
 ### Features
 
-* **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
-* **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
+- **modeling:** reworked exports to expose a flattened API ([8235238](https://github.com/jscad/OpenJSCAD.org/commit/8235238ad63d063f1e501478cae1208deb130a9c))
+- **regl-renderer:** added rollup configuration to create ES6 bundle, adjusted imports and exports ([#1259](https://github.com/jscad/OpenJSCAD.org/issues/1259)) ([47a66bc](https://github.com/jscad/OpenJSCAD.org/commit/47a66bc07a137a748ce8571ea5d043ebaab9418d))
 
 ## [2.0.25](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/obj-deserializer@2.0.24...@jscad/obj-deserializer@2.0.25) (2023-06-27)
 
@@ -110,13 +110,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 ## [2.0.1](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/obj-deserializer@2.0.0-alpha.0...@jscad/obj-deserializer@2.0.1) (2021-04-15)
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/obj-deserializer@2.0.0-alpha.11...@jscad/obj-deserializer@2.0.0) (2021-04-12)
 
@@ -146,7 +146,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
+- **all:** V2 : several fixes for modeling ([#705](https://github.com/jscad/OpenJSCAD.org/issues/705)) ([62017a4](https://github.com/jscad/OpenJSCAD.org/commit/62017a41214169d6e000f1e0c11aaefdd68e1097))
 
 # [2.0.0-alpha.5](https://github.com/jscad/OpenJSCAD.org/compare/@jscad/obj-deserializer@2.0.0-alpha.4...@jscad/obj-deserializer@2.0.0-alpha.5) (2020-09-29)
 
@@ -172,53 +172,61 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **obj-deserializer:** corrected stringify() to supply V2 require and export ([#497](https://github.com/jscad/OpenJSCAD.org/issues/497)) ([1fd11ae](https://github.com/jscad/OpenJSCAD.org/commit/1fd11aeb1e1a309a3b87dd542d43870bceb9c903))
+- **obj-deserializer:** corrected stringify() to supply V2 require and export ([#497](https://github.com/jscad/OpenJSCAD.org/issues/497)) ([1fd11ae](https://github.com/jscad/OpenJSCAD.org/commit/1fd11aeb1e1a309a3b87dd542d43870bceb9c903))
 
 ### Features
 
-* **obj-deserializer:** overhaul for V2 branch (#469)
-* **io:** change api to deserialize(options, source)
+- **obj-deserializer:** overhaul for V2 branch (#469)
+- **io:** change api to deserialize(options, source)
 
 <a name="0.2.3"></a>
+
 ## [0.2.3](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.2.2...@jscad/obj-deserializer@0.2.3) (2018-11-25)
 
 **Note:** Version bump only for package @jscad/obj-deserializer
 
 <a name="0.2.2"></a>
+
 ## [0.2.2](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.2.1...@jscad/obj-deserializer@0.2.2) (2018-11-22)
 
 **Note:** Version bump only for package @jscad/obj-deserializer
 
 <a name="0.2.1"></a>
+
 ## [0.2.1](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.2.0...@jscad/obj-deserializer@0.2.1) (2017-12-14)
 
 **Note:** Version bump only for package @jscad/obj-deserializer
 
 <a name="0.2.0"></a>
+
 # [0.2.0](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.1.0...@jscad/obj-deserializer@0.2.0) (2017-11-29)
 
 ### Features
 
-* add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
+- add support for a status callback for de/serialization progress ([#49](https://github.com/jscad/io/issues/49)) ([f457cdb](https://github.com/jscad/io/commit/f457cdb))
 
 <a name="0.1.0"></a>
+
 # [0.1.0](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.0.4...@jscad/obj-deserializer@0.1.0) (2017-11-14)
 
 ### Features
 
-* **deserializers:** added csg output capabilities to amf & obj deserializers & basic tests ([#47](https://github.com/jscad/io/issues/47)) ([abf3040](https://github.com/jscad/io/commit/abf3040))
+- **deserializers:** added csg output capabilities to amf & obj deserializers & basic tests ([#47](https://github.com/jscad/io/issues/47)) ([abf3040](https://github.com/jscad/io/commit/abf3040))
 
 <a name="0.0.4"></a>
+
 ## [0.0.4](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.0.3...@jscad/obj-deserializer@0.0.4) (2017-11-04)
 
 **Note:** Version bump only for package @jscad/obj-deserializer
 
 <a name="0.0.3"></a>
+
 ## [0.0.3](https://github.com/jscad/io/compare/@jscad/obj-deserializer@0.0.2...@jscad/obj-deserializer@0.0.3) (2017-10-10)
 
 **Note:** Version bump only for package @jscad/obj-deserializer
 
 <a name="0.0.2"></a>
+
 ## 0.0.2 (2017-10-10)
 
 **Note:** Version bump only for package @jscad/obj-deserializer

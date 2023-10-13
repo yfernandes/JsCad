@@ -1,4 +1,4 @@
-import { create } from './create.js'
+import {create} from "./create.js";
 
 /**
  * Reverse the edges of the given slice.
@@ -8,7 +8,7 @@ import { create } from './create.js'
  * @alias module:modeling/geometries/slice.reverse
  */
 export const reverse = (slice) => {
-  // reverse each contour
-  const contours = slice.contours.map((contour) => contour.slice().reverse())
-  return create(contours)
-}
+	// reverse each contour
+	const contours = slice.contours.map((contour) => contour.slice().reverse());
+	return create(contours);
+};

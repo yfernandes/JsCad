@@ -8,28 +8,28 @@
  * @licence MIT License
  */
 
-const mountPlate = require('./mountPlate.js')
-const sphereShape = require('./subFolder/sphereShape')
+const mountPlate = require("./mountPlate.js");
+const sphereShape = require("./subFolder/sphereShape");
 
 const getParameterDefinitions = () => {
-  const globalParams = [
-    { name: 'showPlate', type: 'checkbox', checked: true, caption: 'Show plate:' },
-    { name: 'showSphere', type: 'checkbox', checked: false, caption: 'Show sphere:' }
-  ]
+	const globalParams = [
+		{name: "showPlate", type: "checkbox", checked: true, caption: "Show plate:"},
+		{name: "showSphere", type: "checkbox", checked: false, caption: "Show sphere:"},
+	];
 
-  // Load the parameters defined in the mountPlate sub-file, and add them to the project parameters.
-  const plateParams = mountPlate.getParameterDefinitions()
-  globalParams.push(...plateParams)
-  return globalParams
-}
+	// Load the parameters defined in the mountPlate sub-file, and add them to the project parameters.
+	const plateParams = mountPlate.getParameterDefinitions();
+	globalParams.push(...plateParams);
+	return globalParams;
+};
 
 const main = (params) => {
-  console.log(params)
-  let results = []
-  results = params.showPlate ? results.concat(mountPlate.create(params.plateLength)) : results
-  results = params.showSphere ? results.concat(sphereShape(3)) : results
+	console.log(params);
+	let results = [];
+	results = params.showPlate ? results.concat(mountPlate.create(params.plateLength)) : results;
+	results = params.showSphere ? results.concat(sphereShape(3)) : results;
 
-  return results
-}
+	return results;
+};
 
-module.exports = { main, getParameterDefinitions }
+module.exports = {main, getParameterDefinitions};

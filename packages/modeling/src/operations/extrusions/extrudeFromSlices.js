@@ -1,19 +1,21 @@
-import * as mat4 from '../../maths/mat4/index.js'
+import * as mat4 from "../../maths/mat4/index.js";
 
-import * as geom2 from '../../geometries/geom2/index.js'
-import * as geom3 from '../../geometries/geom3/index.js'
-import * as poly3 from '../../geometries/poly3/index.js'
-import * as slice from '../../geometries/slice/index.js'
+import * as geom2 from "../../geometries/geom2/index.js";
+import * as geom3 from "../../geometries/geom3/index.js";
+import * as poly3 from "../../geometries/poly3/index.js";
+import * as slice from "../../geometries/slice/index.js";
 
-import { extrudeWalls } from './extrudeWalls.js'
+import {extrudeWalls} from "./extrudeWalls.js";
 
 const defaultCallback = (progress, index, base) => {
-  let baseSlice = null
-  if (geom2.isA(base)) baseSlice = slice.fromGeom2(base)
-  if (poly3.isA(base)) baseSlice = slice.fromVertices(poly3.toVertices(base))
+	let baseSlice = null;
+	if (geom2.isA(base)) baseSlice = slice.fromGeom2(base);
+	if (poly3.isA(base)) baseSlice = slice.fromVertices(poly3.toVertices(base));
 
-  return progress === 0 || progress === 1 ? slice.transform(mat4.fromTranslation(mat4.create(), [0, 0, progress]), baseSlice) : null
-}
+	return progress === 0 || progress === 1
+		? slice.transform(mat4.fromTranslation(mat4.create(), [0, 0, progress]), baseSlice)
+		: null;
+};
 
 /**
  * Extrude a solid from the slices as returned by the callback function.
@@ -43,60 +45,68 @@ const defaultCallback = (progress, index, base) => {
  * }
  */
 export const extrudeFromSlices = (options, base) => {
-  const defaults = {
-    numberOfSlices: 2,
-    capStart: true,
-    capEnd: true,
-    close: false,
-    callback: defaultCallback
-  }
-  const { numberOfSlices, capStart, capEnd, close, callback: generate } = Object.assign({ }, defaults, options)
+	const defaults = {
+		numberOfSlices: 2,
+		capStart: true,
+		capEnd: true,
+		close: false,
+		callback: defaultCallback,
+	};
+	const {
+		numberOfSlices,
+		capStart,
+		capEnd,
+		close,
+		callback: generate,
+	} = Object.assign({}, defaults, options);
 
-  if (numberOfSlices < 2) throw new Error('numberOfSlices must be 2 or more')
+	if (numberOfSlices < 2) throw new Error("numberOfSlices must be 2 or more");
 
-  const sMax = numberOfSlices - 1
+	const sMax = numberOfSlices - 1;
 
-  let startSlice = null
-  let endSlice = null
-  let prevSlice = null
-  let polygons = []
-  for (let s = 0; s < numberOfSlices; s++) {
-    // invoke the callback function to get the next slice
-    // NOTE: callback can return null to skip the slice
-    const currentSlice = generate(s / sMax, s, base)
+	let startSlice = null;
+	let endSlice = null;
+	let prevSlice = null;
+	let polygons = [];
+	for (let s = 0; s < numberOfSlices; s++) {
+		// invoke the callback function to get the next slice
+		// NOTE: callback can return null to skip the slice
+		const currentSlice = generate(s / sMax, s, base);
 
-    if (currentSlice) {
-      if (!slice.isA(currentSlice)) throw new Error('the callback function must return slice objects')
+		if (currentSlice) {
+			if (!slice.isA(currentSlice))
+				throw new Error("the callback function must return slice objects");
 
-      if (currentSlice.contours.length === 0) throw new Error('the callback function must return slices with one or more contours')
+			if (currentSlice.contours.length === 0)
+				throw new Error("the callback function must return slices with one or more contours");
 
-      if (prevSlice) {
-        polygons = polygons.concat(extrudeWalls(prevSlice, currentSlice))
-      }
+			if (prevSlice) {
+				polygons = polygons.concat(extrudeWalls(prevSlice, currentSlice));
+			}
 
-      // save start and end slices for caps if necessary
-      if (s === 0) startSlice = currentSlice
-      if (s === (numberOfSlices - 1)) endSlice = currentSlice
+			// save start and end slices for caps if necessary
+			if (s === 0) startSlice = currentSlice;
+			if (s === numberOfSlices - 1) endSlice = currentSlice;
 
-      prevSlice = currentSlice
-    }
-  }
+			prevSlice = currentSlice;
+		}
+	}
 
-  if (capEnd) {
-    // create a cap at the end
-    const endPolygons = slice.toPolygons(endSlice)
-    polygons = polygons.concat(endPolygons)
-  }
-  if (capStart) {
-    // create a cap at the start
-    const startPolygons = slice.toPolygons(startSlice).map(poly3.invert)
-    polygons = polygons.concat(startPolygons)
-  }
-  if (!capStart && !capEnd) {
-    // create walls between end and start slices
-    if (close && !slice.equals(endSlice, startSlice)) {
-      polygons = polygons.concat(extrudeWalls(endSlice, startSlice))
-    }
-  }
-  return geom3.create(polygons)
-}
+	if (capEnd) {
+		// create a cap at the end
+		const endPolygons = slice.toPolygons(endSlice);
+		polygons = polygons.concat(endPolygons);
+	}
+	if (capStart) {
+		// create a cap at the start
+		const startPolygons = slice.toPolygons(startSlice).map(poly3.invert);
+		polygons = polygons.concat(startPolygons);
+	}
+	if (!capStart && !capEnd) {
+		// create walls between end and start slices
+		if (close && !slice.equals(endSlice, startSlice)) {
+			polygons = polygons.concat(extrudeWalls(endSlice, startSlice));
+		}
+	}
+	return geom3.create(polygons);
+};

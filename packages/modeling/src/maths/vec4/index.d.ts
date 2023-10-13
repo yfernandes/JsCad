@@ -1,11 +1,11 @@
-export { clone } from './clone.js'
-export { copy } from './copy.js'
-export { create } from './create.js'
-export { dot } from './dot.js'
-export { equals } from './equals.js'
-export { fromScalar } from './fromScalar.js'
-export { fromValues } from './fromValues.js'
-export { toString } from './toString.js'
-export { transform } from './transform.js'
+export {clone} from "./clone.js";
+export {copy} from "./copy.js";
+export {create} from "./create.js";
+export {dot} from "./dot.js";
+export {equals} from "./equals.js";
+export {fromScalar} from "./fromScalar.js";
+export {fromValues} from "./fromValues.js";
+export {toString} from "./toString.js";
+export {transform} from "./transform.js";
 
-export type { Vec4 } from './type.d.ts'
+export type {Vec4} from "./type.d.ts";

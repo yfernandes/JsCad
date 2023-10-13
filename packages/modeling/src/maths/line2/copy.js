@@ -7,8 +7,8 @@
  * @alias module:modeling/maths/line2.copy
  */
 export const copy = (out, line) => {
-  out[0] = line[0]
-  out[1] = line[1]
-  out[2] = line[2]
-  return out
-}
+	out[0] = line[0];
+	out[1] = line[1];
+	out[2] = line[2];
+	return out;
+};

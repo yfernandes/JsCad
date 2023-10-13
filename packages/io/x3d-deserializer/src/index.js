@@ -13,10 +13,10 @@
  * const { deserializer, extension } = require('@jscad/x3d-deserializer')
  */
 
-import { translate } from './translate.js'
-import { instantiate } from './instantiate.js'
+import {translate} from "./translate.js";
+import {instantiate} from "./instantiate.js";
 
-const version = '[VI]{version}[/VI]' // version is injected by rollup
+const version = "[VI]{version}[/VI]"; // version is injected by rollup
 
 /**
  * Deserialize the given X3D source (XML Encoding) into either a script or an array of geometry
@@ -32,21 +32,18 @@ const version = '[VI]{version}[/VI]' // version is injected by rollup
  * @alias module:io/x3d-deserializer.deserialize
  */
 const deserialize = (options, input) => {
-  const defaults = {
-    filename: 'x3d',
-    output: 'script',
-    version,
-    flatten: true,
-    addMetaData: true
-  }
-  options = Object.assign({}, defaults, options)
+	const defaults = {
+		filename: "x3d",
+		output: "script",
+		version,
+		flatten: true,
+		addMetaData: true,
+	};
+	options = Object.assign({}, defaults, options);
 
-  return options.output === 'script' ? translate(options, input) : instantiate(options, input)
-}
+	return options.output === "script" ? translate(options, input) : instantiate(options, input);
+};
 
-const mimeType = 'model/x3d+xml'
+const mimeType = "model/x3d+xml";
 
-export {
-  mimeType,
-  deserialize
-}
+export {mimeType, deserialize};

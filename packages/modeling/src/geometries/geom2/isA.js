@@ -5,12 +5,12 @@
  * @alias module:modeling/geometries/geom2.isA
  */
 export const isA = (object) => {
-  if (object && typeof object === 'object') {
-    if ('outlines' in object && 'transforms' in object) {
-      if (Array.isArray(object.outlines) && 'length' in object.transforms) {
-        return true
-      }
-    }
-  }
-  return false
-}
+	if (object && typeof object === "object") {
+		if ("outlines" in object && "transforms" in object) {
+			if (Array.isArray(object.outlines) && "length" in object.transforms) {
+				return true;
+			}
+		}
+	}
+	return false;
+};

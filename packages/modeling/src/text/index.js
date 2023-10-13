@@ -6,5 +6,5 @@
  * @example
  * import { vectorChar, vectorText } from '@jscad/modeling'
  */
-export { vectorChar } from './vectorChar.js'
-export { vectorText } from './vectorText.js'
+export {vectorChar} from "./vectorChar.js";
+export {vectorText} from "./vectorText.js";

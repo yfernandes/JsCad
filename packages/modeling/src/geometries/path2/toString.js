@@ -1,6 +1,6 @@
-import * as vec2 from '../../maths/vec2/index.js'
+import * as vec2 from "../../maths/vec2/index.js";
 
-import { toPoints } from './toPoints.js'
+import {toPoints} from "./toPoints.js";
 
 /**
  * Create a string representing the contents of the given path.
@@ -12,11 +12,11 @@ import { toPoints } from './toPoints.js'
  * console.out(toString(path))
  */
 export const toString = (geometry) => {
-  const points = toPoints(geometry)
-  let result = 'path (' + points.length + ' points, ' + geometry.isClosed + '):\n[\n'
-  points.forEach((point) => {
-    result += '  ' + vec2.toString(point) + ',\n'
-  })
-  result += ']\n'
-  return result
-}
+	const points = toPoints(geometry);
+	let result = "path (" + points.length + " points, " + geometry.isClosed + "):\n[\n";
+	points.forEach((point) => {
+		result += "  " + vec2.toString(point) + ",\n";
+	});
+	result += "]\n";
+	return result;
+};

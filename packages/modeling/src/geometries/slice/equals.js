@@ -1,4 +1,4 @@
-import * as vec3 from '../../maths/vec3/index.js'
+import * as vec3 from "../../maths/vec3/index.js";
 
 /**
  * Determine if the given slices have the same contours.
@@ -8,20 +8,20 @@ import * as vec3 from '../../maths/vec3/index.js'
  * @alias module:modeling/geometries/slice.equals
  */
 export const equals = (a, b) => {
-  if (a.contours.length !== b.contours.length) {
-    return false
-  }
+	if (a.contours.length !== b.contours.length) {
+		return false;
+	}
 
-  const len = a.contours.length
-  for (let i = 0; i < len; i++) {
-    const aVertex = a.contours[i]
-    for (let j = 0; j < len; j++) {
-      const bVertex = b.contours[j]
-      if (!vec3.equals(aVertex, bVertex)) {
-        return false
-      }
-    }
-  }
+	const len = a.contours.length;
+	for (let i = 0; i < len; i++) {
+		const aVertex = a.contours[i];
+		for (let j = 0; j < len; j++) {
+			const bVertex = b.contours[j];
+			if (!vec3.equals(aVertex, bVertex)) {
+				return false;
+			}
+		}
+	}
 
-  return true
-}
+	return true;
+};

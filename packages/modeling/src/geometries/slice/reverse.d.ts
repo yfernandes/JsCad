@@ -1,3 +1,3 @@
-import type { Slice } from './type.d.ts'
+import type {Slice} from "./type.d.ts";
 
-export function reverse(slice: Slice): Slice
+export function reverse(slice: Slice): Slice;

@@ -1,17 +1,18 @@
-import { getParameterValuesFromParameters } from './getParameterValuesFromParameters.js'
-import { applyParameterDefinitions } from './applyParameterDefinitions.js'
+import {getParameterValuesFromParameters} from "./getParameterValuesFromParameters.js";
+import {applyParameterDefinitions} from "./applyParameterDefinitions.js";
 
-const doesModuleExportParameterDefiniitions = (moduleToCheck) => moduleToCheck && 'getParameterDefinitions' in moduleToCheck
+const doesModuleExportParameterDefiniitions = (moduleToCheck) =>
+	moduleToCheck && "getParameterDefinitions" in moduleToCheck;
 
 const getRawParameterDefinitionsAndValues = (rootModule, overrides) => {
-  let parameterValues = {}
-  let parameterDefinitions = []
-  if (doesModuleExportParameterDefiniitions(rootModule)) {
-    parameterDefinitions = rootModule.getParameterDefinitions(overrides) || []
-    parameterValues = getParameterValuesFromParameters(parameterDefinitions)
-  }
-  return { parameterDefinitions, parameterValues }
-}
+	let parameterValues = {};
+	let parameterDefinitions = [];
+	if (doesModuleExportParameterDefiniitions(rootModule)) {
+		parameterDefinitions = rootModule.getParameterDefinitions(overrides) || [];
+		parameterValues = getParameterValuesFromParameters(parameterDefinitions);
+	}
+	return {parameterDefinitions, parameterValues};
+};
 
 /*
  * given the root/main module and optional parameter value overrides,
@@ -24,9 +25,14 @@ const getRawParameterDefinitionsAndValues = (rootModule, overrides) => {
  * @returns {Object} { parameterValues, parameterDefinitions }
  */
 export const getParameterDefinitionsAndValues = (rootModule, overrides) => {
-  let { parameterDefinitions, parameterValues } = getRawParameterDefinitionsAndValues(rootModule, overrides)
-  parameterValues = Object.assign({}, parameterValues, overrides)
-  parameterValues = parameterValues ? applyParameterDefinitions(parameterValues, parameterDefinitions) : parameterValues
+	let {parameterDefinitions, parameterValues} = getRawParameterDefinitionsAndValues(
+		rootModule,
+		overrides
+	);
+	parameterValues = Object.assign({}, parameterValues, overrides);
+	parameterValues = parameterValues
+		? applyParameterDefinitions(parameterValues, parameterDefinitions)
+		: parameterValues;
 
-  return { parameterValues, parameterDefinitions }
-}
+	return {parameterValues, parameterDefinitions};
+};

@@ -1,1 +1,1 @@
-export * as bezier from './bezier/index.js'
+export * as bezier from "./bezier/index.js";

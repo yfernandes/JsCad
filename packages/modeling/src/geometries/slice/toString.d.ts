@@ -1,3 +1,3 @@
-import type { Slice } from './type.d.ts'
+import type {Slice} from "./type.d.ts";
 
-export function toString(slice: Slice): string
+export function toString(slice: Slice): string;
