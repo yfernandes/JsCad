@@ -137,7 +137,7 @@ const initializeContourFromContext = (event, contours, contourId) => {
  * @param {Array.<SweepEvent>} sortedEvents
  * @return {Array.<*>} polygons
  */
-export const connectEdges = (sortedEvents) => {
+export function connectEdges(sortedEvents) {
 	const resultEvents = orderEvents(sortedEvents);
 	const len = resultEvents.length;
 
@@ -186,4 +186,4 @@ export const connectEdges = (sortedEvents) => {
 	}
 
 	return contours;
-};
+}

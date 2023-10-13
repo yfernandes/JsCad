@@ -333,8 +333,8 @@ const createX3DParser = (src) => {
 	parser.write(src).close();
 };
 
-export const parse = (src) => {
+export function parse(src) {
 	createX3DParser(src);
 	// console.log(JSON.stringify(x3dObj))
 	return {x3dObj, x3dMaterials, x3dTextures};
-};
+}

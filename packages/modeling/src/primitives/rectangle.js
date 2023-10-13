@@ -15,7 +15,7 @@ import {isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = rectangle({size: [10, 20]})
  */
-export const rectangle = (options) => {
+export function rectangle(options) {
 	const defaults = {
 		center: [0, 0],
 		size: [2, 2],
@@ -39,4 +39,4 @@ export const rectangle = (options) => {
 		vec2.subtract(vec2.create(), center, swapped),
 	];
 	return geom2.create([points]);
-};
+}

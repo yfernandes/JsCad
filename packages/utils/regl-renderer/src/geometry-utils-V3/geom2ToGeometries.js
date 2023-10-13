@@ -9,7 +9,7 @@ const maxIndex = Math.floor(65535 / 2); // two vertices per segment
  * @param {geom2} solid - the V3 geom3 object to convert
  * @return {Array} list of new geometries
  */
-export const geom2ToGeometries = (options, solid) => {
+export function geom2ToGeometries(options, solid) {
 	let {color} = options;
 
 	const outlines = solid.outlines;
@@ -54,4 +54,4 @@ export const geom2ToGeometries = (options, solid) => {
 		}
 	}
 	return geometries;
-};
+}

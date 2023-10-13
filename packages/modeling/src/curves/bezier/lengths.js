@@ -12,7 +12,7 @@ import {valueAt} from "./valueAt.js";
  * @param {object} bezier a bezier curve.
  * @returns an array containing the cumulative length of the segments.
  */
-export const lengths = (segments, bezier) => {
+export function lengths(segments, bezier) {
 	let sum = 0;
 	const lengths = [0];
 	let previous = valueAt(0, bezier);
@@ -23,7 +23,7 @@ export const lengths = (segments, bezier) => {
 		previous = current;
 	}
 	return lengths;
-};
+}
 
 /**
  * Calculates the Euclidean distance between two n-dimensional points.

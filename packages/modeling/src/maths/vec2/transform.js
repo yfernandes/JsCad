@@ -7,10 +7,10 @@
  * @returns {Vec2} out
  * @alias module:modeling/maths/vec2.transform
  */
-export const transform = (out, vector, matrix) => {
+export function transform(out, vector, matrix) {
 	const x = vector[0];
 	const y = vector[1];
 	out[0] = matrix[0] * x + matrix[4] * y + matrix[12];
 	out[1] = matrix[1] * x + matrix[5] * y + matrix[13];
 	return out;
-};
+}

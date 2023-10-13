@@ -9,10 +9,10 @@ import {create} from "./create.js";
  * @returns {Line2} a new unbounded line
  * @alias module:modeling/maths/line2.fromValues
  */
-export const fromValues = (x, y, d) => {
+export function fromValues(x, y, d) {
 	const out = create();
 	out[0] = x;
 	out[1] = y;
 	out[2] = d;
 	return out;
-};
+}

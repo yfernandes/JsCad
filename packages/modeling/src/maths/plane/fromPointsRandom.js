@@ -14,7 +14,7 @@ import * as vec3 from "../vec3/index.js";
  * @returns {Plane} out
  * @alias module:modeling/maths/plane.fromPointsRandom
  */
-export const fromPointsRandom = (out, a, b, c) => {
+export function fromPointsRandom(out, a, b, c) {
 	let ba = vec3.subtract(vec3.create(), b, a);
 	let ca = vec3.subtract(vec3.create(), c, a);
 	if (vec3.length(ba) < EPS) {
@@ -37,4 +37,4 @@ export const fromPointsRandom = (out, a, b, c) => {
 	out[2] = normal[2];
 	out[3] = w;
 	return out;
-};
+}

@@ -8,7 +8,7 @@ import {fromPointAxisNormal} from "./fromPointAxisNormal.js";
  * @param {connector} connector the connector to extend
  * @returns {connector} a normalized connector
  */
-export const extend = (distance, connector) => {
+export function extend(distance, connector) {
 	const newPoint = vec3.add(connector.point, vec3.scale(distance, vec3.normalize(connector.axis)));
 	return fromPointAxisNormal(newPoint, connector.axis, connector.normal);
-};
+}

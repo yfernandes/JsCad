@@ -17,7 +17,7 @@ import {plane} from "./plane.js";
  * @throws {Error} error if the geometry is not valid
  * @alias module:modeling/geometries/poly3.validate
  */
-export const validate = (object) => {
+export function validate(object) {
 	if (!isA(object)) {
 		throw new Error("invalid poly3 structure");
 	}
@@ -60,4 +60,4 @@ export const validate = (object) => {
 			}
 		});
 	}
-};
+}

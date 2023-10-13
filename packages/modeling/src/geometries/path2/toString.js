@@ -11,7 +11,7 @@ import {toPoints} from "./toPoints.js";
  * @example
  * console.out(toString(path))
  */
-export const toString = (geometry) => {
+export function toString(geometry) {
 	const points = toPoints(geometry);
 	let result = "path (" + points.length + " points, " + geometry.isClosed + "):\n[\n";
 	points.forEach((point) => {
@@ -19,4 +19,4 @@ export const toString = (geometry) => {
 	});
 	result += "]\n";
 	return result;
-};
+}

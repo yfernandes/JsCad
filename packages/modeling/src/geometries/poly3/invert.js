@@ -9,7 +9,7 @@ import {create} from "./create.js";
  * @returns {Poly3} a new poly3
  * @alias module:modeling/geometries/poly3.invert
  */
-export const invert = (polygon) => {
+export function invert(polygon) {
 	const vertices = polygon.vertices.slice().reverse();
 	const inverted = create(vertices);
 	if (polygon.plane) {
@@ -17,4 +17,4 @@ export const invert = (polygon) => {
 		inverted.plane = plane.flip(plane.create(), polygon.plane);
 	}
 	return inverted;
-};
+}

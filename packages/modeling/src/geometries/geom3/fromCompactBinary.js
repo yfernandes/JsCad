@@ -11,7 +11,7 @@ import {create} from "./create.js";
  * @returns {Geom3} a new geometry
  * @alias module:modeling/geometries/geom3.fromCompactBinary
  */
-export const fromCompactBinary = (data) => {
+export function fromCompactBinary(data) {
 	if (data[0] !== 1) throw new Error("invalid compact binary data");
 
 	const created = create();
@@ -39,4 +39,4 @@ export const fromCompactBinary = (data) => {
 	}
 	// TODO: how about custom properties or fields ?
 	return created;
-};
+}

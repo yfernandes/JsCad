@@ -4,7 +4,7 @@
  * @returns {Boolean} true if convex
  * @alias module:modeling/geometries/poly2.isConvex
  */
-export const isConvex = (polygon) => {
+export function isConvex(polygon) {
 	const numPoints = polygon.points.length;
 	if (numPoints > 2) {
 		const points = polygon.points;
@@ -26,7 +26,7 @@ export const isConvex = (polygon) => {
 		}
 	}
 	return true;
-};
+}
 
 /*
  * Calculate cross product between two consecutive line segments; p1 -> p2, p2 -> p3.

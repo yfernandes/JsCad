@@ -18,7 +18,7 @@ import {isGT, isGTE, isNumberArray} from "./commonChecks.js";
  * @returns {Path2} new 2D path
  * @alias module:modeling/primitives.arc
  */
-export const arc = (options) => {
+export function arc(options) {
 	const defaults = {
 		center: [0, 0],
 		radius: 1,
@@ -85,4 +85,4 @@ export const arc = (options) => {
 		}
 	}
 	return path2.fromPoints({closed: false}, pointArray);
-};
+}

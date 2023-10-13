@@ -297,7 +297,7 @@ const create3mfParser = (src, storage) => {
 	parser.write(src).close();
 };
 
-export const parse = (src) => {
+export function parse(src) {
 	let items = []; // build items list
 	let materials = []; // materials list
 	let colorgroups = []; // colorgroups list
@@ -305,4 +305,4 @@ export const parse = (src) => {
 
 	create3mfParser(src, {items, materials, colorgroups, objects});
 	return {items, materials, colorgroups, objects};
-};
+}

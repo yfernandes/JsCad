@@ -13,8 +13,8 @@ const Blob = makeBlob();
  * const blob1 = convertToBlob({ data: ['test'], mimeType: 'text/plain' })
  * const blob2 = convertToBlob({ data: [Int32Array.from('12345').buffer], mimeType: 'application/mine' })
  */
-export const convertToBlob = (input) => {
+export function convertToBlob(input) {
 	const {data, mimeType} = input;
 	const blob = new Blob(data, {type: mimeType});
 	return blob;
-};
+}

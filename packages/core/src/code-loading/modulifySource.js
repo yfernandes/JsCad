@@ -3,7 +3,7 @@
  * @param  {} source
  * @param  {} apiMainPath
  */
-export const modulifySource = (source, apiMainPath) => {
+export function modulifySource(source, apiMainPath) {
 	const getParamsString = source.includes("getParameterDefinitions")
 		? "export getParameterDefinitions"
 		: "";
@@ -16,4 +16,4 @@ export const modulifySource = (source, apiMainPath) => {
     ${getParamsString}
   `;
 	return updatedSource;
-};
+}

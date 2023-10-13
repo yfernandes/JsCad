@@ -11,7 +11,7 @@ const maxIndex = Math.floor(65535 / 2) - 2; // two vertices per segment, less cl
  * @param {path2} solid - the solid to convert
  * @return {Array} list of new geometries
  */
-export const path2ToGeometries = (options, solid) => {
+export function path2ToGeometries(options, solid) {
 	let {color} = options;
 
 	const points = solid.points;
@@ -54,4 +54,4 @@ export const path2ToGeometries = (options, solid) => {
 		geometries.push({type: "2d", positions, normals, indices, transforms, color, isTransparent});
 	}
 	return geometries;
-};
+}

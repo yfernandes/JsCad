@@ -13,7 +13,7 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = square({size: 10})
  */
-export const square = (options) => {
+export function square(options) {
 	const defaults = {
 		center: [0, 0],
 		size: 2,
@@ -25,4 +25,4 @@ export const square = (options) => {
 	size = [size, size];
 
 	return rectangle({center, size});
-};
+}

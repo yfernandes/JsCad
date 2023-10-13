@@ -20,7 +20,7 @@ import {area, pointInTriangle} from "./triangle.js";
  * @param {holeIndices} An array of hole indices if any.
  * @param {dim} The number of coordinates per vertex in the input array.
  */
-export const triangulate = (data, holeIndices, dim = 2) => {
+export function triangulate(data, holeIndices, dim = 2) {
 	const hasHoles = holeIndices && holeIndices.length;
 	const outerLen = hasHoles ? holeIndices[0] * dim : data.length;
 	let outerNode = linkedPolygon(data, 0, outerLen, dim, true);
@@ -54,7 +54,7 @@ export const triangulate = (data, holeIndices, dim = 2) => {
 	earcutLinked(outerNode, triangles, dim, minX, minY, invSize);
 
 	return triangles;
-};
+}
 
 /*
  * main ear slicing loop which triangulates a polygon (given as a linked list)

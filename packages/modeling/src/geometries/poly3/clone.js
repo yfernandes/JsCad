@@ -10,7 +10,7 @@ import {create} from "./create.js";
  * @returns {Poly3} a new polygon
  * @alias module:modeling/geometries/poly3.clone
  */
-export const clone = (...params) => {
+export function clone(...params) {
 	let out;
 	let poly3;
 	if (params.length === 1) {
@@ -23,4 +23,4 @@ export const clone = (...params) => {
 	// deep clone of vertices
 	out.vertices = poly3.vertices.map((vec) => vec3.clone(vec));
 	return out;
-};
+}

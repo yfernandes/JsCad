@@ -5,7 +5,7 @@
  * @returns {Mat4} out
  * @alias module:modeling/maths/mat4.identity
  */
-export const identity = (out) => {
+export function identity(out) {
 	out[0] = 1;
 	out[1] = 0;
 	out[2] = 0;
@@ -23,4 +23,4 @@ export const identity = (out) => {
 	out[14] = 0;
 	out[15] = 1;
 	return out;
-};
+}

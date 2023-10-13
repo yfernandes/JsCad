@@ -9,7 +9,7 @@ import {create} from "./create.js";
  * @returns {Path2} a new path
  * @alias module:modeling/geometries/path2.fromCompactBinary
  */
-export const fromCompactBinary = (data) => {
+export function fromCompactBinary(data) {
 	if (data[0] !== 2) throw new Error("invalid compact binary data");
 
 	const created = create();
@@ -28,4 +28,4 @@ export const fromCompactBinary = (data) => {
 	}
 	// TODO: how about custom properties or fields ?
 	return created;
-};
+}

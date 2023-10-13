@@ -22,7 +22,7 @@ import {isGTE, isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = ellipse({radius: [5,10]})
  */
-export const ellipse = (options) => {
+export function ellipse(options) {
 	const defaults = {
 		center: [0, 0],
 		radius: [1, 1],
@@ -75,4 +75,4 @@ export const ellipse = (options) => {
 	}
 	if (rotation < TAU) points.push(centerV);
 	return geom2.create([points]);
-};
+}

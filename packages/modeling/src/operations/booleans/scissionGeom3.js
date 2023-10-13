@@ -23,7 +23,7 @@ const findMapping = (map, vertex) => {
 	return map.get(key);
 };
 
-export const scissionGeom3 = (geometry) => {
+export function scissionGeom3(geometry) {
 	// construit table de correspondance entre polygones
 	// build polygons lookup table
 	const eps = measureEpsilon(geometry);
@@ -90,4 +90,4 @@ export const scissionGeom3 = (geometry) => {
 	}
 
 	return newgeometries;
-};
+}

@@ -16,7 +16,7 @@ import {NON_CONTRIBUTING, SAME_TRANSITION, DIFFERENT_TRANSITION} from "./edgeTyp
  * @param {Queue} queue
  * @return {number}
  */
-export const possibleIntersection = (se1, se2, queue) => {
+export function possibleIntersection(se1, se2, queue) {
 	// that disallows self-intersecting polygons,
 	// did cost us half a day, so I'll leave it
 	// out of respect
@@ -109,4 +109,4 @@ export const possibleIntersection = (se1, se2, queue) => {
 	divideSegment(events[3].otherEvent, events[2].point, queue);
 
 	return 3;
-};
+}

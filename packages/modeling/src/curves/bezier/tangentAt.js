@@ -12,7 +12,7 @@
  * @return {array | number} the tangent at the requested position.
  * @alias module:modeling/curves/bezier.tangentAt
  */
-export const tangentAt = (t, bezier) => {
+export function tangentAt(t, bezier) {
 	if (t < 0 || t > 1) {
 		throw new Error("Bezier tangentAt() input must be between 0 and 1");
 	}
@@ -29,7 +29,7 @@ export const tangentAt = (t, bezier) => {
 		}
 		return result;
 	}
-};
+}
 
 const bezierTangent = function (bezier, p, t) {
 	// from https://pages.mtu.edu/~shene/COURSES/cs3621/NOTES/spline/Bezier/bezier-der.html

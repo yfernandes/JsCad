@@ -9,7 +9,7 @@ import {unionGeom3Sub} from "./unionGeom3Sub.js";
  * @param {...objects} geometries - list of geometries to union
  * @returns {Geom3} new 3D geometry
  */
-export const unionGeom3 = (...geometries) => {
+export function unionGeom3(...geometries) {
 	geometries = flatten(geometries);
 
 	// combine geometries in a way that forms a balanced binary tree pattern
@@ -20,4 +20,4 @@ export const unionGeom3 = (...geometries) => {
 	let newGeometry = geometries[i - 1];
 	newGeometry = retessellate(newGeometry);
 	return newGeometry;
-};
+}

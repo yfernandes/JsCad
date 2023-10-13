@@ -43,13 +43,13 @@ const createJscad = (id) => {
 import { flatten } from '@jscad/array-utils'
 import { arc, ellipse, ellipsoid } from '@jscad/modeling'
 
-export const getParameterDefinitions = () => {
+export function getParameterDefinitions() {
   return flatten([
     { name: 'segments', caption: 'Segements:', type: 'int', initial: 10, min: 5, max: 20, step: 1 }
   ])
 }
 
-export const main = (params) => {
+export function main(params) {
   // parameters
   let segments = params.segments || 16
 

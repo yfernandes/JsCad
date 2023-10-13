@@ -4,7 +4,7 @@
  * @returns {Boolean} true if the object matches a path2
  * @alias module:modeling/geometries/path2.isA
  */
-export const isA = (object) => {
+export function isA(object) {
 	if (object && typeof object === "object") {
 		// see create for the required attributes and types
 		if ("points" in object && "transforms" in object && "isClosed" in object) {
@@ -15,4 +15,4 @@ export const isA = (object) => {
 		}
 	}
 	return false;
-};
+}

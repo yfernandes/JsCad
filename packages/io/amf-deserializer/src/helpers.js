@@ -1,33 +1,33 @@
-export const amfMesh = (element) => {
+export function amfMesh(element) {
 	const obj = {type: "mesh"};
 	obj.objects = [];
 	return obj;
-};
+}
 
 // Note: TBD Vertices can have a color, which is used to interpolate a face color (from the 3 vertices)
-export const amfVertices = (element) => {
+export function amfVertices(element) {
 	const obj = {type: "vertices"};
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const amfCoordinates = (element) => {
+export function amfCoordinates(element) {
 	const obj = {type: "coordinates"};
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const amfNormal = (element) => {
+export function amfNormal(element) {
 	const obj = {type: "normal"};
 	obj.objects = [];
 	return obj;
-};
+}
 
 export const amfX = (element) => ({type: "x", value: "0"});
 export const amfY = (element) => ({type: "y", value: "0"});
 export const amfZ = (element) => ({type: "z", value: "0"});
 
-export const amfVolume = (element) => {
+export function amfVolume(element) {
 	const obj = {type: "volume"};
 
 	if (element.materialid) {
@@ -36,32 +36,32 @@ export const amfVolume = (element) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const amfTriangle = (element) => {
+export function amfTriangle(element) {
 	const obj = {type: "triangle"};
 	obj.objects = [];
 	return obj;
-};
+}
 
 export const amfV1 = (element) => ({type: "v1", value: "0"});
 export const amfV2 = (element) => ({type: "v2", value: "0"});
 export const amfV3 = (element) => ({type: "v3", value: "0"});
 
-export const amfVertex = (element) => {
+export function amfVertex(element) {
 	const obj = {type: "vertex"};
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const amfEdge = (element) => {
+export function amfEdge(element) {
 	const obj = {type: "edge"};
 
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const amfMetadata = (element) => {
+export function amfMetadata(element) {
 	const obj = {type: "metadata"};
 
 	if (element.type) {
@@ -72,9 +72,9 @@ export const amfMetadata = (element) => {
 	}
 
 	return obj;
-};
+}
 
-export const amfMaterial = (element) => {
+export function amfMaterial(element) {
 	const obj = {type: "material"};
 
 	if (element.id) {
@@ -83,21 +83,21 @@ export const amfMaterial = (element) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const amfColor = (element) => {
+export function amfColor(element) {
 	const obj = {type: "color"};
 
 	obj.objects = [];
 	return obj;
-};
+}
 
 export const amfR = (element) => ({type: "r", value: "1"});
 export const amfG = (element) => ({type: "g", value: "1"});
 export const amfB = (element) => ({type: "b", value: "1"});
 export const amfA = (element) => ({type: "a", value: "1"});
 
-export const amfMap = (element) => {
+export function amfMap(element) {
 	const obj = {type: "map"};
 
 	if (element.gtexid) {
@@ -112,7 +112,7 @@ export const amfMap = (element) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
 export const amfU1 = (element) => ({type: "u1", value: "0"});
 export const amfU2 = (element) => ({type: "u2", value: "0"});

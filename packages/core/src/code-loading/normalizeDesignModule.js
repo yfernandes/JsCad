@@ -1,7 +1,7 @@
 /*
  * Normalize the given design module for internal use.
  */
-export const normalizeDesignModule = (rootModule) => {
+export function normalizeDesignModule(rootModule) {
 	if (!rootModule) {
 		throw new Error("no root module found, please check the project structure");
 	}
@@ -18,4 +18,4 @@ export const normalizeDesignModule = (rootModule) => {
 		throw new Error("main is not a function, please check the module.exports");
 	}
 	return rootModule;
-};
+}

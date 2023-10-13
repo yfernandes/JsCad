@@ -4,7 +4,7 @@ import {parse} from "./parse.js";
 import {instantiateDefinitions} from "./instantiateDefinitions.js";
 import {x3dTypes} from "./objects.js";
 
-export const instantiate = (options, src) => {
+export function instantiate(options, src) {
 	const defaults = {};
 	options = Object.assign({}, defaults, options);
 
@@ -29,4 +29,4 @@ export const instantiate = (options, src) => {
 	options && options.statusCallback && options.statusCallback({progress: 100});
 
 	return geometries;
-};
+}

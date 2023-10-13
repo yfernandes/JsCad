@@ -22,7 +22,7 @@ import {lengths} from "./lengths.js";
  * @returns a number in the [0, 1] interval or NaN if the arcLength is negative or greater than the total length of the curve.
  * @alias module:modeling/curves/bezier.arcLengthToT
  */
-export const arcLengthToT = (options, bezier) => {
+export function arcLengthToT(options, bezier) {
 	const defaults = {
 		distance: 0,
 		segments: 100,
@@ -58,4 +58,4 @@ export const arcLengthToT = (options, bezier) => {
 	const segmentFraction = (distance - lengthBefore) / segmentLength;
 	// add that fractional amount and return
 	return (targetIndex + segmentFraction) / segments;
-};
+}

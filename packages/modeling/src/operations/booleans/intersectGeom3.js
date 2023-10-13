@@ -10,7 +10,7 @@ import {intersectGeom3Sub} from "./intersectGeom3Sub.js";
  * @param {...geom3} geometries - list of 3D geometries
  * @returns {Geom3} new 3D geometry
  */
-export const intersectGeom3 = (...geometries) => {
+export function intersectGeom3(...geometries) {
 	geometries = flatten(geometries);
 
 	let newGeometry = geometries.shift();
@@ -20,4 +20,4 @@ export const intersectGeom3 = (...geometries) => {
 
 	newGeometry = retessellate(newGeometry);
 	return newGeometry;
-};
+}

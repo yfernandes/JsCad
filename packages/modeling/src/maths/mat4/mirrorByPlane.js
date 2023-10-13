@@ -6,7 +6,7 @@
  * @returns {Mat4} out
  * @alias module:modeling/maths/mat4.mirrorByPlane
  */
-export const mirrorByPlane = (out, plane) => {
+export function mirrorByPlane(out, plane) {
 	const [nx, ny, nz, w] = plane;
 
 	out[0] = 1.0 - 2.0 * nx * nx;
@@ -27,4 +27,4 @@ export const mirrorByPlane = (out, plane) => {
 	out[15] = 1;
 
 	return out;
-};
+}

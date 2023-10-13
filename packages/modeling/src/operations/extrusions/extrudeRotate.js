@@ -24,7 +24,7 @@ import {extrudeFromSlices} from "./extrudeFromSlices.js";
  * @example
  * const myshape = extrudeRotate({segments: 8, angle: TAU / 2}, circle({size: 3, center: [4, 0]}))
  */
-export const extrudeRotate = (options, geometry) => {
+export function extrudeRotate(options, geometry) {
 	const defaults = {
 		segments: 12,
 		startAngle: 0,
@@ -134,4 +134,4 @@ export const extrudeRotate = (options, geometry) => {
 	const output = extrudeFromSlices(options, baseSlice);
 	if (geometry.color) output.color = geometry.color;
 	return output;
-};
+}

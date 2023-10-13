@@ -142,7 +142,7 @@ const translateModel = (options, source) => {
 	return translatedObjects.join("") + translatedItems.join("");
 };
 
-export const translateModels = (options, models) => {
+export function translateModels(options, models) {
 	const {version, addMetaData, filename} = options;
 
 	// translate the models into blocks of source code
@@ -175,9 +175,9 @@ const builditems = []
 ` +
 		bodycode +
 		`
-export const main = () => {
+export function main() {
   return builditems
 }
 `;
 	return code;
-};
+}

@@ -24,7 +24,7 @@ import {toPoints} from "./toPoints.js";
  * myShape = appendPoints([[27.5,-3.28125]], myShape);
  * myShape = appendArc({endpoint: [12.5, -22.96875], radius: [15, -19.6875]}, myShape);
  */
-export const appendArc = (options, geometry) => {
+export function appendArc(options, geometry) {
 	const defaults = {
 		radius: [0, 0], // X and Y radius
 		xaxisRotation: 0,
@@ -177,4 +177,4 @@ export const appendArc = (options, geometry) => {
 	newPoints = points.concat(newPoints);
 	const result = fromPoints({}, newPoints);
 	return result;
-};
+}

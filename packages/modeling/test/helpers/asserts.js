@@ -6,7 +6,7 @@ import {toPolygons} from "../../src/core/CSGToOther.js";
 // todo: could be part of csg.js
 // todo: should simplify colinear vertices
 // @return true if both polygons are identical
-export const comparePolygons = (a, b) => {
+export function comparePolygons(a, b) {
 	// First find one matching vertice
 	// We try to find the first vertice of a inside b
 	// If there is no such vertice, then a != b
@@ -40,19 +40,19 @@ export const comparePolygons = (a, b) => {
 		}
 	}
 	return true;
-};
+}
 
-export const assertSameGeometry = (t, observed, expected, failMessage) => {
+export function assertSameGeometry(t, observed, expected, failMessage) {
 	if (!containsCSG(observed, expected) || !containsCSG(observed, expected)) {
 		failMessage = failMessage === undefined ? "CSG do not have the same geometry" : failMessage;
 		t.fail(failMessage);
 	} else {
 		t.pass();
 	}
-};
+}
 
 // a contains b if b polygons are also found in a
-export const containsCSG = (observed, expected) => {
+export function containsCSG(observed, expected) {
 	console.log("Observed: ", observed);
 	console.log("Expected: ", expected);
 
@@ -69,18 +69,18 @@ export const containsCSG = (observed, expected) => {
 			return found;
 		})
 		.reduce((observed, expected) => observed && expected);
-};
+}
 
-export const simplifiedPolygon = (polygon) => {
+export function simplifiedPolygon(polygon) {
 	const vertices = polygon.vertices.map((vertex) => [vertex.pos._x, vertex.pos._y, vertex.pos._z]);
 	const plane = {
 		normal: [polygon.plane.normal._x, polygon.plane.normal._y, polygon.plane.normal._z],
 		w: polygon.plane.w,
 	};
 	return {positions: vertices, plane, shared: polygon.shared};
-};
+}
 
-export const simplifieSides = (cag) => {
+export function simplifieSides(cag) {
 	const sides = cag.sides.map((side) => [
 		side.vertex0.pos._x,
 		side.vertex0.pos._y,
@@ -88,9 +88,9 @@ export const simplifieSides = (cag) => {
 		side.vertex1.pos._y,
 	]);
 	return sides.sort();
-};
+}
 
-export const nearlyEquals = (a, b, epsilon = 1) => {
+export function nearlyEquals(a, b, epsilon = 1) {
 	if (a === b) {
 		// shortcut, also handles infinities and NaNs
 		return true;
@@ -114,9 +114,9 @@ export const nearlyEquals = (a, b, epsilon = 1) => {
 		return false;
 	}
 	return true;
-};
+}
 
-export const CAGNearlyEquals = (observed, expected, precision) => {
+export function CAGNearlyEquals(observed, expected, precision) {
 	if (observed.sides.length !== expected.sides.length) {
 		return false;
 	}
@@ -135,4 +135,4 @@ export const CAGNearlyEquals = (observed, expected, precision) => {
 	}
 
 	return true;
-};
+}

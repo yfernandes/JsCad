@@ -15,7 +15,7 @@ import * as poly3 from "../../geometries/poly3/index.js";
  * @param {Poly3[]} sourcePolygons - list of polygons
  * @returns {Poly3[]} new set of polygons
  */
-export const reTesselateCoplanarPolygons = (sourcePolygons) => {
+export function reTesselateCoplanarPolygons(sourcePolygons) {
 	if (sourcePolygons.length < 2) return sourcePolygons;
 
 	const destPolygons = [];
@@ -368,4 +368,4 @@ export const reTesselateCoplanarPolygons = (sourcePolygons) => {
 		prevOutPolygonRow = newOutPolygonRow;
 	} // for yIndex
 	return destPolygons;
-};
+}

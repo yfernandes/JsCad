@@ -1,4 +1,4 @@
-export const makeFakeFs = (filesAndFolders) => {
+export function makeFakeFs(filesAndFolders) {
 	const findMatch = (path, inputs = filesAndFolders) => {
 		for (let i = 0; i < inputs.length; i++) {
 			const entry = inputs[i];
@@ -61,4 +61,4 @@ export const makeFakeFs = (filesAndFolders) => {
 		},
 	};
 	return fakeFs;
-};
+}

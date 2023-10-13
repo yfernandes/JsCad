@@ -13,9 +13,9 @@ import {create} from "./create.js";
  * let matrix = mat4.fromTranslation([1, 2, 3])
  * let newSlice = transform(matrix, oldSlice)
  */
-export const transform = (matrix, slice) => {
+export function transform(matrix, slice) {
 	const contours = slice.contours.map((contour) =>
 		contour.map((vertex) => vec3.transform(vec3.create(), vertex, matrix))
 	);
 	return create(contours);
-};
+}

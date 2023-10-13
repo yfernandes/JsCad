@@ -12,7 +12,7 @@ import * as mat4 from "../../maths/mat4/index.js";
  * @example
  * let newGeometry = transform(fromXRotation(TAU / 4), geometry)
  */
-export const transform = (matrix, geometry) => {
+export function transform(matrix, geometry) {
 	const transforms = mat4.multiply(mat4.create(), matrix, geometry.transforms);
 	return Object.assign({}, geometry, {transforms});
-};
+}

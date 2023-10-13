@@ -8,7 +8,7 @@ import {Blob as nodeBlob} from "./Blob.js";
  * const Blob = makeBlob()
  * const ablob = new Blob(data, { type: mimeType })
  */
-export const makeBlob = () => {
+export function makeBlob() {
 	const blob = typeof window !== "undefined" ? window.Blob : nodeBlob;
 	return blob;
-};
+}

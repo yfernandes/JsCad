@@ -9,7 +9,7 @@ import {flatten} from "../utils/flatten.js";
  * @return {Array} HSL or HSLA color values
  * @alias module:modeling/colors.rgbToHsl
  */
-export const rgbToHsl = (...values) => {
+export function rgbToHsl(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain R, G and B values");
 
@@ -48,4 +48,4 @@ export const rgbToHsl = (...values) => {
 		return [h, s, l, a];
 	}
 	return [h, s, l];
-};
+}

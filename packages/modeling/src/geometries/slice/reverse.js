@@ -7,8 +7,8 @@ import {create} from "./create.js";
  * @returns {Slice} reverse of the slice
  * @alias module:modeling/geometries/slice.reverse
  */
-export const reverse = (slice) => {
+export function reverse(slice) {
 	// reverse each contour
 	const contours = slice.contours.map((contour) => contour.slice().reverse());
 	return create(contours);
-};
+}

@@ -63,7 +63,7 @@ const createGeometryFromOpenPath = (paths, segments, corners, delta) => {
  * @param {Path2} geometry - the geometry to offset
  * @returns {Geom2} offset geometry
  */
-export const offsetPath2 = (options, geometry) => {
+export function offsetPath2(options, geometry) {
 	const defaults = {
 		delta: 1,
 		corners: "edge",
@@ -92,4 +92,4 @@ export const offsetPath2 = (options, geometry) => {
 		: createGeometryFromOpenPath(paths, segments, corners, delta);
 	if (geometry.color) output.color = geometry.color;
 	return output;
-};
+}

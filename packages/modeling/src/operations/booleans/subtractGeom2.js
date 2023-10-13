@@ -9,7 +9,7 @@ import {boolean} from "./martinez/index.js";
  * @param {...geom2} geometries - list of geometries
  * @returns {Geom2} new 2D geometry
  */
-export const subtractGeom2 = (...geometries) => {
+export function subtractGeom2(...geometries) {
 	geometries = flatten(geometries);
 
 	let newGeometry = geometries.shift();
@@ -18,4 +18,4 @@ export const subtractGeom2 = (...geometries) => {
 	});
 
 	return newGeometry;
-};
+}

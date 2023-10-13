@@ -21,7 +21,7 @@ import {extrudeLinearPath2} from "./extrudeLinearPath2.js";
  * @example
  * let myshape = extrudeLinear({height: 10}, rectangle({size: [20, 25]}))
  */
-export const extrudeLinear = (options, ...objects) => {
+export function extrudeLinear(options, ...objects) {
 	const defaults = {
 		height: 1,
 		twistAngle: 0,
@@ -42,4 +42,4 @@ export const extrudeLinear = (options, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

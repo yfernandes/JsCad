@@ -25,7 +25,7 @@ const transformers = {
  * const mimetype = getMimeType('svg')
  * const myobjects = deserialize({output: 'geometry', target: 'path2'}, mimetype, source)
  */
-export const deserialize = (options, mimeType, source) => {
+export function deserialize(options, mimeType, source) {
 	// commonly used defaults from the deserializers
 	const defaults = {
 		addMetaData: true,
@@ -58,4 +58,4 @@ export const deserialize = (options, mimeType, source) => {
 		}
 	}
 	throw new Error(`Unknown output option (${options.output}), only 'script' or 'geometry' allowed`);
-};
+}

@@ -16,7 +16,7 @@ import {serializers} from "./serializers.js";
  * const shapes = [primitives.cirlce(), primitives.star()]
  * const output = serialize({units: 'inches'}, mimetype, shapes)
  */
-export const serialize = (options, mimeType, ...objects) => {
+export function serialize(options, mimeType, ...objects) {
 	const defaults = {
 		unit: "mm",
 		statusCallback: null,
@@ -32,4 +32,4 @@ export const serialize = (options, mimeType, ...objects) => {
 	} else {
 		throw new Error(`Unknown mime type (${mimeType})`);
 	}
-};
+}

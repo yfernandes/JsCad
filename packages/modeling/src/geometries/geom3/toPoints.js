@@ -9,7 +9,7 @@ import {toPolygons} from "./toPolygons.js";
  * @return {Array} list of points, where each sub-array represents a polygon
  * @alias module:modeling/geometries/geom3.toPoints
  */
-export const toPoints = (geometry) => {
+export function toPoints(geometry) {
 	const polygons = toPolygons(geometry);
 	return polygons.map((polygon) => poly3.toVertices(polygon));
-};
+}

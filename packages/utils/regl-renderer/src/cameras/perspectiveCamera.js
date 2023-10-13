@@ -21,7 +21,7 @@ export const cameraState = {
 export const cameraProps = {};
 export const defaults = Object.assign({}, cameraState, cameraProps);
 
-export const setProjection = (output, camera, input) => {
+export function setProjection(output, camera, input) {
 	// context.viewportWidth / context.viewportHeight,
 	const aspect = input.width / input.height;
 
@@ -41,9 +41,9 @@ export const setProjection = (output, camera, input) => {
 	out.viewport = viewport;
 
 	return out;
-};
+}
 
-export const update = (output, camera) => {
+export function update(output, camera) {
 	if (!camera) {
 		camera = output;
 	}
@@ -57,4 +57,4 @@ export const update = (output, camera) => {
 	out.position = newPosition;
 	out.view = newView;
 	return out;
-};
+}

@@ -6,7 +6,7 @@ import * as vec2 from "../../maths/vec2/index.js";
  * @param {Array} uniquePoints - list of UNIQUE points from which to create a hull
  * @returns {Array} a list of points that form the hull
  */
-export const hullPoints2 = (uniquePoints) => {
+export function hullPoints2(uniquePoints) {
 	// find min point
 	let min = vec2.fromValues(Infinity, Infinity);
 	uniquePoints.forEach((point) => {
@@ -40,7 +40,7 @@ export const hullPoints2 = (uniquePoints) => {
 	});
 
 	return stack;
-};
+}
 
 // returns: < 0 clockwise, 0 colinear, > 0 counter-clockwise
 const ccw = (v1, v2, v3) => (v2[0] - v1[0]) * (v3[1] - v1[1]) - (v2[1] - v1[1]) * (v3[0] - v1[0]);

@@ -8,7 +8,7 @@
  */
 import {rebuildGeometry} from "./rebuildGeometry.js";
 
-export const rebuildGeometryWorker = (self) => {
+export function rebuildGeometryWorker(self) {
 	self.onmessage = function (event) {
 		if (event.data instanceof Object) {
 			const {data} = event;
@@ -20,4 +20,4 @@ export const rebuildGeometryWorker = (self) => {
 			}
 		}
 	};
-};
+}

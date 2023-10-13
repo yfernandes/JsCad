@@ -12,7 +12,7 @@
  * @example
  * let matrix = fromTranslation(create(), [1, 2, 3])
  */
-export const fromTranslation = (out, vector) => {
+export function fromTranslation(out, vector) {
 	out[0] = 1;
 	out[1] = 0;
 	out[2] = 0;
@@ -30,4 +30,4 @@ export const fromTranslation = (out, vector) => {
 	out[14] = vector[2];
 	out[15] = 1;
 	return out;
-};
+}

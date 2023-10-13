@@ -13,7 +13,7 @@ import {direction} from "./direction.js";
  * @returns {Line2} out
  * @alias module:modeling/maths/line2.transform
  */
-export const transform = (out, line, matrix) => {
+export function transform(out, line, matrix) {
 	const org = origin(line);
 	const dir = direction(line);
 
@@ -21,4 +21,4 @@ export const transform = (out, line, matrix) => {
 	vec2.transform(dir, dir, matrix);
 
 	return fromPoints(out, org, dir);
-};
+}

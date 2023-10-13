@@ -1,7 +1,7 @@
 import {createObject} from "./objectBuilder.js";
 import {parse} from "./parse.js";
 
-export const translate = (options, src) => {
+export function translate(options, src) {
 	const defaults = {};
 	options = Object.assign({}, defaults, options);
 	const {version, addMetaData, filename} = options;
@@ -32,7 +32,7 @@ export const translate = (options, src) => {
 	options && options.statusCallback && options.statusCallback({progress: 100});
 
 	return code;
-};
+}
 
 //
 // convert the internal repreentation into JSCAD code
@@ -70,7 +70,7 @@ const codify = (amf, data) => {
 
 import * from '@jscad/modeling'
 
-export const main = () => {
+export function main() {
   let objects = []
 `;
 

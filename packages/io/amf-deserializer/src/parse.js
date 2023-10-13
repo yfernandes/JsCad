@@ -304,7 +304,7 @@ const createAmfParser = (src) => {
 	parser.write(src).close();
 };
 
-export const parse = (src) => {
+export function parse(src) {
 	createAmfParser(src);
 	return {amfObj, amfMaterials, amfTextures, amfConstels};
-};
+}

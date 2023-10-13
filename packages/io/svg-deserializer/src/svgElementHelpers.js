@@ -1,16 +1,16 @@
 import {cagColor, cssStyle, css2cag} from "./helpers.js";
 import {pxPmm} from "./constants.js";
 
-export const svgCore = (obj, element) => {
+export function svgCore(obj, element) {
 	if ("id" in element) {
 		obj.id = element.id;
 	}
 	if ("position" in element) {
 		obj.position = element.position;
 	}
-};
+}
 
-export const svgPresentation = (obj, element) => {
+export function svgPresentation(obj, element) {
 	// presentation attributes for all
 	if ("display" in element) {
 		obj.visible = element.display;
@@ -54,7 +54,7 @@ export const svgPresentation = (obj, element) => {
 	if ("stroke-opacity" in element) {
 		obj.strokeOpacity = element["stroke-opacity"];
 	}
-};
+}
 
 const svgTransformsRegExp = /\w+\(.+\)/i;
 
@@ -116,7 +116,7 @@ const svgTransforms = (cag, element) => {
 
 const viewBoxRegExp = /([\d.-]+)[\s,]+([\d.-]+)[\s,]+([\d.-]+)[\s,]+([\d.-]+)/i;
 
-export const svgSvg = (element, {customPxPmm}) => {
+export function svgSvg(element, {customPxPmm}) {
 	// default SVG with no viewport
 	const obj = {type: "svg", x: 0, y: 0, width: "100%", height: "100%", strokeWidth: "1"};
 
@@ -183,9 +183,9 @@ export const svgSvg = (element, {customPxPmm}) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const svgEllipse = (element) => {
+export function svgEllipse(element) {
 	const obj = {type: "ellipse", cx: "0", cy: "0", rx: "0", ry: "0"};
 	if ("cx" in element) {
 		obj.cx = element.cx;
@@ -206,9 +206,9 @@ export const svgEllipse = (element) => {
 	// presentation attributes
 	svgPresentation(obj, element);
 	return obj;
-};
+}
 
-export const svgLine = (element) => {
+export function svgLine(element) {
 	const obj = {type: "line", x1: "0", y1: "0", x2: "0", y2: "0"};
 	if ("x1" in element) {
 		obj.x1 = element.x1;
@@ -229,7 +229,7 @@ export const svgLine = (element) => {
 	// presentation attributes
 	svgPresentation(obj, element);
 	return obj;
-};
+}
 
 const svgListOfPoints = (list) => {
 	const points = [];
@@ -247,7 +247,7 @@ const svgListOfPoints = (list) => {
 	return points;
 };
 
-export const svgPolyline = (element) => {
+export function svgPolyline(element) {
 	const obj = {type: "polyline"};
 	// transforms
 	svgTransforms(obj, element);
@@ -260,9 +260,9 @@ export const svgPolyline = (element) => {
 		obj.points = svgListOfPoints(element.points);
 	}
 	return obj;
-};
+}
 
-export const svgPolygon = (element) => {
+export function svgPolygon(element) {
 	const obj = {type: "polygon"};
 	// transforms
 	svgTransforms(obj, element);
@@ -275,9 +275,9 @@ export const svgPolygon = (element) => {
 		obj.points = svgListOfPoints(element.points);
 	}
 	return obj;
-};
+}
 
-export const svgRect = (element) => {
+export function svgRect(element) {
 	const obj = {type: "rect", x: "0", y: "0", rx: "0", ry: "0", width: "0", height: "0"};
 
 	if ("x" in element) {
@@ -314,9 +314,9 @@ export const svgRect = (element) => {
 	// presentation attributes
 	svgPresentation(obj, element);
 	return obj;
-};
+}
 
-export const svgCircle = (element) => {
+export function svgCircle(element) {
 	const obj = {type: "circle", x: "0", y: "0", radius: "0"};
 
 	if ("cx" in element) {
@@ -335,9 +335,9 @@ export const svgCircle = (element) => {
 	// presentation attributes
 	svgPresentation(obj, element);
 	return obj;
-};
+}
 
-export const svgGroup = (element) => {
+export function svgGroup(element) {
 	const obj = {type: "group"};
 	// transforms
 	svgTransforms(obj, element);
@@ -358,12 +358,12 @@ export const svgGroup = (element) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
 //
 // Convert the PATH element into object representation
 //
-export const svgPath = (element) => {
+export function svgPath(element) {
 	const obj = {type: "path"};
 	// transforms
 	svgTransforms(obj, element);
@@ -467,14 +467,14 @@ export const svgPath = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
 // generate GROUP with attributes from USE element
 // - expect x,y,height,width,XLINK:HREF
 // - append translate(x,y) if x,y available
 // deep clone the referenced OBJECT and add to group
 // - clone using JSON.parse(JSON.stringify(obj))
-export const svgUse = (element, {svgObjects}) => {
+export function svgUse(element, {svgObjects}) {
 	const obj = {type: "group"};
 	// transforms
 	svgTransforms(obj, element);
@@ -507,4 +507,4 @@ export const svgUse = (element, {svgObjects}) => {
 		}
 	}
 	return obj;
-};
+}

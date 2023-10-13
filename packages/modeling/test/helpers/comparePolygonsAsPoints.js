@@ -16,7 +16,7 @@ const comparePolygons = (poly1, poly2) => {
  * @param {Array} list2 - list of polygons, represented as points
  * @returns {boolean} result of comparison
  */
-export const comparePolygonsAsPoints = (list1, list2) => {
+export function comparePolygonsAsPoints(list1, list2) {
 	if (list1.length === list2.length) {
 		return list1.reduce(
 			(valid, polygon, index) => valid && comparePolygons(list1[index], list2[index]),
@@ -24,4 +24,4 @@ export const comparePolygonsAsPoints = (list1, list2) => {
 		);
 	}
 	return false;
-};
+}

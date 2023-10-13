@@ -19,11 +19,11 @@ const translateToPolyhedron = (type, points, faces, colors, orientation) => {
  * Translate the given objects into mesh (polyhedron).
  * @return { primitive, code }
  */
-export const translateMesh = (options, objects) => {
+export function translateMesh(options, objects) {
 	const components = convertMesh(options, objects);
 	if (components) {
 		const {type, points, faces, colors, orientation} = components;
 		return translateToPolyhedron(type, points, faces, colors, orientation);
 	}
 	return null;
-};
+}

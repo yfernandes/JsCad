@@ -13,7 +13,7 @@ import {offsetShell} from "./offsetShell.js";
  * @param {Geom3} geometry - the geometry to expand
  * @returns {Geom3} expanded geometry
  */
-export const offsetGeom3 = (options, geometry) => {
+export function offsetGeom3(options, geometry) {
 	const defaults = {
 		delta: 1,
 		corners: "round",
@@ -30,4 +30,4 @@ export const offsetGeom3 = (options, geometry) => {
 	const output = union(geometry, expanded);
 	if (geometry.color) output.color = geometry.color;
 	return output;
-};
+}

@@ -17,7 +17,7 @@ const isResultGeometry = (results) => {
 	return false;
 };
 
-export const instanciateDesign = (rootModule, parameterValues, options) => {
+export function instanciateDesign(rootModule, parameterValues, options) {
 	const {serialize} = options;
 	// deal with the actual solids generation
 	let solids;
@@ -29,4 +29,4 @@ export const instanciateDesign = (rootModule, parameterValues, options) => {
 	} else {
 		throw new Error("bad output from script: expected geom3/geom2/path2 objects");
 	}
-};
+}

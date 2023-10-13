@@ -35,10 +35,10 @@ const triangulatePolygon = (epsilon, polygon, triangles) => {
  * Convert the given polygons into a list of triangles (polygons with 3 vertices).
  * NOTE: this is possible because poly3 is CONVEX by definition
  */
-export const triangulatePolygons = (epsilon, polygons) => {
+export function triangulatePolygons(epsilon, polygons) {
 	const triangles = [];
 	polygons.forEach((polygon) => {
 		triangulatePolygon(epsilon, polygon, triangles);
 	});
 	return triangles;
-};
+}

@@ -1,7 +1,7 @@
 import fs from "fs";
 import png from "pngjs";
 
-export const bufferToPng = (buffer, width, height, fileName) => {
+export function bufferToPng(buffer, width, height, fileName) {
 	const genOutput = (inBuf, width, height) => {
 		const pngImg = new png.PNG({width, height});
 
@@ -29,4 +29,4 @@ export const bufferToPng = (buffer, width, height, fileName) => {
 		fs.writeFileSync(fileName, png.PNG.sync.write(pngImg));
 	};
 	genOutput(buffer, width, height);
-};
+}

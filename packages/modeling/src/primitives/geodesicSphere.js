@@ -17,7 +17,7 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = geodesicSphere({radius: 15, frequency: 18})
  */
-export const geodesicSphere = (options) => {
+export function geodesicSphere(options) {
 	const defaults = {
 		radius: 1,
 		frequency: 6,
@@ -159,4 +159,4 @@ export const geodesicSphere = (options) => {
 	if (radius !== 1)
 		geometry = geom3.transform(mat4.fromScaling(mat4.create(), [radius, radius, radius]), geometry);
 	return geometry;
-};
+}

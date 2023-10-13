@@ -83,7 +83,7 @@ const solid1 = () => {
   return polyhedron({points, faces, colors, orientation: 'inside'})
 }
 
-export const main = () => {
+export function main() {
  return [solid1()]
 }
 `;
@@ -161,7 +161,7 @@ const solid1 = () => {
   return polyhedron({points, faces, colors, orientation: 'inside'})
 }
 
-export const main = () => {
+export function main() {
  return [solid1()]
 }
 `;

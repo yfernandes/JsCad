@@ -14,7 +14,7 @@ import * as path2 from "../../geometries/path2/index.js";
  * @example
  * const newSphere = transform(mat4.rotateX(TAU / 8), sphere())
  */
-export const transform = (matrix, ...objects) => {
+export function transform(matrix, ...objects) {
 	// TODO how to check that the matrix is REAL?
 
 	objects = flatten(objects);
@@ -27,4 +27,4 @@ export const transform = (matrix, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

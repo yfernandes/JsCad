@@ -9,7 +9,7 @@ import * as vec2 from "../../maths/vec2/index.js";
  * @example
  * geometry = applyTransforms(geometry)
  */
-export const applyTransforms = (geometry) => {
+export function applyTransforms(geometry) {
 	if (mat4.isIdentity(geometry.transforms)) return geometry;
 
 	geometry.points = geometry.points.map((point) =>
@@ -17,4 +17,4 @@ export const applyTransforms = (geometry) => {
 	);
 	geometry.transforms = mat4.create();
 	return geometry;
-};
+}

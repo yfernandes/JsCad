@@ -7,7 +7,7 @@ import {flatten} from "../utils/flatten.js";
  * @return {String} CSS color notation
  * @alias module:modeling/colors.rgbToHex
  */
-export const rgbToHex = (...values) => {
+export function rgbToHex(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain R, G and B values");
 
@@ -24,4 +24,4 @@ export const rgbToHex = (...values) => {
 		s = s + Number(values[3] * 255).toString(16);
 	}
 	return s;
-};
+}

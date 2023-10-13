@@ -30,7 +30,7 @@ const clean = (txt) =>
 		.filter((e) => e.trim() !== "")
 		.join("\n");
 
-export const stringify = (a, indentation) => {
+export function stringify(a, indentation) {
 	const cr = indentation > 0 ? "\n" : "";
 	const indent = indenter(indentation);
 
@@ -87,4 +87,4 @@ export const stringify = (a, indentation) => {
 	};
 
 	return rec(a);
-};
+}

@@ -7,9 +7,9 @@
  * @returns {Vec3} out
  * @alias module:modeling/maths/vec3.scale
  */
-export const scale = (out, vector, amount) => {
+export function scale(out, vector, amount) {
 	out[0] = vector[0] * amount;
 	out[1] = vector[1] * amount;
 	out[2] = vector[2] * amount;
 	return out;
-};
+}

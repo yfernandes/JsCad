@@ -10,7 +10,7 @@ import {possibleIntersection} from "./possibleIntersection.js";
 import {compareSegments} from "./compareSegments.js";
 import {INTERSECTION, DIFFERENCE} from "./operation.js";
 
-export const subdivideSegments = (eventQueue, subject, clipping, sbbox, cbbox, operation) => {
+export function subdivideSegments(eventQueue, subject, clipping, sbbox, cbbox, operation) {
 	const sweepLine = new Tree(compareSegments);
 	const sortedEvents = [];
 
@@ -78,4 +78,4 @@ export const subdivideSegments = (eventQueue, subject, clipping, sbbox, cbbox, o
 		}
 	}
 	return sortedEvents;
-};
+}

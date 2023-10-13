@@ -9,7 +9,7 @@ import {fromPointAxisNormal} from "./fromPointAxisNormal.js";
  * @returns {connector} a new connector
  * @alias module:modeling/connectors.transform
  */
-export const transform = (matrix, connector) => {
+export function transform(matrix, connector) {
 	// OPTIMIZE
 	const newPoint = vec3.transform(vec3.create(), connector.point, matrix);
 	const newAxis = vec3.subtract(
@@ -27,4 +27,4 @@ export const transform = (matrix, connector) => {
 		newPoint
 	);
 	return fromPointAxisNormal(newPoint, newAxis, newNormal);
-};
+}

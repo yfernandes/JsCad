@@ -8,7 +8,7 @@ const cache = new WeakMap();
  * @returns {Vec4} the computed bounding sphere; center vertex (3D) and radius
  * @alias module:modeling/geometries/poly3.measureBoundingSphere
  */
-export const measureBoundingSphere = (polygon) => {
+export function measureBoundingSphere(polygon) {
 	const boundingSphere = cache.get(polygon);
 	if (boundingSphere) return boundingSphere;
 
@@ -51,4 +51,4 @@ export const measureBoundingSphere = (polygon) => {
 	cache.set(polygon, out);
 
 	return out;
-};
+}

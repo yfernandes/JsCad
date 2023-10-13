@@ -12,7 +12,7 @@
  * @example
  * let matrix = fromScaling([1, 2, 0.5])
  */
-export const fromScaling = (out, vector) => {
+export function fromScaling(out, vector) {
 	out[0] = vector[0];
 	out[1] = 0;
 	out[2] = 0;
@@ -30,4 +30,4 @@ export const fromScaling = (out, vector) => {
 	out[14] = 0;
 	out[15] = 1;
 	return out;
-};
+}

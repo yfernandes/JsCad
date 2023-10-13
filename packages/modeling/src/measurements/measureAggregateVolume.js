@@ -12,7 +12,7 @@ import {measureVolume} from "./measureVolume.js";
  * @example
  * let totalVolume = measureAggregateVolume(sphere(),cube())
  */
-export const measureAggregateVolume = (...geometries) => {
+export function measureAggregateVolume(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("measureAggregateVolume: no geometries supplied");
 	const volumes = measureVolume(geometries);
@@ -21,4 +21,4 @@ export const measureAggregateVolume = (...geometries) => {
 	}
 	const result = 0;
 	return volumes.reduce((result, volume) => result + volume, result);
-};
+}

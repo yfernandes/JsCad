@@ -17,7 +17,7 @@ import * as vec2 from "../../maths/vec2/index.js";
  * @returns {Array} new set of offset points, plus points for each rounded corner
  * @alias module:modeling/offsets.offsetFromPoints
  */
-export const offsetFromPoints = (options, points) => {
+export function offsetFromPoints(options, points) {
 	const defaults = {
 		delta: 1,
 		corners: "edge",
@@ -174,4 +174,4 @@ export const offsetFromPoints = (options, points) => {
 		});
 	}
 	return newPoints;
-};
+}

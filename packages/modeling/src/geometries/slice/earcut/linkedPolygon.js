@@ -4,7 +4,7 @@ import {area} from "./triangle.js";
 /*
  * create a circular doubly linked list from polygon points in the specified winding order
  */
-export const linkedPolygon = (data, start, end, dim, clockwise) => {
+export function linkedPolygon(data, start, end, dim, clockwise) {
 	let last;
 
 	if (clockwise === signedArea(data, start, end, dim) > 0) {
@@ -23,12 +23,12 @@ export const linkedPolygon = (data, start, end, dim, clockwise) => {
 	}
 
 	return last;
-};
+}
 
 /*
  * eliminate colinear or duplicate points
  */
-export const filterPoints = (start, end) => {
+export function filterPoints(start, end) {
 	if (!start) return start;
 	if (!end) end = start;
 
@@ -48,12 +48,12 @@ export const filterPoints = (start, end) => {
 	} while (again || p !== end);
 
 	return end;
-};
+}
 
 /*
  * go through all polygon nodes and cure small local self-intersections
  */
-export const cureLocalIntersections = (start, triangles, dim) => {
+export function cureLocalIntersections(start, triangles, dim) {
 	let p = start;
 	do {
 		const a = p.prev;
@@ -80,7 +80,7 @@ export const cureLocalIntersections = (start, triangles, dim) => {
 	} while (p !== start);
 
 	return filterPoints(p);
-};
+}
 
 /*
  * check if a polygon diagonal intersects any polygon segments
@@ -136,7 +136,7 @@ const middleInside = (a, b) => {
  * link two polygon vertices with a bridge; if the vertices belong to the same ring, it splits polygon into two
  * if one belongs to the outer ring and another to a hole, it merges it into a single ring
  */
-export const splitPolygon = (a, b) => {
+export function splitPolygon(a, b) {
 	const a2 = new Node(a.i, a.x, a.y);
 	const b2 = new Node(b.i, b.x, b.y);
 	const an = a.next;
@@ -155,7 +155,7 @@ export const splitPolygon = (a, b) => {
 	b2.prev = bp;
 
 	return b2;
-};
+}
 
 /*
  * check if a diagonal between two polygon nodes is valid (lies in polygon interior)

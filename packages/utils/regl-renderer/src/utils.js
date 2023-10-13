@@ -6,7 +6,7 @@
  * @param  {} currentState
  * @param  {} options
  */
-export const merge = (output = {}, currentState, options) => {
+export function merge(output = {}, currentState, options) {
 	output = currentState; // JSON.parse(JSON.stringify(currentState))
 	Object.keys(options).forEach((key) => {
 		const item = options[key];
@@ -28,4 +28,4 @@ export const merge = (output = {}, currentState, options) => {
 	});
 
 	return output;
-};
+}

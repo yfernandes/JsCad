@@ -66,7 +66,7 @@ const generalizeGeom3 = (options, geometry) => {
  * @return {Object|Array} the modified geometry, or a list of modified geometries
  * @alias module:modeling/modifiers.generalize
  */
-export const generalize = (options, ...geometries) => {
+export function generalize(options, ...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -77,4 +77,4 @@ export const generalize = (options, ...geometries) => {
 		throw new Error("invalid geometry");
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

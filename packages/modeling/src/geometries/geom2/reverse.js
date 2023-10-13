@@ -11,9 +11,9 @@ import {toOutlines} from "./toOutlines.js";
  * @example
  * let newGeometry = reverse(geometry)
  */
-export const reverse = (geometry) => {
+export function reverse(geometry) {
 	const outlines = toOutlines(geometry).map((outline) => outline.slice().reverse());
 	const reversed = create(outlines);
 	if (geometry.color) reversed.color = geometry.color;
 	return reversed;
-};
+}

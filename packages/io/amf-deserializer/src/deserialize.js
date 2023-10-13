@@ -2,7 +2,7 @@ import {createObject} from "./objectBuilder.js";
 
 import {parse} from "./parse.js";
 
-export const instantiate = (options, src) => {
+export function instantiate(options, src) {
 	const defaults = {};
 	options = Object.assign({}, defaults, options);
 
@@ -13,7 +13,7 @@ export const instantiate = (options, src) => {
 	}
 
 	return objectify(amfObj, {amfMaterials, amfTextures, amfConstels});
-};
+}
 
 const objectify = (amf, data) => {
 	const objects = amf.objects.filter((o) => o.type === "object");

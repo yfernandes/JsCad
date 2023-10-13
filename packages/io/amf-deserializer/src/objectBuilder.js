@@ -47,7 +47,7 @@ const findColorByMaterial = (materials, id) => {
 };
 
 // convert all objects to CSG based code
-export const createObject = (obj, index, data, options) => {
+export function createObject(obj, index, data, options) {
 	const vertices = []; // [x,y,z]
 	const faces = []; // [v1,v2,v3]
 	const colors = []; // [r,g,b,a]
@@ -194,4 +194,4 @@ const createObject${obj.id} = () => {
 		code += "  return shape\n}\n";
 	}
 	return code;
-};
+}

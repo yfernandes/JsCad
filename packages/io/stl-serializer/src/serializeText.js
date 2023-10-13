@@ -1,7 +1,7 @@
 import {geom3, poly3} from "@jscad/modeling";
 
 // objects must be an array of 3D geomertries (with polygons)
-export const serializeText = (objects, options) => {
+export function serializeText(objects, options) {
 	options.statusCallback && options.statusCallback({progress: 0});
 
 	const result = `solid JSCAD
@@ -10,7 +10,7 @@ endsolid JSCAD
 `;
 	options.statusCallback && options.statusCallback({progress: 100});
 	return [result];
-};
+}
 
 const convertToStl = (objects, options) => {
 	const result = [];

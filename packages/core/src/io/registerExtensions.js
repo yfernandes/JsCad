@@ -27,18 +27,18 @@ const unregisterDeserializer = (extension, fs, _require) => {
 	delete _require.extensions[fileExtension];
 };
 
-export const registerAllExtensions = (fs, _require) => {
+export function registerAllExtensions(fs, _require) {
 	registerJscadExtension(fs, _require);
 
 	for (const extension of Object.keys(deserializers)) {
 		registerDeserializer(extension, fs, _require);
 	}
-};
+}
 
-export const unRegisterAllExtensions = (fs, _require) => {
+export function unRegisterAllExtensions(fs, _require) {
 	unRegisterJscadExtension(fs, _require);
 
 	for (const extension of Object.keys(deserializers)) {
 		unregisterDeserializer(extension, fs, _require);
 	}
-};
+}

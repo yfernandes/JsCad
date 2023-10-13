@@ -10,10 +10,10 @@
  * const srcArray = [2, 3, 4]
  * const paddedArray = padToLength(srcArray, 0, 5)
  */
-export const padToLength = (anArray, padding, targetLength) => {
+export function padToLength(anArray, padding, targetLength) {
 	anArray = anArray.slice();
 	while (anArray.length < targetLength) {
 		anArray.push(padding);
 	}
 	return anArray;
-};
+}

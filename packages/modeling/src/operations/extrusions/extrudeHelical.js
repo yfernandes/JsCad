@@ -28,7 +28,7 @@ import {extrudeFromSlices} from "./extrudeFromSlices.js";
  *  circle({size: 3, center: [10, 0]})
  * )
  */
-export const extrudeHelical = (options, geometry) => {
+export function extrudeHelical(options, geometry) {
 	const defaults = {
 		angle: TAU,
 		startAngle: 0,
@@ -105,4 +105,4 @@ export const extrudeHelical = (options, geometry) => {
 		},
 		baseSlice
 	);
-};
+}

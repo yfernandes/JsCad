@@ -10,7 +10,7 @@ import {parse} from "./parse.js";
  *   transform : mat4 with transforms for rotation/translation
  *   sequence: unique sequence number of item
  */
-export const parseModel = (options, source) => {
+export function parseModel(options, source) {
 	const {includedItems} = options;
 
 	// parse the 3MF contents (XML)
@@ -35,7 +35,7 @@ export const parseModel = (options, source) => {
 	}
 
 	return {buildItems, objects, materials, colorgroups};
-};
+}
 
 const getComponents = (component, objects) => {
 	const object = objects.find((obj) => obj.id === component.objectid);

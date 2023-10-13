@@ -8,9 +8,9 @@ import {TAU} from "../maths/constants.js";
  * @returns {number} number of segments to complete the radius
  * @alias module:modeling/utils.radiusToSegments
  */
-export const radiusToSegments = (radius, minimumLength, minimumAngle) => {
+export function radiusToSegments(radius, minimumLength, minimumAngle) {
 	const ss = minimumLength > 0 ? (radius * TAU) / minimumLength : 0;
 	const as = minimumAngle > 0 ? TAU / minimumAngle : 0;
 	// minimum segments is four(4) for round primitives
 	return Math.ceil(Math.max(ss, as, 4));
-};
+}

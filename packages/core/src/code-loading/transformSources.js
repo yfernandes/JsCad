@@ -21,7 +21,7 @@ const createJscadEntry = (entry, source) => {
  * Transforms are only applied to single files as current deserializers create source with a main() function. Only one.
  * Transforms are NOT applied to projects.
  */
-export const transformSources = (options, filesAndFolders) => {
+export function transformSources(options, filesAndFolders) {
 	if (filesAndFolders && filesAndFolders.length > 1) return filesAndFolders; // skip projects
 
 	const codeTransforms = {
@@ -53,4 +53,4 @@ export const transformSources = (options, filesAndFolders) => {
 		filesAndFolders = filesAndFolders.map((entry) => updateEntry(entry));
 	}
 	return filesAndFolders;
-};
+}

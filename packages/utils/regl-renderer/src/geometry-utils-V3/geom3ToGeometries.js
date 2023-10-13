@@ -12,7 +12,7 @@ const maxIndex = 65535;
  * @param {geom3} solid - the solid to convert
  * @return {Array} list of new geometries
  */
-export const geom3ToGeometries = (options, solid) => {
+export function geom3ToGeometries(options, solid) {
 	let {color, smoothLighting} = options;
 
 	if ("color" in solid) color = solid.color;
@@ -83,7 +83,7 @@ export const geom3ToGeometries = (options, solid) => {
 		setstart = setend;
 	}
 	return geometries;
-};
+}
 
 /*
  * TODO

@@ -18,7 +18,7 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = circle({radius: 10})
  */
-export const circle = (options) => {
+export function circle(options) {
 	const defaults = {
 		center: [0, 0],
 		radius: 1,
@@ -33,4 +33,4 @@ export const circle = (options) => {
 	radius = [radius, radius];
 
 	return ellipse({center, radius, startAngle, endAngle, segments});
-};
+}

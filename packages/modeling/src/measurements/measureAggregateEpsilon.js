@@ -16,7 +16,7 @@ import {calculateEpsilonFromBounds} from "./calculateEpsilonFromBounds.js";
  * @example
  * let groupEpsilon = measureAggregateEpsilon(sphere(),cube())
  */
-export const measureAggregateEpsilon = (...geometries) => {
+export function measureAggregateEpsilon(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("measureAggregateEpsilon: no geometries supplied");
 	const bounds = measureAggregateBoundingBox(geometries);
@@ -28,4 +28,4 @@ export const measureAggregateEpsilon = (...geometries) => {
 		return 0;
 	}, dimensions);
 	return calculateEpsilonFromBounds(bounds, dimensions);
-};
+}

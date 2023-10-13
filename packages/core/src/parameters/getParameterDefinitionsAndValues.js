@@ -24,7 +24,7 @@ const getRawParameterDefinitionsAndValues = (rootModule, overrides) => {
  * @param  {Object} overrides an object containing parameter values, used as overrides
  * @returns {Object} { parameterValues, parameterDefinitions }
  */
-export const getParameterDefinitionsAndValues = (rootModule, overrides) => {
+export function getParameterDefinitionsAndValues(rootModule, overrides) {
 	let {parameterDefinitions, parameterValues} = getRawParameterDefinitionsAndValues(
 		rootModule,
 		overrides
@@ -35,4 +35,4 @@ export const getParameterDefinitionsAndValues = (rootModule, overrides) => {
 		: parameterValues;
 
 	return {parameterValues, parameterDefinitions};
-};
+}

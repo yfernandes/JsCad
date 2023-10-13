@@ -13,7 +13,7 @@ import {measureBoundingBox} from "./measureBoundingBox.js";
  * @example
  * let bounds = measureAggregateBoundingBox(sphere(),cube())
  */
-export const measureAggregateBoundingBox = (...geometries) => {
+export function measureAggregateBoundingBox(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0)
 		throw new Error("measureAggregateBoundingBox: no geometries supplied");
@@ -29,4 +29,4 @@ export const measureAggregateBoundingBox = (...geometries) => {
 		result = [vec3.min(result[0], result[0], item[0]), vec3.max(result[1], result[1], item[1])];
 		return result;
 	}, result);
-};
+}

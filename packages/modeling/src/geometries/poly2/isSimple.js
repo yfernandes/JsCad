@@ -7,7 +7,7 @@ import {intersect} from "../../maths/utils/intersect.js";
  * @returns {Boolean} true if simple
  * @alias module:modeling/geometries/poly2.isSimple
  */
-export const isSimple = (polygon) => {
+export function isSimple(polygon) {
 	const numPoints = polygon.points.length;
 	if (numPoints < 3) return false; // only polygons with an areas are simple
 
@@ -35,4 +35,4 @@ export const isSimple = (polygon) => {
 		}
 	}
 	return true;
-};
+}

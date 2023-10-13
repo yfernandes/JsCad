@@ -7,7 +7,7 @@
  * @returns {Mat4} out
  * @alias module:modeling/maths/mat4.translate
  */
-export const translate = (out, matrix, offsets) => {
+export function translate(out, matrix, offsets) {
 	const x = offsets[0];
 	const y = offsets[1];
 	const z = offsets[2];
@@ -64,4 +64,4 @@ export const translate = (out, matrix, offsets) => {
 	}
 
 	return out;
-};
+}

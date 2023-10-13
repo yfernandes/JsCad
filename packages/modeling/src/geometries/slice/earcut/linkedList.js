@@ -26,7 +26,7 @@ export class Node {
 /*
  * create a node and optionally link it with previous one (in a circular doubly linked list)
  */
-export const insertNode = (i, x, y, last) => {
+export function insertNode(i, x, y, last) {
 	const p = new Node(i, x, y);
 
 	if (!last) {
@@ -40,15 +40,15 @@ export const insertNode = (i, x, y, last) => {
 	}
 
 	return p;
-};
+}
 
 /*
  * remove a node and join prev with next nodes
  */
-export const removeNode = (p) => {
+export function removeNode(p) {
 	p.next.prev = p.prev;
 	p.prev.next = p.next;
 
 	if (p.prevZ) p.prevZ.nextZ = p.nextZ;
 	if (p.nextZ) p.nextZ.prevZ = p.prevZ;
-};
+}

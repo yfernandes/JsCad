@@ -1,6 +1,6 @@
 import * as mat4 from "gl-mat4";
 
-export const makeDrawGrid = (regl, params = {}) => {
+export function makeDrawGrid(regl, params = {}) {
 	const positions = [];
 	const defaults = {
 		visuals: {
@@ -141,4 +141,4 @@ export const makeDrawGrid = (regl, params = {}) => {
 			},
 		},
 	});
-};
+}

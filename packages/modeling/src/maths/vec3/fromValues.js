@@ -9,10 +9,10 @@ import {create} from "./create.js";
  * @returns {Vec3} a new vector
  * @alias module:modeling/maths/vec3.fromValues
  */
-export const fromValues = (x, y, z) => {
+export function fromValues(x, y, z) {
 	const out = create();
 	out[0] = x;
 	out[1] = y;
 	out[2] = z;
 	return out;
-};
+}

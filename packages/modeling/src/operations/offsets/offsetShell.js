@@ -64,7 +64,7 @@ const addUniqueAngle = (map, angle) => {
  * @param  {number} delta
  * @param  {number} segments
  */
-export const offsetShell = (options, geometry) => {
+export function offsetShell(options, geometry) {
 	const defaults = {
 		delta: 1,
 		segments: 12,
@@ -223,4 +223,4 @@ export const offsetShell = (options, geometry) => {
 		result = unionGeom3Sub(result, corner);
 	});
 	return retessellate(result);
-};
+}

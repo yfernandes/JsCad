@@ -1,6 +1,6 @@
 import {svg2cag, cagLengthX, cagLengthY, cagLengthP, reflect} from "./helpers.js";
 
-export const shapesMapJscad = (obj, codify, params) => {
+export function shapesMapJscad(obj, codify, params) {
 	const {
 		level,
 		indent,
@@ -134,7 +134,7 @@ export const shapesMapJscad = (obj, codify, params) => {
 		svgGroups,
 		segments
 	);
-};
+}
 
 // const getStrokeWidth = (obj, svgUnitsPmm, svgUnitsV, svgGroups) => {
 //   let r = cssPxUnit // default

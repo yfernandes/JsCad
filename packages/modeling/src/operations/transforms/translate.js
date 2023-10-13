@@ -16,7 +16,7 @@ import * as path2 from "../../geometries/path2/index.js";
  * @example
  * const newSphere = translate([5, 0, 10], sphere())
  */
-export const translate = (offset, ...objects) => {
+export function translate(offset, ...objects) {
 	if (!Array.isArray(offset)) throw new Error("offset must be an array");
 
 	objects = flatten(objects);
@@ -35,7 +35,7 @@ export const translate = (offset, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}
 
 /**
  * Translate the given objects along the X axis using the given options.

@@ -15,7 +15,7 @@ import {toOutlines} from "./toOutlines.js";
  * @throws {Error} error if the geometry is not valid
  * @alias module:modeling/geometries/geom2.validate
  */
-export const validate = (object) => {
+export function validate(object) {
 	if (!isA(object)) {
 		throw new Error("invalid geom2 structure");
 	}
@@ -54,4 +54,4 @@ export const validate = (object) => {
 	if (!object.transforms.every(Number.isFinite)) {
 		throw new Error(`geom2 invalid transforms ${object.transforms}`);
 	}
-};
+}

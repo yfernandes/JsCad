@@ -7,7 +7,7 @@ import {area, pointInTriangle} from "./triangle.js";
  * Original source from https://github.com/mapbox/earcut
  * Copyright (c) 2016 Mapbox
  */
-export const eliminateHoles = (data, holeIndices, outerNode, dim) => {
+export function eliminateHoles(data, holeIndices, outerNode, dim) {
 	const queue = [];
 
 	for (let i = 0, len = holeIndices.length; i < len; i++) {
@@ -27,7 +27,7 @@ export const eliminateHoles = (data, holeIndices, outerNode, dim) => {
 	}
 
 	return outerNode;
-};
+}
 
 /*
  * find a bridge between vertices that connects hole with an outer ring and link it

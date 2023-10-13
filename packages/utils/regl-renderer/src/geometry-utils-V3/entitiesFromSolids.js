@@ -35,7 +35,7 @@ const assembleEntities = (geometries) => {
  * @param {Boolean} [options.smoothNormals=true] - smooth the normals of 3d solids, rendering a smooth surface
  * @returns {Array} an array of renderable entities
  */
-export const entitiesFromSolids = (options, ...solids) => {
+export function entitiesFromSolids(options, ...solids) {
 	const defaults = {
 		color: meshColor,
 		smoothNormals: true,
@@ -65,4 +65,4 @@ export const entitiesFromSolids = (options, ...solids) => {
 		entities.push(...assembleEntities(geometries));
 	});
 	return entities;
-};
+}

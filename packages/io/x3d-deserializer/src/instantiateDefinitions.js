@@ -79,7 +79,7 @@ const instantiateDefinition = (options, object) => {
 	return geometry;
 };
 
-export const instantiateDefinitions = (options, objects) => {
+export function instantiateDefinitions(options, objects) {
 	const geometries = objects
 		.map((object) => instantiateDefinition(options, object))
 		.filter((g) => g != null);
@@ -87,4 +87,4 @@ export const instantiateDefinitions = (options, objects) => {
 	instantiatedList.clear();
 
 	return geometries;
-};
+}

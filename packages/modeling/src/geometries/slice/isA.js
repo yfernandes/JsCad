@@ -4,7 +4,7 @@
  * @returns {Boolean} true if the object matches a slice
  * @alias module:modeling/geometries/slice.isA
  */
-export const isA = (object) => {
+export function isA(object) {
 	if (object && typeof object === "object") {
 		if ("contours" in object) {
 			if (Array.isArray(object.contours)) {
@@ -13,4 +13,4 @@ export const isA = (object) => {
 		}
 	}
 	return false;
-};
+}

@@ -3,7 +3,7 @@ import {polyhedron} from "@jscad/modeling";
 import {x3dTypes} from "./objects.js";
 import {findNode, createColors} from "./translateHelpers.js";
 
-export const convertMesh = (options, objects) => {
+export function convertMesh(options, objects) {
 	let shape = findNode(x3dTypes.TRIANGLESET, objects);
 	if (shape) {
 		const coordinate = findNode(x3dTypes.COORDINATE, shape.objects);
@@ -295,9 +295,9 @@ export const convertMesh = (options, objects) => {
 	}
 
 	return null;
-};
+}
 
-export const instantiateMesh = (options, objects) => {
+export function instantiateMesh(options, objects) {
 	let geometry;
 
 	const components = convertMesh(options, objects);
@@ -305,4 +305,4 @@ export const instantiateMesh = (options, objects) => {
 		geometry = polyhedron(components);
 	}
 	return geometry;
-};
+}

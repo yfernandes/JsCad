@@ -11,7 +11,7 @@ import {flatten} from "../utils/flatten.js";
  * @example
  * let mySphere = colorize(hsvToRgb([0.9166666666666666, 1, 1]), sphere())
  */
-export const hsvToRgb = (...values) => {
+export function hsvToRgb(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain H, S and V values");
 
@@ -68,4 +68,4 @@ export const hsvToRgb = (...values) => {
 		return [r, g, b, a];
 	}
 	return [r, g, b];
-};
+}

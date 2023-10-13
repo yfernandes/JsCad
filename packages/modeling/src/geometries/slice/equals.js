@@ -7,7 +7,7 @@ import * as vec3 from "../../maths/vec3/index.js";
  * @returns {Boolean} true if the slices are equal
  * @alias module:modeling/geometries/slice.equals
  */
-export const equals = (a, b) => {
+export function equals(a, b) {
 	if (a.contours.length !== b.contours.length) {
 		return false;
 	}
@@ -24,4 +24,4 @@ export const equals = (a, b) => {
 	}
 
 	return true;
-};
+}

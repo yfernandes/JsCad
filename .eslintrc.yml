@@ -19,7 +19,8 @@ rules:
     - error
   func-style:
     - error
-    - expression
+    - declaration
+    - allowArrowFunctions: true
   no-unused-vars:
     - warn
   no-var:

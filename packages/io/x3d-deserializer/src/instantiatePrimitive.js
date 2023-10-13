@@ -18,7 +18,7 @@ import {findNode} from "./translateHelpers.js";
 
 import {extrudeX3D} from "./extrudeX3D.js";
 
-export const instantiatePrimitive = (options, objects) => {
+export function instantiatePrimitive(options, objects) {
 	let geometry;
 
 	// 3D primitives
@@ -156,4 +156,4 @@ export const instantiatePrimitive = (options, objects) => {
 	}
 
 	return geometry;
-};
+}

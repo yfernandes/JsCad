@@ -1,6 +1,6 @@
 import mat4 from "gl-mat4";
 
-export const drawMesh = (regl, params) => {
+export function drawMesh(regl, params) {
 	const mesh = params.geometry;
 	return regl({
 		vert: `
@@ -50,4 +50,4 @@ export const drawMesh = (regl, params) => {
 			},
 		},
 	});
-};
+}

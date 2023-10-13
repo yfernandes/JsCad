@@ -9,7 +9,7 @@ import * as vec3 from "../../maths/vec3/index.js";
  * @return {number} volume of the polygon
  * @alias module:modeling/geometries/poly3.measureSignedVolume
  */
-export const measureSignedVolume = (polygon) => {
+export function measureSignedVolume(polygon) {
 	let signedVolume = 0;
 	const vertices = polygon.vertices;
 	// calculate based on triangular polygons
@@ -20,4 +20,4 @@ export const measureSignedVolume = (polygon) => {
 	}
 	signedVolume /= 6;
 	return signedVolume;
-};
+}

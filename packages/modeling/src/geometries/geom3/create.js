@@ -24,7 +24,7 @@ import * as mat4 from "../../maths/mat4/index.js";
  * @returns {Geom3} a new geometry
  * @alias module:modeling/geometries/geom3.create
  */
-export const create = (polygons) => {
+export function create(polygons) {
 	if (polygons === undefined) {
 		polygons = []; // empty contents
 	}
@@ -32,4 +32,4 @@ export const create = (polygons) => {
 		polygons,
 		transforms: mat4.create(),
 	};
-};
+}

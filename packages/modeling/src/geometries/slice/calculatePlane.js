@@ -11,7 +11,7 @@ import * as vec3 from "../../maths/vec3/index.js";
  * @example
  * let myPlane = calculatePlane(slice)
  */
-export const calculatePlane = (slice) => {
+export function calculatePlane(slice) {
 	if (slice.contours.length < 1) {
 		throw new Error("slices must have at least one contour to calculate a plane");
 	}
@@ -62,4 +62,4 @@ export const calculatePlane = (slice) => {
 	}
 
 	return plane.fromPoints(plane.create(), farthestBefore, farthestVertex, farthestAfter);
-};
+}

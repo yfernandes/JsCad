@@ -7,7 +7,7 @@ import {fromPointAxisNormal} from "./fromPointAxisNormal.js";
  * @param {connector} connector - the connector to normalize
  * @returns {connector} a new connector
  */
-export const normalize = (connector) => {
+export function normalize(connector) {
 	const newAxis = vec3.normalize(connector.axis);
 
 	// make the normal vector truly normal
@@ -15,4 +15,4 @@ export const normalize = (connector) => {
 	vec3.cross(newNormal, newAxis, newNormal);
 
 	return fromPointAxisNormal(connector.point, newAxis, newNormal);
-};
+}

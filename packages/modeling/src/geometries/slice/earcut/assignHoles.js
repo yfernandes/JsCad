@@ -19,7 +19,7 @@ import * as poly2 from "../../poly2/index.js";
  *   "holes": [[[-1.5,1.5],[1.5,1.5],[1.5,-1.5],[-1.5,-1.5]]]
  * }]
  */
-export const assignHoles = (geometry) => {
+export function assignHoles(geometry) {
 	const outlines = toOutlines(geometry);
 	const solids = []; // solid indices
 	const holes = []; // hole indices
@@ -69,7 +69,7 @@ export const assignHoles = (geometry) => {
 		solid: outlines[solids[i]],
 		holes: holes.map((h) => outlines[h]),
 	}));
-};
+}
 
 /*
  * Find the item in the list with smallest score(item).

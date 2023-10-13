@@ -12,7 +12,7 @@ import {isA} from "./isA.js";
  * @throws {Error} error if the geometry is not valid
  * @alias module:modeling/geometries/geom3.validate
  */
-export const validate = (object) => {
+export function validate(object) {
 	if (!isA(object)) {
 		throw new Error("invalid geom3 structure");
 	}
@@ -27,7 +27,7 @@ export const validate = (object) => {
 	}
 
 	// TODO: check for self-intersecting
-};
+}
 
 /*
  * Check manifold edge condition: Every edge is in exactly 2 faces

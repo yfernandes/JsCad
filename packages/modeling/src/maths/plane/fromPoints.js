@@ -8,7 +8,7 @@ import * as vec3 from "../vec3/index.js";
  * @returns {Plane} out
  * @alias module:modeling/maths/plane.fromPoints
  */
-export const fromPoints = (out, ...vertices) => {
+export function fromPoints(out, ...vertices) {
 	const len = vertices.length;
 
 	// Calculate normal vector for a single vertex
@@ -42,4 +42,4 @@ export const fromPoints = (out, ...vertices) => {
 	}
 	out[3] = vec3.dot(out, vertices[0]);
 	return out;
-};
+}

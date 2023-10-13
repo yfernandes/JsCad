@@ -1,4 +1,4 @@
-export const validateDesignModule = (scriptRootModule) => {
+export function validateDesignModule(scriptRootModule) {
 	if (!scriptRootModule) {
 		throw new Error("undefined root module passed !");
 	}
@@ -9,4 +9,4 @@ export const validateDesignModule = (scriptRootModule) => {
 	if (!("main" in scriptRootModule)) {
 		throw new Error("no main() function found in the input script");
 	}
-};
+}

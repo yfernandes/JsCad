@@ -1,5 +1,5 @@
 // modified version of https://github.com/thibauts/vertices-bounding-box that also works with non nested positions
-export const boundingBox = (positions) => {
+export function boundingBox(positions) {
 	if (positions.length === 0) {
 		return [
 			[0, 0, 0],
@@ -37,4 +37,4 @@ export const boundingBox = (positions) => {
 	}
 
 	return [min, max];
-};
+}

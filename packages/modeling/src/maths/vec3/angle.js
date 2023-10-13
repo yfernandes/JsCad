@@ -8,7 +8,7 @@ import {dot} from "./dot.js";
  * @returns {number} angle (radians)
  * @alias module:modeling/maths/vec3.angle
  */
-export const angle = (a, b) => {
+export function angle(a, b) {
 	const ax = a[0];
 	const ay = a[1];
 	const az = a[2];
@@ -20,4 +20,4 @@ export const angle = (a, b) => {
 	const mag = mag1 * mag2;
 	const cosine = mag && dot(a, b) / mag;
 	return Math.acos(Math.min(Math.max(cosine, -1), 1));
-};
+}

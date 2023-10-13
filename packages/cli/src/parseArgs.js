@@ -13,7 +13,7 @@ import {env} from "./env.js";
 
 const {getDesignEntryPoint} = loading;
 
-export const parseArgs = (args) => {
+export function parseArgs(args) {
 	const inputExtensions = supportedInputExtensions();
 	const outputExtensions = supportedOutputExtensions();
 	const outputFormats = supportedOutputFormats();
@@ -133,4 +133,4 @@ export const parseArgs = (args) => {
 		addMetaData,
 		inputIsDirectory,
 	};
-};
+}

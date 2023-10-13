@@ -44,7 +44,7 @@ const defaultCallback = (progress, index, base) => {
  *   return slice
  * }
  */
-export const extrudeFromSlices = (options, base) => {
+export function extrudeFromSlices(options, base) {
 	const defaults = {
 		numberOfSlices: 2,
 		capStart: true,
@@ -109,4 +109,4 @@ export const extrudeFromSlices = (options, base) => {
 		}
 	}
 	return geom3.create(polygons);
-};
+}

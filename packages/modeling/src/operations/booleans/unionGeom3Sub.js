@@ -10,7 +10,7 @@ import {mayOverlap} from "./mayOverlap.js";
  * @param {Geom3} geometry2 - geometry to union
  * @returns {Geom3} new 3D geometry
  */
-export const unionGeom3Sub = (geometry1, geometry2) => {
+export function unionGeom3Sub(geometry1, geometry2) {
 	if (!mayOverlap(geometry1, geometry2)) {
 		return unionForNonIntersecting(geometry1, geometry2);
 	}
@@ -27,7 +27,7 @@ export const unionGeom3Sub = (geometry1, geometry2) => {
 
 	const newPolygons = a.allPolygons().concat(b.allPolygons());
 	return geom3.create(newPolygons);
-};
+}
 
 // Like union, but when we know that the two solids are not intersecting
 // Do not use if you are not completely sure that the solids do not intersect!

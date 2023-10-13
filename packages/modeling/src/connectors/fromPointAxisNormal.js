@@ -10,10 +10,10 @@ import {create} from "./create.js";
  * @returns {connector} a new connector
  * @alias module:modeling/connectors.fromPointsAxisNormal
  */
-export const fromPointAxisNormal = (point, axis, normal) => {
+export function fromPointAxisNormal(point, axis, normal) {
 	const connector = create();
 	connector.point = vec3.clone(point);
 	connector.axis = vec3.normalize(vec3.create(), axis);
 	connector.normal = vec3.normalize(vec3.create(), normal);
 	return connector;
-};
+}

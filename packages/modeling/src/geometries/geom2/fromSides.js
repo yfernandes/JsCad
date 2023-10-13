@@ -47,7 +47,7 @@ const toPointMap = (sides) => {
  * @example
  * let geometry = fromSides([[[0, 0], [1, 0]], [[1, 0], [1, 1]], [[1, 1], [0, 0]]])
  */
-export const fromSides = (sides) => {
+export function fromSides(sides) {
 	const pointMap = toPointMap(sides); // {point: [edges]}
 	const outlines = [];
 	while (true) {
@@ -88,7 +88,7 @@ export const fromSides = (sides) => {
 	} // outer loop
 	pointMap.clear();
 	return create(outlines);
-};
+}
 
 // find the first counter-clockwise edge from startSide and pop from nextSides
 const popNextSide = (startSide, nextSides) => {

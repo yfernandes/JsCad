@@ -24,7 +24,7 @@ import {cylinder} from "./cylinder.js";
  * @example
  * let myshape = roundedCylinder({ height: 10, radius: 2, roundRadius: 0.5 })
  */
-export const roundedCylinder = (options) => {
+export function roundedCylinder(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		height: 2,
@@ -202,4 +202,4 @@ export const roundedCylinder = (options) => {
 		prevCylinderVertex = cylinderVertex;
 	}
 	return geom3.create(polygons);
-};
+}

@@ -7,7 +7,7 @@
  * @returns {Mat4} out
  * @alias module:modeling/maths/mat4.subtract
  */
-export const subtract = (out, a, b) => {
+export function subtract(out, a, b) {
 	out[0] = a[0] - b[0];
 	out[1] = a[1] - b[1];
 	out[2] = a[2] - b[2];
@@ -25,4 +25,4 @@ export const subtract = (out, a, b) => {
 	out[14] = a[14] - b[14];
 	out[15] = a[15] - b[15];
 	return out;
-};
+}

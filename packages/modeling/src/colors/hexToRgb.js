@@ -9,7 +9,7 @@
  * @example
  * let mySphere = colorize(hexToRgb('#000080'), sphere()) // navy blue
  */
-export const hexToRgb = (notation) => {
+export function hexToRgb(notation) {
 	notation = notation.replace("#", "");
 	if (notation.length < 6) throw new Error("the given notation must contain 3 or more hex values");
 
@@ -21,4 +21,4 @@ export const hexToRgb = (notation) => {
 		return [r, g, b, a];
 	}
 	return [r, g, b];
-};
+}

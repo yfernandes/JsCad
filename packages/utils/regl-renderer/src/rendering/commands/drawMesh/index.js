@@ -5,7 +5,7 @@ import * as meshShaders from "./meshShaders.js";
 
 import {meshColor} from "../../renderDefaults.js";
 
-export const drawMesh = (regl, params = {extras: {}}) => {
+export function drawMesh(regl, params = {extras: {}}) {
 	const defaults = {
 		useVertexColors: true,
 		dynamicCulling: true,
@@ -104,4 +104,4 @@ export const drawMesh = (regl, params = {extras: {}}) => {
 	// Splice in any extra params
 	commandParams = Object.assign({}, commandParams, params.extras);
 	return regl(commandParams);
-};
+}

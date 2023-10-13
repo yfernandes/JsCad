@@ -11,7 +11,7 @@ import * as m3fSerializer from "@jscad/3mf-serializer"; // UG javascript doesn't
 
 import {supportedFormats} from "./formats.js";
 
-export const prepareOutput = (objects, params) => {
+export function prepareOutput(objects, params) {
 	const defaults = {
 		format: undefined,
 		version: "0.0.0",
@@ -55,4 +55,4 @@ export const prepareOutput = (objects, params) => {
 	const data = outputFormatHandlers[format].serialize(options, objects);
 	const mimeType = outputFormatHandlers[format].mimeType;
 	return {data, mimeType};
-};
+}

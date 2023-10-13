@@ -17,7 +17,7 @@ import {splitLineSegmentByPlane} from "./splitLineSegmentByPlane.js";
 // In case the polygon is spanning, returns:
 // .front: a Polygon3 of the front part
 // .back: a Polygon3 of the back part
-export const splitPolygonByPlane = (splane, polygon) => {
+export function splitPolygonByPlane(splane, polygon) {
 	const result = {
 		type: null,
 		front: null,
@@ -116,4 +116,4 @@ export const splitPolygonByPlane = (splane, polygon) => {
 		}
 	}
 	return result;
-};
+}

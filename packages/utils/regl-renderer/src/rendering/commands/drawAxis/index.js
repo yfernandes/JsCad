@@ -1,6 +1,6 @@
 import * as mat4 from "gl-mat4";
 
-export const drawAxis = (regl, params) => {
+export function drawAxis(regl, params) {
 	const defaults = {
 		xColor: [1, 0, 0, 1],
 		yColor: [0, 1, 0, 1],
@@ -65,4 +65,4 @@ export const drawAxis = (regl, params) => {
 			{color: zColor, model: mat4.multiply(mat4.create(), props.model, zAxisModel)}, // Z
 		]);
 	};
-};
+}

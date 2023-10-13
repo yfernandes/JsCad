@@ -24,7 +24,7 @@ import {isGT, isGTE} from "./commonChecks.js";
  * @example
  * let myshape = torus({ innerRadius: 10, outerRadius: 100 })
  */
-export const torus = (options) => {
+export function torus(options) {
 	const defaults = {
 		innerRadius: 1,
 		innerSegments: 32,
@@ -68,4 +68,4 @@ export const torus = (options) => {
 		segments: outerSegments,
 	};
 	return extrudeRotate(extrudeOptions, innerCircle);
-};
+}

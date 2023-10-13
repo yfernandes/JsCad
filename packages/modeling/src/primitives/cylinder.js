@@ -16,7 +16,7 @@ import * as geom3 from "../geometries/geom3/index.js";
  * @example
  * let myshape = cylinder({height: 2, radius: 10})
  */
-export const cylinder = (options) => {
+export function cylinder(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		height: 2,
@@ -39,4 +39,4 @@ export const cylinder = (options) => {
 	};
 
 	return cylinderElliptic(newOptions);
-};
+}

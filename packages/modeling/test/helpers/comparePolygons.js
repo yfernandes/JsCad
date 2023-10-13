@@ -6,7 +6,7 @@ import {compareVectors} from "./compareVectors.js";
  * @param {Poly3} poly2 - polygon with plane and vertices
  * @returns {boolean} result of comparison
  */
-export const comparePolygons = (poly1, poly2) => {
+export function comparePolygons(poly1, poly2) {
 	if (poly1.vertices.length === poly2.vertices.length) {
 		return poly1.vertices.reduce(
 			(valid, vertex, index) =>
@@ -15,4 +15,4 @@ export const comparePolygons = (poly1, poly2) => {
 		);
 	}
 	return false;
-};
+}

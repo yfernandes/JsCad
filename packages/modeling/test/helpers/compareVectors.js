@@ -7,7 +7,7 @@ import {EPS} from "../../src/maths/constants.js";
  * @param {number} eps - Epsilon - the largest difference between two numbers to consider trivial
  * @returns {boolean} result of comparison
  */
-export const compareVectors = (vec1, vec2, eps = EPS) => {
+export function compareVectors(vec1, vec2, eps = EPS) {
 	if (vec1.length === vec2.length) {
 		return vec1.reduce((valid, value, index) => {
 			// get the values, which also does type conversions
@@ -32,4 +32,4 @@ export const compareVectors = (vec1, vec2, eps = EPS) => {
 		}, true);
 	}
 	return false;
-};
+}

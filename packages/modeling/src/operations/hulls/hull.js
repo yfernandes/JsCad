@@ -32,7 +32,7 @@ import {hullGeom3} from "./hullGeom3.js";
  *       |       |          \        |
  *       +-------+           +-------+
  */
-export const hull = (...geometries) => {
+export function hull(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -47,4 +47,4 @@ export const hull = (...geometries) => {
 
 	// FIXME should this throw an error for unknown geometries?
 	return geometry;
-};
+}

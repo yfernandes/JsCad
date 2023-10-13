@@ -10,7 +10,7 @@ import * as poly3 from "../poly3/index.js";
  * @example
  * geometry = applyTransforms(geometry)
  */
-export const applyTransforms = (geometry) => {
+export function applyTransforms(geometry) {
 	if (mat4.isIdentity(geometry.transforms)) return geometry;
 
 	// apply transforms to each polygon
@@ -20,4 +20,4 @@ export const applyTransforms = (geometry) => {
 	// reset transforms
 	geometry.transforms = mat4.create();
 	return geometry;
-};
+}

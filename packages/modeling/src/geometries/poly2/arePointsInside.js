@@ -9,7 +9,7 @@ import {reverse} from "./reverse.js";
  * @return {number} 1 if all points are inside, 0 if some or none are inside
  * @alias module:modeling/geometries/poly2.arePointsInside
  */
-export const arePointsInside = (points, polygon) => {
+export function arePointsInside(points, polygon) {
 	if (points.length === 0) return 0; // nothing to check
 
 	if (polygon.points.length < 3) return 0; // nothing can be inside an empty polygon
@@ -20,7 +20,7 @@ export const arePointsInside = (points, polygon) => {
 
 	const sum = points.reduce((acc, point) => acc + isPointInside(point, polygon.points), 0);
 	return sum === points.length ? 1 : 0;
-};
+}
 
 /*
  * Determine if the given point is inside the polygon.

@@ -49,13 +49,13 @@ const createJscad = (id, multipart = false) => {
 	const jscadScript = `// test script ${id}
 import { arc, ellipse, ellipsoid } from '@jscad/modeling'
 
-export const getParameterDefinitions = () => {
+export function getParameterDefinitions() {
   return [
     { name: 'segments', caption: 'Segments:', type: 'int', initial: 10, min: 5, max: 20, step: 1 }
   ]
 }
 
-export const main = (params) => {
+export function main(params) {
   // parameters
   let segments = params.segments || 16
 

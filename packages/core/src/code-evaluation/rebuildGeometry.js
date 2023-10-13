@@ -26,7 +26,7 @@ import {applyParameterDefinitions} from "../parameters/index.js";
  * Everything is together in a single function, because this is usually run in the context of a web worker
  * And transfering data back & forth is both complex (see transferables) and costly (time)
  **/
-export const rebuildGeometry = (data, callback) => {
+export function rebuildGeometry(data, callback) {
 	const defaults = {
 		mainPath: "",
 		apiMainPath: "@jscad/modeling",
@@ -89,4 +89,4 @@ export const rebuildGeometry = (data, callback) => {
 			null
 		);
 	}
-};
+}

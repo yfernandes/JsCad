@@ -7,7 +7,7 @@ import {create} from "./create.js";
  * @returns {Mat4} a new matrix
  * @alias module:modeling/maths/mat4.clone
  */
-export const clone = (matrix) => {
+export function clone(matrix) {
 	const out = create();
 	out[0] = matrix[0];
 	out[1] = matrix[1];
@@ -26,4 +26,4 @@ export const clone = (matrix) => {
 	out[14] = matrix[14];
 	out[15] = matrix[15];
 	return out;
-};
+}

@@ -8,7 +8,7 @@ import * as path2 from "../geometries/path2/index.js";
  * @returns {Boolean} true if the given shapes are of the same type
  * @alias module:modeling/utils.areAllShapesTheSameType
  */
-export const areAllShapesTheSameType = (shapes) => {
+export function areAllShapesTheSameType(shapes) {
 	let previousType;
 	for (const shape of shapes) {
 		let currentType = 0;
@@ -20,4 +20,4 @@ export const areAllShapesTheSameType = (shapes) => {
 		previousType = currentType;
 	}
 	return true;
-};
+}

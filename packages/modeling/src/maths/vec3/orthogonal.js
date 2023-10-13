@@ -10,11 +10,11 @@ import {cross} from "./cross.js";
  * @returns {Vec3} out
  * @alias module:modeling/maths/vec3.orthogonal
  */
-export const orthogonal = (out, vector) => {
+export function orthogonal(out, vector) {
 	const bV = abs(create(), vector);
 	const b0 = 0 + (bV[0] < bV[1] && bV[0] < bV[2]);
 	const b1 = 0 + (bV[1] <= bV[0] && bV[1] < bV[2]);
 	const b2 = 0 + (bV[2] <= bV[0] && bV[2] <= bV[1]);
 
 	return cross(out, vector, [b0, b1, b2]);
-};
+}

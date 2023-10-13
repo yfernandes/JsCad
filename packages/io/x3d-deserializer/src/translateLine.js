@@ -2,7 +2,7 @@ import {pointsToString} from "./translateHelpers.js";
 
 import {convertLine} from "./instantiateLine.js";
 
-export const translateLine = (options, objects) => {
+export function translateLine(options, objects) {
 	const components = convertLine(options, objects);
 	if (components) {
 		const {pointsSet, colors} = components;
@@ -25,4 +25,4 @@ export const translateLine = (options, objects) => {
 		return {primitive, code};
 	}
 	return null;
-};
+}

@@ -684,7 +684,7 @@ const saveVariable = (obj, options) => {
 	}
 };
 
-export const translateAsciiDxf = (reader, options) => {
+export function translateAsciiDxf(reader, options) {
 	// console.log('**************************************************')
 	// console.log(JSON.stringify(reader.objstack))
 	// console.log('**************************************************')
@@ -830,7 +830,7 @@ export const translateAsciiDxf = (reader, options) => {
 
 	let script = `import * from '@jscad/modeling'
 
-export const main = () => {
+export function main() {
   let layers = []
   return layers.concat(`;
 
@@ -853,4 +853,4 @@ const createPolygon = (listofpoints, color) => {
 	});
 
 	return script;
-};
+}

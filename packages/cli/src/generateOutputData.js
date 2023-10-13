@@ -18,7 +18,7 @@ const {registerAllExtensions} = io;
  * @param {Object} options - options for conversion; inputFormat and outputFormat are required
  * @return {Promise} promise function which can convert the given source
  */
-export const generateOutputData = (source, cliParams, options) => {
+export function generateOutputData(source, cliParams, options) {
 	const defaults = {
 		outputFile: undefined,
 		outputFormat: "stl",
@@ -70,7 +70,7 @@ export const generateOutputData = (source, cliParams, options) => {
 		}
 		return convertSolidsToBlob({mimeType: outputMimeType, cliParams}, solids);
 	});
-};
+}
 
 /*
  * Convert the given solids to the target mimeType, and return as a blob for writing to file.

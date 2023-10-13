@@ -18,7 +18,7 @@ import {transform} from "./transform.js";
  * @returns {Mat4} - the matrix that transforms (connects) one connector to another
  * @alias module:modeling/connectors.transformationBetween
  */
-export const transformationBetween = (options, from, to) => {
+export function transformationBetween(options, from, to) {
 	const defaults = {
 		mirror: false,
 		normalRotation: 0,
@@ -63,4 +63,4 @@ export const transformationBetween = (options, from, to) => {
 	mat4.multiply(matrix, matrix, mat4.fromTranslation(mat4.create(), to.point));
 
 	return matrix;
-};
+}

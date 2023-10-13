@@ -18,7 +18,7 @@ const countSpaces = (line) => {
 	return count;
 };
 
-export const getParameterDefinitionsFromSource = (script) => {
+export function getParameterDefinitionsFromSource(script) {
 	const lines = [];
 	script.split("\n").forEach((l, i) => {
 		const trim = l.trim();
@@ -99,9 +99,9 @@ export const getParameterDefinitionsFromSource = (script) => {
 	}
 
 	return defs;
-};
+}
 
-export const parseOne = (comment, code, line1, line2) => {
+export function parseOne(comment, code, line1, line2) {
 	let def = parseDef(code, line2);
 	const {caption, options} = parseComment(comment, line1, def.name);
 	def.caption = caption || def.name;
@@ -119,7 +119,7 @@ export const parseOne = (comment, code, line1, line2) => {
 	}
 
 	return def;
-};
+}
 
 const extractTextFromComment = (c, lineNum) => {
 	const prefix = c.substring(0, 2);
@@ -138,7 +138,7 @@ const extractTextFromComment = (c, lineNum) => {
 	return c;
 };
 
-export const parseComment = (comment, lineNum, paramName) => {
+export function parseComment(comment, lineNum, paramName) {
 	comment = extractTextFromComment(comment, lineNum);
 
 	const ret = {};
@@ -159,9 +159,9 @@ export const parseComment = (comment, lineNum, paramName) => {
 	ret.caption = comment;
 
 	return ret;
-};
+}
 
-export const parseDef = (code, line) => {
+export function parseDef(code, line) {
 	if (code[code.length - 1] === ",") code = code.substring(0, code.length - 1).trim();
 	let idx = code.indexOf("=");
 
@@ -197,9 +197,9 @@ export const parseDef = (code, line) => {
 
 		return ret;
 	}
-};
+}
 
-export const combineParameterDefinitions = (paramDefFromSource, extraDef) => {
+export function combineParameterDefinitions(paramDefFromSource, extraDef) {
 	const def = [...paramDefFromSource];
 	if (extraDef) {
 		extraDef.forEach((param) => {
@@ -209,4 +209,4 @@ export const combineParameterDefinitions = (paramDefFromSource, extraDef) => {
 		});
 	}
 	return def;
-};
+}

@@ -81,7 +81,7 @@ const instantiateModel = (options, model) => {
 /*
  * Instantiate each of the given models into a list of shapes (JSCAD geometries).
  */
-export const instantiateModels = (options, models) => {
+export function instantiateModels(options, models) {
 	const shapeLists = models.map((model) => instantiateModel(options, model));
 	return flatten(shapeLists);
-};
+}

@@ -5,7 +5,7 @@ import {geom2, geom3, path2} from "@jscad/modeling";
  * @param {Array} solids - list of solids to serialize
  * @return {Array} web worker message contents
  */
-export const serializeSolids = (solids) => {
+export function serializeSolids(solids) {
 	// NOTE: the use of compactBinary formats was removed due to
 	// that lack of support for additional attributes, as well as
 	// imcomplete support for transfering objects via web workers
@@ -21,4 +21,4 @@ export const serializeSolids = (solids) => {
 		return object;
 	});
 	return solids;
-};
+}

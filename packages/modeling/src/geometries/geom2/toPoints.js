@@ -11,7 +11,7 @@ import {toOutlines} from "./toOutlines.js";
  * @example
  * let sharedPoints = toPoints(geometry)
  */
-export const toPoints = (geometry) => {
+export function toPoints(geometry) {
 	const points = [];
 	toOutlines(geometry).forEach((outline) => {
 		outline.forEach((point) => {
@@ -19,4 +19,4 @@ export const toPoints = (geometry) => {
 		});
 	});
 	return points;
-};
+}

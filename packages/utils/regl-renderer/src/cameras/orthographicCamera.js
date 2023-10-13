@@ -20,7 +20,7 @@ export const cameraState = {
 
 export const cameraProps = {};
 
-export const setProjection = (camera, input) => {
+export function setProjection(camera, input) {
 	const {width, height} = input;
 	// context.viewportWidth / context.viewportHeight,
 	const aspect = width / height;
@@ -34,4 +34,4 @@ export const setProjection = (camera, input) => {
 
 	const projection = mat4.ortho([], left, right, bottom, top, camera.near, camera.far);
 	return {projection, aspect, viewport};
-};
+}

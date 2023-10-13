@@ -20,7 +20,7 @@ import {isNumberArray} from "./commonChecks.js";
  * let myFaces = [ [0, 1, 4], [1, 2, 4], [2, 3, 4], [3, 0, 4], [1, 0, 3], [2, 1, 3] ]
  * let myShape = polyhedron({points: myPoints, faces: myFaces, orientation: 'inward'})
  */
-export const polyhedron = (options) => {
+export function polyhedron(options) {
 	const defaults = {
 		points: [],
 		faces: [],
@@ -67,4 +67,4 @@ export const polyhedron = (options) => {
 	});
 
 	return geom3.create(polygons);
-};
+}

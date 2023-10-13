@@ -25,7 +25,7 @@ import {isGT, isGTE, isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = cylinderElliptic({height: 2, startRadius: [10,5], endRadius: [8,3]})
  */
-export const cylinderElliptic = (options) => {
+export function cylinderElliptic(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		height: 2,
@@ -156,4 +156,4 @@ export const cylinderElliptic = (options) => {
 	}
 	const result = geom3.create(polygons);
 	return result;
-};
+}

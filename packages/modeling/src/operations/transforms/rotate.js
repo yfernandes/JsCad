@@ -16,7 +16,7 @@ import * as path2 from "../../geometries/path2/index.js";
  * @example
  * const newSphere = rotate([TAU / 8, 0, 0], sphere())
  */
-export const rotate = (angles, ...objects) => {
+export function rotate(angles, ...objects) {
 	if (!Array.isArray(angles)) throw new Error("angles must be an array");
 
 	objects = flatten(objects);
@@ -39,7 +39,7 @@ export const rotate = (angles, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}
 
 /**
  * Rotate the given objects about the X axis, using the given options.

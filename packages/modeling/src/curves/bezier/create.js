@@ -25,7 +25,7 @@
  * @returns {bezier} a new bezier data object
  * @alias module:modeling/curves/bezier.create
  */
-export const create = (points) => {
+export function create(points) {
 	if (!Array.isArray(points)) throw new Error("Bezier points must be a valid array/");
 	if (points.length < 2) throw new Error("Bezier points must contain at least 2 values.");
 	const pointType = getPointType(points);
@@ -37,7 +37,7 @@ export const create = (points) => {
 		permutations: getPermutations(points.length - 1),
 		tangentPermutations: getPermutations(points.length - 2),
 	};
-};
+}
 
 const getPointType = function (points) {
 	let firstPointType = null;

@@ -22,7 +22,7 @@ import {offsetPath2} from "./offsetPath2.js";
  * @example
  * let small = offset({ delta: -4, corners: 'chamfer' }, square({size: 40})) // contract
  */
-export const offset = (options, ...objects) => {
+export function offset(options, ...objects) {
 	objects = flatten(objects);
 	if (objects.length === 0) throw new Error("wrong number of arguments");
 
@@ -33,4 +33,4 @@ export const offset = (options, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

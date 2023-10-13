@@ -10,7 +10,7 @@ import {clone} from "./clone.js";
  * @returns {Path2} a new path
  * @alias module:modeling/geometries/path2.close
  */
-export const close = (geometry) => {
+export function close(geometry) {
 	if (geometry.isClosed) return geometry;
 
 	const cloned = clone(geometry);
@@ -28,4 +28,4 @@ export const close = (geometry) => {
 		}
 	}
 	return cloned;
-};
+}

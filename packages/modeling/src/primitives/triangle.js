@@ -128,7 +128,7 @@ const createTriangle = (A, B, C, a, b, c) => {
  * @example
  * let myshape = triangle({type: 'AAS', values: [degToRad(62), degToRad(35), 7]})
  */
-export const triangle = (options) => {
+export function triangle(options) {
 	const defaults = {
 		type: "SSS",
 		values: [1, 1, 1],
@@ -165,4 +165,4 @@ export const triangle = (options) => {
 		default:
 			throw new Error("invalid triangle type, try again");
 	}
-};
+}

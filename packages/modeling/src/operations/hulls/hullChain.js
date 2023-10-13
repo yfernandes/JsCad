@@ -29,7 +29,7 @@ import {hull} from "./hull.js";
  *       |       |               \         /
  *       +-------+                +-------+
  */
-export const hullChain = (...geometries) => {
+export function hullChain(...geometries) {
 	geometries = flatten(geometries);
 	const hulls = [];
 
@@ -40,4 +40,4 @@ export const hullChain = (...geometries) => {
 		hulls.push(hull(geometries[i - 1], geometries[i]));
 	}
 	return union(hulls);
-};
+}

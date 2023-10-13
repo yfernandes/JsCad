@@ -1,4 +1,4 @@
-export const geoArc = (options) => {
+export function geoArc(options) {
 	const geo = {
 		positions: [],
 		cells: [],
@@ -21,7 +21,7 @@ export const geoArc = (options) => {
 	createGeometry(options, geo.positions, geo.cells, geo.uvs);
 
 	return geo;
-};
+}
 
 const createGeometry = (options, positions, cells, uvs) => {
 	const o = options;

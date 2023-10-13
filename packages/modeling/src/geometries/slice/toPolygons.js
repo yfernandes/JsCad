@@ -9,7 +9,7 @@ import {PolygonHierarchy} from "./earcut/polygonHierarchy.js";
  * @return {Array} a list of polygons (3D)
  * @alias module:modeling/geometries/slice.toPolygons
  */
-export const toPolygons = (slice) => {
+export function toPolygons(slice) {
 	const hierarchy = new PolygonHierarchy(slice);
 
 	const polygons = [];
@@ -36,4 +36,4 @@ export const toPolygons = (slice) => {
 	});
 
 	return polygons;
-};
+}

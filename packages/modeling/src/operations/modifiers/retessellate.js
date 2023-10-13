@@ -13,7 +13,7 @@ import {reTesselateCoplanarPolygons} from "./reTesselateCoplanarPolygons.js";
   Polygons are split at each sweep line, and the fragments are joined horizontally and vertically into larger polygons
   (making sure that we will end up with convex polygons).
 */
-export const retessellate = (geometry) => {
+export function retessellate(geometry) {
 	if (geometry.isRetesselated) {
 		return geometry;
 	}
@@ -39,7 +39,7 @@ export const retessellate = (geometry) => {
 	result.isRetesselated = true;
 
 	return result;
-};
+}
 
 const classifyPolygons = (polygons) => {
 	let clusters = [polygons]; // a cluster is an array of potentially coplanar polygons

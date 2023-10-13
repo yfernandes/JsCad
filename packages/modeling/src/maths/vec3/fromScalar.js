@@ -7,9 +7,9 @@
  * @returns {Vec3} out
  * @alias module:modeling/maths/vec3.fromScalar
  */
-export const fromScalar = (out, scalar) => {
+export function fromScalar(out, scalar) {
 	out[0] = scalar;
 	out[1] = scalar;
 	out[2] = scalar;
 	return out;
-};
+}

@@ -7,7 +7,7 @@ import {plane} from "./plane.js";
  * @return {number} area of the polygon
  * @alias module:modeling/geometries/poly3.measureArea
  */
-export const measureArea = (polygon) => {
+export function measureArea(polygon) {
 	const n = polygon.vertices.length;
 	if (n < 3) {
 		return 0; // degenerate polygon
@@ -77,4 +77,4 @@ export const measureArea = (polygon) => {
 			break;
 	}
 	return area;
-};
+}

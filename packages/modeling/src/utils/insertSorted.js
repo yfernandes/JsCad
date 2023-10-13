@@ -2,7 +2,7 @@
  * Insert the given element into the given array using the compareFunction.
  * @alias module:modeling/utils.insertSorted
  */
-export const insertSorted = (array, element, compareFunc) => {
+export function insertSorted(array, element, compareFunc) {
 	let leftBound = 0;
 	let rightBound = array.length;
 	while (rightBound > leftBound) {
@@ -17,4 +17,4 @@ export const insertSorted = (array, element, compareFunc) => {
 		}
 	}
 	array.splice(leftBound, 0, element);
-};
+}

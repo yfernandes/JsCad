@@ -2,7 +2,7 @@ import os from "os";
 
 const version = "[VI]{version}[/VI]"; // version is injected by rollup
 
-export const env = () => {
+export function env() {
 	let env = "JSCAD " + version;
 	if (typeof document !== "undefined") {
 		const w = document.defaultView;
@@ -11,4 +11,4 @@ export const env = () => {
 		env = env + " [" + os.type() + ":" + os.release() + "," + os.platform() + ":" + os.arch() + "]";
 	}
 	console.log(env);
-};
+}

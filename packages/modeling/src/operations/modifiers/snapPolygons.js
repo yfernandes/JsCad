@@ -10,7 +10,7 @@ const isValidPoly3 = (epsilon, polygon) => {
 /*
  * Snap the given list of polygons to the epsilon.
  */
-export const snapPolygons = (epsilon, polygons) => {
+export function snapPolygons(epsilon, polygons) {
 	let newPolygons = polygons.map((polygon) => {
 		const snapVertices = polygon.vertices.map((vertex) =>
 			vec3.snap(vec3.create(), vertex, epsilon)
@@ -29,4 +29,4 @@ export const snapPolygons = (epsilon, polygons) => {
 	const epsilonArea = (epsilon * epsilon * Math.sqrt(3)) / 4;
 	newPolygons = newPolygons.filter((polygon) => isValidPoly3(epsilonArea, polygon));
 	return newPolygons;
-};
+}

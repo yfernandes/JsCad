@@ -8,7 +8,7 @@
  * @example
  * let sharedVertices = toVertices(slice)
  */
-export const toVertices = (slice) => {
+export function toVertices(slice) {
 	const vertices = [];
 	slice.contours.forEach((contour) => {
 		contour.forEach((vertex) => {
@@ -16,4 +16,4 @@ export const toVertices = (slice) => {
 		});
 	});
 	return vertices;
-};
+}

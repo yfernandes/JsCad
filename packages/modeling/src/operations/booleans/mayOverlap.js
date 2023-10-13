@@ -9,7 +9,7 @@ import {measureBoundingBox} from "../../measurements/measureBoundingBox.js";
  * @param {Geom3} geometry2 - geometry for comparison
  * @returns {boolean} true if the geometries overlap
  */
-export const mayOverlap = (geometry1, geometry2) => {
+export function mayOverlap(geometry1, geometry2) {
 	// FIXME accessing the data structure of the geometry should not be allowed
 	if (geometry1.polygons.length === 0 || geometry2.polygons.length === 0) {
 		return false;
@@ -30,4 +30,4 @@ export const mayOverlap = (geometry1, geometry2) => {
 	if (min2[2] - max1[2] > EPS) return false;
 	if (min1[2] - max2[2] > EPS) return false;
 	return true;
-};
+}

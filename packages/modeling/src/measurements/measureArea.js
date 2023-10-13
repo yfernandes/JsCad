@@ -86,7 +86,7 @@ const measureAreaOfSlice = (geometry) => {
  * @example
  * let area = measureArea(sphere())
  */
-export const measureArea = (...geometries) => {
+export function measureArea(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -98,4 +98,4 @@ export const measureArea = (...geometries) => {
 		return 0;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

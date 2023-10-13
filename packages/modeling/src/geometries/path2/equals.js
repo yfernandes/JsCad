@@ -10,7 +10,7 @@ import {toPoints} from "./toPoints.js";
  * @returns {Boolean}
  * @alias module:modeling/geometries/path2.equals
  */
-export const equals = (a, b) => {
+export function equals(a, b) {
 	if (a.isClosed !== b.isClosed) {
 		return false;
 	}
@@ -42,4 +42,4 @@ export const equals = (a, b) => {
 		}
 	} while (++offset < length);
 	return false;
-};
+}

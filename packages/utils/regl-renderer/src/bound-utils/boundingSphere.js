@@ -8,7 +8,7 @@ import {boundingBox} from "./boundingBox.js";
  * @param {array} positions - the array/typed array of positions.
  * for now loosely based on three.js implementation
  */
-export const boundingSphere = (center, positions) => {
+export function boundingSphere(center, positions) {
 	if (positions.length === 0) {
 		return null;
 	}
@@ -33,4 +33,4 @@ export const boundingSphere = (center, positions) => {
 		}
 	}
 	return Math.sqrt(maxRadiusSq);
-};
+}

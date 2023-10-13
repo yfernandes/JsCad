@@ -5,7 +5,7 @@ import * as mat4 from "gl-mat4";
  * @param  {} regl
  * @param  {} params={}
  */
-export const renderContext = (regl, params = {}) => {
+export function renderContext(regl, params = {}) {
 	const {fbo} = params;
 
 	const commandParams = {
@@ -65,4 +65,4 @@ export const renderContext = (regl, params = {}) => {
 
 	// it returns a function
 	return regl(Object.assign({}, commandParams, params.extras));
-};
+}

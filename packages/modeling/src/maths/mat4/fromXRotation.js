@@ -14,7 +14,7 @@ import {sin, cos} from "../utils/trigonometry.js";
  * @example
  * let matrix = fromXRotation(create(), TAU / 4)
  */
-export const fromXRotation = (out, radians) => {
+export function fromXRotation(out, radians) {
 	const s = sin(radians);
 	const c = cos(radians);
 
@@ -36,4 +36,4 @@ export const fromXRotation = (out, radians) => {
 	out[14] = 0;
 	out[15] = 1;
 	return out;
-};
+}

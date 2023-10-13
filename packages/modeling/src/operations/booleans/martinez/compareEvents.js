@@ -11,7 +11,7 @@ import {signedArea} from "./signedArea.js";
  * @param {SweepEvent} e2
  * @return {number}
  */
-export const compareEvents = (e1, e2) => {
+export function compareEvents(e1, e2) {
 	const p1 = e1.point;
 	const p2 = e2.point;
 
@@ -24,7 +24,7 @@ export const compareEvents = (e1, e2) => {
 	if (p1[1] !== p2[1]) return p1[1] > p2[1] ? 1 : -1;
 
 	return specialCases(e1, e2, p1, p2);
-};
+}
 
 const specialCases = (e1, e2, p1, p2) => {
 	// Same coordinates, but one is a left endpoint and the other is

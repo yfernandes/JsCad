@@ -11,8 +11,8 @@ import {fromValues} from "./fromValues.js";
  * @returns {Line2} out
  * @alias module:modeling/maths/line2.reverse
  */
-export const reverse = (out, line) => {
+export function reverse(out, line) {
 	const normal = vec2.negate(vec2.create(), line);
 	const distance = -line[2];
 	return copy(out, fromValues(normal[0], normal[1], distance));
-};
+}

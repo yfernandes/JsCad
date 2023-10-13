@@ -8,7 +8,7 @@ import {findNode, findColor, pointsToString} from "./translateHelpers.js";
 import {translateLine} from "./translateLine.js";
 import {translateMesh} from "./translateMesh.js";
 
-export const translateShape = (options, object) => {
+export function translateShape(options, object) {
 	let code = `
 // shape
 const createObjects${object.id} = (options) => {
@@ -150,4 +150,4 @@ const createObjects${object.id} = (options) => {
 }
 `;
 	return code;
-};
+}

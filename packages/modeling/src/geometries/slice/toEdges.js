@@ -8,7 +8,7 @@
  * @example
  * let sharedEdges = toEdges(slice)
  */
-export const toEdges = (slice) => {
+export function toEdges(slice) {
 	const edges = [];
 	slice.contours.forEach((contour) => {
 		contour.forEach((vertex, i) => {
@@ -17,4 +17,4 @@ export const toEdges = (slice) => {
 		});
 	});
 	return edges;
-};
+}

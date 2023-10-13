@@ -5,10 +5,10 @@ import {normalizeDesignModule} from "./normalizeDesignModule.js";
  * @param  {string} filePath
  * @param  {function} requireFn : the 'require' function to use; Node require or webRequire
  */
-export const requireDesignFromModule = (filePath, requireFn) => {
+export function requireDesignFromModule(filePath, requireFn) {
 	// requireUncached(mainPath)
 	const designRootModule = requireFn(filePath);
 	// make sure everything is ok
 	validateDesignModule(designRootModule);
 	return normalizeDesignModule(designRootModule);
-};
+}

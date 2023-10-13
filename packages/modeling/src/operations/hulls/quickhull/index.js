@@ -7,8 +7,8 @@ import {QuickHull} from "./QuickHull.js";
  * Adapted to JSCAD by Jeff Gay
  */
 
-export const runner = (points, options = {}) => {
+export function runner(points, options = {}) {
 	const instance = new QuickHull(points);
 	instance.build();
 	return instance.collectFaces(options.skipTriangulation);
-};
+}

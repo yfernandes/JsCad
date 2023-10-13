@@ -6,7 +6,7 @@ import * as colorOnlyShaders from "./colorOnlyShaders.js";
 
 import {meshColor} from "../../renderDefaults.js";
 
-export const drawLines = (regl, params = {}) => {
+export function drawLines(regl, params = {}) {
 	const defaults = {
 		color: meshColor,
 		geometry: undefined,
@@ -70,4 +70,4 @@ export const drawLines = (regl, params = {}) => {
 	}
 
 	return regl(commandParams);
-};
+}

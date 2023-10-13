@@ -13,7 +13,7 @@ import {measureArea} from "./measureArea.js";
  * @throws {Error} error if the geometry is not valid
  * @alias module:modeling/geometries/poly2.validate
  */
-export const validate = (object) => {
+export function validate(object) {
 	if (!isA(object)) {
 		throw new Error("invalid poly2 structure");
 	}
@@ -43,4 +43,4 @@ export const validate = (object) => {
 			throw new Error(`poly2 invalid point ${point}`);
 		}
 	});
-};
+}

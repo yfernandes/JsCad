@@ -16,7 +16,7 @@ import {extrudeFromSlices} from "./extrudeFromSlices.js";
  * @param {Geom2} geometry - the geometry to extrude
  * @returns {Geom3} the extruded 3D geometry
  */
-export const extrudeLinearGeom2 = (options, geometry) => {
+export function extrudeLinearGeom2(options, geometry) {
 	const defaults = {
 		offset: [0, 0, 1],
 		twistAngle: 0,
@@ -60,4 +60,4 @@ export const extrudeLinearGeom2 = (options, geometry) => {
 	const output = extrudeFromSlices(options, baseSlice);
 	if (geometry.color) output.color = geometry.color;
 	return output;
-};
+}

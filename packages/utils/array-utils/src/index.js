@@ -12,3 +12,4 @@ export {insertSorted} from "./insertSorted.js";
 export {nth} from "./nth.js";
 export {padToLength} from "./padToLength.js";
 export {toArray} from "./toArray.js";
+export {FixedLengthArray} from "./fixedLength.js";

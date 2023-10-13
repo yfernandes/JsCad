@@ -12,7 +12,7 @@ import {isA} from "./isA.js";
  * @throws {Error} error if the geometry is not valid
  * @alias module:modeling/geometries/path2.validate
  */
-export const validate = (object) => {
+export function validate(object) {
 	if (!isA(object)) {
 		throw new Error("invalid path2 structure");
 	}
@@ -37,4 +37,4 @@ export const validate = (object) => {
 	if (!object.transforms.every(Number.isFinite)) {
 		throw new Error(`path2 invalid transforms ${object.transforms}`);
 	}
-};
+}

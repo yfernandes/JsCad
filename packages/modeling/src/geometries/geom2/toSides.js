@@ -11,7 +11,7 @@ import {toOutlines} from "./toOutlines.js";
  * @example
  * let sharedSides = toSides(geometry)
  */
-export const toSides = (geometry) => {
+export function toSides(geometry) {
 	const sides = [];
 	toOutlines(geometry).forEach((outline) => {
 		outline.forEach((point, i) => {
@@ -20,4 +20,4 @@ export const toSides = (geometry) => {
 		});
 	});
 	return sides;
-};
+}

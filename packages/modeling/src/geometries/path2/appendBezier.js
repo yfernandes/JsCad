@@ -24,7 +24,7 @@ import {toPoints} from "./toPoints.js";
  * myShape = appendBezier({controlPoints: [[10,-10],[25,-10],[25,-20]]}, myShape);
  * myShape = appendBezier({controlPoints: [null, [25,-30],[40,-30],[40,-20]]}, myShape)
  */
-export const appendBezier = (options, geometry) => {
+export function appendBezier(options, geometry) {
 	const defaults = {
 		segments: 16,
 	};
@@ -157,4 +157,4 @@ export const appendBezier = (options, geometry) => {
 	const result = appendPoints(newPoints, geometry);
 	result.lastBezierControlPoint = controlPoints[controlPoints.length - 2];
 	return result;
-};
+}

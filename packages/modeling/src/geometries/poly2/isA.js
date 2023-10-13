@@ -4,7 +4,7 @@
  * @returns {Boolean} true if the object matches a poly2
  * @alias module:modeling/geometries/poly2.isA
  */
-export const isA = (object) => {
+export function isA(object) {
 	if (object && typeof object === "object") {
 		if ("points" in object) {
 			if (Array.isArray(object.points)) {
@@ -13,4 +13,4 @@ export const isA = (object) => {
 		}
 	}
 	return false;
-};
+}

@@ -19,7 +19,7 @@ const EPS = 1e-5; // FIXME
 //
 // instantiate the given object (3dface) as a polygon
 //
-export const instantiatePolygon = (obj, layers, options) => {
+export function instantiatePolygon(obj, layers, options) {
 	const vertices = [];
 	// FIXME: should check global variable to instantiate in the proper orientation
 	vertices.push(vec3.fromValues(obj.pptx, obj.ppty, obj.pptz));
@@ -46,7 +46,7 @@ export const instantiatePolygon = (obj, layers, options) => {
 	const polygon = poly3.create(vertices);
 	if (color) polygon.color = color;
 	return polygon;
-};
+}
 
 //
 // instantiate the given object (line) as a 2D line or a 3D line
@@ -68,7 +68,7 @@ const instantiateLine = (obj, layers, options) => {
 //
 // instantiate the give object as 2D Vector or 3D Vector wrapped as an object
 //
-export const instantiateVector = (obj) => {
+export function instantiateVector(obj) {
 	const d3line = parseInt("00000000000100000", 2);
 	const d3mesh = parseInt("00000000001000000", 2);
 	const d3face = parseInt("00000000010000000", 2);
@@ -91,7 +91,7 @@ export const instantiateVector = (obj) => {
 		vtype.bulg = obj.bulg; // for rendering curved sections
 	}
 	return vtype;
-};
+}
 
 //
 // append a section to the given path
@@ -397,7 +397,7 @@ const completeCurrent = (objects, baseobj, polygons, vectors, options) => {
 	return null;
 };
 
-export const instantiateAsciiDxf = (reader, options) => {
+export function instantiateAsciiDxf(reader, options) {
 	// console.log('**************************************************')
 	// console.log(JSON.stringify(reader.objstack))
 	// console.log('**************************************************')
@@ -518,4 +518,4 @@ export const instantiateAsciiDxf = (reader, options) => {
 	// )
 	// console.log('**************************************************')
 	return objects;
-};
+}

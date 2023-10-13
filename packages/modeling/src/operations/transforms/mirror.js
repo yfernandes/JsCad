@@ -19,7 +19,7 @@ import * as path2 from "../../geometries/path2/index.js";
  * @example
  * let myshape = mirror({normal: [0,0,10]}, cube({center: [0,0,15], radius: [20, 25, 5]}))
  */
-export const mirror = (options, ...objects) => {
+export function mirror(options, ...objects) {
 	const defaults = {
 		origin: [0, 0, 0],
 		normal: [0, 0, 1], // Z axis
@@ -44,7 +44,7 @@ export const mirror = (options, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}
 
 /**
  * Mirror the given objects about the X axis.

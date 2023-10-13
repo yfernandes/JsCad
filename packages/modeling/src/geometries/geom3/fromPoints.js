@@ -11,10 +11,10 @@ import {create} from "./create.js";
  * @returns {Geom3} a new geometry
  * @alias module:modeling/geometries/geom3.fromPoints
  */
-export const fromPoints = (listOfLists) => {
+export function fromPoints(listOfLists) {
 	if (!Array.isArray(listOfLists)) {
 		throw new Error("the given vertices must be an array");
 	}
 
 	return create(listOfLists.map(poly3.create));
-};
+}

@@ -71,7 +71,7 @@ const alignGeometries = (geometry, modes, relativeTo) => {
  * @example
  * let alignedGeometries = align({modes: ['min', 'center', 'none'], relativeTo: [10, null, 10], grouped: true }, geometries)
  */
-export const align = (options, ...geometries) => {
+export function align(options, ...geometries) {
 	const defaults = {
 		modes: ["center", "center", "min"],
 		relativeTo: [0, 0, 0],
@@ -94,4 +94,4 @@ export const align = (options, ...geometries) => {
 		geometries = geometries.map((geometry) => alignGeometries(geometry, modes, relativeTo));
 	}
 	return geometries.length === 1 ? geometries[0] : geometries;
-};
+}

@@ -91,7 +91,7 @@ const measureCenterOfMassGeom3 = (geometry) => {
  * @example
  * let center = measureCenterOfMass(sphere())
  */
-export const measureCenterOfMass = (...geometries) => {
+export function measureCenterOfMass(...geometries) {
 	geometries = flatten(geometries);
 
 	const results = geometries.map((geometry) => {
@@ -101,4 +101,4 @@ export const measureCenterOfMass = (...geometries) => {
 		return [0, 0, 0];
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

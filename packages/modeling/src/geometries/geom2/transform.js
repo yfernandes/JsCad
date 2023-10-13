@@ -14,7 +14,7 @@ import {reverse} from "./reverse.js";
  * @example
  * let newGeometry = transform(fromZRotation(TAU / 4), geometry)
  */
-export const transform = (matrix, geometry) => {
+export function transform(matrix, geometry) {
 	const transforms = mat4.multiply(mat4.create(), matrix, geometry.transforms);
 	const transformed = Object.assign({}, geometry, {transforms});
 	// determine if the transform is mirroring in 2D
@@ -23,4 +23,4 @@ export const transform = (matrix, geometry) => {
 		return reverse(transformed);
 	}
 	return transformed;
-};
+}

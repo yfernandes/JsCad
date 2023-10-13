@@ -1,6 +1,6 @@
 import {makeDrawGrid} from "./makeDrawGrid.js";
 
-export const makeDrawMultiGrid = (regl, params) => {
+export function makeDrawMultiGrid(regl, params) {
 	const defaults = {
 		size: [50, 50],
 		ticks: [10, 1],
@@ -13,4 +13,4 @@ export const makeDrawMultiGrid = (regl, params) => {
 		drawSubGrid({color: props.subColor, fadeOut: props.fadeOut});
 	};
 	return drawGrid;
-};
+}

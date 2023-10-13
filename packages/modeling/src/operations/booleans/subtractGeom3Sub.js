@@ -11,7 +11,7 @@ import {mayOverlap} from "./mayOverlap.js";
  * @param {Geom3} geometry2 - a geometry
  * @returns {Geom3} new 3D geometry
  */
-export const subtractGeom3Sub = (geometry1, geometry2) => {
+export function subtractGeom3Sub(geometry1, geometry2) {
 	if (!mayOverlap(geometry1, geometry2)) {
 		return geom3.clone(geometry1);
 	}
@@ -27,4 +27,4 @@ export const subtractGeom3Sub = (geometry1, geometry2) => {
 
 	const newPolygons = a.allPolygons();
 	return geom3.create(newPolygons);
-};
+}

@@ -119,7 +119,7 @@ const measureBoundingBoxOfSlice = (geometry) => {
  * @example
  * let bounds = measureBoundingBox(sphere())
  */
-export const measureBoundingBox = (...geometries) => {
+export function measureBoundingBox(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -134,4 +134,4 @@ export const measureBoundingBox = (...geometries) => {
 		];
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

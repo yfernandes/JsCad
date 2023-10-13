@@ -12,7 +12,7 @@ import {INTERSECTION, UNION, DIFFERENCE, XOR} from "./operation.js";
  * @param {SweepEvent} prev
  * @param {Operation} operation
  */
-export const computeFields = (event, prev, operation) => {
+export function computeFields(event, prev, operation) {
 	// compute inOut and otherInOut fields
 	if (prev === null) {
 		event.inOut = false;
@@ -44,7 +44,7 @@ export const computeFields = (event, prev, operation) => {
 	} else {
 		event.resultTransition = 0;
 	}
-};
+}
 
 const inResult = (event, operation) => {
 	switch (event.type) {

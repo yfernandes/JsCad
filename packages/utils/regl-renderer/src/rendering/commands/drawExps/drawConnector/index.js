@@ -4,7 +4,7 @@ import {makeDrawAxis} from "../drawAxis.js";
 import {makeDrawMesh} from "../drawMeshNoNormals.js";
 import {makeArcGeometry} from "./arcGeo.js";
 
-export const drawConnector = (regl, params) => {
+export function drawConnector(regl, params) {
 	const argGeometry = makeArcGeometry({
 		innerRadius: 9,
 		outerRadius: 10,
@@ -34,4 +34,4 @@ export const drawConnector = (regl, params) => {
 			});
 		});
 	};
-};
+}

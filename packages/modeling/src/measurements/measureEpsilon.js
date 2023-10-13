@@ -18,7 +18,7 @@ import {measureBoundingBox} from "./measureBoundingBox.js";
  * @example
  * let epsilon = measureEpsilon(sphere())
  */
-export const measureEpsilon = (...geometries) => {
+export function measureEpsilon(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -30,4 +30,4 @@ export const measureEpsilon = (...geometries) => {
 		return 0;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

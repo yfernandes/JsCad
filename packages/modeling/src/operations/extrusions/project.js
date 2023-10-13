@@ -78,7 +78,7 @@ const projectGeom3 = (options, geometry) => {
  * @example
  * let myshape = project({}, sphere({radius: 20, segments: 5}))
  */
-export const project = (options, ...objects) => {
+export function project(options, ...objects) {
 	const defaults = {
 		axis: [0, 0, 1], // Z axis
 		origin: [0, 0, 0],
@@ -97,4 +97,4 @@ export const project = (options, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

@@ -56,7 +56,7 @@ const EPSAREA = ((EPS * EPS) / 2) * Math.sin(Math.PI / 3);
  * Extrude (build) walls between the given slices.
  * Each wall consists of two triangles, which may be invalid if slices are overlapping.
  */
-export const extrudeWalls = (slice0, slice1) => {
+export function extrudeWalls(slice0, slice1) {
 	let edges0 = slice.toEdges(slice0);
 	let edges1 = slice.toEdges(slice1);
 
@@ -80,4 +80,4 @@ export const extrudeWalls = (slice0, slice1) => {
 		if (Number.isFinite(poly1area) && poly1area > EPSAREA) walls.push(poly1);
 	});
 	return walls;
-};
+}

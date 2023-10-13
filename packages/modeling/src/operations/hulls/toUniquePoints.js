@@ -5,7 +5,7 @@ import * as path2 from "../../geometries/path2/index.js";
 /*
  * Return the unique vertices of a geometry
  */
-export const toUniquePoints = (geometries) => {
+export function toUniquePoints(geometries) {
 	const found = new Set();
 	const uniquePoints = [];
 
@@ -29,4 +29,4 @@ export const toUniquePoints = (geometries) => {
 	});
 
 	return uniquePoints;
-};
+}

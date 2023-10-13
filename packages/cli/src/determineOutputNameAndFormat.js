@@ -1,6 +1,6 @@
 import {supportedOutputExtensions, supportedOutputFormats} from "@jscad/io";
 
-export const determineOutputNameAndFormat = (outputFormat, outputFile, inputFile) => {
+export function determineOutputNameAndFormat(outputFormat, outputFile, inputFile) {
 	const extReg = new RegExp(`\\.(${supportedOutputExtensions().join("|")})$`);
 	const forReg = new RegExp(`(${supportedOutputFormats().join("|")})`, "i");
 
@@ -25,4 +25,4 @@ export const determineOutputNameAndFormat = (outputFormat, outputFile, inputFile
 		process.exit(1);
 	}
 	return {outputFormat, outputFile};
-};
+}

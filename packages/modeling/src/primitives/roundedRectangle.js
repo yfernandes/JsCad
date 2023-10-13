@@ -21,7 +21,7 @@ import {rectangle} from "./rectangle.js";
  * @example
  * let myshape = roundedRectangle({size: [10, 20], roundRadius: 2})
  */
-export const roundedRectangle = (options) => {
+export function roundedRectangle(options) {
 	const defaults = {
 		center: [0, 0],
 		size: [2, 2],
@@ -73,4 +73,4 @@ export const roundedRectangle = (options) => {
 
 	const points = corner0Points.concat(corner1Points, corner2Points, corner3Points);
 	return geom2.create([points]);
-};
+}

@@ -124,7 +124,7 @@ const deleteSide = (
  * @param {Array} polygons - the original polygons which may or may not have T-junctions
  * @return original polygons (if no T-junctions found) or new polygons with updated vertices
  */
-export const insertTjunctions = (polygons) => {
+export function insertTjunctions(polygons) {
 	// STEP 1 : build a map of 'unmatched' sides from the polygons
 	// i.e. side AB in one polygon does not have a matching side BA in another polygon
 	const sideMap = new Map();
@@ -348,4 +348,4 @@ export const insertTjunctions = (polygons) => {
 	sideMap.clear();
 
 	return polygons;
-};
+}

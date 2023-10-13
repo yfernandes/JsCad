@@ -20,7 +20,7 @@ import {isGTE, isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = ellipsoid({radius: [5, 10, 20]})
  */
-export const ellipsoid = (options) => {
+export function ellipsoid(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		radius: [1, 1, 1],
@@ -133,4 +133,4 @@ export const ellipsoid = (options) => {
 		prevCylinderVertex = cylinderVertex;
 	}
 	return geom3.create(polygons);
-};
+}

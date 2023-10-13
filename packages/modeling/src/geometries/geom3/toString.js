@@ -11,11 +11,11 @@ import {toPolygons} from "./toPolygons.js";
  * @example
  * console.out(toString(geometry))
  */
-export const toString = (geometry) => {
+export function toString(geometry) {
 	const polygons = toPolygons(geometry);
 	let result = "geom3 (" + polygons.length + " polygons):\n";
 	polygons.forEach((polygon) => {
 		result += "  " + poly3.toString(polygon) + "\n";
 	});
 	return result;
-};
+}

@@ -151,7 +151,7 @@ const measureBoundingSphereOfSlice = (geometry) => {
  * @example
  * let bounds = measureBoundingSphere(cube())
  */
-export const measureBoundingSphere = (...geometries) => {
+export function measureBoundingSphere(...geometries) {
 	geometries = flatten(geometries);
 
 	const results = geometries.map((geometry) => {
@@ -162,4 +162,4 @@ export const measureBoundingSphere = (...geometries) => {
 		return [[0, 0, 0], 0];
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

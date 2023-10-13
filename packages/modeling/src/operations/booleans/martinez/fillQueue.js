@@ -53,7 +53,7 @@ const processPolygon = (contourOrHole, isSubject, depth, queue, bbox, isExterior
 	}
 };
 
-export const fillQueue = (subject, clipping, sbbox, cbbox, operation) => {
+export function fillQueue(subject, clipping, sbbox, cbbox, operation) {
 	const eventQueue = new Queue([], compareEvents);
 	let polygonSet, isExteriorRing, i, ii, j, jj; //, k, kk
 
@@ -77,4 +77,4 @@ export const fillQueue = (subject, clipping, sbbox, cbbox, operation) => {
 	}
 
 	return eventQueue;
-};
+}

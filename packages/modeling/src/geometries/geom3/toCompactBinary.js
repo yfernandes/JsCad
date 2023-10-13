@@ -6,7 +6,7 @@ import * as poly3 from "../poly3/index.js";
  * @return {TypedArray} compact binary representation
  * @alias module:modeling/geometries/geom3.toCompactBinary
  */
-export const toCompactBinary = (geometry) => {
+export function toCompactBinary(geometry) {
 	const polygons = geometry.polygons;
 	const transforms = geometry.transforms;
 
@@ -63,4 +63,4 @@ export const toCompactBinary = (geometry) => {
 	});
 	// TODO: how about custom properties or fields ?
 	return compacted;
-};
+}

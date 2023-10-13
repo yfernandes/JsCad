@@ -11,7 +11,7 @@ import {origin} from "./origin.js";
  * @returns {Vec2} closest point
  * @alias module:modeling/maths/line2.closestPoint
  */
-export const closestPoint = (line, point) => {
+export function closestPoint(line, point) {
 	const orig = origin(line);
 	const dir = direction(line);
 
@@ -20,4 +20,4 @@ export const closestPoint = (line, point) => {
 	vec2.scale(v, dir, dist);
 	vec2.add(v, v, orig);
 	return v;
-};
+}

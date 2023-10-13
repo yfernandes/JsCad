@@ -2,7 +2,7 @@ import {circle, ellipse, geom2, line, path2, rectangle, roundedRectangle} from "
 
 import {svg2cag, cagLengthX, cagLengthY, cagLengthP, reflect} from "./helpers.js";
 
-export const shapesMapGeometry = (obj, objectify, params) => {
+export function shapesMapGeometry(obj, objectify, params) {
 	const {
 		svgUnitsPmm,
 		svgUnitsX,
@@ -167,7 +167,7 @@ export const shapesMapGeometry = (obj, objectify, params) => {
 	};
 
 	return types[obj.type](obj, svgUnitsPmm, svgUnitsX, svgUnitsY, svgUnitsV, svgGroups, segments);
-};
+}
 
 const appendPoints = (points, geometry) => {
 	if (geometry) return path2.appendPoints(points, geometry);

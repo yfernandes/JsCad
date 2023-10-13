@@ -19,7 +19,7 @@ import {identity} from "./identity.js";
  * @example
  * let matrix = fromRotation(create(), TAU / 4, [0, 0, 3])
  */
-export const fromRotation = (out, rad, axis) => {
+export function fromRotation(out, rad, axis) {
 	let [x, y, z] = axis;
 	const lengthSquared = x * x + y * y + z * z;
 
@@ -55,4 +55,4 @@ export const fromRotation = (out, rad, axis) => {
 	out[14] = 0;
 	out[15] = 1;
 	return out;
-};
+}

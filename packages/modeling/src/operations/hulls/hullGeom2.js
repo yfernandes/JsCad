@@ -10,7 +10,7 @@ import {toUniquePoints} from "./toUniquePoints.js";
  * @param {...geometries} geometries - list of geom2 geometries
  * @returns {Geom2} new geometry
  */
-export const hullGeom2 = (...geometries) => {
+export function hullGeom2(...geometries) {
 	geometries = flatten(geometries);
 
 	// extract the unique points from the geometries
@@ -23,4 +23,4 @@ export const hullGeom2 = (...geometries) => {
 
 	// assemble a new geometry from the list of points
 	return geom2.create([hullPoints]);
-};
+}

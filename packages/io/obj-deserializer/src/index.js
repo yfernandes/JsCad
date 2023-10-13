@@ -202,7 +202,7 @@ const stringify = (positions, groups, options) => {
 
 // groups: ${groups.length}
 // points: ${positions.length}
-export const main = () => {
+export function main() {
   // points are common to all geometries
 ${translatePoints(positions)}
 

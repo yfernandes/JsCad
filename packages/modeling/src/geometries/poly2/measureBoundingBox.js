@@ -5,7 +5,7 @@ import * as vec2 from "../../maths/vec2/index.js";
  * @returns {Array} an array of two vectors (2D);  minimum and maximum coordinates
  * @alias module:modeling/geometries/poly2.measureBoundingBox
  */
-export const measureBoundingBox = (polygon) => {
+export function measureBoundingBox(polygon) {
 	const points = polygon.points;
 	const numPoints = points.length;
 	const min = numPoints === 0 ? vec2.create() : vec2.clone(points[0]);
@@ -15,4 +15,4 @@ export const measureBoundingBox = (polygon) => {
 		vec2.max(max, max, points[i]);
 	}
 	return [min, max];
-};
+}

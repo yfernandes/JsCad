@@ -45,7 +45,7 @@ const getPoints = (vertices, radius, startAngle, center) => {
  * let star1 = star({vertices: 8, outerRadius: 10}) // star with 8/2 density
  * let star2 = star({vertices: 12, outerRadius: 40, innerRadius: 20}) // star with given radius
  */
-export const star = (options) => {
+export function star(options) {
 	const defaults = {
 		center: [0, 0],
 		vertices: 5,
@@ -89,4 +89,4 @@ export const star = (options) => {
 	}
 
 	return geom2.create([allPoints]);
-};
+}

@@ -10,8 +10,8 @@ import * as path2 from "../geometries/path2/index.js";
  * @example
  * let myshape = line([[10, 10], [-10, 10]])
  */
-export const line = (points) => {
+export function line(points) {
 	if (!Array.isArray(points)) throw new Error("points must be an array");
 
 	return path2.fromPoints({}, points);
-};
+}

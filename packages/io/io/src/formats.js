@@ -105,7 +105,7 @@ export const supportedFormats = {
 	},
 };
 
-export const supportedFormatsForObjects = (objects) => {
+export function supportedFormatsForObjects(objects) {
 	const objectFormats = [];
 	let found3Dsolid = false;
 	let found2Dsolid = false;
@@ -127,10 +127,10 @@ export const supportedFormatsForObjects = (objects) => {
 		}
 	}
 	return objectFormats;
-};
+}
 
 // Return a list of extensions as used by the serializers
-export const supportedOutputExtensions = () => {
+export function supportedOutputExtensions() {
 	const supported = [];
 	for (const format in supportedFormats) {
 		if (
@@ -143,10 +143,10 @@ export const supportedOutputExtensions = () => {
 		}
 	}
 	return supported;
-};
+}
 
 // Return a list of formats as used by the serializers
-export const supportedOutputFormats = () => {
+export function supportedOutputFormats() {
 	const supported = [];
 	for (const format in supportedFormats) {
 		if (
@@ -157,11 +157,11 @@ export const supportedOutputFormats = () => {
 		}
 	}
 	return supported;
-};
+}
 
 // Return a list of file extensions as used by the deserializers
 // See also code-loading/transfromSources.js
-export const supportedInputExtensions = () => {
+export function supportedInputExtensions() {
 	const supported = [];
 	for (const format in supportedFormats) {
 		if (supportedFormats[format].deserializable === true) {
@@ -169,21 +169,21 @@ export const supportedInputExtensions = () => {
 		}
 	}
 	return supported;
-};
+}
 
-export const getMimeType = (extension) => {
+export function getMimeType(extension) {
 	for (const format in supportedFormats) {
 		const meta = supportedFormats[format];
 		if (meta.extension === extension) return meta.mimetype;
 		if (format === extension) return meta.mimetype;
 	}
 	return null;
-};
+}
 
-export const getExtension = (mimeType) => {
+export function getExtension(mimeType) {
 	for (const format in supportedFormats) {
 		const meta = supportedFormats[format];
 		if (meta.mimetype === mimeType) return meta.extension;
 	}
 	return null;
-};
+}

@@ -29,7 +29,7 @@ import {intersectGeom3} from "./intersectGeom3.js";
  *      |       |
  *      +-------+
  */
-export const intersect = (...geometries) => {
+export function intersect(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("intersect wrong number of arguments");
 
@@ -42,4 +42,4 @@ export const intersect = (...geometries) => {
 	if (geom2.isA(geometry)) return intersectGeom2(geometries);
 	if (geom3.isA(geometry)) return intersectGeom3(geometries);
 	throw new Error("intersect unsupported geometry type");
-};
+}

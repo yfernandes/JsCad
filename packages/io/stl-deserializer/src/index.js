@@ -127,7 +127,7 @@ const formatAsJscad = (data, addMetaData, version, filename) => {
 	code += `import * from '@jscad/modeling'\n`;
 	code += data.join("\n");
 	code += `
-export const main = () => {
+export function main() {
  return [${data.map((d, i) => `solid${i + 1}()`)}]
 }
 `;

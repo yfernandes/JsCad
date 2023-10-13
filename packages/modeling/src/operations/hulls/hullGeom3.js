@@ -11,7 +11,7 @@ import {toUniquePoints} from "./toUniquePoints.js";
  * @param {...geometries} geometries - list of geom3 geometries
  * @returns {Geom3} new geometry
  */
-export const hullGeom3 = (...geometries) => {
+export function hullGeom3(...geometries) {
 	geometries = flatten(geometries);
 
 	if (geometries.length === 1) return geometries[0];
@@ -27,4 +27,4 @@ export const hullGeom3 = (...geometries) => {
 	});
 
 	return geom3.create(polygons);
-};
+}

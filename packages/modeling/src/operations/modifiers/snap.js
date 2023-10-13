@@ -54,7 +54,7 @@ const snapGeom3 = (geometry) => {
  * @return {Object|Array} the snapped geometry, or a list of snapped geometries
  * @alias module:modeling/modifiers.snap
  */
-export const snap = (...geometries) => {
+export function snap(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -65,4 +65,4 @@ export const snap = (...geometries) => {
 		return geometry;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

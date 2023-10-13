@@ -15,7 +15,7 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = sphere({radius: 5})
  */
-export const sphere = (options) => {
+export function sphere(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		radius: 1,
@@ -33,4 +33,4 @@ export const sphere = (options) => {
 	radius = [radius, radius, radius];
 
 	return ellipsoid({center, radius, segments, axes});
-};
+}

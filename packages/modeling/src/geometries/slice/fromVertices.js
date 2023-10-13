@@ -17,7 +17,7 @@ import {create} from "./create.js";
  * ]
  * const slice = fromVertices(vertices)
  */
-export const fromVertices = (vertices) => {
+export function fromVertices(vertices) {
 	if (!Array.isArray(vertices)) throw new Error("the given vertices must be an array");
 	if (vertices.length < 3)
 		throw new Error("the given vertices must contain THREE or more vertices");
@@ -32,4 +32,4 @@ export const fromVertices = (vertices) => {
 	});
 	// create a slice with one contour containing all vertices
 	return create([cloned]);
-};
+}

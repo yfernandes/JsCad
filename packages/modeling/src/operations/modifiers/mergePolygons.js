@@ -90,7 +90,7 @@ const createPolygonAnd = (edge) => {
  * @param {Poly3[]} sourcePolygons - list of polygons
  * @returns {Poly3[]} new set of polygons
  */
-export const mergeCoplanarPolygons = (sourcePolygons) => {
+export function mergeCoplanarPolygons(sourcePolygons) {
 	if (sourcePolygons.length < 2) return sourcePolygons;
 
 	const normal = sourcePolygons[0].plane;
@@ -176,7 +176,7 @@ export const mergeCoplanarPolygons = (sourcePolygons) => {
 	edgeList.clear();
 
 	return destPolygons;
-};
+}
 
 const coplanar = (plane1, plane2) => {
 	// expect the same distance from the origin, within tolerance
@@ -186,7 +186,7 @@ const coplanar = (plane1, plane2) => {
 	return false;
 };
 
-export const mergePolygons = (epsilon, polygons) => {
+export function mergePolygons(epsilon, polygons) {
 	const polygonsPerPlane = []; // elements: [plane, [poly3...]]
 	polygons.forEach((polygon) => {
 		const mapping = polygonsPerPlane.find((element) => coplanar(element[0], poly3.plane(polygon)));
@@ -205,4 +205,4 @@ export const mergePolygons = (epsilon, polygons) => {
 		destPolygons = destPolygons.concat(retesselatedPolygons);
 	});
 	return destPolygons;
-};
+}

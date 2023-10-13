@@ -9,7 +9,7 @@ import {sin, cos} from "../utils/trigonometry.js";
  * @returns {Mat4} out
  * @alias module:modeling/maths/mat4.rotateZ
  */
-export const rotateZ = (out, matrix, radians) => {
+export function rotateZ(out, matrix, radians) {
 	const s = sin(radians);
 	const c = cos(radians);
 	const a00 = matrix[0];
@@ -43,4 +43,4 @@ export const rotateZ = (out, matrix, radians) => {
 	out[6] = a12 * c - a02 * s;
 	out[7] = a13 * c - a03 * s;
 	return out;
-};
+}

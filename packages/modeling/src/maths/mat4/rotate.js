@@ -14,7 +14,7 @@ import {copy} from "./copy.js";
  * @returns {Mat4} out
  * @alias module:modeling/maths/mat4.rotate
  */
-export const rotate = (out, matrix, radians, axis) => {
+export function rotate(out, matrix, radians, axis) {
 	let [x, y, z] = axis;
 	const lengthSquared = x * x + y * y + z * z;
 
@@ -78,4 +78,4 @@ export const rotate = (out, matrix, radians, axis) => {
 		out[15] = matrix[15];
 	}
 	return out;
-};
+}

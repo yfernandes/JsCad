@@ -3,7 +3,7 @@ import regl from "regl";
 import {renderContext} from "./renderContext.js";
 import * as renderDefaults from "./renderDefaults.js";
 
-export const prepareRender = (params) => {
+export function prepareRender(params) {
 	const defaults = {
 		// extensions:['oes_element_index_uint']
 	};
@@ -73,4 +73,4 @@ export const prepareRender = (params) => {
 		command(data); // meh ??
 		// tick += 0.01
 	};
-};
+}

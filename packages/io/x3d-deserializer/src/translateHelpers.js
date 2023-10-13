@@ -3,7 +3,7 @@ import {x3dTypes} from "./objects.js";
 export const findNode = (x3dtype, objects) =>
 	objects.find((object) => object.definition === x3dtype);
 
-export const findColor = (objects, options) => {
+export function findColor(objects, options) {
 	const appearance = findNode(x3dTypes.APPEARANCE, objects);
 	let material;
 	if (appearance) {
@@ -18,16 +18,16 @@ export const findColor = (objects, options) => {
 		return material.color ? material.color : null;
 	}
 	return null;
-};
+}
 
 export const pointToString = (point) => `[${point}]`;
 
-export const pointsToString = (triangle) => {
+export function pointsToString(triangle) {
 	const strings = triangle.map((point) => pointToString(point));
 	return `[
     ${strings.join(",\n    ")}
   ]`;
-};
+}
 
 // colorIndex - array of arrays, each subarray containing indexes into vertexColors
 const createColorsFromVertexColors = (colorIndex, vertexColors) => {
@@ -67,7 +67,7 @@ const createColorsFromFaceColors = (colorIndex, faceColors) => {
 };
 
 // create a list of colors from the given shape and color objects
-export const createColors = (shape, color) => {
+export function createColors(shape, color) {
 	if (!color) return null;
 	if (!Array.isArray(shape.colorIndex)) return null;
 
@@ -78,4 +78,4 @@ export const createColors = (shape, color) => {
 		colors = createColorsFromFaceColors(shape.colorIndex, color.colors);
 	}
 	return colors;
-};
+}

@@ -10,7 +10,7 @@
  * @returns {Mat4?} out
  * @alias module:modeling/maths/mat4.invert
  */
-export const invert = (out, matrix) => {
+export function invert(out, matrix) {
 	const a00 = matrix[0];
 	const a01 = matrix[1];
 	const a02 = matrix[2];
@@ -67,4 +67,4 @@ export const invert = (out, matrix) => {
 	out[15] = (a20 * b03 - a21 * b01 + a22 * b00) * det;
 
 	return out;
-};
+}

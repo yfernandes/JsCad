@@ -16,7 +16,7 @@ import * as path2 from "../../geometries/path2/index.js";
  * @example
  * let myshape = scale([5, 0, 10], sphere())
  */
-export const scale = (factors, ...objects) => {
+export function scale(factors, ...objects) {
 	if (!Array.isArray(factors)) throw new Error("factors must be an array");
 
 	objects = flatten(objects);
@@ -38,7 +38,7 @@ export const scale = (factors, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}
 
 /**
  * Scale the given objects about the X axis using the given options.

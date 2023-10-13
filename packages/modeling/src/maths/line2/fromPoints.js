@@ -9,7 +9,7 @@ import * as vec2 from "../vec2/index.js";
  * @returns {Line2} a new unbounded line
  * @alias module:modeling/maths/line2.fromPoints
  */
-export const fromPoints = (out, point1, point2) => {
+export function fromPoints(out, point1, point2) {
 	const vector = vec2.subtract(vec2.create(), point2, point1); // directional vector
 
 	vec2.normal(vector, vector);
@@ -21,4 +21,4 @@ export const fromPoints = (out, point1, point2) => {
 	out[1] = vector[1];
 	out[2] = distance;
 	return out;
-};
+}

@@ -11,7 +11,7 @@ import {measureBoundingBox} from "./measureBoundingBox.js";
  * @example
  * let center = measureCenter(sphere())
  */
-export const measureCenter = (...geometries) => {
+export function measureCenter(...geometries) {
 	geometries = flatten(geometries);
 
 	const results = geometries.map((geometry) => {
@@ -23,4 +23,4 @@ export const measureCenter = (...geometries) => {
 		];
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

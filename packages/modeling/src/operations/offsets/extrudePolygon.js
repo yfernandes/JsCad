@@ -6,7 +6,7 @@ import * as poly3 from "../../geometries/poly3/index.js";
 
 // Extrude a polygon in the direction of the offset vector.
 // Returns (geom3) a new geometry
-export const extrudePolygon = (offsetVector, polygon1) => {
+export function extrudePolygon(offsetVector, polygon1) {
 	const direction = vec3.dot(poly3.plane(polygon1), offsetVector);
 	if (direction > 0) {
 		polygon1 = poly3.invert(polygon1);
@@ -29,4 +29,4 @@ export const extrudePolygon = (offsetVector, polygon1) => {
 	newPolygons.push(poly3.invert(polygon2));
 
 	return geom3.create(newPolygons);
-};
+}

@@ -12,7 +12,7 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = cube({size: 10})
  */
-export const cube = (options) => {
+export function cube(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		size: 2,
@@ -24,4 +24,4 @@ export const cube = (options) => {
 	size = [size, size, size];
 
 	return cuboid({center, size});
-};
+}

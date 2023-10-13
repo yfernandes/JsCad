@@ -13,7 +13,7 @@ import {flip} from "./flip.js";
  * @return {Plane} out
  * @alias module:modeling/maths/plane.transform
  */
-export const transform = (out, plane, matrix) => {
+export function transform(out, plane, matrix) {
 	const isMirror = mat4.isMirroring(matrix);
 	// get two vectors in the plane:
 	const r = vec3.orthogonal(vec3.create(), plane);
@@ -35,4 +35,4 @@ export const transform = (out, plane, matrix) => {
 		flip(out, out);
 	}
 	return out;
-};
+}

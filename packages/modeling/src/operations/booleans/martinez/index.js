@@ -93,7 +93,7 @@ const fromOutlines = (outlines) => {
 	return geom2.create(outlines);
 };
 
-export const boolean = (subjectGeom, clippingGeom, operation) => {
+export function boolean(subjectGeom, clippingGeom, operation) {
 	// Convert from geom2 to outlines
 	const subject = toMartinez(subjectGeom);
 	const clipping = toMartinez(clippingGeom);
@@ -141,4 +141,4 @@ export const boolean = (subjectGeom, clippingGeom, operation) => {
 	} else {
 		return geom2.create();
 	}
-};
+}

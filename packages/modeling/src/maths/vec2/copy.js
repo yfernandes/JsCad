@@ -6,8 +6,8 @@
  * @returns {Vec2} out
  * @alias module:modeling/maths/vec2.copy
  */
-export const copy = (out, vector) => {
+export function copy(out, vector) {
 	out[0] = vector[0];
 	out[1] = vector[1];
 	return out;
-};
+}

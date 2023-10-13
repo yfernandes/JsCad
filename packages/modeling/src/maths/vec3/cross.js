@@ -7,7 +7,7 @@
  * @returns {Vec3} out
  * @alias module:modeling/maths/vec3.cross
  */
-export const cross = (out, a, b) => {
+export function cross(out, a, b) {
 	const ax = a[0];
 	const ay = a[1];
 	const az = a[2];
@@ -19,4 +19,4 @@ export const cross = (out, a, b) => {
 	out[1] = az * bx - ax * bz;
 	out[2] = ax * by - ay * bx;
 	return out;
-};
+}

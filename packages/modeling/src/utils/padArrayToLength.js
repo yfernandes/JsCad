@@ -6,10 +6,10 @@
  * @returns {Array} an array of at least 'targetLength' length
  * @alias module:modeling/utils.padArrayToLength
  */
-export const padArrayToLength = (anArray, padding, targetLength) => {
+export function padArrayToLength(anArray, padding, targetLength) {
 	anArray = anArray.slice();
 	while (anArray.length < targetLength) {
 		anArray.push(padding);
 	}
 	return anArray;
-};
+}

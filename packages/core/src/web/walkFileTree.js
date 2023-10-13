@@ -229,11 +229,11 @@ const transformFileList = (fileList) => {
 //    1) walk the tree
 //    2) read the files (readFileAsync)
 //    3) return a flattened list of promises containing all file entries
-export const walkFileTree = (fileList) => {
+export function walkFileTree(fileList) {
 	let items = fileList;
 	if (fileList.length && fileList[0] instanceof File) {
 		// transform the flat list of File entries
 		items = transformFileList(fileList);
 	}
 	return processEntries(items);
-};
+}

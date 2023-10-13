@@ -6,8 +6,8 @@
  * @example
  * const array = toArray(1) // [1]
  */
-export const toArray = (array) => {
+export function toArray(array) {
 	if (Array.isArray(array)) return array;
 	if (array === undefined || array === null) return [];
 	return [array];
-};
+}

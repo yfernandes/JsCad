@@ -17,7 +17,7 @@ import {boundingBox} from "./boundingBox.js";
  *   size: [6,20,4]
  * }
  */
-export const computeBounds = (...geometries) => {
+export function computeBounds(...geometries) {
 	geometries = flatten(geometries);
 
 	let bbox; // min and max
@@ -49,4 +49,4 @@ export const computeBounds = (...geometries) => {
 		size: [...size],
 	};
 	return bounds;
-};
+}

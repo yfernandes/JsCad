@@ -37,7 +37,7 @@ const assertPath = (path) => {
  * statSync, existSync, readFileSync, readdirSync
  * @param  {} paths
  */
-export const getDesignEntryPoint = (fs, paths) => {
+export function getDesignEntryPoint(fs, paths) {
 	if (!paths) {
 		return;
 	}
@@ -72,7 +72,7 @@ export const getDesignEntryPoint = (fs, paths) => {
 		return filePath;
 	}
 	return mainPath;
-};
+}
 
 /** attempt to extract a package name from a directory
  * @param  {} fs
@@ -94,7 +94,7 @@ const packageNameFromDir = (fs, dirName, filePath) => {
  * @param  {Object} fs a file-system like object (either node's fs or some other) providing at least statSync, existSync, readFileSync
  * @param  {Array} paths an array of paths (strings) or a single path
  */
-export const getDesignName = (fs, paths) => {
+export function getDesignName(fs, paths) {
 	if (!paths) {
 		return "undefined";
 	}
@@ -109,4 +109,4 @@ export const getDesignName = (fs, paths) => {
 		// try to use package.json & co to find main
 		return packageNameFromDir(fs, mainPath);
 	}
-};
+}

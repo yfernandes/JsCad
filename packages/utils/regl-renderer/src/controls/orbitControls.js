@@ -70,7 +70,7 @@ export const controlsState = {
 
 export const defaults = Object.assign({}, controlsState, controlsProps);
 
-export const update = ({controls, camera}, output) => {
+export function update({controls, camera}, output) {
 	// custom z up is settable, with inverted Y and Z (since we use camera[2] => up)
 	const {EPS, drag} = controls;
 	const {position, target} = camera;
@@ -156,7 +156,7 @@ export const update = ({controls, camera}, output) => {
 		},
 		// matrix: newMatrix
 	};
-};
+}
 
 /**
  * compute camera state to rotate the camera
@@ -165,7 +165,7 @@ export const update = ({controls, camera}, output) => {
  * @param {Float} angle value of the angle to rotate
  * @return {Object} the updated camera data/state
  */
-export const rotate = ({controls, camera, speed = 1}, angle) => {
+export function rotate({controls, camera, speed = 1}, angle) {
 	let {thetaDelta, phiDelta} = controls;
 
 	if (controls.userControl.rotate) {
@@ -180,7 +180,7 @@ export const rotate = ({controls, camera, speed = 1}, angle) => {
 		},
 		camera,
 	};
-};
+}
 
 /**
  * compute camera state to zoom the camera
@@ -189,7 +189,7 @@ export const rotate = ({controls, camera, speed = 1}, angle) => {
  * @param {Float} zoomDelta value of the zoom
  * @return {Object} the updated camera data/state
  */
-export const zoom = ({controls, camera, speed = 1}, zoomDelta = 0) => {
+export function zoom({controls, camera, speed = 1}, zoomDelta = 0) {
 	let {scale} = controls;
 
 	if (
@@ -228,7 +228,7 @@ export const zoom = ({controls, camera, speed = 1}, zoomDelta = 0) => {
     } */
 	}
 	return {controls: {scale}, camera};
-};
+}
 
 /**
  * compute camera state to pan the camera
@@ -237,7 +237,7 @@ export const zoom = ({controls, camera, speed = 1}, zoomDelta = 0) => {
  * @param {Float} delta value of the raw pan delta
  * @return {Object} the updated camera data/state
  */
-export const pan = ({controls, camera, speed = 1}, delta) => {
+export function pan({controls, camera, speed = 1}, delta) {
 	const {projection, view, viewport} = camera;
 	const combinedProjView = mat4.multiply([], projection, view);
 	const invProjView = mat4.invert([], combinedProjView);
@@ -259,7 +259,7 @@ export const pan = ({controls, camera, speed = 1}, delta) => {
 			target: vec3.add(vec3.create(), camera.target, offset),
 		},
 	};
-};
+}
 
 /**
  * compute camera state to 'fit' an object on screen
@@ -269,7 +269,7 @@ export const pan = ({controls, camera, speed = 1}, delta) => {
  * @param {Array} entities - an array of entities (see entitiesFromSolids)
  * @return {Object} the updated camera data/state
  */
-export const zoomToFit = ({controls, camera, entities}) => {
+export function zoomToFit({controls, camera, entities}) {
 	// our camera.fov is already in radian, no need to convert
 	const {zoomToFit} = controls;
 	if (zoomToFit.targets !== "all") {
@@ -300,7 +300,7 @@ export const zoomToFit = ({controls, camera, entities}) => {
 		camera: {target: bounds.center},
 		controls: {scale: scaleForIdealDistance},
 	};
-};
+}
 
 /**
  * compute controls state to 'reset it' to the given state
@@ -310,7 +310,7 @@ export const zoomToFit = ({controls, camera, entities}) => {
  * @param {Object} desiredState the state to reset the camera to: defaults to default values
  * @return {Object} the updated camera data/state
  */
-export const reset = ({controls, camera}, desiredState) => {
+export function reset({controls, camera}, desiredState) {
 	const options = {
 		camera: {
 			position: desiredState.camera.position,
@@ -325,4 +325,4 @@ export const reset = ({controls, camera}, desiredState) => {
 		},
 	};
 	return options;
-};
+}

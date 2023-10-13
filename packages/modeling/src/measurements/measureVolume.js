@@ -32,7 +32,7 @@ const measureVolumeOfGeom3 = (geometry) => {
  * @example
  * let volume = measureVolume(sphere())
  */
-export const measureVolume = (...geometries) => {
+export function measureVolume(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
 
@@ -42,4 +42,4 @@ export const measureVolume = (...geometries) => {
 		return 0;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

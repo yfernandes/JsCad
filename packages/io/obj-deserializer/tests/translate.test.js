@@ -16,7 +16,7 @@ test("translate simple obj file to jscad script", (t) => {
 
 // groups: 1
 // points: 8
-export const main = () => {
+export function main() {
   // points are common to all geometries
   let points = [
     [-0.5,-0.5,0.5],
@@ -87,7 +87,7 @@ f 2 6 7 3
 
 // groups: 1
 // points: 8
-export const main = () => {
+export function main() {
   // points are common to all geometries
   let points = [
     [0,2,2],
@@ -172,7 +172,7 @@ f -4 -3 -2 -1
 
 // groups: 1
 // points: 24
-export const main = () => {
+export function main() {
   // points are common to all geometries
   let points = [
     [0,2,2],

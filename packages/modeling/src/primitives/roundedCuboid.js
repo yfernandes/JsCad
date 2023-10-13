@@ -144,7 +144,7 @@ const stitchSides = (bottomCorners, topCorners) => {
  * @example
  * let myCube = roundedCuboid({size: [10, 20, 10], roundRadius: 2, segments: 16})
  */
-export const roundedCuboid = (options) => {
+export function roundedCuboid(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		size: [2, 2, 2],
@@ -210,4 +210,4 @@ export const roundedCuboid = (options) => {
 	}
 
 	return geom3.create(polygons);
-};
+}

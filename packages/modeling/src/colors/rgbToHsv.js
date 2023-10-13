@@ -8,7 +8,7 @@ import {flatten} from "../utils/flatten.js";
  * @return {Array} HSV or HSVA color values
  * @alias module:modeling/colors.rgbToHsv
  */
-export const rgbToHsv = (...values) => {
+export function rgbToHsv(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain R, G and B values");
 
@@ -47,4 +47,4 @@ export const rgbToHsv = (...values) => {
 		return [h, s, v, a];
 	}
 	return [h, s, v];
-};
+}

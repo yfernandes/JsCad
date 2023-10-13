@@ -3,7 +3,7 @@ import {colorize, line} from "@jscad/modeling";
 import {createColors, findNode} from "./translateHelpers.js";
 import {x3dTypes} from "./objects.js";
 
-export const convertLine = (options, objects) => {
+export function convertLine(options, objects) {
 	let shape = findNode(x3dTypes.INDEXEDLINESET, objects);
 	if (shape) {
 		const coordinate = findNode(x3dTypes.COORDINATE, shape.objects);
@@ -69,9 +69,9 @@ export const convertLine = (options, objects) => {
 		}
 	}
 	return null;
-};
+}
 
-export const instantiateLine = (options, objects) => {
+export function instantiateLine(options, objects) {
 	let geometry;
 
 	const components = convertLine(options, objects);
@@ -89,4 +89,4 @@ export const instantiateLine = (options, objects) => {
 	}
 
 	return geometry;
-};
+}

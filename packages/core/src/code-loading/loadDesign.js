@@ -14,7 +14,7 @@ import {getParameterDefinitionsAndValues} from "../parameters/index.js";
  * @param {Array} filesAndFolders - array of files and folders to use
  * @param {Object} parameterValuesOverride - the values to use to override the defaults for the current design
  */
-export const loadDesign = (mainPath, apiMainPath, filesAndFolders, parameterValuesOverride) => {
+export function loadDesign(mainPath, apiMainPath, filesAndFolders, parameterValuesOverride) {
 	// transform the source if passed non-javascript content, i.e. stl
 	filesAndFolders = transformSources({apiMainPath}, filesAndFolders);
 
@@ -48,4 +48,4 @@ export const loadDesign = (mainPath, apiMainPath, filesAndFolders, parameterValu
 	const parameters = getParameterDefinitionsAndValues(rootModule, parameterValuesOverride);
 
 	return {rootModule, ...parameters};
-};
+}

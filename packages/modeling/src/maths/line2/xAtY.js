@@ -10,11 +10,11 @@ import {origin} from "./origin.js";
  * @return {number} the X coordinate on the line
  * @alias module:modeling/maths/line2.xAtY
  */
-export const xAtY = (line, y) => {
+export function xAtY(line, y) {
 	let x = (line[2] - line[1] * y) / line[0];
 	if (Number.isNaN(x)) {
 		const org = origin(line);
 		x = org[0];
 	}
 	return x;
-};
+}

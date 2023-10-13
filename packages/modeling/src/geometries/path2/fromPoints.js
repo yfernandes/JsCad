@@ -18,7 +18,7 @@ import {create} from "./create.js";
  * @example:
  * my newPath = fromPoints({closed: true}, [[10, 10], [-10, 10]])
  */
-export const fromPoints = (options, points) => {
+export function fromPoints(options, points) {
 	const defaults = {closed: false};
 	let {closed} = Object.assign({}, defaults, options);
 
@@ -37,4 +37,4 @@ export const fromPoints = (options, points) => {
 	if (closed === true) created = close(created);
 
 	return created;
-};
+}

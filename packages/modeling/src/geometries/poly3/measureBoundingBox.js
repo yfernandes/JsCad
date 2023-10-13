@@ -5,7 +5,7 @@ import * as vec3 from "../../maths/vec3/index.js";
  * @returns {Array} an array of two vectors (3D);  minimum and maximum coordinates
  * @alias module:modeling/geometries/poly3.measureBoundingBox
  */
-export const measureBoundingBox = (polygon) => {
+export function measureBoundingBox(polygon) {
 	const vertices = polygon.vertices;
 	const numVertices = vertices.length;
 	const min = numVertices === 0 ? vec3.create() : vec3.clone(vertices[0]);
@@ -15,4 +15,4 @@ export const measureBoundingBox = (polygon) => {
 		vec3.max(max, max, vertices[i]);
 	}
 	return [min, max];
-};
+}

@@ -8,7 +8,7 @@ import {boolean} from "./martinez/index.js";
  * @param {...geom2} geometries - list of 2D geometries to union
  * @returns {Geom2} new 2D geometry
  */
-export const unionGeom2 = (...geometries) => {
+export function unionGeom2(...geometries) {
 	geometries = flatten(geometries);
 
 	let newGeometry = geometries.shift();
@@ -17,4 +17,4 @@ export const unionGeom2 = (...geometries) => {
 	});
 
 	return newGeometry;
-};
+}

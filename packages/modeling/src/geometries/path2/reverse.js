@@ -10,9 +10,9 @@ import {clone} from "./clone.js";
  * @example
  * let newPath = reverse(myPath)
  */
-export const reverse = (geometry) => {
+export function reverse(geometry) {
 	// NOTE: this only updates the order of the points
 	const cloned = clone(geometry);
 	cloned.points = geometry.points.slice().reverse();
 	return cloned;
-};
+}

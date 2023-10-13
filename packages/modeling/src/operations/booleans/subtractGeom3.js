@@ -10,7 +10,7 @@ import {subtractGeom3Sub} from "./subtractGeom3Sub.js";
  * @param {...geom3} geometries - list of geometries
  * @returns {Geom3} new 3D geometry
  */
-export const subtractGeom3 = (...geometries) => {
+export function subtractGeom3(...geometries) {
 	geometries = flatten(geometries);
 
 	let newGeometry = geometries.shift();
@@ -20,4 +20,4 @@ export const subtractGeom3 = (...geometries) => {
 
 	newGeometry = retessellate(newGeometry);
 	return newGeometry;
-};
+}

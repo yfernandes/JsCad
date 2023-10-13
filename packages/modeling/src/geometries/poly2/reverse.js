@@ -7,7 +7,7 @@ import {create} from "./create.js";
  * @returns {Poly2} a new polygon
  * @alias module:modeling/geometries/poly2.reverse
  */
-export const reverse = (polygon) => {
+export function reverse(polygon) {
 	const points = polygon.points.slice().reverse();
 	return create(points);
-};
+}

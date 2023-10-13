@@ -11,7 +11,7 @@ import {toOutlines} from "./toOutlines.js";
  * @example
  * console.out(toString(geometry))
  */
-export const toString = (geometry) => {
+export function toString(geometry) {
 	const outlines = toOutlines(geometry);
 	let result = "geom2 (" + outlines.length + " outlines):\n[\n";
 	outlines.forEach((outline) => {
@@ -19,4 +19,4 @@ export const toString = (geometry) => {
 	});
 	result += "]\n";
 	return result;
-};
+}

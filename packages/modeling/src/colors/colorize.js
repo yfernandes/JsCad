@@ -42,7 +42,7 @@ const colorPoly3 = (color, object) => {
  * let blueArc = colorize([0,0,1], arc()) // blue
  * let wildCylinder = colorize(colorNameToRgb('fuchsia'), cylinder()) // CSS color
  */
-export const colorize = (color, ...objects) => {
+export function colorize(color, ...objects) {
 	if (!Array.isArray(color)) throw new Error("color must be an array");
 	if (color.length < 3) throw new Error("color must contain R, G and B values");
 	if (color.length === 3) color = [color[0], color[1], color[2], 1.0]; // add alpha
@@ -60,4 +60,4 @@ export const colorize = (color, ...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

@@ -28,7 +28,7 @@ import {unionGeom3} from "./unionGeom3.js";
  *      |       |            |       |
  *      +-------+            +-------+
  */
-export const union = (...geometries) => {
+export function union(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("union wrong number of arguments");
 
@@ -41,4 +41,4 @@ export const union = (...geometries) => {
 	if (geom2.isA(geometry)) return unionGeom2(geometries);
 	if (geom3.isA(geometry)) return unionGeom3(geometries);
 	throw new Error("union unsupported geometry type");
-};
+}

@@ -17,7 +17,7 @@ import {toPoints} from "./toPoints.js";
  * @example
  * let newPath = concat(fromPoints({}, [[1, 2]]), fromPoints({}, [[3, 4]]))
  */
-export const concat = (...paths) => {
+export function concat(...paths) {
 	// Only the last path can be closed, producing a closed path.
 	let isClosed = false;
 	let newPoints = [];
@@ -32,4 +32,4 @@ export const concat = (...paths) => {
 		newPoints = newPoints.concat(tmp);
 	});
 	return fromPoints({closed: isClosed}, newPoints);
-};
+}

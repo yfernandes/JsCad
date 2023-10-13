@@ -43,14 +43,14 @@ export const x3dTypes = {
 };
 
 // document level node, basically a group
-export const x3dX3D = (element) => {
+export function x3dX3D(element) {
 	const obj = {definition: x3dTypes.X3D};
 
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dUnit = (element) => {
+export function x3dUnit(element) {
 	const obj = {definition: x3dTypes.UNIT, category: "", name: "", conversionFactor: 1.0};
 
 	if (element.category) obj.category = element.category;
@@ -58,27 +58,27 @@ export const x3dUnit = (element) => {
 	if (element.conversionfactor) obj.conversionFactor = element.conversionfactor;
 
 	return obj;
-};
+}
 
-export const x3dMeta = (element) => {
+export function x3dMeta(element) {
 	const obj = {definition: x3dTypes.META, content: "", name: ""};
 
 	if (element.content) obj.content = element.content;
 	if (element.name) obj.name = element.name;
 
 	return obj;
-};
+}
 
 // scenes contain various other nodes, basically a group
-export const x3dScene = (element) => {
+export function x3dScene(element) {
 	const obj = {definition: x3dTypes.SCENE};
 	obj.objects = [];
 	return obj;
-};
+}
 
 // transforms contain various other nodes, basically a group
 // horrific order of transforms... see http://edutechwiki.unige.ch/en/X3D_grouping_and_transforms
-export const x3dTransform = (element) => {
+export function x3dTransform(element) {
 	const obj = {
 		definition: x3dTypes.TRANSFORM,
 		center: [0, 0, 0],
@@ -136,20 +136,20 @@ export const x3dTransform = (element) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
 // shapes contain geometry and appearance, in any order
-export const x3dShape = (element) => {
+export function x3dShape(element) {
 	const obj = {definition: x3dTypes.SHAPE};
 	obj.objects = [];
 	return obj;
-};
+}
 
 //
 // 3D shapes
 //
 
-export const x3dBox = (element) => {
+export function x3dBox(element) {
 	const obj = {definition: x3dTypes.BOX, size: [2, 2, 2]};
 
 	if (element.size) {
@@ -162,9 +162,9 @@ export const x3dBox = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
-export const x3dCone = (element) => {
+export function x3dCone(element) {
 	const NEAR0 = 0.00001;
 	const obj = {
 		definition: x3dTypes.CONE,
@@ -187,9 +187,9 @@ export const x3dCone = (element) => {
 		obj.topRadius = Math.max(parseFloat(element.topRadius), NEAR0);
 	}
 	return obj;
-};
+}
 
-export const x3dCylinder = (element) => {
+export function x3dCylinder(element) {
 	const obj = {definition: x3dTypes.CYLINDER, height: 2, radius: 1, subdivision: 32};
 
 	if (element.height) {
@@ -202,9 +202,9 @@ export const x3dCylinder = (element) => {
 		obj.subdivision = parseFloat(element.subdivision);
 	}
 	return obj;
-};
+}
 
-export const x3dSphere = (element) => {
+export function x3dSphere(element) {
 	const obj = {definition: x3dTypes.SPHERE, radius: 1, subdivision: 24};
 
 	if (element.radius) {
@@ -220,9 +220,9 @@ export const x3dSphere = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
-export const x3dExtrusion = (element) => {
+export function x3dExtrusion(element) {
 	const obj = {
 		definition: x3dTypes.EXTRUSION,
 		ccw: true,
@@ -309,13 +309,13 @@ export const x3dExtrusion = (element) => {
 		obj.spine = points;
 	}
 	return obj;
-};
+}
 
 //
 // 2D shapes
 //
 
-export const x3dArc2D = (element) => {
+export function x3dArc2D(element) {
 	const obj = {
 		definition: x3dTypes.ARC2D,
 		endAngle: Math.PI / 2,
@@ -337,9 +337,9 @@ export const x3dArc2D = (element) => {
 		obj.subdivision = parseFloat(element.subdivision);
 	}
 	return obj;
-};
+}
 
-export const x3dArcClose2D = (element) => {
+export function x3dArcClose2D(element) {
 	const obj = {
 		definition: x3dTypes.ARCCLOSE2D,
 		closureType: "PIE",
@@ -365,9 +365,9 @@ export const x3dArcClose2D = (element) => {
 		obj.subdivision = parseFloat(element.subdivision);
 	}
 	return obj;
-};
+}
 
-export const x3dCircle2D = (element) => {
+export function x3dCircle2D(element) {
 	const obj = {definition: x3dTypes.CIRCLE2D, radius: 1, subdivision: 32};
 
 	if (element.radius) {
@@ -377,9 +377,9 @@ export const x3dCircle2D = (element) => {
 		obj.subdivision = parseFloat(element.subdivision);
 	}
 	return obj;
-};
+}
 
-export const x3dDisk2D = (element) => {
+export function x3dDisk2D(element) {
 	const obj = {definition: x3dTypes.DISK2D, innerRadius: 0, outerRadius: 1, subdivision: 32};
 
 	if (element.innerRadius) {
@@ -392,9 +392,9 @@ export const x3dDisk2D = (element) => {
 		obj.subdivision = parseFloat(element.subdivision);
 	}
 	return obj;
-};
+}
 
-export const x3dPolyline2D = (element) => {
+export function x3dPolyline2D(element) {
 	const obj = {definition: x3dTypes.POLYLINE2D, lineSegments: []};
 
 	if (element.lineSegments) {
@@ -408,9 +408,9 @@ export const x3dPolyline2D = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
-export const x3dRectangle2D = (element) => {
+export function x3dRectangle2D(element) {
 	const obj = {definition: x3dTypes.RECTANGLE2D, size: [2, 2]};
 
 	if (element.size) {
@@ -423,9 +423,9 @@ export const x3dRectangle2D = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
-export const x3dTriangleSet2D = (element) => {
+export function x3dTriangleSet2D(element) {
 	const obj = {definition: x3dTypes.TRIANGLESET2D, vertices: []};
 
 	if (element.vertices) {
@@ -439,13 +439,13 @@ export const x3dTriangleSet2D = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
 //
 // Lines
 //
 
-export const x3dLineSet = (element) => {
+export function x3dLineSet(element) {
 	const obj = {definition: x3dTypes.LINESET, vertexCount: [], colorPerVertex: true};
 
 	if (element.vertexCount) {
@@ -461,9 +461,9 @@ export const x3dLineSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dIndexedLineSet = (element) => {
+export function x3dIndexedLineSet(element) {
 	const obj = {definition: x3dTypes.INDEXEDLINESET, indexes: [], colorPerVertex: true};
 
 	if (element.coordIndex) {
@@ -483,13 +483,13 @@ export const x3dIndexedLineSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
 //
 // Meshs
 //
 
-export const x3dColor = (element) => {
+export function x3dColor(element) {
 	const obj = {definition: x3dTypes.COLOR, colors: []};
 
 	if (element.color) {
@@ -505,9 +505,9 @@ export const x3dColor = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
-export const x3dCoordinate = (element) => {
+export function x3dCoordinate(element) {
 	const obj = {definition: x3dTypes.COORDINATE, points: []};
 
 	if (element.point) {
@@ -523,9 +523,9 @@ export const x3dCoordinate = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
-export const x3dTriangleSet = (element) => {
+export function x3dTriangleSet(element) {
 	const obj = {definition: x3dTypes.TRIANGLESET, ccw: true, colorPerVertex: true};
 
 	if (element.ccw) {
@@ -533,9 +533,9 @@ export const x3dTriangleSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dTriangleFanSet = (element) => {
+export function x3dTriangleFanSet(element) {
 	const obj = {definition: x3dTypes.TRIANGLEFANSET, ccw: true, fanCount: [], colorPerVertex: true};
 
 	if (element.ccw) {
@@ -549,9 +549,9 @@ export const x3dTriangleFanSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dTriangleStripSet = (element) => {
+export function x3dTriangleStripSet(element) {
 	const obj = {
 		definition: x3dTypes.TRIANGLESTRIPSET,
 		ccw: true,
@@ -570,9 +570,9 @@ export const x3dTriangleStripSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dQuadSet = (element) => {
+export function x3dQuadSet(element) {
 	const obj = {definition: x3dTypes.QUADSET, ccw: true, colorPerVertex: true};
 
 	if (element.ccw) {
@@ -580,9 +580,9 @@ export const x3dQuadSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dIndexedTriangleSet = (element) => {
+export function x3dIndexedTriangleSet(element) {
 	const obj = {definition: x3dTypes.INDEXEDTRIANGLESET, ccw: true, index: [], colorPerVertex: true};
 
 	if (element.ccw) {
@@ -596,9 +596,9 @@ export const x3dIndexedTriangleSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dIndexedTriangleFanSet = (element) => {
+export function x3dIndexedTriangleFanSet(element) {
 	const obj = {
 		definition: x3dTypes.INDEXEDTRIANGLEFANSET,
 		ccw: true,
@@ -622,9 +622,9 @@ export const x3dIndexedTriangleFanSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dIndexedTriangleStripSet = (element) => {
+export function x3dIndexedTriangleStripSet(element) {
 	const obj = {
 		definition: x3dTypes.INDEXEDTRIANGLESTRIPSET,
 		ccw: true,
@@ -648,9 +648,9 @@ export const x3dIndexedTriangleStripSet = (element) => {
 			.filter((index) => index.length > 2);
 	}
 	return obj;
-};
+}
 
-export const x3dIndexedQuadSet = (element) => {
+export function x3dIndexedQuadSet(element) {
 	const obj = {definition: x3dTypes.INDEXEDQUADSET, ccw: true, index: [], colorPerVertex: true};
 
 	if (element.ccw) {
@@ -664,9 +664,9 @@ export const x3dIndexedQuadSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dIndexedFaceSet = (element) => {
+export function x3dIndexedFaceSet(element) {
 	const obj = {
 		definition: x3dTypes.INDEXEDFACESET,
 		ccw: true,
@@ -723,9 +723,9 @@ export const x3dIndexedFaceSet = (element) => {
 	}
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dElevationGrid = (element) => {
+export function x3dElevationGrid(element) {
 	const obj = {
 		definition: x3dTypes.ELEVATIONGRID,
 		xDimension: 2,
@@ -770,20 +770,20 @@ export const x3dElevationGrid = (element) => {
 
 	obj.objects = [];
 	return obj;
-};
+}
 
 //
 // Materials
 //
 
-export const x3dAppearance = (element) => {
+export function x3dAppearance(element) {
 	const obj = {definition: x3dTypes.APPEARANCE};
 
 	obj.objects = [];
 	return obj;
-};
+}
 
-export const x3dMaterial = (element) => {
+export function x3dMaterial(element) {
 	const obj = {definition: x3dTypes.MATERIAL, color: [0.8, 0.8, 0.8, 1.0]};
 
 	// convert material to colors if possible
@@ -818,13 +818,13 @@ export const x3dMaterial = (element) => {
 		}
 	}
 	return obj;
-};
+}
 
 // GROUPS
 
-export const x3dGroup = (element) => {
+export function x3dGroup(element) {
 	const obj = {definition: x3dTypes.GROUP};
 
 	obj.objects = [];
 	return obj;
-};
+}

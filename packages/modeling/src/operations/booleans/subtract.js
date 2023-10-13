@@ -29,7 +29,7 @@ import {subtractGeom3} from "./subtractGeom3.js";
  *      |       |
  *      +-------+
  */
-export const subtract = (...geometries) => {
+export function subtract(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("subtract wrong number of arguments");
 
@@ -42,4 +42,4 @@ export const subtract = (...geometries) => {
 	if (geom2.isA(geometry)) return subtractGeom2(geometries);
 	if (geom3.isA(geometry)) return subtractGeom3(geometries);
 	throw new Error("subtract unsupported geometry type");
-};
+}

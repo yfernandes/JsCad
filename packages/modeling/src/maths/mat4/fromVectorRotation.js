@@ -15,7 +15,7 @@ import {fromRotation} from "./fromRotation.js";
  * @example
  * let matrix = fromVectorRotation(create(), [1, 2, 2], [-3, 3, 12])
  */
-export const fromVectorRotation = (out, source, target) => {
+export function fromVectorRotation(out, source, target) {
 	const sourceNormal = vec3.normalize(vec3.create(), source);
 	const targetNormal = vec3.normalize(vec3.create(), target);
 
@@ -44,4 +44,4 @@ export const fromVectorRotation = (out, source, target) => {
 	out[14] = 0;
 	out[15] = 1;
 	return out;
-};
+}

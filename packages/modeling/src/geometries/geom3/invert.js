@@ -9,8 +9,8 @@ import {toPolygons} from "./toPolygons.js";
  * @returns {Geom3} a new geometry
  * @alias module:modeling/geometries/geom3.invert
  */
-export const invert = (geometry) => {
+export function invert(geometry) {
 	const polygons = toPolygons(geometry);
 	const newPolygons = polygons.map((polygon) => poly3.invert(polygon));
 	return create(newPolygons);
-};
+}

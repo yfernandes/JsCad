@@ -53,7 +53,7 @@ const registerJsonExtension = (fs, _require) => {
 /*
  * Make require callback functions based on the given file system.
  */
-export const makeWebRequire = (filesAndFolders, options) => {
+export function makeWebRequire(filesAndFolders, options) {
 	const defaults = {
 		apiMainPath: "@jscad/modeling",
 		fakeFs: null,
@@ -276,4 +276,4 @@ export const makeWebRequire = (filesAndFolders, options) => {
 	registerJsExtension(makeFakeFs(filesAndFolders), req);
 	registerJsonExtension(makeFakeFs(filesAndFolders), req);
 	return req;
-};
+}

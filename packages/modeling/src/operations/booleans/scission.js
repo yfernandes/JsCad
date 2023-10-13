@@ -25,7 +25,7 @@ import {scissionGeom3} from "./scissionGeom3.js";
  *      |       |            |    B  |
  *      +-------+            +-------+
  */
-export const scission = (...objects) => {
+export function scission(...objects) {
 	objects = flatten(objects);
 	if (objects.length === 0) throw new Error("wrong number of arguments");
 
@@ -36,4 +36,4 @@ export const scission = (...objects) => {
 		return object;
 	});
 	return results.length === 1 ? results[0] : results;
-};
+}

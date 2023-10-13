@@ -8,7 +8,7 @@
  * @returns {Vec3} out
  * @alias module:modeling/maths/vec3.rotateZ
  */
-export const rotateZ = (out, vector, origin, radians) => {
+export function rotateZ(out, vector, origin, radians) {
 	const p = [];
 	const r = [];
 	// Translate point to the origin
@@ -25,4 +25,4 @@ export const rotateZ = (out, vector, origin, radians) => {
 	out[2] = vector[2];
 
 	return out;
-};
+}

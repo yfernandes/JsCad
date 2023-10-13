@@ -12,7 +12,7 @@ import {offsetFromPoints} from "./offsetFromPoints.js";
  * @param {Geom2} geometry - geometry from which to create the offset
  * @returns {Geom2} offset geometry, plus rounded corners
  */
-export const offsetGeom2 = (options, geometry) => {
+export function offsetGeom2(options, geometry) {
 	const defaults = {
 		delta: 1,
 		corners: "edge",
@@ -56,4 +56,4 @@ export const offsetGeom2 = (options, geometry) => {
 	const output = geom2.create(newOutlines);
 	if (geometry.color) output.color = geometry.color;
 	return output;
-};
+}

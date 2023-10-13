@@ -14,7 +14,7 @@ import {isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = cuboid({size: [5, 10, 5]})
  */
-export const cuboid = (options) => {
+export function cuboid(options) {
 	const defaults = {
 		center: [0, 0, 0],
 		size: [2, 2, 2],
@@ -69,4 +69,4 @@ export const cuboid = (options) => {
 		})
 	);
 	return result;
-};
+}
