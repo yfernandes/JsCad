@@ -15,34 +15,12 @@ ignorePatterns:
   - "**.min.js"
   - "**/dist/**"
 rules:
+  prettier/prettier:
+    - error
   func-style:
     - error
     - expression
-  arrow-body-style:
-    - error
-    - as-needed
-  arrow-parens:
-    - error
-    - always
-  arrow-spacing:
-    - error
-  prefer-arrow-callback:
-    - error
   no-unused-vars:
     - warn
   no-var:
-    - error
-  indent:
-    - error
-    - tab
-  linebreak-style:
-    - error
-    - unix
-  quotes:
-    - error
-    - double
-  semi:
-    - error
-    - never
-  prettier/prettier:
     - error
