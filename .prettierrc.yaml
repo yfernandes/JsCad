@@ -1,0 +1,10 @@
+printWidth: 100
+useTabs: true
+semi: true
+singleQuote: false
+quoteProps: "as-needed"
+bracketSpacing: false
+bracketSameLine: true
+arrowParens: "always"
+trailingComma: "es5"
+tabWidth: 2
