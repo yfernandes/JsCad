@@ -1,7 +1,22 @@
 import {fromPoints} from "../geometries/path2/index.js";
 import * as vec2 from "../maths/vec2/index.js";
+import type {Vec2} from "../maths/vec2/type.d.ts";
 
 import {simplex} from "./fonts/single-line/hershey/simplex.js";
+
+export interface VectorChar {
+	width: number;
+	height: number;
+	paths: Array<Array<Vec2>>;
+}
+
+export interface VectorCharOptions {
+	xOffset?: number;
+	yOffset?: number;
+	height?: number;
+	extrudeOffset?: number;
+	font?: typeof simplex;
+}
 
 const defaultsVectorParams = {
 	xOffset: 0,
@@ -12,30 +27,19 @@ const defaultsVectorParams = {
 };
 
 /**
- * Represents a character as an anonymous object containing a list of 2D paths.
- * @typedef {Object} VectorChar
- * @property {number} width - character width
- * @property {number} height - character height (uppercase)
- * @property {Array} paths - list of 2D paths
- */
-
-/**
+ * Generates a vector character based on the given options and text.
  * Construct a {@link VectorChar} from an ASCII character whose code is between 31 and 127.
  * If the character is not supported it is replaced by a question mark.
  *
- * @param {object} options - options for text construction
- * @param {number} [options.xOffset=0] - x offset
- * @param {number} [options.yOffset=0] - y offset
- * @param {number} [options.height=21] - font size/character height (uppercase height)
- * @param {number} [options.extrudeOffset=0] - width of the extrusion that will be applied (manually) after the creation of the character
- * @param {string} text - ascii character
- * @returns {VectorChar} a new vertor char object
+ * @param {VectorCharOptions} options - The options for generating the vector character.
+ * @param {string} text - The text for the vector character. Must be a single ascii character.
+ * @return {VectorChar} The generated vector character.
  * @alias module:modeling/text.vectorChar
  *
  * @example
- * let mycharacter = vectorChar({ xOffset: 57 }, 'C')
+ * let myCharacter = vectorChar({ xOffset: 57 }, 'C')
  */
-export const vectorChar = (options, text) => {
+export const vectorChar = (options: VectorCharOptions, text: string): VectorChar => {
 	const {xOffset, yOffset, font, height, extrudeOffset} = Object.assign(
 		{},
 		defaultsVectorParams,

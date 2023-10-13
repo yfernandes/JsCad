@@ -4,7 +4,22 @@ import * as path2 from "../geometries/path2/index.js";
 import {simplex} from "./fonts/single-line/hershey/simplex.js";
 import {vectorChar} from "./vectorChar.js";
 
-const defaultsVectorParams = {
+import type {Vec2} from "../maths/vec2/type.d.ts";
+
+export interface VectorText extends Array<Array<Vec2>> {}
+
+export interface VectorTextOptions {
+	xOffset?: number;
+	yOffset?: number;
+	height?: number;
+	lineSpacing?: number;
+	letterSpacing?: number;
+	align?: "left" | "center" | "right";
+	extrudeOffset?: number;
+	font?: typeof simplex;
+}
+
+const defaultsVectorParams: VectorTextOptions = {
 	xOffset: 0,
 	yOffset: 0,
 	align: "left",
@@ -56,7 +71,7 @@ const translateLine = (options, line) => {
  * @example
  * let mylines = vectorText({ yOffset: -50 }, 'JSCAD')
  */
-export const vectorText = (options, text) => {
+export const vectorText = (options: VectorTextOptions, text: string): VectorText => {
 	const {xOffset, yOffset, font, height, align, extrudeOffset, lineSpacing, letterSpacing} =
 		Object.assign({}, defaultsVectorParams, options);
 
