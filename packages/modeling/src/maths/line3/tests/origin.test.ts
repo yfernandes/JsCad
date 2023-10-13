@@ -1,8 +1,8 @@
 import test from "ava";
 
-import {origin, create, fromPoints} from "./index.js";
+import {origin, create, fromPoints} from "../index.js";
 
-import {compareVectors} from "../../../test/helpers/index.js";
+import {compareVectors} from "../../../../test/helpers/index.js";
 
 test("line3: origin() should return proper origins", (t) => {
 	const line1 = create();

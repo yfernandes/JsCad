@@ -1,8 +1,8 @@
 import test from "ava";
 
-import {create, clone, fromPointAndDirection} from "./index.js";
+import {create, clone, fromPointAndDirection} from "../index.js";
 
-import {compareVectors} from "../../../test/helpers/index.js";
+import {compareVectors} from "../../../../test/helpers/index.js";
 
 test("line3: clone() should return a new line3 with same values", (t) => {
 	const org1 = fromPointAndDirection(create(), [0, 0, 0], [1, 0, 0]);

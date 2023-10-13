@@ -1,10 +1,10 @@
 import test from "ava";
 
-import {plane} from "../index.js";
+import {plane} from "../../index.js";
 
-import {intersectPointOfLineAndPlane, fromPoints, create} from "./index.js";
+import {intersectPointOfLineAndPlane, fromPoints, create} from "../index.js";
 
-import {compareVectors} from "../../../test/helpers/index.js";
+import {compareVectors} from "../../../../test/helpers/index.js";
 
 test("line3: intersectPointOfLineAndPlane() should return a new line3 with correct values", (t) => {
 	const planeXY = plane.fromPoints(plane.create(), [0, 0, 0], [1, 0, 0], [1, 1, 0]); // flat on XY
