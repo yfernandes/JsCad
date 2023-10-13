@@ -1,13 +1,12 @@
 import test from "ava";
 
-import {reverse, create, fromPoints} from "./index.js";
-
-import {compareVectors} from "../../../test/helpers/index.js";
+import {compareVectors} from "../../../../test/helpers/index.js";
+import {Line3} from "../index.js";
 
 test("line3: reverse() called with two parameters should update a line3 with proper values", (t) => {
-	const line1 = create();
-	const out = create();
-	let rev = reverse(out, line1);
+	const line1 = Line3.create();
+	const out = Line3.create();
+	let rev = Line3.reverse(out, line1);
 	let pnt = rev[0];
 	let dir = rev[1];
 	t.true(compareVectors(pnt, [0, 0, 0]));
@@ -20,8 +19,8 @@ test("line3: reverse() called with two parameters should update a line3 with pro
 	t.is(rev, out);
 
 	// reverse in place
-	const line2 = fromPoints(create(), [1, 0, 0], [0, 1, 0]);
-	rev = reverse(line2, line2);
+	const line2 = Line3.fromPoints(Line3.create(), [1, 0, 0], [0, 1, 0]);
+	rev = Line3.reverse(line2, line2);
 	pnt = rev[0];
 	dir = rev[1];
 	t.true(compareVectors(pnt, [1, 0, 0]));

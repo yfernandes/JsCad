@@ -4,18 +4,18 @@ import {solve2Linear} from "../utils/solve2Linear.js";
 import * as vec3 from "../vec3/index.js";
 import {Vec3} from "../vec3/type.js";
 
-export type Line3 = [Vec3, Vec3];
+export type ILine3 = [Vec3, Vec3];
 
-export class Line3Class {
+export class Line3 {
 	/**
 	 * Create a clone of the given line.
 	 *
-	 * @param {Line3} line - line to clone
-	 * @returns {Line3} a new unbounded line
+	 * @param {ILine3} line - line to clone
+	 * @returns {ILine3} a new unbounded line
 	 * @alias module:modeling/maths/line3.clone
 	 */
-	public static clone(line: Line3): Line3 {
-		const out = Line3Class.create();
+	public static clone(line: ILine3): ILine3 {
+		const out = Line3.create();
 		vec3.copy(out[0], line[0]);
 		vec3.copy(out[1], line[1]);
 		return out;
@@ -24,12 +24,12 @@ export class Line3Class {
 	/**
 	 * Determine the closest point on the given line to the given point.
 	 *
-	 * @param {Line3} line - line of reference
+	 * @param {ILine3} line - line of reference
 	 * @param {Vec3} point - point of reference
 	 * @returns {Vec3} a point
 	 * @alias module:modeling/maths/line3.closestPoint
 	 */
-	public static closestPoint(line: Line3, point: Vec3): Vec3 {
+	public static closestPoint(line: ILine3, point: Vec3): Vec3 {
 		const lPoint = line[0];
 		const lDirection = line[1];
 
@@ -45,12 +45,12 @@ export class Line3Class {
 	/**
 	 * Copy the given line into the receiving line.
 	 *
-	 * @param {Line3} out - receiving line
-	 * @param {Line3} line - line to copy
-	 * @returns {Line3} out
+	 * @param {ILine3} out - receiving line
+	 * @param {ILine3} line - line to copy
+	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.copy
 	 */
-	public static copy(out: Line3, line: Line3): Line3 {
+	public static copy(out: ILine3, line: ILine3): ILine3 {
 		vec3.copy(out[0], line[0]);
 		vec3.copy(out[1], line[1]);
 		return out;
@@ -59,7 +59,7 @@ export class Line3Class {
 	/**
 	 * Create a line, positioned at 0,0,0 and lying on the X axis.
 	 *
-	 * @returns {Line3} a new unbounded line
+	 * @returns {ILine3} a new unbounded line
 	 * @alias module:modeling/maths/line3.create
 	 *
 	 * Represents an unbounded line in 3D space, positioned at a point of origin.
@@ -68,7 +68,7 @@ export class Line3Class {
 	 * The array contents are two 3D vectors; origin [0,0,0] and directional vector [0,0,1].
 	 * @see https://en.wikipedia.org/wiki/Hesse_normal_form
 	 */
-	public static create(): Line3 {
+	public static create(): ILine3 {
 		return [
 			vec3.fromValues(0, 0, 0), // origin
 			vec3.fromValues(0, 0, 1), // direction
@@ -78,24 +78,24 @@ export class Line3Class {
 	/**
 	 * Return the direction of the given line.
 	 *
-	 * @param {Line3} line - line for reference
+	 * @param {ILine3} line - line for reference
 	 * @return {Vec3} the relative vector in the direction of the line
 	 * @alias module:modeling/maths/line3.direction
 	 */
-	public static direction(line: Line3): Vec3 {
+	public static direction(line: ILine3): Vec3 {
 		return line[1];
 	}
 
 	/**
 	 * Calculate the distance (positive) between the given point and line.
 	 *
-	 * @param {Line3} line - line of reference
+	 * @param {ILine3} line - line of reference
 	 * @param {Vec3} point - point of reference
 	 * @return {number} distance between line and point
 	 * @alias module:modeling/maths/line3.distanceToPoint
 	 */
-	public static distanceToPoint(line: Line3, point: Vec3): number {
-		const closest = Line3Class.closestPoint(line, point);
+	public static distanceToPoint(line: ILine3, point: Vec3): number {
+		const closest = Line3.closestPoint(line, point);
 		const distanceVector = vec3.subtract(vec3.create(), point, closest);
 		return vec3.length(distanceVector);
 	}
@@ -103,12 +103,12 @@ export class Line3Class {
 	/**
 	 * Compare the given lines for equality.
 	 *
-	 * @param {Line3} line1 - first line to compare
-	 * @param {Line3} line2 - second line to compare
+	 * @param {ILine3} line1 - first line to compare
+	 * @param {ILine3} line2 - second line to compare
 	 * @return {Boolean} true if lines are equal
 	 * @alias module:modeling/maths/line3.equals
 	 */
-	public static equals(line1: Line3, line2: Line3): boolean {
+	public static equals(line1: ILine3, line2: ILine3): boolean {
 		// compare directions (unit vectors)
 		if (!vec3.equals(line1[1], line2[1])) return false;
 
@@ -125,13 +125,13 @@ export class Line3Class {
 	/**
 	 * Create a line as the intersection of the given planes.
 	 *
-	 * @param {Line3} out - receiving line
+	 * @param {ILine3} out - receiving line
 	 * @param {Plane} plane1 - first plane of reference
 	 * @param {Plane} plane2 - second plane of reference
-	 * @returns {Line3} out
+	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.fromPlanes
 	 */
-	public static fromPlanes(out: Line3, plane1: Plane, plane2: Plane): Line3 {
+	public static fromPlanes(out: ILine3, plane1: Plane, plane2: Plane): ILine3 {
 		const direction = vec3.cross(
 			vec3.create(),
 			plane1.slice(0, 3) as Vec3,
@@ -163,7 +163,7 @@ export class Line3Class {
 			origin = vec3.fromValues(r[0], r[1], 0);
 		}
 
-		return Line3Class.fromPointAndDirection(out, origin, direction);
+		return Line3.fromPointAndDirection(out, origin, direction);
 	}
 
 	/**
@@ -174,13 +174,13 @@ export class Line3Class {
 	 *
 	 * See the logic of fromPoints() for appropriate values.
 	 *
-	 * @param {Line3} out - receiving line
+	 * @param {ILine3} out - receiving line
 	 * @param {Vec3} point - start point of the line segment
 	 * @param {Vec3} direction - direction of the line segment
-	 * @returns {Line3} out
+	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.fromPointAndDirection
 	 */
-	public static fromPointAndDirection(out: Line3, point: Vec3, direction: Vec3): Line3 {
+	public static fromPointAndDirection(out: ILine3, point: Vec3, direction: Vec3): ILine3 {
 		const unit = vec3.normalize(vec3.create(), direction);
 
 		vec3.copy(out[0], point);
@@ -191,15 +191,15 @@ export class Line3Class {
 	/**
 	 * Create a line that passes through the given points.
 	 *
-	 * @param {Line3} out - receiving line
+	 * @param {ILine3} out - receiving line
 	 * @param {Vec3} point1 - start point of the line segment
 	 * @param {Vec3} point2 - end point of the line segment
-	 * @returns {Line3} out
+	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.fromPoints
 	 */
-	public static fromPoints(out: Line3, point1: Vec3, point2: Vec3): Line3 {
+	public static fromPoints(out: ILine3, point1: Vec3, point2: Vec3): ILine3 {
 		const direction = vec3.subtract(vec3.create(), point2, point1);
-		return Line3Class.fromPointAndDirection(out, point1, direction);
+		return Line3.fromPointAndDirection(out, point1, direction);
 	}
 	/**
 	 * Determine the closest point on the given plane to the given line.
@@ -207,12 +207,12 @@ export class Line3Class {
 	 * NOTES:
 	 * The point of intersection will be invalid if the line is parallel to the plane, e.g. NaN.
 	 *
-	 * @param {Line3} line - line of reference
+	 * @param {ILine3} line - line of reference
 	 * @param {Plane} plane - plane of reference
 	 * @returns {Vec3} a point on the line
 	 * @alias module:modeling/maths/line3.intersectPointOfLineAndPlane
 	 */
-	public static intersectionPointOfLineAndPlane(line: Line3, plane: Plane): Vec3 {
+	public static intersectionPointOfLineAndPlane(line: ILine3, plane: Plane): Vec3 {
 		// The plane is defined by a 4D array [a, b, c, d] where (a, b, c) is the normal and d is the distance from the origin.
 		const pNormal = plane.slice(0, 3) as Vec3; // Extract the normal vector [a, b, c]
 		const pw = plane[3]; // Extract the distance from the origin (d)
@@ -230,36 +230,36 @@ export class Line3Class {
 	/**
 	 * Return the origin of the given line.
 	 *
-	 * @param {Line3} line - line of reference
+	 * @param {ILine3} line - line of reference
 	 * @return {Vec3} the origin of the line
 	 * @alias module:modeling/maths/line3.origin
 	 */
-	public static origin(line: Line3): Vec3 {
+	public static origin(line: ILine3): Vec3 {
 		return line[0];
 	}
 
 	/**
 	 * Create a line in the opposite direction as the given.
 	 *
-	 * @param {Line3} out - receiving line
-	 * @param {Line3} line - line to reverse
-	 * @returns {Line3} out
+	 * @param {ILine3} out - receiving line
+	 * @param {ILine3} line - line to reverse
+	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.reverse
 	 */
-	public static reverse(out: Line3, line: Line3): Line3 {
+	public static reverse(out: ILine3, line: ILine3): ILine3 {
 		const point = vec3.clone(line[0]);
 		const direction = vec3.negate(vec3.create(), line[1]);
-		return Line3Class.fromPointAndDirection(out, point, direction);
+		return Line3.fromPointAndDirection(out, point, direction);
 	}
 
 	/**
 	 * Return a string representing the given line.
 	 *
-	 * @param {Line3} line - line of reference
+	 * @param {ILine3} line - line of reference
 	 * @returns {string} string representation
 	 * @alias module:modeling/maths/line3.toString
 	 */
-	public static toString(line: Line3): string {
+	public static toString(line: ILine3): string {
 		const point = line[0];
 		const direction = line[1];
 		return `line3: point: (${point[0].toFixed(7)}, ${point[1].toFixed(7)}, ${point[2].toFixed(
@@ -272,13 +272,13 @@ export class Line3Class {
 	/**
 	 * Transforms the given line using the given matrix.
 	 *
-	 * @param {Line3} out - line to update
-	 * @param {Line3} line - line to transform
+	 * @param {ILine3} out - line to update
+	 * @param {ILine3} line - line to transform
 	 * @param {Mat4} matrix - matrix to transform with
-	 * @returns {Line3} a new unbounded line
+	 * @returns {ILine3} a new unbounded line
 	 * @alias module:modeling/maths/line3.transform
 	 */
-	public static transform(out: Line3, line: Line3, matrix: Mat4): Line3 {
+	public static transform(out: ILine3, line: ILine3, matrix: Mat4): ILine3 {
 		const point = line[0];
 		const direction = line[1];
 		const pointPlusDirection = vec3.add(vec3.create(), point, direction);
@@ -287,6 +287,6 @@ export class Line3Class {
 		const newPointPlusDirection = vec3.transform(pointPlusDirection, pointPlusDirection, matrix);
 		const newDirection = vec3.subtract(newPointPlusDirection, newPointPlusDirection, newPoint);
 
-		return Line3Class.fromPointAndDirection(out, newPoint, newDirection);
+		return Line3.fromPointAndDirection(out, newPoint, newDirection);
 	}
 }
