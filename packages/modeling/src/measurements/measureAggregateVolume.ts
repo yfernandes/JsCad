@@ -1,5 +1,6 @@
 import {flatten} from "../utils/flatten.js";
-
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
 import {measureVolume} from "./measureVolume.js";
 
 /**
@@ -12,7 +13,7 @@ import {measureVolume} from "./measureVolume.js";
  * @example
  * let totalVolume = measureAggregateVolume(sphere(),cube())
  */
-export function measureAggregateVolume(...geometries) {
+export function measureAggregateVolume(...geometries: RecursiveArray<Geometry>): number {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("measureAggregateVolume: no geometries supplied");
 	const volumes = measureVolume(geometries);

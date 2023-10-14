@@ -1,13 +1,15 @@
 import {flatten} from "../utils/flatten.js";
 
-import * as vec2 from "../maths/vec2/index.js";
-import * as vec3 from "../maths/vec3/index.js";
-
 import * as geom2 from "../geometries/geom2/index.js";
 import * as geom3 from "../geometries/geom3/index.js";
 import * as path2 from "../geometries/path2/index.js";
 import * as poly3 from "../geometries/poly3/index.js";
 import * as slice from "../geometries/slice/index.js";
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
+
+import type {BoundingBox} from "./types.d.ts";
+import {Vec2, Vec3} from "../maths/Vector/index.js";
 
 const cache = new WeakMap();
 
@@ -16,11 +18,11 @@ const cache = new WeakMap();
  */
 const expand2 = (bbox, point) => {
 	if (bbox.length === 0) {
-		bbox[0] = vec3.fromVec2(vec3.create(), point);
-		bbox[1] = vec3.fromVec2(vec3.create(), point);
+		bbox[0] = Vec3.fromVec2(Vec3.create(), point);
+		bbox[1] = Vec3.fromVec2(Vec3.create(), point);
 	} else {
-		vec2.min(bbox[0], bbox[0], point);
-		vec2.max(bbox[1], bbox[1], point);
+		Vec2.min(bbox[0], bbox[0], point);
+		Vec2.max(bbox[1], bbox[1], point);
 	}
 };
 
@@ -29,11 +31,11 @@ const expand2 = (bbox, point) => {
  */
 const expand3 = (bbox, vertex) => {
 	if (bbox.length === 0) {
-		bbox[0] = vec3.clone(vertex);
-		bbox[1] = vec3.clone(vertex);
+		bbox[0] = Vec3.clone(vertex);
+		bbox[1] = Vec3.clone(vertex);
 	} else {
-		vec3.min(bbox[0], bbox[0], vertex);
-		vec3.max(bbox[1], bbox[1], vertex);
+		Vec3.min(bbox[0], bbox[0], vertex);
+		Vec3.max(bbox[1], bbox[1], vertex);
 	}
 };
 
@@ -51,8 +53,8 @@ const measureCached = (geometry, measureFn) => {
 	boundingBox = measureFn(geometry);
 	// if bounding box is undefined, default to [0,0,0] and [0,0,0]
 	if (boundingBox.length === 0) {
-		boundingBox[0] = vec3.create();
-		boundingBox[1] = vec3.create();
+		boundingBox[0] = Vec3.create();
+		boundingBox[1] = Vec3.create();
 	}
 	cache.set(geometry, boundingBox);
 	return boundingBox;
@@ -119,6 +121,11 @@ const measureBoundingBoxOfSlice = (geometry) => {
  * @example
  * let bounds = measureBoundingBox(sphere())
  */
+export function measureBoundingBox(geometry: Geometry): BoundingBox;
+export function measureBoundingBox(geometry: any): [[0, 0, 0], [0, 0, 0]];
+export function measureBoundingBox(
+	...geometries: RecursiveArray<Geometry | any>
+): Array<BoundingBox>;
 export function measureBoundingBox(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");

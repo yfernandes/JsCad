@@ -1,5 +1,7 @@
 import {flatten} from "../utils/flatten.js";
 
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
 import * as geom2 from "../geometries/geom2/index.js";
 import * as geom3 from "../geometries/geom3/index.js";
 import * as path2 from "../geometries/path2/index.js";
@@ -86,6 +88,9 @@ const measureAreaOfSlice = (geometry) => {
  * @example
  * let area = measureArea(sphere())
  */
+export function measureArea(geometry: Geometry): number;
+export function measureArea(geometry: any): 0;
+export function measureArea(...geometries: RecursiveArray<Geometry | any>): Array<number>;
 export function measureArea(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");

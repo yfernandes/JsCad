@@ -4,6 +4,8 @@ import * as geom2 from "../geometries/geom2/index.js";
 import * as geom3 from "../geometries/geom3/index.js";
 import * as path2 from "../geometries/path2/index.js";
 
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
 import {measureAggregateBoundingBox} from "./measureAggregateBoundingBox.js";
 import {calculateEpsilonFromBounds} from "./calculateEpsilonFromBounds.js";
 
@@ -15,8 +17,7 @@ import {calculateEpsilonFromBounds} from "./calculateEpsilonFromBounds.js";
  *
  * @example
  * let groupEpsilon = measureAggregateEpsilon(sphere(),cube())
- */
-export function measureAggregateEpsilon(...geometries) {
+ */ export function measureAggregateEpsilon(...geometries: RecursiveArray<Geometry>): number {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("measureAggregateEpsilon: no geometries supplied");
 	const bounds = measureAggregateBoundingBox(geometries);

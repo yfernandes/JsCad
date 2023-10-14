@@ -1,6 +1,8 @@
 import {flatten} from "../utils/flatten.js";
 
 import {measureArea} from "./measureArea.js";
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
 
 /**
  * Measure the total (aggregate) area for the given geometries.
@@ -12,7 +14,7 @@ import {measureArea} from "./measureArea.js";
  * @example
  * let totalArea = measureAggregateArea(sphere(),cube())
  */
-export function measureAggregateArea(...geometries) {
+export function measureAggregateArea(...geometries: RecursiveArray<Geometry>): number {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("measureAggregateArea: no geometries supplied");
 	const areas = measureArea(geometries);

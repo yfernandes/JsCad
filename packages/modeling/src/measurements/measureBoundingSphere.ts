@@ -1,8 +1,5 @@
 import {flatten} from "../utils/flatten.js";
 
-import * as vec2 from "../maths/vec2/index.js";
-import * as vec3 from "../maths/vec3/index.js";
-
 import * as geom2 from "../geometries/geom2/index.js";
 import * as geom3 from "../geometries/geom3/index.js";
 import * as path2 from "../geometries/path2/index.js";
@@ -25,7 +22,7 @@ const measureCached = (geometry, measureFn) => {
 	boundingSphere = measureFn(geometry);
 	// if bounding sphere is undefined, default to [0,0,0] and 0
 	if (boundingSphere.length === 0) {
-		boundingSphere[0] = vec3.create();
+		boundingSphere[0] = Vec3.create();
 		boundingSphere[1] = 0;
 	}
 	cache.set(geometry, boundingSphere);
@@ -37,22 +34,22 @@ const measureCached = (geometry, measureFn) => {
  * @return {[[x, y, z], radius]} the bounding sphere for the points
  */
 const measureBoundingSphereOfPoints = (points) => {
-	const centroid = vec3.create();
+	const centroid = Vec3.create();
 	let radius = 0;
 
 	if (points.length > 0) {
 		// calculate the centroid of the geometry
 		let numPoints = 0;
-		const temp = vec3.create();
+		const temp = Vec3.create();
 		points.forEach((point) => {
-			vec3.add(centroid, centroid, vec3.fromVec2(temp, point, 0));
+			Vec3.add(centroid, centroid, Vec3.fromVec2(temp, point, 0));
 			numPoints++;
 		});
-		vec3.scale(centroid, centroid, 1 / numPoints);
+		Vec3.scale(centroid, centroid, 1 / numPoints);
 
 		// find the farthest point from the centroid
 		points.forEach((point) => {
-			radius = Math.max(radius, vec2.squaredDistance(centroid, point));
+			radius = Math.max(radius, Vec2.squaredDistance(centroid, point));
 		});
 		radius = Math.sqrt(radius);
 	}
@@ -81,7 +78,7 @@ const measureBoundingSphereOfGeom2 = (geometry) => {
  * @return {[[x, y, z], radius]} the bounding sphere for the geometry
  */
 const measureBoundingSphereOfGeom3 = (geometry) => {
-	const centroid = vec3.create();
+	const centroid = Vec3.create();
 	let radius = 0;
 
 	const polygons = geom3.toPolygons(geometry);
@@ -91,16 +88,16 @@ const measureBoundingSphereOfGeom3 = (geometry) => {
 		let numVertices = 0;
 		polygons.forEach((polygon) => {
 			poly3.toVertices(polygon).forEach((vertex) => {
-				vec3.add(centroid, centroid, vertex);
+				Vec3.add(centroid, centroid, vertex);
 				numVertices++;
 			});
 		});
-		vec3.scale(centroid, centroid, 1 / numVertices);
+		Vec3.scale(centroid, centroid, 1 / numVertices);
 
 		// find the farthest vertex from the centroid
 		polygons.forEach((polygon) => {
 			poly3.toVertices(polygon).forEach((vertex) => {
-				radius = Math.max(radius, vec3.squaredDistance(centroid, vertex));
+				radius = Math.max(radius, Vec3.squaredDistance(centroid, vertex));
 			});
 		});
 		radius = Math.sqrt(radius);
@@ -114,25 +111,25 @@ const measureBoundingSphereOfGeom3 = (geometry) => {
  * @return {[[x, y, z], radius]} the bounding sphere for the geometry
  */
 const measureBoundingSphereOfSlice = (geometry) => {
-	const centroid = vec3.create();
+	const centroid = Vec3.create();
 	let radius = 0;
 	let numVertices = 0;
 
 	// calculate the centroid of the geometry
 	geometry.contours.forEach((contour) => {
 		contour.forEach((vertex) => {
-			vec3.add(centroid, centroid, vertex);
+			Vec3.add(centroid, centroid, vertex);
 			numVertices++;
 		});
 	});
 
 	if (numVertices > 0) {
-		vec3.scale(centroid, centroid, 1 / numVertices);
+		Vec3.scale(centroid, centroid, 1 / numVertices);
 
 		// find the farthest vertex from the centroid
 		geometry.contours.forEach((contour) => {
 			contour.forEach((vertex) => {
-				radius = Math.max(radius, vec3.squaredDistance(centroid, vertex));
+				radius = Math.max(radius, Vec3.squaredDistance(centroid, vertex));
 			});
 		});
 		radius = Math.sqrt(radius);
@@ -151,7 +148,7 @@ const measureBoundingSphereOfSlice = (geometry) => {
  * @example
  * let bounds = measureBoundingSphere(cube())
  */
-export function measureBoundingSphere(...geometries) {
+export function measureBoundingSphere(...geometries: RecursiveArray<Geometry>): BoundingSphere {
 	geometries = flatten(geometries);
 
 	const results = geometries.map((geometry) => {
@@ -163,3 +160,8 @@ export function measureBoundingSphere(...geometries) {
 	});
 	return results.length === 1 ? results[0] : results;
 }
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
+
+import type {BoundingSphere} from "./types.d.ts";
+import {Vec2, Vec3} from "../maths/Vector/index.js";

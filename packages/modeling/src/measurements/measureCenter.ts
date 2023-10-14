@@ -1,5 +1,6 @@
 import {flatten} from "../utils/flatten.js";
-
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
 import {measureBoundingBox} from "./measureBoundingBox.js";
 
 /**
@@ -11,6 +12,8 @@ import {measureBoundingBox} from "./measureBoundingBox.js";
  * @example
  * let center = measureCenter(sphere())
  */
+export function measureCenter(geometry: Geometry): [number, number, number];
+export function measureCenter(...geometries: RecursiveArray<Geometry>): [number, number, number][];
 export function measureCenter(...geometries) {
 	geometries = flatten(geometries);
 

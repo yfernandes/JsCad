@@ -4,6 +4,8 @@ import * as geom2 from "../geometries/geom2/index.js";
 import * as geom3 from "../geometries/geom3/index.js";
 import * as path2 from "../geometries/path2/index.js";
 import * as slice from "../geometries/slice/index.js";
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
 
 import {calculateEpsilonFromBounds} from "./calculateEpsilonFromBounds.js";
 import {measureBoundingBox} from "./measureBoundingBox.js";
@@ -18,6 +20,9 @@ import {measureBoundingBox} from "./measureBoundingBox.js";
  * @example
  * let epsilon = measureEpsilon(sphere())
  */
+export function measureEpsilon(geometry: Geometry): number;
+export function measureEpsilon(geometry: any): 0;
+export function measureEpsilon(...geometries: RecursiveArray<Geometry | any>): Array<number>;
 export function measureEpsilon(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");

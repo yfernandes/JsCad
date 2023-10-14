@@ -32,6 +32,9 @@ const measureVolumeOfGeom3 = (geometry) => {
  * @example
  * let volume = measureVolume(sphere())
  */
+export function measureVolume(geometry: Geometry): number;
+export function measureVolume(geometry: any): 0;
+export function measureVolume(...geometries: RecursiveArray<Geometry | any>): Array<number>;
 export function measureVolume(...geometries) {
 	geometries = flatten(geometries);
 	if (geometries.length === 0) throw new Error("wrong number of arguments");
@@ -43,3 +46,5 @@ export function measureVolume(...geometries) {
 	});
 	return results.length === 1 ? results[0] : results;
 }
+import type {Geometry} from "../geometries/types.d.ts";
+import type {RecursiveArray} from "../utils/recursiveArray.d.ts";
