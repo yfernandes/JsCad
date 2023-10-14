@@ -1,5 +1,5 @@
+import {ILine2} from "./Line2.js";
 import {origin} from "./origin.js";
-
 /**
  * Determine the X coordinate of the given line at the Y coordinate.
  *
@@ -10,7 +10,7 @@ import {origin} from "./origin.js";
  * @return {number} the X coordinate on the line
  * @alias module:modeling/maths/line2.xAtY
  */
-export function xAtY(line, y) {
+export function xAtY(line: ILine2, y: number): number {
 	let x = (line[2] - line[1] * y) / line[0];
 	if (Number.isNaN(x)) {
 		const org = origin(line);
@@ -18,6 +18,3 @@ export function xAtY(line, y) {
 	}
 	return x;
 }
-import type {Line2} from "./type.d.ts";
-
-export function xAtY(line: Line2, y: number): number;

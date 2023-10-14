@@ -1,5 +1,5 @@
-import * as vec2 from "../vec2/index.js";
-
+import {Vec2} from "../Vector/index.js";
+import {ILine2} from "./Line2.js";
 import {copy} from "./copy.js";
 import {fromValues} from "./fromValues.js";
 
@@ -11,11 +11,8 @@ import {fromValues} from "./fromValues.js";
  * @returns {Line2} out
  * @alias module:modeling/maths/line2.reverse
  */
-export function reverse(out, line) {
-	const normal = vec2.negate(vec2.create(), line);
+export function reverse(out: ILine2, line: ILine2): ILine2 {
+	const normal = Vec2.negate(Vec2.create(), line);
 	const distance = -line[2];
 	return copy(out, fromValues(normal[0], normal[1], distance));
 }
-import type {Line2} from "./type.d.ts";
-
-export function reverse(out: Line2, line: Line2): Line2;

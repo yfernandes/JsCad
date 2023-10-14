@@ -1,8 +1,9 @@
-import * as vec2 from "../vec2/index.js";
-
+import {Vec2} from "../Vector/index.js";
+import {Mat4} from "../types.js";
+import {ILine2} from "./Line2.js";
+import {direction} from "./direction.js";
 import {fromPoints} from "./fromPoints.js";
 import {origin} from "./origin.js";
-import {direction} from "./direction.js";
 
 /**
  * Transforms the given line using the given matrix.
@@ -13,16 +14,12 @@ import {direction} from "./direction.js";
  * @returns {Line2} out
  * @alias module:modeling/maths/line2.transform
  */
-export function transform(out, line, matrix) {
+export function transform(out: ILine2, line: ILine2, matrix: Mat4): ILine2 {
 	const org = origin(line);
 	const dir = direction(line);
 
-	vec2.transform(org, org, matrix);
-	vec2.transform(dir, dir, matrix);
+	Vec2.transform(org, org, matrix);
+	Vec2.transform(dir, dir, matrix);
 
 	return fromPoints(out, org, dir);
 }
-import type {Line2} from "./type.d.ts";
-import type {Mat4} from "../mat4/type.d.ts";
-
-export function transform(out: Line2, line: Line2, matrix: Mat4): Line2;

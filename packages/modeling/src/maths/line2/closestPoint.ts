@@ -1,4 +1,5 @@
-import * as vec2 from "../vec2/index.js";
+import {IVec2, Vec2} from "../Vector/index.js";
+import {ILine2} from "./Line2.js";
 
 import {direction} from "./direction.js";
 import {origin} from "./origin.js";
@@ -11,17 +12,13 @@ import {origin} from "./origin.js";
  * @returns {Vec2} closest point
  * @alias module:modeling/maths/line2.closestPoint
  */
-export function closestPoint(line, point) {
+export function closestPoint(line: ILine2, point: IVec2): IVec2 {
 	const orig = origin(line);
 	const dir = direction(line);
 
-	const v = vec2.subtract(vec2.create(), point, orig);
-	const dist = vec2.dot(v, dir);
-	vec2.scale(v, dir, dist);
-	vec2.add(v, v, orig);
+	const v = Vec2.subtract(Vec2.create(), point, orig);
+	const dist = Vec2.dot(v, dir);
+	Vec2.scale(v, dir, dist);
+	Vec2.add(v, v, orig);
 	return v;
 }
-import type {Line2} from "./type.d.ts";
-import type {Vec2} from "../vec2/type.d.ts";
-
-export function closestPoint(line: Line2, point: Vec2): Vec2;

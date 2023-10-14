@@ -1,3 +1,5 @@
+import {ILine2} from "./Line2.js";
+
 /**
  * Compare the given lines for equality.
  *
@@ -6,8 +8,6 @@
  * @return {boolean} true if lines are equal
  * @alias module:modeling/maths/line2.equals
  */
-export const equals = (line1, line2) =>
-	line1[0] === line2[0] && line1[1] === line2[1] && line1[2] === line2[2];
-import type {Line2} from "./type.d.ts";
-
-export function equals(a: Line2, b: Line2): boolean;
+export function equals(line1: ILine2, line2: ILine2): boolean {
+	return line1[0] === line2[0] && line1[1] === line2[1] && line1[2] === line2[2];
+}

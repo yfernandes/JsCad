@@ -1,3 +1,5 @@
+import {ILine2} from "./Line2.js";
+
 /**
  * Return a string representing the given line.
  *
@@ -5,8 +7,6 @@
  * @returns {string} string representation
  * @alias module:modeling/maths/line2.toString
  */
-export const toString = (line) =>
-	`line2: (${line[0].toFixed(7)}, ${line[1].toFixed(7)}, ${line[2].toFixed(7)})`;
-import type {Line2} from "./type.d.ts";
-
-export function toString(line: Line2): string;
+export function toString(line: ILine2): string {
+	return `line2: (${line[0].toFixed(7)}, ${line[1].toFixed(7)}, ${line[2].toFixed(7)})`;
+}

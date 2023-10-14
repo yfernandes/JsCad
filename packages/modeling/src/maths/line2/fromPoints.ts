@@ -1,4 +1,6 @@
-import * as vec2 from "../vec2/index.js";
+import {Vec2} from "../Vector/index.js";
+import {IVec2} from "../Vector/types.js";
+import {ILine2} from "./Line2.js";
 
 /**
  * Create a new line that passes through the given points.
@@ -9,20 +11,16 @@ import * as vec2 from "../vec2/index.js";
  * @returns {Line2} a new unbounded line
  * @alias module:modeling/maths/line2.fromPoints
  */
-export function fromPoints(out, point1, point2) {
-	const vector = vec2.subtract(vec2.create(), point2, point1); // directional vector
+export function fromPoints(out: ILine2, point1: IVec2, point2: IVec2): ILine2 {
+	const vector = Vec2.subtract(Vec2.create(), point2, point1); // directional vector
 
-	vec2.normal(vector, vector);
-	vec2.normalize(vector, vector); // normalized
+	Vec2.normal(vector, vector);
+	Vec2.normalize(vector, vector); // normalized
 
-	const distance = vec2.dot(point1, vector);
+	const distance = Vec2.dot(point1, vector);
 
 	out[0] = vector[0];
 	out[1] = vector[1];
 	out[2] = distance;
 	return out;
 }
-import type {Line2} from "./type.d.ts";
-import type {Vec2} from "../vec2/type.d.ts";
-
-export function fromPoints(out: Line2, point1: Vec2, point2: Vec2): Line2;

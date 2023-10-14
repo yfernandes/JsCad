@@ -1,6 +1,7 @@
-import * as vec2 from "../vec2/index.js";
-
+import {Vec2} from "../Vector/index.js";
+import {IVec2} from "../Vector/types.js";
 import {solve2Linear} from "../utils/solve2Linear.js";
+import {ILine2} from "./Line2.js";
 
 /**
  * Return the point of intersection between the given lines.
@@ -14,11 +15,7 @@ import {solve2Linear} from "../utils/solve2Linear.js";
  * @return {Vec2} the point of intersection
  * @alias module:modeling/maths/line2.intersectPointOfLines
  */
-export function intersectPointOfLines(line1, line2) {
+export function intersectPointOfLines(line1: ILine2, line2: ILine2): IVec2 {
 	const point = solve2Linear(line1[0], line1[1], line2[0], line2[1], line1[2], line2[2]);
-	return vec2.clone(point);
+	return Vec2.clone(point);
 }
-import type {Line2} from "./type.d.ts";
-import type {Vec2} from "../vec2/type.d.ts";
-
-export function intersectPointOfLines(a: Line2, b: Line2): Vec2;
