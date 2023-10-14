@@ -1,4 +1,4 @@
-import {Vec2} from "../types.js";
+import {Vec2} from "../Vector/index.js";
 
 /**
  * Calculate the area under the given points.
@@ -6,7 +6,7 @@ import {Vec2} from "../types.js";
  * @return {number} area under the given points
  * @alias module:modeling/maths/utils.area
  */
-export const area = (points: Array<Vec2>): number => {
+export function area(points: Array<Vec2>): number {
 	let area = 0;
 	for (let i = 0; i < points.length; i++) {
 		const j = (i + 1) % points.length;
@@ -14,4 +14,4 @@ export const area = (points: Array<Vec2>): number => {
 		area -= points[j][0] * points[i][1];
 	}
 	return area / 2.0;
-};
+}

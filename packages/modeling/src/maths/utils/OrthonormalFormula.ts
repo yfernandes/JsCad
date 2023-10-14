@@ -1,7 +1,6 @@
+import {Vec3, Vec2} from "../Vector/index.js";
 import * as mat4 from "../mat4/index.js";
-import {Plane, Vec2, Vec3, Mat4} from "../types.js"; // Import missing types
-import * as vec2 from "../vec2/index.js";
-import * as vec3 from "../vec3/index.js";
+import {Plane, Mat4} from "../types.js"; // Import missing types
 
 /*
  * Class that defines the formula for conversion to/from orthonormal basis vectors.
@@ -20,10 +19,10 @@ export class OrthonormalFormula {
 	 */
 	constructor(plane: Plane) {
 		this.plane = plane;
-		const rightVector = vec3.orthogonal(vec3.create(), plane);
-		this.v = vec3.normalize(rightVector, vec3.cross(rightVector, plane, rightVector));
-		this.u = vec3.cross(vec3.create(), this.v, plane);
-		this.planeOrigin = vec3.scale(vec3.create(), plane, plane[3]);
+		const rightVector = Vec3.orthogonal(Vec3.create(), plane);
+		this.v = Vec3.normalize(rightVector, Vec3.cross(rightVector, plane, rightVector));
+		this.u = Vec3.cross(Vec3.create(), this.v, plane);
+		this.planeOrigin = Vec3.scale(Vec3.create(), plane, plane[3]);
 		this.basisMap = new Map();
 	}
 
@@ -96,10 +95,10 @@ export class OrthonormalFormula {
 	to3D(point: Vec2): Vec3 {
 		const original = this.basisMap.get(point);
 		if (original) return original;
-		const v1 = vec3.scale(vec3.create(), this.u, point[0]);
-		const v2 = vec3.scale(vec3.create(), this.v, point[1]);
-		const v3 = vec3.add(v1, v1, this.planeOrigin);
-		const v4 = vec3.add(v2, v2, v3);
+		const v1 = Vec3.scale(Vec3.create(), this.u, point[0]);
+		const v2 = Vec3.scale(Vec3.create(), this.v, point[1]);
+		const v3 = Vec3.add(v1, v1, this.planeOrigin);
+		const v4 = Vec3.add(v2, v2, v3);
 		return v4;
 	}
 }

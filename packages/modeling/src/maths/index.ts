@@ -11,7 +11,5 @@ export * as line2 from "./line2/index.js";
 export * as line3 from "./line3/index.js";
 export * as mat4 from "./mat4/index.js";
 export * as plane from "./plane/index.js";
-export * as vec2 from "./vec2/index.js";
-export * as vec3 from "./vec3/index.js";
-export * as vec4 from "./vec4/index.js";
+export * as vector from "./Vector/index.js";
 export {cos, sin} from "./utils/trigonometry.js";

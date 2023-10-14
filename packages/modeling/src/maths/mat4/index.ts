@@ -1,0 +1,65 @@
+/**
+ * Represents a 4x4 matrix which is column-major (when typed out it looks row-major).
+ * @see {@link mat4} for data structure information.
+ * @module modeling/maths/mat4
+ */
+export {add} from "./add.js";
+export {clone} from "./clone.js";
+export {copy} from "./copy.js";
+export {create} from "./create.js";
+export {equals} from "./equals.js";
+export {fromRotation} from "./fromRotation.js";
+export {fromScaling} from "./fromScaling.js";
+export {fromTaitBryanRotation} from "./fromTaitBryanRotation.js";
+export {fromTranslation} from "./fromTranslation.js";
+export {fromValues} from "./fromValues.js";
+export {fromVectorRotation} from "./fromVectorRotation.js";
+export {fromXRotation} from "./fromXRotation.js";
+export {fromYRotation} from "./fromYRotation.js";
+export {fromZRotation} from "./fromZRotation.js";
+export {identity} from "./identity.js";
+export {invert} from "./invert.js";
+export {isIdentity} from "./isIdentity.js";
+export {isMirroring} from "./isMirroring.js";
+export {isOnlyTransformScale} from "./isOnlyTransformScale.js";
+export {mirrorByPlane} from "./mirrorByPlane.js";
+export {multiply} from "./multiply.js";
+export {rotate} from "./rotate.js";
+export {rotateX} from "./rotateX.js";
+export {rotateY} from "./rotateY.js";
+export {rotateZ} from "./rotateZ.js";
+export {scale} from "./scale.js";
+export {subtract} from "./subtract.js";
+export {toString} from "./toString.js";
+export {translate} from "./translate.js";
+export {add} from "./add.js";
+export {clone} from "./clone.js";
+export {copy} from "./copy.js";
+export {create} from "./create.js";
+export {equals} from "./equals.js";
+export {fromRotation} from "./fromRotation.js";
+export {fromScaling} from "./fromScaling.js";
+export {fromTaitBryanRotation} from "./fromTaitBryanRotation.js";
+export {fromTranslation} from "./fromTranslation.js";
+export {fromValues} from "./fromValues.js";
+export {fromVectorRotation} from "./fromVectorRotation.js";
+export {fromXRotation} from "./fromXRotation.js";
+export {fromYRotation} from "./fromYRotation.js";
+export {fromZRotation} from "./fromZRotation.js";
+export {identity} from "./identity.js";
+export {invert} from "./invert.js";
+export {isIdentity} from "./isIdentity.js";
+export {isMirroring} from "./isMirroring.js";
+export {isOnlyTransformScale} from "./isOnlyTransformScale.js";
+export {mirrorByPlane} from "./mirrorByPlane.js";
+export {multiply} from "./multiply.js";
+export {rotate} from "./rotate.js";
+export {rotateX} from "./rotateX.js";
+export {rotateY} from "./rotateY.js";
+export {rotateZ} from "./rotateZ.js";
+export {scale} from "./scale.js";
+export {subtract} from "./subtract.js";
+export {toString} from "./toString.js";
+export {translate} from "./translate.js";
+
+export type {Mat4} from "./type.d.ts";

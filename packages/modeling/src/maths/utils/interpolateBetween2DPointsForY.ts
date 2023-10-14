@@ -1,4 +1,4 @@
-import {Vec2} from "../types.js";
+import {Vec2} from "../Vector/index.js";
 
 /**
  * Get the X coordinate of a point with a certain Y coordinate, interpolated between two points.

@@ -1,10 +1,57 @@
-export type IVec2 = [number, number];
-export type IVec3 = [number, number, number];
-export type IVec4 = [number, number, number, number];
-
-export type IVecN = IVec2 | IVec3 | IVec4;
+import {IVec2, IVec3, IVec4, IVecN} from "./types.js";
 
 export abstract class Vector {
+	/**
+	 * Creates a new vector, initialized to all zeros.
+	 *
+	 * @param n - the number of elements in the vector
+	 * @returns a new vector
+	 * @alias module:modeling/maths/vecN.create
+	 */
+	protected static createBase(n: 2): IVec2;
+	protected static createBase(n: 3): IVec3;
+	protected static createBase(n: 4): IVec4;
+	protected static createBase(n: 2 | 3 | 4): IVecN {
+		return Array(n).fill(0) as IVecN;
+	}
+
+	/**
+	 * Create a clone of the given vector.
+	 *
+	 * @param {IVecN} vector - vector to clone
+	 * @param {IVecN} out - receiving vector
+	 * @returns {IVecN} a new vector
+	 * @alias module:modeling/maths/vecN.clone
+	 */
+	protected static cloneBase(vector: IVec2, out: IVec2): IVec2;
+	protected static cloneBase(vector: IVec3, out: IVec3): IVec3;
+	protected static cloneBase(vector: IVec4, out: IVec4): IVec4;
+	protected static cloneBase(vector: IVecN, out: IVecN): IVecN {
+		vector.forEach((value, index) => {
+			out[index] = value;
+		});
+
+		return out;
+	}
+
+	/**
+	 * Create a copy of the given vector.
+	 *
+	 * @param out - receiving vector
+	 * @param vector - source vector
+	 * @returns out
+	 * @alias module:modeling/maths/vec2.copy
+	 */
+	public static copyBase(out: IVec2, vector: IVec2): IVec2;
+	public static copyBase(out: IVec3, vector: IVec3): IVec3;
+	public static copyBase(out: IVec4, vector: IVec4): IVec4;
+	public static copyBase(out: IVecN, vector: IVecN): IVecN {
+		vector.forEach((value, index) => {
+			out[index] = value;
+		});
+		return out;
+	}
+
 	/**
 	 * Calculates the absolute coordinates of the given vector.
 	 *
@@ -69,24 +116,6 @@ export abstract class Vector {
 	public static vecLength(vector: IVec4): number;
 	public static vecLength(vector: IVecN): number {
 		return Math.sqrt(vector.reduce((p, _, i) => (p += vector[i] * vector[i]), 0));
-	}
-
-	/**
-	 * Create a copy of the given vector.
-	 *
-	 * @param out - receiving vector
-	 * @param vector - source vector
-	 * @returns out
-	 * @alias module:modeling/maths/vec2.copy
-	 */
-	public static copy(out: IVec2, vector: IVec2): IVec2;
-	public static copy(out: IVec3, vector: IVec3): IVec3;
-	public static copy(out: IVec4, vector: IVec4): IVec4;
-	public static copy(out: IVecN, vector: IVecN): IVecN {
-		vector.forEach((value, index) => {
-			out[index] = value;
-		});
-		return out;
 	}
 
 	/**
@@ -183,39 +212,6 @@ export abstract class Vector {
 	public static negate(out: IVec4, vector: IVec4): IVec4;
 	public static negate(out: IVecN, vector: IVecN): IVecN {
 		vector.forEach((_, i) => (out[i] = -vector[i]));
-		return out;
-	}
-
-	/**
-	 * Creates a new vector, initialized to all zeros.
-	 *
-	 * @param n - the number of elements in the vector
-	 * @returns a new vector
-	 * @alias module:modeling/maths/vecN.create
-	 */
-	protected static create(n: 2): IVec2;
-	protected static create(n: 3): IVec3;
-	protected static create(n: 4): IVec4;
-	protected static create(n: 2 | 3 | 4): IVecN {
-		return Array(n).fill(0) as IVecN;
-	}
-
-	/**
-	 * Create a clone of the given vector.
-	 *
-	 * @param {IVecN} vector - vector to clone
-	 * @param {IVecN} out - receiving vector
-	 * @returns {IVecN} a new vector
-	 * @alias module:modeling/maths/vecN.clone
-	 */
-	protected static clone(vector: IVec2, out: IVec2): IVec2;
-	protected static clone(vector: IVec3, out: IVec3): IVec3;
-	protected static clone(vector: IVec4, out: IVec4): IVec4;
-	protected static clone(vector: IVecN, out: IVecN): IVecN {
-		vector.forEach((value, index) => {
-			out[index] = value;
-		});
-
 		return out;
 	}
 
