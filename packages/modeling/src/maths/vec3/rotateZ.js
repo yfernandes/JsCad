@@ -15,6 +15,7 @@ export function rotateZ(out, vector, origin, radians) {
 	p[0] = vector[0] - origin[0];
 	p[1] = vector[1] - origin[1];
 
+	// z
 	// perform rotation
 	r[0] = p[0] * Math.cos(radians) - p[1] * Math.sin(radians);
 	r[1] = p[0] * Math.sin(radians) + p[1] * Math.cos(radians);

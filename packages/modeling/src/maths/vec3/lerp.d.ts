@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function lerp(out: Vec3, a: Vec3, b: Vec3, t: number): Vec3;
+export function lerp(out: IVec3, a: IVec3, b: IVec3, t: number): IVec3;

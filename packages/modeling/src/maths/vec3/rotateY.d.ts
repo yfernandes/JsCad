@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function rotateY(out: Vec3, vector: Vec3, origin: Vec3, angle: number): Vec3;
+export function rotateY(out: IVec3, vector: IVec3, origin: IVec3, angle: number): IVec3;

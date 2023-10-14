@@ -1,10 +1,10 @@
 import type {Geometry} from "../../geometries/types.d.ts";
-import type {Vec3} from "../../maths/vec3/type.d.ts";
+import type {IVec3} from "../../maths/vec3/type.d.ts";
 import type {RecursiveArray} from "../../utils/recursiveArray.d.ts";
 
 export interface CenterOptions {
 	axes?: [boolean, boolean, boolean];
-	relativeTo?: Vec3;
+	relativeTo?: IVec3;
 }
 
 export function center<T extends Geometry>(options: CenterOptions, geometry: T): T;

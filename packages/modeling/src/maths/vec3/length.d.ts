@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function length(vector: Vec3): number;
+export function length(vector: IVec3): number;

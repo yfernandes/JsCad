@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function scale(out: Vec3, vector: Vec3, amount: number): Vec3;
+export function scale(out: IVec3, vector: IVec3, amount: number): IVec3;

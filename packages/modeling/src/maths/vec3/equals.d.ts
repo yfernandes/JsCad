@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function equals(a: Vec3, b: Vec3): boolean;
+export function equals(a: IVec3, b: IVec3): boolean;

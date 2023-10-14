@@ -8,4 +8,4 @@ export {fromValues} from "./fromValues.js";
 export {toString} from "./toString.js";
 export {transform} from "./transform.js";
 
-export type {Vec4} from "./type.d.ts";
+export type {IVec4 as Vec4} from "./type.d.ts";

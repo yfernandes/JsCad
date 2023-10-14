@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function max(out: Vec3, a: Vec3, b: Vec3): Vec3;
+export function max(out: IVec3, a: IVec3, b: IVec3): IVec3;

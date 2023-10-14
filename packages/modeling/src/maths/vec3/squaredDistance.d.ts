@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function squaredDistance(a: Vec3, b: Vec3): number;
+export function squaredDistance(a: IVec3, b: IVec3): number;

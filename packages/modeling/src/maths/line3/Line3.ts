@@ -2,9 +2,9 @@ import {EPS} from "../constants.js";
 import {Mat4, Plane, Vec} from "../types.js";
 import {solve2Linear} from "../utils/solve2Linear.js";
 import * as vec3 from "../vec3/index.js";
-import {Vec3} from "../vec3/type.js";
+import {IVec3} from "../vec3/type.js";
 
-export type ILine3 = [Vec3, Vec3];
+export type ILine3 = [IVec3, IVec3];
 
 export class Line3 {
 	/**
@@ -25,11 +25,11 @@ export class Line3 {
 	 * Determine the closest point on the given line to the given point.
 	 *
 	 * @param {ILine3} line - line of reference
-	 * @param {Vec3} point - point of reference
-	 * @returns {Vec3} a point
+	 * @param {IVec3} point - point of reference
+	 * @returns {IVec3} a point
 	 * @alias module:modeling/maths/line3.closestPoint
 	 */
-	public static closestPoint(line: ILine3, point: Vec3): Vec3 {
+	public static closestPoint(line: ILine3, point: IVec3): IVec3 {
 		const lPoint = line[0];
 		const lDirection = line[1];
 
@@ -79,10 +79,10 @@ export class Line3 {
 	 * Return the direction of the given line.
 	 *
 	 * @param {ILine3} line - line for reference
-	 * @return {Vec3} the relative vector in the direction of the line
+	 * @return {IVec3} the relative vector in the direction of the line
 	 * @alias module:modeling/maths/line3.direction
 	 */
-	public static direction(line: ILine3): Vec3 {
+	public static direction(line: ILine3): IVec3 {
 		return line[1];
 	}
 
@@ -90,11 +90,11 @@ export class Line3 {
 	 * Calculate the distance (positive) between the given point and line.
 	 *
 	 * @param {ILine3} line - line of reference
-	 * @param {Vec3} point - point of reference
+	 * @param {IVec3} point - point of reference
 	 * @return {number} distance between line and point
 	 * @alias module:modeling/maths/line3.distanceToPoint
 	 */
-	public static distanceToPoint(line: ILine3, point: Vec3): number {
+	public static distanceToPoint(line: ILine3, point: IVec3): number {
 		const closest = Line3.closestPoint(line, point);
 		const distanceVector = vec3.subtract(vec3.create(), point, closest);
 		return vec3.length(distanceVector);
@@ -134,8 +134,8 @@ export class Line3 {
 	public static fromPlanes(out: ILine3, plane1: Plane, plane2: Plane): ILine3 {
 		const direction = vec3.cross(
 			vec3.create(),
-			plane1.slice(0, 3) as Vec3,
-			plane2.slice(0, 3) as Vec3
+			plane1.slice(0, 3) as IVec3,
+			plane2.slice(0, 3) as IVec3
 		); // Extract the normal vectors
 		const length = vec3.length(direction);
 
@@ -175,12 +175,12 @@ export class Line3 {
 	 * See the logic of fromPoints() for appropriate values.
 	 *
 	 * @param {ILine3} out - receiving line
-	 * @param {Vec3} point - start point of the line segment
-	 * @param {Vec3} direction - direction of the line segment
+	 * @param {IVec3} point - start point of the line segment
+	 * @param {IVec3} direction - direction of the line segment
 	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.fromPointAndDirection
 	 */
-	public static fromPointAndDirection(out: ILine3, point: Vec3, direction: Vec3): ILine3 {
+	public static fromPointAndDirection(out: ILine3, point: IVec3, direction: IVec3): ILine3 {
 		const unit = vec3.normalize(vec3.create(), direction);
 
 		vec3.copy(out[0], point);
@@ -192,12 +192,12 @@ export class Line3 {
 	 * Create a line that passes through the given points.
 	 *
 	 * @param {ILine3} out - receiving line
-	 * @param {Vec3} point1 - start point of the line segment
-	 * @param {Vec3} point2 - end point of the line segment
+	 * @param {IVec3} point1 - start point of the line segment
+	 * @param {IVec3} point2 - end point of the line segment
 	 * @returns {ILine3} out
 	 * @alias module:modeling/maths/line3.fromPoints
 	 */
-	public static fromPoints(out: ILine3, point1: Vec3, point2: Vec3): ILine3 {
+	public static fromPoints(out: ILine3, point1: IVec3, point2: IVec3): ILine3 {
 		const direction = vec3.subtract(vec3.create(), point2, point1);
 		return Line3.fromPointAndDirection(out, point1, direction);
 	}
@@ -209,12 +209,12 @@ export class Line3 {
 	 *
 	 * @param {ILine3} line - line of reference
 	 * @param {Plane} plane - plane of reference
-	 * @returns {Vec3} a point on the line
+	 * @returns {IVec3} a point on the line
 	 * @alias module:modeling/maths/line3.intersectPointOfLineAndPlane
 	 */
-	public static intersectionPointOfLineAndPlane(line: ILine3, plane: Plane): Vec3 {
+	public static intersectionPointOfLineAndPlane(line: ILine3, plane: Plane): IVec3 {
 		// The plane is defined by a 4D array [a, b, c, d] where (a, b, c) is the normal and d is the distance from the origin.
-		const pNormal = plane.slice(0, 3) as Vec3; // Extract the normal vector [a, b, c]
+		const pNormal = plane.slice(0, 3) as IVec3; // Extract the normal vector [a, b, c]
 		const pw = plane[3]; // Extract the distance from the origin (d)
 
 		const lPoint = line[0];
@@ -231,10 +231,10 @@ export class Line3 {
 	 * Return the origin of the given line.
 	 *
 	 * @param {ILine3} line - line of reference
-	 * @return {Vec3} the origin of the line
+	 * @return {IVec3} the origin of the line
 	 * @alias module:modeling/maths/line3.origin
 	 */
-	public static origin(line: ILine3): Vec3 {
+	public static origin(line: ILine3): IVec3 {
 		return line[0];
 	}
 

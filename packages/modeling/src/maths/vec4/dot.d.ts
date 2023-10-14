@@ -1,3 +1,3 @@
-import type {Vec4} from "./type.d.ts";
+import type {IVec4} from "./type.d.ts";
 
-export function dot(a: Vec4, b: Vec4): number;
+export function dot(a: IVec4, b: IVec4): number;

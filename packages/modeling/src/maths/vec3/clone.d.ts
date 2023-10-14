@@ -1,3 +1,3 @@
-import type {Vec3} from "./type.d.ts";
+import type {IVec3} from "./type.d.ts";
 
-export function clone(vector: Vec3): Vec3;
+export function clone(vector: IVec3): IVec3;

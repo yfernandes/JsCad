@@ -31,4 +31,4 @@ export {subtract} from "./subtract.js";
 export {toString} from "./toString.js";
 export {transform} from "./transform.js";
 
-export type {Vec3} from "./type.d.ts";
+export type {IVec3 as Vec3} from "./type.d.ts";

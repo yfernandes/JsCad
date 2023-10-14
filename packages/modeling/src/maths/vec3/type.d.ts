@@ -1,1 +1,1 @@
-export type Vec3 = [number, number, number];
+export type IVec3 = [number, number, number];
