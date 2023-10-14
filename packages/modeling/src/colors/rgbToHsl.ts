@@ -1,5 +1,5 @@
 import {flatten} from "../utils/flatten.js";
-
+import type {HSL, HSLA, RGB, RGBA} from "./types.d.ts";
 /**
  * Converts an RGB color value to HSL.
  *
@@ -9,6 +9,10 @@ import {flatten} from "../utils/flatten.js";
  * @return {Array} HSL or HSLA color values
  * @alias module:modeling/colors.rgbToHsl
  */
+export function rgbToHsl(rgb: RGB): HSL;
+export function rgbToHsl(rgb: RGBA): HSLA;
+export function rgbToHsl(...rgb: RGB): HSL;
+export function rgbToHsl(...rgb: RGBA): HSLA;
 export function rgbToHsl(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain R, G and B values");

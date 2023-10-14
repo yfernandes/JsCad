@@ -1,5 +1,13 @@
-export {colorize} from "./colorize.js";
+/**
+ * All shapes (primitives or the results of operations) can be assigned a color (RGBA).
+ * In all cases, the function returns the results, and never changes the original shapes.
+ * @module modeling/colors
+ * @example
+ * import { colors } from '@jscad/modeling'
+ * const { colorize, cssColors } = colors
+ */
 export {colorNameToRgb} from "./colorNameToRgb.js";
+export {colorize} from "./colorize.js";
 export * as cssColors from "./cssColors.js";
 export {hexToRgb} from "./hexToRgb.js";
 export {hslToRgb} from "./hslToRgb.js";

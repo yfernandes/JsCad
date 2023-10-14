@@ -1,4 +1,5 @@
 import {cssColors} from "./cssColors.js";
+import {RGB} from "./types.js";
 
 /**
  * Converts a CSS color name to RGB color.
@@ -9,4 +10,6 @@ import {cssColors} from "./cssColors.js";
  * @example
  * let mySphere = colorize(colorNameToRgb('lightblue'), sphere())
  */
-export const colorNameToRgb = (s) => cssColors[s.toLowerCase()];
+export function colorNameToRgb(s: string): RGB {
+	return cssColors[s.toLowerCase()];
+}

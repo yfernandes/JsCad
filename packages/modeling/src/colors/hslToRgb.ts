@@ -13,6 +13,10 @@ import {hueToColorComponent} from "./hueToColorComponent.js";
  * @example
  * let mySphere = colorize(hslToRgb([0.9166666666666666, 1, 0.5]), sphere())
  */
+export function hslToRgb(hsl: HSL): RGB;
+export function hslToRgb(hsl: HSLA): RGBA;
+export function hslToRgb(...hsl: HSL): RGB;
+export function hslToRgb(...hsl: HSLA): RGBA;
 export function hslToRgb(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain H, S and L values");
@@ -40,3 +44,4 @@ export function hslToRgb(...values) {
 	}
 	return [r, g, b];
 }
+import type {HSL, HSLA, RGB, RGBA} from "./types.d.ts";

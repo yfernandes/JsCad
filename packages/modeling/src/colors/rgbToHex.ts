@@ -1,4 +1,5 @@
 import {flatten} from "../utils/flatten.js";
+import type {RGB, RGBA} from "./types.d.ts";
 
 /**
  * Convert the given RGB color values to CSS color notation (string)
@@ -7,6 +8,8 @@ import {flatten} from "../utils/flatten.js";
  * @return {String} CSS color notation
  * @alias module:modeling/colors.rgbToHex
  */
+export function rgbToHex(rgb: RGB | RGBA): string;
+export function rgbToHex(...rgb: RGB | RGBA): string;
 export function rgbToHex(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain R, G and B values");

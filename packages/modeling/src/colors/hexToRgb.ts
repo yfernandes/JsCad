@@ -1,3 +1,4 @@
+import type {RGB, RGBA} from "./types.js";
 /**
  * Converts CSS color notations (string of hex values) to RGB values.
  *
@@ -9,7 +10,7 @@
  * @example
  * let mySphere = colorize(hexToRgb('#000080'), sphere()) // navy blue
  */
-export function hexToRgb(notation) {
+export function hexToRgb(notation: string): RGB | RGBA {
 	notation = notation.replace("#", "");
 	if (notation.length < 6) throw new Error("the given notation must contain 3 or more hex values");
 

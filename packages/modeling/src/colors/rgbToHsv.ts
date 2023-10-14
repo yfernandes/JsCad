@@ -1,5 +1,5 @@
 import {flatten} from "../utils/flatten.js";
-
+import type {HSV, HSVA, RGB, RGBA} from "./types.d.ts";
 /**
  * Converts an RGB color value to HSV.
  *
@@ -8,6 +8,10 @@ import {flatten} from "../utils/flatten.js";
  * @return {Array} HSV or HSVA color values
  * @alias module:modeling/colors.rgbToHsv
  */
+export function rgbToHsv(rgb: RGB): HSV;
+export function rgbToHsv(rgb: RGBA): HSVA;
+export function rgbToHsv(...rgb: RGB): HSV;
+export function rgbToHsv(...rgb: RGBA): HSVA;
 export function rgbToHsv(...values) {
 	values = flatten(values);
 	if (values.length < 3) throw new Error("values must contain R, G and B values");
