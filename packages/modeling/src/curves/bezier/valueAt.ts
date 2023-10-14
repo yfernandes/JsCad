@@ -1,3 +1,5 @@
+import {Bezier} from "./type.js";
+
 /**
  * Calculates the value at a specific position along a bezier easing curve.
  * For multidimensional curves, the tangent is the slope of each dimension at that point.
@@ -13,7 +15,7 @@
  * @returns {array | number} the value at the requested position.
  * @alias module:modeling/curves/bezier.valueAt
  */
-export function valueAt(t, bezier) {
+export function valueAt(t: number, bezier: Bezier): Array<number> | number {
 	if (t < 0 || t > 1) {
 		throw new Error("Bezier valueAt() input must be between 0 and 1");
 	}

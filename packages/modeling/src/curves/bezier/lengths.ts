@@ -1,3 +1,4 @@
+import {Bezier} from "./type.js";
 import {valueAt} from "./valueAt.js";
 
 /**
@@ -12,7 +13,7 @@ import {valueAt} from "./valueAt.js";
  * @param {object} bezier a bezier curve.
  * @returns an array containing the cumulative length of the segments.
  */
-export function lengths(segments, bezier) {
+export function lengths(segments: number, bezier: Bezier): Array<number> {
 	let sum = 0;
 	const lengths = [0];
 	let previous = valueAt(0, bezier);

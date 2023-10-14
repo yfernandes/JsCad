@@ -1,4 +1,5 @@
 import {lengths} from "./lengths.js";
+import {Bezier} from "./type.js";
 
 /**
  * Approximates the length of the bezier curve by sampling it at a sequence of points, then adding up all the distances.
@@ -13,4 +14,6 @@ import {lengths} from "./lengths.js";
  * @returns an approximation of the curve's length.
  * @alias module:modeling/curves/bezier.length
  */
-export const length = (segments, bezier) => lengths(segments, bezier)[segments];
+export function length(segments: number, bezier: Bezier): number {
+	return lengths(segments, bezier)[segments];
+}

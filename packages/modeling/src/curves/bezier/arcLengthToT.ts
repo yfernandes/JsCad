@@ -1,4 +1,10 @@
 import {lengths} from "./lengths.js";
+import {Bezier} from "./type.js";
+
+export interface ArcLengthToTOptions {
+	distance?: Number;
+	segments?: Number;
+}
 
 /**
  * Convert a given arc length along a bezier curve to a t value.
@@ -22,7 +28,7 @@ import {lengths} from "./lengths.js";
  * @returns a number in the [0, 1] interval or NaN if the arcLength is negative or greater than the total length of the curve.
  * @alias module:modeling/curves/bezier.arcLengthToT
  */
-export function arcLengthToT(options, bezier) {
+export function arcLengthToT(options: ArcLengthToTOptions, bezier: Bezier): number {
 	const defaults = {
 		distance: 0,
 		segments: 100,

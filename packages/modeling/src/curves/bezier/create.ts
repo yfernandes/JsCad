@@ -9,6 +9,8 @@
  *
  */
 
+import {Bezier} from "./type.js";
+
 /**
  * Creates an object representing a bezier easing curve.
  * Curves can have both an arbitrary number of control points, and an arbitrary number of dimensions.
@@ -25,7 +27,7 @@
  * @returns {bezier} a new bezier data object
  * @alias module:modeling/curves/bezier.create
  */
-export function create(points) {
+export function create(points: Array<number> | Array<Array<number>>): Bezier {
 	if (!Array.isArray(points)) throw new Error("Bezier points must be a valid array/");
 	if (points.length < 2) throw new Error("Bezier points must contain at least 2 values.");
 	const pointType = getPointType(points);
