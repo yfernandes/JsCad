@@ -1,6 +1,15 @@
 import {cylinderElliptic} from "./cylinderElliptic.js";
 import {isGTE} from "./commonChecks.js";
 import * as geom3 from "../geometries/geom3/index.js";
+import {Geom3} from "../geometries/types.js";
+import {IVec3} from "../maths/Vector/types.js";
+
+export interface CylinderOptions {
+	center?: IVec3;
+	height?: number;
+	radius?: number;
+	segments?: number;
+}
 
 /**
  * Construct a Z axis-aligned cylinder in three dimensional space.
@@ -16,7 +25,7 @@ import * as geom3 from "../geometries/geom3/index.js";
  * @example
  * let myshape = cylinder({height: 2, radius: 10})
  */
-export function cylinder(options) {
+export function cylinder(options?: CylinderOptions): Geom3 {
 	const defaults = {
 		center: [0, 0, 0],
 		height: 2,

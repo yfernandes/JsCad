@@ -1,6 +1,5 @@
 import {fromPoints} from "../geometries/path2/index.js";
-import * as vec2 from "../maths/vec2/index.js";
-import type {Vec2} from "../maths/vec2/type.d.ts";
+import {Vec2} from "../maths/Vector/index.js";
 
 import {simplex} from "./fonts/single-line/hershey/simplex.js";
 
@@ -66,7 +65,7 @@ export const vectorChar = (options: VectorCharOptions, text: string): VectorChar
 		const gx = ratio * glyph[i] + xOffset;
 		const gy = ratio * glyph[i + 1] + yOffset + extrudeYOffset;
 		if (glyph[i] !== undefined) {
-			polyline.push(vec2.fromValues(gx, gy));
+			polyline.push(Vec2.fromValues(gx, gy));
 			continue;
 		}
 		paths.push(fromPoints({}, polyline));

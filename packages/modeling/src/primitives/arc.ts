@@ -1,10 +1,20 @@
 import {EPS, TAU} from "../maths/constants.js";
 
-import * as vec2 from "../maths/vec2/index.js";
-
 import * as path2 from "../geometries/path2/index.js";
 
 import {isGT, isGTE, isNumberArray} from "./commonChecks.js";
+import {Path2} from "../geometries/types.js";
+import {IVec2} from "../maths/Vector/types.js";
+import {Vec2} from "../maths/Vector/index.js";
+
+export interface ArcOptions {
+	center?: IVec2;
+	radius?: number;
+	startAngle?: number;
+	endAngle?: number;
+	segments?: number;
+	makeTangent?: boolean;
+}
 
 /**
  * Construct an arc in two dimensional space where all points are at the same distance from the center.
@@ -18,7 +28,8 @@ import {isGT, isGTE, isNumberArray} from "./commonChecks.js";
  * @returns {Path2} new 2D path
  * @alias module:modeling/primitives.arc
  */
-export function arc(options) {
+
+export function arc(options?: ArcOptions): Path2 {
 	const defaults = {
 		center: [0, 0],
 		radius: 1,
@@ -54,14 +65,14 @@ export function arc(options) {
 		(radius * radius + radius * radius - EPS * EPS) / (2 * radius * radius)
 	);
 
-	const centerV = vec2.clone(center);
+	const centerV = Vec2.clone(center);
 	let point;
 	const pointArray = [];
 	if (rotation < minAngle) {
 		// there is no rotation, just a single point
-		point = vec2.fromAngleRadians(vec2.create(), startAngle);
-		vec2.scale(point, point, radius);
-		vec2.add(point, point, centerV);
+		point = Vec2.fromAngleRadians(Vec2.create(), startAngle);
+		Vec2.scale(point, point, radius);
+		Vec2.add(point, point, centerV);
 		pointArray.push(point);
 	} else {
 		// note: add one additional step to achieve full rotation
@@ -78,9 +89,9 @@ export function arc(options) {
 				if (step > numSteps) step = numSteps;
 			}
 			const angle = startAngle + step * (rotation / numSteps);
-			point = vec2.fromAngleRadians(vec2.create(), angle);
-			vec2.scale(point, point, radius);
-			vec2.add(point, point, centerV);
+			point = Vec2.fromAngleRadians(Vec2.create(), angle);
+			Vec2.scale(point, point, radius);
+			Vec2.add(point, point, centerV);
 			pointArray.push(point);
 		}
 	}

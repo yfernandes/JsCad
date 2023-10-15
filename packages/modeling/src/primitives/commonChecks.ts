@@ -7,7 +7,11 @@ export function isNumberArray(array, dimension) {
 }
 
 // verify that the value is a Number greater than the constant
-export const isGT = (value, constant) => Number.isFinite(value) && value > constant;
+export function isGT(value, constant) {
+	return Number.isFinite(value) && value > constant;
+}
 
 // verify that the value is a Number greater than or equal to the constant
-export const isGTE = (value, constant) => Number.isFinite(value) && value >= constant;
+export function isGTE(value, constant) {
+	return Number.isFinite(value) && value >= constant;
+}

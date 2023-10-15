@@ -1,13 +1,21 @@
 import {EPS, TAU} from "../maths/constants.js";
-
-import * as vec3 from "../maths/vec3/index.js";
-
 import * as geom3 from "../geometries/geom3/index.js";
 import * as poly3 from "../geometries/poly3/index.js";
-
 import {sin, cos} from "../maths/utils/trigonometry.js";
-
 import {isGT, isGTE, isNumberArray} from "./commonChecks.js";
+import {Geom3} from "../geometries/types.js";
+import {IVec3} from "../maths/Vector/types.js";
+import {Vec3} from "../maths/Vector/index.js";
+
+export interface CylinderEllipticOptions {
+	center?: IVec3;
+	height?: number;
+	startRadius?: [number, number];
+	startAngle?: number;
+	endRadius?: [number, number];
+	endAngle?: number;
+	segments?: number;
+}
 
 /**
  * Construct a Z axis-aligned elliptic cylinder in three dimensional space.
@@ -25,7 +33,7 @@ import {isGT, isGTE, isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = cylinderElliptic({height: 2, startRadius: [10,5], endRadius: [8,3]})
  */
-export function cylinderElliptic(options) {
+export function cylinderElliptic(options?: CylinderEllipticOptions): Geom3 {
 	const defaults = {
 		center: [0, 0, 0],
 		height: 2,
@@ -74,30 +82,30 @@ export function cylinderElliptic(options) {
 
 	const slices = Math.floor(segments * (rotation / TAU));
 
-	const start = vec3.fromValues(0, 0, -(height / 2));
-	const end = vec3.fromValues(0, 0, height / 2);
-	const ray = vec3.subtract(vec3.create(), end, start);
+	const start = Vec3.fromValues(0, 0, -(height / 2));
+	const end = Vec3.fromValues(0, 0, height / 2);
+	const ray = Vec3.subtract(Vec3.create(), end, start);
 
-	const axisX = vec3.fromValues(1, 0, 0);
-	const axisY = vec3.fromValues(0, 1, 0);
+	const axisX = Vec3.fromValues(1, 0, 0);
+	const axisY = Vec3.fromValues(0, 1, 0);
 
-	const v1 = vec3.create();
-	const v2 = vec3.create();
-	const v3 = vec3.create();
+	const v1 = Vec3.create();
+	const v2 = Vec3.create();
+	const v3 = Vec3.create();
 	const genVertex = (stack, slice, radius) => {
 		const angle = slice * rotation + startAngle;
-		vec3.scale(v1, axisX, radius[0] * cos(angle));
-		vec3.scale(v2, axisY, radius[1] * sin(angle));
-		vec3.add(v1, v1, v2);
+		Vec3.scale(v1, axisX, radius[0] * cos(angle));
+		Vec3.scale(v2, axisY, radius[1] * sin(angle));
+		Vec3.add(v1, v1, v2);
 
-		vec3.scale(v3, ray, stack);
-		vec3.add(v3, v3, start);
-		return vec3.add(vec3.create(), v1, v3);
+		Vec3.scale(v3, ray, stack);
+		Vec3.add(v3, v3, start);
+		return Vec3.add(Vec3.create(), v1, v3);
 	};
 
 	// adjust the vertices to center
 	const fromVertices = (...vertices) => {
-		const newVertices = vertices.map((vertex) => vec3.add(vec3.create(), vertex, center));
+		const newVertices = vertices.map((vertex) => Vec3.add(Vec3.create(), vertex, center));
 		return poly3.create(newVertices);
 	};
 

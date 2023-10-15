@@ -3,6 +3,15 @@ import {TAU} from "../maths/constants.js";
 import {ellipse} from "./ellipse.js";
 
 import {isGTE} from "./commonChecks.js";
+import {Geom2} from "../geometries/types.js";
+import {Vec2} from "../maths/Vector/index.js";
+export interface CircleOptions {
+	center?: Vec2;
+	radius?: number;
+	startAngle?: number;
+	endAngle?: number;
+	segments?: number;
+}
 
 /**
  * Construct a circle in two dimensional space where all points are at the same distance from the center.
@@ -18,7 +27,7 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = circle({radius: 10})
  */
-export function circle(options) {
+export function circle(options?: CircleOptions): Geom2 {
 	const defaults = {
 		center: [0, 0],
 		radius: 1,

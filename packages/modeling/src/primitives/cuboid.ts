@@ -1,7 +1,13 @@
 import * as geom3 from "../geometries/geom3/index.js";
 import * as poly3 from "../geometries/poly3/index.js";
+import {Geom3} from "../geometries/types.js";
+import {IVec3} from "../maths/Vector/types.js";
 
 import {isNumberArray} from "./commonChecks.js";
+export interface CuboidOptions {
+	center?: IVec3;
+	size?: IVec3;
+}
 
 /**
  * Construct an axis-aligned solid cuboid in three dimensional space.
@@ -14,7 +20,7 @@ import {isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = cuboid({size: [5, 10, 5]})
  */
-export function cuboid(options) {
+export function cuboid(options?: CuboidOptions): Geom3 {
 	const defaults = {
 		center: [0, 0, 0],
 		size: [2, 2, 2],

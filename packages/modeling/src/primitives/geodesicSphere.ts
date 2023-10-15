@@ -1,10 +1,15 @@
 import * as mat4 from "../maths/mat4/index.js";
-import * as vec3 from "../maths/vec3/index.js";
 
 import * as geom3 from "../geometries/geom3/index.js";
 
 import {polyhedron} from "./polyhedron.js";
 import {isGTE} from "./commonChecks.js";
+import {Geom3} from "../geometries/types.js";
+import {Vec3} from "../maths/Vector/index.js";
+export interface GeodesicSphereOptions {
+	radius?: number;
+	frequency?: number;
+}
 
 /**
  * Construct a geodesic sphere based on icosahedron symmetry.
@@ -17,7 +22,8 @@ import {isGTE} from "./commonChecks.js";
  * @example
  * let myshape = geodesicSphere({radius: 15, frequency: 18})
  */
-export function geodesicSphere(options) {
+export function geodesicSphere(options?: GeodesicSphereOptions): Geom3;
+{
 	const defaults = {
 		radius: 1,
 		frequency: 6,
@@ -104,7 +110,7 @@ export function geodesicSphere(options) {
 
 				// -- normalize
 				for (let k = 0; k < 3; k++) {
-					const r = vec3.length(q[k]);
+					const r = Vec3.vecLength(q[k]);
 					for (let l = 0; l < 3; l++) {
 						q[k][l] /= r;
 					}
@@ -121,7 +127,7 @@ export function geodesicSphere(options) {
 
 					// -- normalize
 					for (let k = 0; k < 3; k++) {
-						const r = vec3.length(q[k]);
+						const r = Vec3.vecLength(q[k]);
 						for (let l = 0; l < 3; l++) {
 							q[k][l] /= r;
 						}

@@ -1,4 +1,4 @@
-import {Vec2} from "../Vector/index.js";
+import {IVec2} from "../Vector/index.js";
 
 /**
  * Solves a system of two linear equations in the form of:
@@ -21,7 +21,7 @@ export const solve2Linear = (
 	d: number,
 	u: number,
 	v: number
-): Vec2 => {
+): IVec2 => {
 	const det = a * d - b * c;
 	const invdet = 1.0 / det;
 	let x = u * d - b * v;

@@ -203,3 +203,15 @@ export function roundedCylinder(options) {
 	}
 	return geom3.create(polygons);
 }
+import type {IVec3} from "../maths/vec3/type.d.ts";
+import type {Geom3} from "../geometries/geom3/type.d.ts";
+
+export interface RoundedCylinderOptions {
+	center?: IVec3;
+	height?: number;
+	radius?: number;
+	roundRadius?: number;
+	segments?: number;
+}
+
+export function roundedCylinder(options?: RoundedCylinderOptions): Geom3;

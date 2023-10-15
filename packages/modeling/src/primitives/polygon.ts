@@ -1,5 +1,11 @@
 import * as geom2 from "../geometries/geom2/index.js";
+import {Geom2} from "../geometries/types.js";
+import {IVec2} from "../maths/Vector/types.js";
 
+export interface PolygonOptions {
+	points: Array<IVec2> | Array<Array<IVec2>>;
+	paths?: Array<number> | Array<Array<number>>;
+}
 /**
  * Construct a polygon in two dimensional space from a list of points, or a list of points and paths.
  * NOTE: The ordering of points is VERY IMPORTANT.
@@ -21,7 +27,7 @@ import * as geom2 from "../geometries/geom2/index.js";
  * or
  * let poly = polygon({ points: [roof, wall], paths: [[0, 1, 2], [3, 4, 5, 6]] })
  */
-export function polygon(options) {
+export function polygon(options: PolygonOptions): Geom2 {
 	const defaults = {
 		points: [],
 		paths: [],

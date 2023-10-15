@@ -1,7 +1,16 @@
 import * as geom3 from "../geometries/geom3/index.js";
 import * as poly3 from "../geometries/poly3/index.js";
+import {Geom3} from "../geometries/types.js";
+import {RGB, RGBA} from "../index.js";
+import {IVec3} from "../maths/Vector/types.js";
 
 import {isNumberArray} from "./commonChecks.js";
+export interface PolyhedronOptions {
+	points: Array<IVec3>;
+	faces: Array<Array<number>>;
+	colors?: Array<RGB | RGBA>;
+	orientation?: "outward" | "inward";
+}
 
 /**
  * Construct a polyhedron in three dimensional space from the given set of 3D vertices and faces.
@@ -20,7 +29,7 @@ import {isNumberArray} from "./commonChecks.js";
  * let myFaces = [ [0, 1, 4], [1, 2, 4], [2, 3, 4], [3, 0, 4], [1, 0, 3], [2, 1, 3] ]
  * let myShape = polyhedron({points: myPoints, faces: myFaces, orientation: 'inward'})
  */
-export function polyhedron(options) {
+export function polyhedron(options: PolyhedronOptions): Geom3 {
 	const defaults = {
 		points: [],
 		faces: [],

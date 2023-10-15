@@ -1,4 +1,6 @@
 import * as path2 from "../geometries/path2/index.js";
+import {Path2} from "../geometries/types.js";
+import {IVec2} from "../maths/Vector/index.js";
 
 /**
  * Construct a new line in two dimensional space from the given points.
@@ -10,7 +12,7 @@ import * as path2 from "../geometries/path2/index.js";
  * @example
  * let myshape = line([[10, 10], [-10, 10]])
  */
-export function line(points) {
+export function line(points: Array<IVec2>): Path2 {
 	if (!Array.isArray(points)) throw new Error("points must be an array");
 
 	return path2.fromPoints({}, points);

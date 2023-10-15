@@ -1,12 +1,18 @@
 import {EPS, TAU} from "../maths/constants.js";
-
-import * as vec2 from "../maths/vec2/index.js";
-
 import * as geom2 from "../geometries/geom2/index.js";
-
 import {sin, cos} from "../maths/utils/trigonometry.js";
-
 import {isGTE, isNumberArray} from "./commonChecks.js";
+import {Geom2} from "../geometries/types.js";
+import {IVec2} from "../maths/Vector/types.js";
+import {Vec2} from "../maths/Vector/index.js";
+
+export interface EllipseOptions {
+	center?: IVec2;
+	radius?: IVec2;
+	startAngle?: number;
+	endAngle?: number;
+	segments?: number;
+}
 
 /**
  * Construct an axis-aligned ellipse in two dimensional space.
@@ -22,7 +28,7 @@ import {isGTE, isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = ellipse({radius: [5,10]})
  */
-export function ellipse(options) {
+export function ellipse(options?: EllipseOptions): Geom2 {
 	const defaults = {
 		center: [0, 0],
 		radius: [1, 1],
@@ -62,15 +68,15 @@ export function ellipse(options) {
 
 	segments = Math.floor(segments * (rotation / TAU));
 
-	const centerV = vec2.clone(center);
+	const centerV = Vec2.clone(center);
 	const step = rotation / segments; // radians per segment
 
 	const points = [];
 	segments = rotation < TAU ? segments + 1 : segments;
 	for (let i = 0; i < segments; i++) {
 		const angle = step * i + startAngle;
-		const point = vec2.fromValues(radius[0] * cos(angle), radius[1] * sin(angle));
-		vec2.add(point, centerV, point);
+		const point = Vec2.fromValues(radius[0] * cos(angle), radius[1] * sin(angle));
+		Vec2.add(point, centerV, point);
 		points.push(point);
 	}
 	if (rotation < TAU) points.push(centerV);

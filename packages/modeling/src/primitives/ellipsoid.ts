@@ -1,11 +1,20 @@
 import {TAU} from "../maths/constants.js";
 import {sin, cos} from "../maths/utils/trigonometry.js";
-import * as vec3 from "../maths/vec3/index.js";
 
 import * as geom3 from "../geometries/geom3/index.js";
 import * as poly3 from "../geometries/poly3/index.js";
 
 import {isGTE, isNumberArray} from "./commonChecks.js";
+import {Geom3} from "../geometries/types.js";
+import {Vec3} from "../maths/Vector/index.js";
+import {IVec3} from "../maths/Vector/types.js";
+
+export interface EllipsoidOptions {
+	center?: IVec3;
+	radius?: IVec3;
+	segments?: number;
+	axes?: IVec3;
+}
 
 /**
  * Construct an axis-aligned ellipsoid in three dimensional space.
@@ -20,7 +29,7 @@ import {isGTE, isNumberArray} from "./commonChecks.js";
  * @example
  * let myshape = ellipsoid({radius: [5, 10, 20]})
  */
-export function ellipsoid(options) {
+export function ellipsoid(options?: EllipsoidOptions): Geom3 {
 	const defaults = {
 		center: [0, 0, 0],
 		radius: [1, 1, 1],
@@ -41,21 +50,21 @@ export function ellipsoid(options) {
 	// if any radius is zero return empty geometry
 	if (radius[0] === 0 || radius[1] === 0 || radius[2] === 0) return geom3.create();
 
-	const xVector = vec3.scale(vec3.create(), vec3.normalize(vec3.create(), axes[0]), radius[0]);
-	const yVector = vec3.scale(vec3.create(), vec3.normalize(vec3.create(), axes[1]), radius[1]);
-	const zVector = vec3.scale(vec3.create(), vec3.normalize(vec3.create(), axes[2]), radius[2]);
+	const xVector = Vec3.scale(Vec3.create(), Vec3.normalize(Vec3.create(), axes[0]), radius[0]);
+	const yVector = Vec3.scale(Vec3.create(), Vec3.normalize(Vec3.create(), axes[1]), radius[1]);
+	const zVector = Vec3.scale(Vec3.create(), Vec3.normalize(Vec3.create(), axes[2]), radius[2]);
 
 	const qSegments = Math.round(segments / 4);
 	let prevCylinderVertex;
 	const polygons = [];
-	const p1 = vec3.create();
-	const p2 = vec3.create();
+	const p1 = Vec3.create();
+	const p2 = Vec3.create();
 	for (let slice1 = 0; slice1 <= segments; slice1++) {
 		const angle = (TAU * slice1) / segments;
-		const cylinderVertex = vec3.add(
-			vec3.create(),
-			vec3.scale(p1, xVector, cos(angle)),
-			vec3.scale(p2, yVector, sin(angle))
+		const cylinderVertex = Vec3.add(
+			Vec3.create(),
+			Vec3.scale(p1, xVector, cos(angle)),
+			Vec3.scale(p2, yVector, sin(angle))
 		);
 		if (slice1 > 0) {
 			let prevCosPitch, prevSinPitch;
@@ -66,62 +75,62 @@ export function ellipsoid(options) {
 				if (slice2 > 0) {
 					let vertices = [];
 					let vertex;
-					vertex = vec3.subtract(
-						vec3.create(),
-						vec3.scale(p1, prevCylinderVertex, prevCosPitch),
-						vec3.scale(p2, zVector, prevSinPitch)
+					vertex = Vec3.subtract(
+						Vec3.create(),
+						Vec3.scale(p1, prevCylinderVertex, prevCosPitch),
+						Vec3.scale(p2, zVector, prevSinPitch)
 					);
-					vertices.push(vec3.add(vertex, vertex, center));
-					vertex = vec3.subtract(
-						vec3.create(),
-						vec3.scale(p1, cylinderVertex, prevCosPitch),
-						vec3.scale(p2, zVector, prevSinPitch)
+					vertices.push(Vec3.add(vertex, vertex, center));
+					vertex = Vec3.subtract(
+						Vec3.create(),
+						Vec3.scale(p1, cylinderVertex, prevCosPitch),
+						Vec3.scale(p2, zVector, prevSinPitch)
 					);
-					vertices.push(vec3.add(vertex, vertex, center));
+					vertices.push(Vec3.add(vertex, vertex, center));
 					if (slice2 < qSegments) {
-						vertex = vec3.subtract(
-							vec3.create(),
-							vec3.scale(p1, cylinderVertex, cosPitch),
-							vec3.scale(p2, zVector, sinPitch)
+						vertex = Vec3.subtract(
+							Vec3.create(),
+							Vec3.scale(p1, cylinderVertex, cosPitch),
+							Vec3.scale(p2, zVector, sinPitch)
 						);
-						vertices.push(vec3.add(vertex, vertex, center));
+						vertices.push(Vec3.add(vertex, vertex, center));
 					}
-					vertex = vec3.subtract(
-						vec3.create(),
-						vec3.scale(p1, prevCylinderVertex, cosPitch),
-						vec3.scale(p2, zVector, sinPitch)
+					vertex = Vec3.subtract(
+						Vec3.create(),
+						Vec3.scale(p1, prevCylinderVertex, cosPitch),
+						Vec3.scale(p2, zVector, sinPitch)
 					);
-					vertices.push(vec3.add(vertex, vertex, center));
+					vertices.push(Vec3.add(vertex, vertex, center));
 
 					polygons.push(poly3.create(vertices));
 
 					vertices = [];
-					vertex = vec3.add(
-						vec3.create(),
-						vec3.scale(p1, prevCylinderVertex, prevCosPitch),
-						vec3.scale(p2, zVector, prevSinPitch)
+					vertex = Vec3.add(
+						Vec3.create(),
+						Vec3.scale(p1, prevCylinderVertex, prevCosPitch),
+						Vec3.scale(p2, zVector, prevSinPitch)
 					);
-					vertices.push(vec3.add(vec3.create(), center, vertex));
-					vertex = vec3.add(
+					vertices.push(Vec3.add(Vec3.create(), center, vertex));
+					vertex = Vec3.add(
 						vertex,
-						vec3.scale(p1, cylinderVertex, prevCosPitch),
-						vec3.scale(p2, zVector, prevSinPitch)
+						Vec3.scale(p1, cylinderVertex, prevCosPitch),
+						Vec3.scale(p2, zVector, prevSinPitch)
 					);
-					vertices.push(vec3.add(vec3.create(), center, vertex));
+					vertices.push(Vec3.add(Vec3.create(), center, vertex));
 					if (slice2 < qSegments) {
-						vertex = vec3.add(
+						vertex = Vec3.add(
 							vertex,
-							vec3.scale(p1, cylinderVertex, cosPitch),
-							vec3.scale(p2, zVector, sinPitch)
+							Vec3.scale(p1, cylinderVertex, cosPitch),
+							Vec3.scale(p2, zVector, sinPitch)
 						);
-						vertices.push(vec3.add(vec3.create(), center, vertex));
+						vertices.push(Vec3.add(Vec3.create(), center, vertex));
 					}
-					vertex = vec3.add(
+					vertex = Vec3.add(
 						vertex,
-						vec3.scale(p1, prevCylinderVertex, cosPitch),
-						vec3.scale(p2, zVector, sinPitch)
+						Vec3.scale(p1, prevCylinderVertex, cosPitch),
+						Vec3.scale(p2, zVector, sinPitch)
 					);
-					vertices.push(vec3.add(vec3.create(), center, vertex));
+					vertices.push(Vec3.add(Vec3.create(), center, vertex));
 					vertices.reverse();
 
 					polygons.push(poly3.create(vertices));
